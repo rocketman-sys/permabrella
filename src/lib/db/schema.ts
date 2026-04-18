@@ -8,6 +8,7 @@ import {
   pgEnum,
   integer,
   jsonb,
+  uniqueIndex,
 } from "drizzle-orm/pg-core";
 import type { AnyPgColumn } from "drizzle-orm/pg-core";
 
@@ -153,16 +154,22 @@ export const messages = pgTable("messages", {
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
 
-export const subscriptions = pgTable("subscriptions", {
-  id: uuid("id").defaultRandom().primaryKey(),
-  userId: uuid("user_id")
-    .references(() => users.id)
-    .notNull(),
-  threadId: uuid("thread_id")
-    .references(() => threads.id)
-    .notNull(),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-});
+export const subscriptions = pgTable(
+  "subscriptions",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    userId: uuid("user_id")
+      .references(() => users.id)
+      .notNull(),
+    threadId: uuid("thread_id")
+      .references(() => threads.id)
+      .notNull(),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+  },
+  (t) => [
+    uniqueIndex("subscriptions_user_thread_uidx").on(t.userId, t.threadId),
+  ]
+);
 
 export const automatedSources = pgTable("automated_sources", {
   id: uuid("id").defaultRandom().primaryKey(),

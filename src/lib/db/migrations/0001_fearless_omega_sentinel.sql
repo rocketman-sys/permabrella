@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX "subscriptions_user_thread_uidx" ON "subscriptions" USING btree ("user_id","thread_id");

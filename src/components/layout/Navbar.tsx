@@ -29,7 +29,7 @@ export async function Navbar() {
           href="/"
           className="text-lg font-semibold tracking-tight text-[var(--perm-primary)]"
         >
-          Permabrella
+          PermaBrella
         </Link>
         <nav className="order-3 flex w-full flex-wrap gap-x-4 gap-y-2 text-sm font-medium text-[var(--perm-text)] md:order-none md:flex md:w-auto md:items-center">
           {navLinks.map((l) => (

@@ -18,3 +18,11 @@ export const REGIONS = [
 ] as const;
 
 export type Region = (typeof REGIONS)[number]["value"];
+
+const REGION_SET = new Set(REGIONS.map((r) => r.value));
+
+/** Returns undefined if the string is not a valid region slug. */
+export function parseRegionParam(value: string | null): Region | undefined {
+  if (!value) return undefined;
+  return REGION_SET.has(value as Region) ? (value as Region) : undefined;
+}

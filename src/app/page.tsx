@@ -40,7 +40,7 @@ export default function Home() {
           Northern Rivers, NSW
         </p>
         <h1 className="mt-2 max-w-3xl text-3xl font-semibold tracking-tight text-[var(--perm-primary)] sm:text-4xl">
-          Permabrella — food security switchboard
+          PermaBrella — food security switchboard
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-[var(--perm-text-secondary)]">
           Connect growers with land, surface local events and offerings, and share
@@ -103,7 +103,9 @@ export default function Home() {
           Recent activity
         </h2>
         <div className="mt-4">
-          <FeedTimeline />
+          <Suspense fallback={<div className="h-32 animate-pulse rounded-xl bg-[var(--perm-card)] ring-1 ring-[var(--perm-border)]" />}>
+            <FeedTimeline />
+          </Suspense>
         </div>
       </section>
     </div>

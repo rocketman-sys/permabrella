@@ -1,8 +1,8 @@
-# Permabrella — Build Specification & Cursor Instructions
+# PermaBrella — Build Specification & Cursor Instructions
 
 ## Project Overview
 
-**Permabrella** is a community food security switchboard for the Northern Rivers region of NSW, Australia. It aggregates local food-growing activity, connects growers with land, and hosts a searchable community Q&A knowledge base. It serves as an umbrella portal for existing local groups and a coordination dashboard for the food security network.
+**PermaBrella** is a community food security switchboard for the Northern Rivers region of NSW, Australia. It aggregates local food-growing activity, connects growers with land, and hosts a searchable community Q&A knowledge base. It serves as an umbrella portal for existing local groups and a coordination dashboard for the food security network.
 
 **Domain:** permabrella.org (placeholder — may change)
 
@@ -641,7 +641,7 @@ Create the root layout at `src/app/layout.tsx` with:
 ### Step 9: Build the homepage
 
 `src/app/page.tsx` should show:
-- Hero section: "Permabrella — Northern Rivers Food Security Switchboard" with a one-liner about connecting growers, land, and knowledge
+- Hero section: "PermaBrella — Northern Rivers Food Security Switchboard" with a one-liner about connecting growers, land, and knowledge
 - Quick-access panel grid (cards linking to Events, Offerings, Land Connect, Directory, Community)
 - Recent activity feed (placeholder for now, will pull from all content types later)
 - Region filter bar
@@ -677,7 +677,7 @@ export async function sendNotificationEmail({
       <blockquote>${replyPreview}</blockquote>
       <p><a href="${threadUrl}">View the full thread</a></p>
       <p style="color: #666; font-size: 12px;">
-        You're receiving this because you're subscribed to this thread on Permabrella.
+        You're receiving this because you're subscribed to this thread on PermaBrella.
       </p>
     `,
   });

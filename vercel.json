@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/eventbrite",
+      "schedule": "0 */6 * * *"
+    },
+    {
+      "path": "/api/cron/humanitix",
+      "schedule": "0 */6 * * *"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="mt-auto border-t border-[var(--perm-border)] bg-[var(--perm-card)]">
       <div className="mx-auto grid max-w-6xl gap-6 px-4 py-10 sm:grid-cols-2 lg:grid-cols-3">
         <div>
-          <p className="font-semibold text-[var(--perm-primary)]">Permabrella</p>
+          <p className="font-semibold text-[var(--perm-primary)]">PermaBrella</p>
           <p className="mt-2 text-sm text-[var(--perm-text-secondary)]">
             A community food security switchboard for the Northern Rivers — connecting
             growers, land, and local knowledge.

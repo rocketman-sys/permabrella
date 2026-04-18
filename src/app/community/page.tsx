@@ -1,7 +1,10 @@
 import Link from "next/link";
-import { Card } from "@/components/ui/Card";
+import { TopicCard } from "@/components/community/TopicCard";
+import { listTopicsOrdered } from "@/lib/community/service";
 
-export default function CommunityPage() {
+export default async function CommunityPage() {
+  const topicRows = await listTopicsOrdered();
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
       <div className="flex flex-wrap items-end justify-between gap-4">
@@ -10,7 +13,7 @@ export default function CommunityPage() {
             Community Q&amp;A
           </h1>
           <p className="mt-2 text-[var(--perm-text-secondary)]">
-            Topics and threads will be loaded from the database after seeding.
+            Practical questions by topic — soil, water, land, preservation, and more.
           </p>
         </div>
         <Link
@@ -20,12 +23,21 @@ export default function CommunityPage() {
           New thread
         </Link>
       </div>
-      <Card className="mt-8 border-dashed">
-        <p className="text-sm text-[var(--perm-muted)]">
-          Run <code className="rounded bg-[var(--perm-bg)] px-1">npm run db:push</code> and{" "}
-          <code className="rounded bg-[var(--perm-bg)] px-1">npm run db:seed</code> to load topics.
+
+      {topicRows.length === 0 ? (
+        <p className="mt-10 rounded-xl border border-dashed border-[var(--perm-border)] px-4 py-8 text-center text-sm text-[var(--perm-muted)]">
+          No topics yet. Run{" "}
+          <code className="rounded bg-[var(--perm-bg)] px-1">npm run db:seed</code>.
         </p>
-      </Card>
+      ) : (
+        <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+          {topicRows.map((topic) => (
+            <li key={topic.id}>
+              <TopicCard topic={topic} />
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

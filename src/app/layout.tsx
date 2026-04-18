@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Permabrella — Northern Rivers Food Security",
+  title: "PermaBrella — Northern Rivers Food Security",
   description:
     "Community switchboard for food growing, land connection, and local knowledge in the Northern Rivers, NSW.",
 };

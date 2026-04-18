@@ -1,4 +1,7 @@
-import { Card } from "@/components/ui/Card";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { PostDetail } from "@/components/posts/PostDetail";
+import { getActivePostById } from "@/lib/posts/service";
 
 export default async function DirectoryDetailPage({
   params,
@@ -6,14 +9,17 @@ export default async function DirectoryDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
+  const item = await getActivePostById(id, "directory_entry");
+  if (!item) notFound();
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
-      <h1 className="text-2xl font-semibold text-[var(--perm-primary)]">Group</h1>
-      <Card className="mt-4 border-dashed">
-        <p className="text-sm text-[var(--perm-muted)]">
-          Group <code className="rounded bg-[var(--perm-bg)] px-1">{id}</code> — coming soon.
-        </p>
-      </Card>
+      <p className="mb-4 text-sm">
+        <Link href="/directory" className="text-[var(--perm-secondary)] hover:underline">
+          ← Directory
+        </Link>
+      </p>
+      <PostDetail item={item} backHref="/directory" backLabel="Back to directory" />
     </div>
   );
 }

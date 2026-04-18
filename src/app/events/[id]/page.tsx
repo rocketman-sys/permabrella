@@ -1,4 +1,7 @@
-import { Card } from "@/components/ui/Card";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { PostDetail } from "@/components/posts/PostDetail";
+import { getActivePostById } from "@/lib/posts/service";
 
 export default async function EventDetailPage({
   params,
@@ -6,15 +9,17 @@ export default async function EventDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
+  const item = await getActivePostById(id, "event");
+  if (!item) notFound();
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
-      <h1 className="text-2xl font-semibold text-[var(--perm-primary)]">Event</h1>
-      <Card className="mt-4 border-dashed">
-        <p className="text-sm text-[var(--perm-muted)]">
-          Detail view for event <code className="rounded bg-[var(--perm-bg)] px-1">{id}</code>{" "}
-          — coming soon.
-        </p>
-      </Card>
+      <p className="mb-4 text-sm">
+        <Link href="/events" className="text-[var(--perm-secondary)] hover:underline">
+          ← All events
+        </Link>
+      </p>
+      <PostDetail item={item} backHref="/events" backLabel="Back to events" />
     </div>
   );
 }
