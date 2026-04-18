@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { RegionFilter } from "./RegionFilter";
+import { SITE_ORIGIN } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -62,6 +63,14 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-[var(--perm-border)] py-4 text-center text-xs text-[var(--perm-muted)]">
+        <a
+          href={SITE_ORIGIN}
+          className="font-medium text-[var(--perm-secondary)] hover:underline"
+          rel="noopener noreferrer"
+        >
+          permabrella.org
+        </a>
+        <span className="mx-2 text-[var(--perm-border)]">·</span>
         Built for the Northern Rivers food security network.
       </div>
     </footer>

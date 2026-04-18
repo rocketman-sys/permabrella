@@ -4,7 +4,7 @@
 
 **PermaBrella** is a community food security switchboard for the Northern Rivers region of NSW, Australia. It aggregates local food-growing activity, connects growers with land, and hosts a searchable community Q&A knowledge base. It serves as an umbrella portal for existing local groups and a coordination dashboard for the food security network.
 
-**Domain:** permabrella.org (placeholder — may change)
+**Domain:** https://permabrella.org
 
 ---
 
@@ -355,9 +355,10 @@ Create `.env.example` with:
 # Database (Neon)
 DATABASE_URL=postgresql://user:password@ep-xxx.ap-southeast-2.aws.neon.tech/permabrella?sslmode=require
 
-# Auth.js
-NEXTAUTH_URL=http://localhost:3000
+# Auth.js — production; use http://localhost:3000 for local dev
+NEXTAUTH_URL=https://permabrella.org
 NEXTAUTH_SECRET=generate-a-random-secret-here
+NEXT_PUBLIC_SITE_URL=https://permabrella.org
 
 # Resend (transactional email)
 RESEND_API_KEY=re_xxxxxxxxxxxxx

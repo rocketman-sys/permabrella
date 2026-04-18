@@ -5,6 +5,7 @@ import { auth } from "@/lib/auth";
 import { AppProviders } from "@/components/providers/AppProviders";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { SITE_ORIGIN } from "@/lib/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -12,9 +13,16 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_ORIGIN),
   title: "PermaBrella — Northern Rivers Food Security",
   description:
     "Community switchboard for food growing, land connection, and local knowledge in the Northern Rivers, NSW.",
+  openGraph: {
+    siteName: "PermaBrella",
+    url: SITE_ORIGIN,
+    locale: "en_AU",
+    type: "website",
+  },
 };
 
 export default async function RootLayout({
