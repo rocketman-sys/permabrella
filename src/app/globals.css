@@ -1,27 +1,88 @@
 @import "tailwindcss";
 
+/* PermaBrella design tokens (handoff v1) + legacy --perm-* aliases for existing components */
 :root {
-  --perm-primary: #2d5016;
-  --perm-secondary: #5a8f3c;
-  --perm-earth: #8b6914;
-  --perm-bg: #fafaf5;
-  --perm-card: #ffffff;
-  --perm-text: #1a1a1a;
-  --perm-text-secondary: #6b7280;
-  --perm-muted: #6b7280;
-  --perm-border: #e5e2d9;
-  --background: var(--perm-bg);
-  --foreground: var(--perm-text);
+  --pb-bg: #f5ede0;
+  --pb-bg-alt: #ead9be;
+  --pb-surface: #fffaf0;
+  --pb-ink: #2a2418;
+  --pb-ink-soft: #5a4f3a;
+  --pb-muted: #8e8368;
+  --pb-line: #ddc9a5;
+  --pb-primary: #c2531c;
+  --pb-primary-dk: #9a3e0e;
+  --pb-accent: #e39412;
+  --pb-accent-2: #3f5d2a;
+
+  --pb-r-sm: 3px;
+  --pb-r-md: 4px;
+  --pb-r-lg: 6px;
+
+  --pb-shadow-card: 0 1px 2px rgba(42, 36, 24, 0.04);
+  --pb-shadow-card-hover: 0 4px 12px rgba(42, 36, 24, 0.08);
+
+  --pb-font-display: var(--font-display), "Inter Tight", ui-sans-serif, system-ui,
+    sans-serif;
+  --pb-font-body: var(--font-body), "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Legacy aliases — same as design tokens */
+  --perm-primary: var(--pb-primary);
+  --perm-secondary: var(--pb-accent-2);
+  --perm-earth: var(--pb-accent);
+  --perm-bg: var(--pb-bg);
+  --perm-card: var(--pb-surface);
+  --perm-text: var(--pb-ink);
+  --perm-text-secondary: var(--pb-ink-soft);
+  --perm-muted: var(--pb-muted);
+  --perm-border: var(--pb-line);
+
+  --background: var(--pb-bg);
+  --foreground: var(--pb-ink);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--pb-font-body);
+
+  --color-pb-bg: var(--pb-bg);
+  --color-pb-bg-alt: var(--pb-bg-alt);
+  --color-pb-surface: var(--pb-surface);
+  --color-pb-ink: var(--pb-ink);
+  --color-pb-ink-soft: var(--pb-ink-soft);
+  --color-pb-muted: var(--pb-muted);
+  --color-pb-line: var(--pb-line);
+  --color-pb-primary: var(--pb-primary);
+  --color-pb-primary-dk: var(--pb-primary-dk);
+  --color-pb-accent: var(--pb-accent);
+  --color-pb-accent-2: var(--pb-accent-2);
+}
+
+html {
+  background: var(--pb-bg);
+  color: var(--pb-ink);
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  background: var(--perm-bg);
-  color: var(--perm-text);
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  background: var(--pb-bg);
+  color: var(--pb-ink);
+  font-family: var(--pb-font-body);
+}
+
+.pb-display {
+  font-family: var(--pb-font-display);
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.pb-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+}
+
+.pb-divider {
+  border-top: 1px dashed var(--pb-line);
 }

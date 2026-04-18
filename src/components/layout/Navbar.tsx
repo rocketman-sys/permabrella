@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { auth, signOut } from "@/lib/auth";
 import { Button } from "@/components/ui/Button";
+import { LogoPermaBrella } from "@/components/brand/Logo";
 
 const navLinks = [
   { href: "/events", label: "Events" },
@@ -11,32 +12,35 @@ const navLinks = [
 ];
 
 const linkPrimary =
-  "inline-flex items-center justify-center rounded-lg bg-[var(--perm-primary)] px-3 py-1.5 text-xs font-medium text-white transition hover:opacity-95 sm:text-sm";
+  "inline-flex items-center justify-center rounded-[var(--pb-r-sm)] bg-[var(--pb-primary)] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-[var(--pb-primary-dk)] sm:text-sm";
 
 const linkGhost =
-  "inline-flex items-center justify-center rounded-lg px-3 py-1.5 text-xs font-medium text-[var(--perm-primary)] transition hover:bg-black/[0.04] sm:text-sm";
+  "inline-flex items-center justify-center rounded-[var(--pb-r-sm)] px-3 py-1.5 text-xs font-semibold text-[var(--pb-ink)] transition hover:bg-[var(--pb-bg)] sm:text-sm";
 
 const linkSecondary =
-  "inline-flex items-center justify-center rounded-lg bg-[var(--perm-earth)] px-3 py-1.5 text-xs font-medium text-white transition hover:opacity-95 sm:text-sm";
+  "inline-flex items-center justify-center rounded-[var(--pb-r-sm)] bg-[var(--pb-accent)] px-3 py-1.5 text-xs font-semibold text-[var(--pb-ink)] transition hover:opacity-95 sm:text-sm";
 
 export async function Navbar() {
   const session = await auth();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--perm-border)] bg-[var(--perm-card)]/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-[var(--pb-line)] bg-[var(--pb-surface)]/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3">
         <Link
           href="/"
-          className="text-lg font-semibold tracking-tight text-[var(--perm-primary)]"
+          className="flex items-center gap-2.5 text-[var(--pb-ink)]"
         >
-          PermaBrella
+          <LogoPermaBrella size={34} className="shrink-0" />
+          <span className="pb-display text-lg leading-none tracking-tight">
+            PermaBrella
+          </span>
         </Link>
-        <nav className="order-3 flex w-full flex-wrap gap-x-4 gap-y-2 text-sm font-medium text-[var(--perm-text)] md:order-none md:flex md:w-auto md:items-center">
+        <nav className="order-3 flex w-full flex-wrap gap-x-4 gap-y-2 text-sm font-semibold text-[var(--pb-ink)] md:order-none md:flex md:w-auto md:items-center">
           {navLinks.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              className="text-[var(--perm-text-secondary)] hover:text-[var(--perm-secondary)]"
+              className="text-[var(--pb-ink-soft)] transition hover:text-[var(--pb-primary)]"
             >
               {l.label}
             </Link>
@@ -48,7 +52,7 @@ export async function Navbar() {
           </Link>
           {session?.user ? (
             <>
-              <span className="hidden max-w-[10rem] truncate text-sm text-[var(--perm-muted)] sm:inline">
+              <span className="hidden max-w-[10rem] truncate text-sm text-[var(--pb-muted)] sm:inline">
                 {session.user.name ?? session.user.email}
               </span>
               <form

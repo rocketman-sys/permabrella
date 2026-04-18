@@ -40,3 +40,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local design handoff / archives (not part of app source)
+/handoff/
+permabrella.zip

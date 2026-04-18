@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter_Tight, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import { auth } from "@/lib/auth";
 import { AppProviders } from "@/components/providers/AppProviders";
@@ -7,9 +7,16 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SITE_ORIGIN } from "@/lib/site";
 
-const inter = Inter({
-  variable: "--font-inter",
+const fontDisplay = Inter_Tight({
   subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["700"],
+});
+
+const fontBody = Nunito_Sans({
+  subsets: ["latin"],
+  variable: "--font-body",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -33,7 +40,10 @@ export default async function RootLayout({
   const session = await auth();
 
   return (
-    <html lang="en-AU" className={`${inter.variable} h-full antialiased`}>
+    <html
+      lang="en-AU"
+      className={`${fontDisplay.variable} ${fontBody.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col font-sans">
         <AppProviders session={session}>
           <Navbar />

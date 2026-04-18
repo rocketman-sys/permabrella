@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 **Production:** [permabrella.org](https://permabrella.org)
 
+Brand assets (logos, icons, seed pattern) live in `public/brand/` and match the design token palette in `src/app/globals.css`.
+
 ## Getting Started
 
 First, run the development server:

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none">
+  <title>Seed scatter pattern — tileable</title>
+  <g fill="#c2531c" opacity="0.22">
+    <ellipse cx="20" cy="24" rx="5" ry="2.5" transform="rotate(30 20 24)"></ellipse>
+    <ellipse cx="75" cy="18" rx="4" ry="2" transform="rotate(-45 75 18)"></ellipse>
+    <ellipse cx="95" cy="70" rx="5" ry="2.5" transform="rotate(15 95 70)"></ellipse>
+    <ellipse cx="45" cy="90" rx="4" ry="2" transform="rotate(-20 45 90)"></ellipse>
+    <ellipse cx="15" cy="75" rx="4" ry="2" transform="rotate(60 15 75)"></ellipse>
+    <ellipse cx="60" cy="50" rx="3" ry="1.5"></ellipse>
+  </g>
+</svg>
