@@ -57,16 +57,12 @@ export default function Home() {
           <Badge className="border-[var(--pb-line)] bg-[var(--pb-bg)] text-[var(--pb-primary)]">
             Northern Rivers, NSW
           </Badge>
-          <h1 className="pb-display mt-5 max-w-xl text-3xl leading-[1.08] tracking-tight text-[var(--pb-ink)] sm:text-4xl md:text-[2.75rem]">
-            Shelter for growers.
-            <br />
-            <span className="text-[var(--pb-primary)] italic">
-              Stronger together.
-            </span>
+          <h1 className="pb-display mt-5 max-w-3xl text-3xl leading-[1.08] tracking-tight text-[var(--pb-ink)] sm:text-4xl md:text-[2.75rem]">
+            PermaBrella — food security switchboard
           </h1>
-          <p className="mt-4 max-w-md text-base leading-relaxed text-[var(--pb-ink-soft)] sm:text-[17px]">
-            PermaBrella links land, skills, and surplus across the bioregion — a
-            switchboard for food security, events, and community knowledge.
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--pb-ink-soft)] sm:text-[17px]">
+            Connect growers with land, surface local events and offerings, and share
+            knowledge so our communities stay fed and resilient.
           </p>
           <div className="mt-7 flex flex-wrap gap-2">
             <Link
