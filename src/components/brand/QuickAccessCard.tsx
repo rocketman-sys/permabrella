@@ -26,7 +26,7 @@ export function QuickAccessCard({
       )}
     >
       <div
-        className="mb-4 flex h-[52px] w-[52px] items-center justify-center rounded-full bg-[var(--pb-bg)] text-[var(--pb-primary)]"
+        className="mb-4 flex h-[52px] w-[52px] items-center justify-center rounded-full bg-[var(--pb-bg)] text-[var(--pb-ink)]"
         aria-hidden
       >
         <Image

@@ -4,7 +4,7 @@ import { FeedTimeline } from "@/components/feed/FeedTimeline";
 import { RegionFilter } from "@/components/layout/RegionFilter";
 import { Badge } from "@/components/ui/Badge";
 import { QuickAccessCard } from "@/components/brand/QuickAccessCard";
-import { LogoPermaBrella } from "@/components/brand/Logo";
+import { HeroHubArt } from "@/components/brand/HeroHubArt";
 
 const panels = [
   {
@@ -52,7 +52,7 @@ const panels = [
 export default function Home() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
-      <section className="grid overflow-hidden rounded-[var(--pb-r-lg)] border border-[var(--pb-line)] bg-[var(--pb-surface)] shadow-[var(--pb-shadow-card)] md:grid-cols-[1.3fr_1fr]">
+      <section className="grid overflow-visible rounded-[var(--pb-r-lg)] border border-[var(--pb-line)] bg-[var(--pb-surface)] shadow-[var(--pb-shadow-card)] md:grid-cols-[1.3fr_1fr]">
         <div className="p-8 sm:p-10 md:p-14">
           <Badge className="border-[var(--pb-line)] bg-[var(--pb-bg)] text-[var(--pb-primary)]">
             Northern Rivers, NSW
@@ -88,8 +88,16 @@ export default function Home() {
             }}
             aria-hidden
           />
-          <div className="relative flex h-full min-h-[260px] items-center justify-center p-8">
-            <LogoPermaBrella size={96} />
+          <div className="relative flex h-full min-h-[280px] items-center justify-center p-6 sm:p-8">
+            <HeroHubArt
+              logoSize={84}
+              items={panels.map((p) => ({
+                href: p.href,
+                icon: p.icon,
+                title: p.title,
+                tag: p.tag,
+              }))}
+            />
           </div>
         </div>
       </section>
