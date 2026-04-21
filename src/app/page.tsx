@@ -65,11 +65,11 @@ export default function Home() {
             Northern Rivers, NSW
           </Badge>
           <h1 className="pb-display mt-5 max-w-3xl text-[2.125rem] leading-[1.08] tracking-tight text-[var(--pb-ink)] sm:text-4xl md:text-[2.75rem]">
-            PermaBrella — food security switchboard
+            PermaBrella — Northern Rivers permaculture hub
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[var(--pb-ink-soft)] md:text-[17px]">
-            Connect growers with land, surface local events and offerings, and share
-            knowledge so our communities stay fed and resilient.
+            An umbrella platform connecting all things permaculture, food security,
+            and community resilience in our local region.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-2">
             <Link
@@ -85,6 +85,14 @@ export default function Home() {
               Browse Q&amp;A
             </Link>
           </div>
+          <p className="mt-4 max-w-2xl text-base italic leading-relaxed text-[var(--pb-muted)] md:text-sm">
+            This is a new site and needs to be populated. If you know of any
+            organisations that should be on here, please add to the{" "}
+            <Link href="/directory" className="underline hover:text-[var(--pb-ink)]">
+              community groups page
+            </Link>
+            .
+          </p>
           <div className="relative mt-8 border-t border-[var(--pb-line)] pt-8 md:hidden">
             <div
               className="pointer-events-none absolute inset-0 opacity-[0.14]"

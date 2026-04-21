@@ -21,9 +21,9 @@ const fontBody = Nunito_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
-  title: "PermaBrella — Northern Rivers Food Security",
+  title: "PermaBrella — Northern Rivers permaculture hub",
   description:
-    "Community switchboard for food growing, land connection, and local knowledge in the Northern Rivers, NSW.",
+    "An umbrella platform connecting all things permaculture, food security, and community resilience in our local region.",
   icons: {
     icon: "/brand/logo-permabrella.svg",
     shortcut: "/brand/logo-permabrella.svg",
@@ -31,6 +31,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     siteName: "PermaBrella",
+    title: "PermaBrella — Northern Rivers permaculture hub",
+    description:
+      "An umbrella platform connecting all things permaculture, food security, and community resilience in our local region.",
     url: SITE_ORIGIN,
     locale: "en_AU",
     type: "website",
