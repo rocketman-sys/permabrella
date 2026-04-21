@@ -11,7 +11,7 @@ export async function FeedTimeline() {
         <h2 id="feed-heading" className="sr-only">
           Recent activity
         </h2>
-        <div className="rounded-xl border border-dashed border-[var(--perm-border)] bg-[var(--perm-card)] px-4 py-8 text-center text-sm text-[var(--perm-text-secondary)]">
+        <div className="rounded-xl border border-dashed border-[var(--perm-border)] bg-[var(--perm-card)] px-4 py-8 text-center text-base leading-relaxed text-[var(--perm-text-secondary)] md:text-sm">
           No listings yet.{" "}
           <Link href="/events/new" className="font-medium text-[var(--perm-secondary)] hover:underline">
             Add an event
@@ -34,10 +34,13 @@ export async function FeedTimeline() {
       {events.length ? (
         <div>
           <div className="mb-3 flex items-center justify-between gap-2">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-[var(--perm-primary)]">
+            <h3 className="text-base font-semibold uppercase tracking-wide text-[var(--perm-primary)] md:text-sm">
               Recent events
             </h3>
-            <Link href="/events" className="text-sm text-[var(--perm-secondary)] hover:underline">
+            <Link
+              href="/events"
+              className="text-base text-[var(--perm-secondary)] hover:underline md:text-sm"
+            >
               View all
             </Link>
           </div>
@@ -53,10 +56,13 @@ export async function FeedTimeline() {
       {directory.length ? (
         <div>
           <div className="mb-3 flex items-center justify-between gap-2">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-[var(--perm-primary)]">
+            <h3 className="text-base font-semibold uppercase tracking-wide text-[var(--perm-primary)] md:text-sm">
               Directory highlights
             </h3>
-            <Link href="/directory" className="text-sm text-[var(--perm-secondary)] hover:underline">
+            <Link
+              href="/directory"
+              className="text-base text-[var(--perm-secondary)] hover:underline md:text-sm"
+            >
               View all
             </Link>
           </div>

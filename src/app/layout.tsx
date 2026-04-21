@@ -24,6 +24,11 @@ export const metadata: Metadata = {
   title: "PermaBrella — Northern Rivers Food Security",
   description:
     "Community switchboard for food growing, land connection, and local knowledge in the Northern Rivers, NSW.",
+  icons: {
+    icon: "/brand/logo-permabrella.svg",
+    shortcut: "/brand/logo-permabrella.svg",
+    apple: "/brand/logo-permabrella.svg",
+  },
   openGraph: {
     siteName: "PermaBrella",
     url: SITE_ORIGIN,

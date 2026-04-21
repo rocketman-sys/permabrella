@@ -41,10 +41,10 @@ export function QuickAccessCard({
       {tag ? (
         <p className="pb-tag mb-1 text-[var(--pb-accent-2)]">{tag}</p>
       ) : null}
-      <h3 className="text-[16.5px] font-bold leading-snug tracking-tight text-[var(--pb-ink)]">
+      <h3 className="text-lg font-bold leading-snug tracking-tight text-[var(--pb-ink)] md:text-base">
         {title}
       </h3>
-      <p className="mt-1.5 text-[13.5px] leading-normal text-[var(--pb-ink-soft)]">
+      <p className="mt-1.5 text-base leading-relaxed text-[var(--pb-ink-soft)] md:text-[13.5px] md:leading-normal">
         {description}
       </p>
     </Link>

@@ -12,13 +12,13 @@ const navLinks = [
 ];
 
 const linkPrimary =
-  "inline-flex items-center justify-center rounded-[var(--pb-r-sm)] bg-[var(--pb-primary)] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-[var(--pb-primary-dk)] sm:text-sm";
+  "inline-flex min-h-10 items-center justify-center rounded-[var(--pb-r-sm)] bg-[var(--pb-primary)] px-3 py-2 text-sm font-semibold text-white transition hover:bg-[var(--pb-primary-dk)]";
 
 const linkGhost =
-  "inline-flex items-center justify-center rounded-[var(--pb-r-sm)] px-3 py-1.5 text-xs font-semibold text-[var(--pb-ink)] transition hover:bg-[var(--pb-bg)] sm:text-sm";
+  "inline-flex min-h-10 items-center justify-center rounded-[var(--pb-r-sm)] px-3 py-2 text-sm font-semibold text-[var(--pb-ink)] transition hover:bg-[var(--pb-bg)]";
 
 const linkSecondary =
-  "inline-flex items-center justify-center rounded-[var(--pb-r-sm)] bg-[var(--pb-accent)] px-3 py-1.5 text-xs font-semibold text-[var(--pb-ink)] transition hover:opacity-95 sm:text-sm";
+  "inline-flex min-h-10 items-center justify-center rounded-[var(--pb-r-sm)] bg-[var(--pb-accent)] px-3 py-2 text-sm font-semibold text-[var(--pb-ink)] transition hover:opacity-95";
 
 export async function Navbar() {
   const session = await auth();
@@ -31,11 +31,11 @@ export async function Navbar() {
           className="flex items-center gap-2.5 text-[var(--pb-ink)]"
         >
           <LogoPermaBrella size={34} className="shrink-0" />
-          <span className="pb-display text-lg leading-none tracking-tight">
+          <span className="pb-display text-xl leading-none tracking-tight sm:text-lg">
             PermaBrella
           </span>
         </Link>
-        <nav className="order-3 flex w-full flex-wrap gap-x-4 gap-y-2 text-sm font-semibold text-[var(--pb-ink)] md:order-none md:flex md:w-auto md:items-center">
+        <nav className="order-3 flex w-full flex-wrap gap-x-4 gap-y-2 text-base font-semibold text-[var(--pb-ink)] md:order-none md:flex md:w-auto md:items-center md:text-sm">
           {navLinks.map((l) => (
             <Link
               key={l.href}
@@ -52,7 +52,7 @@ export async function Navbar() {
           </Link>
           {session?.user ? (
             <>
-              <span className="hidden max-w-[10rem] truncate text-sm text-[var(--pb-muted)] sm:inline">
+              <span className="hidden max-w-[10rem] truncate text-base text-[var(--pb-muted)] sm:inline md:text-sm">
                 {session.user.name ?? session.user.email}
               </span>
               <form
@@ -61,7 +61,7 @@ export async function Navbar() {
                   await signOut({ redirectTo: "/" });
                 }}
               >
-                <Button variant="ghost" className="!py-1.5 !text-xs" type="submit">
+                <Button variant="ghost" className="!min-h-10 !py-2 !text-sm" type="submit">
                   Sign out
                 </Button>
               </form>

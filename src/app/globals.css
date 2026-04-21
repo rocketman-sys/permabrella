@@ -62,12 +62,27 @@ html {
   background: var(--pb-bg);
   color: var(--pb-ink);
   -webkit-font-smoothing: antialiased;
+  /* Slightly larger base on narrow viewports so body copy stays readable on phones */
+  font-size: 100%;
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: 108%;
+  }
+}
+
+@media (max-width: 389px) {
+  html {
+    font-size: 112.5%;
+  }
 }
 
 body {
   background: var(--pb-bg);
   color: var(--pb-ink);
   font-family: var(--pb-font-body);
+  line-height: 1.55;
 }
 
 .pb-display {
@@ -77,10 +92,17 @@ body {
 }
 
 .pb-tag {
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 1.2px;
+  letter-spacing: 1.1px;
   font-weight: 700;
+}
+
+@media (min-width: 640px) {
+  .pb-tag {
+    font-size: 11px;
+    letter-spacing: 1.2px;
+  }
 }
 
 .pb-divider {

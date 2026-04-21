@@ -49,34 +49,54 @@ const panels = [
   },
 ];
 
+const hubItems = panels.map((p) => ({
+  href: p.href,
+  icon: p.icon,
+  title: p.title,
+  tag: p.tag,
+}));
+
 export default function Home() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10">
+    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-5 md:py-10">
       <section className="grid overflow-visible rounded-[var(--pb-r-lg)] border border-[var(--pb-line)] bg-[var(--pb-surface)] shadow-[var(--pb-shadow-card)] md:grid-cols-[1.3fr_1fr]">
-        <div className="p-8 sm:p-10 md:p-14">
+        <div className="p-6 sm:p-10 md:p-14">
           <Badge className="border-[var(--pb-line)] bg-[var(--pb-bg)] text-[var(--pb-primary)]">
             Northern Rivers, NSW
           </Badge>
-          <h1 className="pb-display mt-5 max-w-3xl text-3xl leading-[1.08] tracking-tight text-[var(--pb-ink)] sm:text-4xl md:text-[2.75rem]">
+          <h1 className="pb-display mt-5 max-w-3xl text-[2.125rem] leading-[1.08] tracking-tight text-[var(--pb-ink)] sm:text-4xl md:text-[2.75rem]">
             PermaBrella — food security switchboard
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--pb-ink-soft)] sm:text-[17px]">
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[var(--pb-ink-soft)] md:text-[17px]">
             Connect growers with land, surface local events and offerings, and share
             knowledge so our communities stay fed and resilient.
           </p>
-          <div className="mt-7 flex flex-wrap gap-2">
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-2">
             <Link
               href="/submit"
-              className="inline-flex items-center justify-center rounded-[var(--pb-r-sm)] bg-[var(--pb-primary)] px-5 py-3 text-[15px] font-semibold text-white transition hover:bg-[var(--pb-primary-dk)]"
+              className="inline-flex min-h-12 items-center justify-center rounded-[var(--pb-r-sm)] bg-[var(--pb-primary)] px-5 py-3 text-base font-semibold text-white transition hover:bg-[var(--pb-primary-dk)]"
             >
               Post to the switchboard
             </Link>
             <Link
               href="/community"
-              className="inline-flex items-center justify-center rounded-[var(--pb-r-sm)] border border-[var(--pb-line)] bg-transparent px-5 py-3 text-[15px] font-semibold text-[var(--pb-ink)] transition hover:bg-[var(--pb-bg)]"
+              className="inline-flex min-h-12 items-center justify-center rounded-[var(--pb-r-sm)] border border-[var(--pb-line)] bg-transparent px-5 py-3 text-base font-semibold text-[var(--pb-ink)] transition hover:bg-[var(--pb-bg)]"
             >
               Browse Q&amp;A
             </Link>
+          </div>
+          <div className="relative mt-8 border-t border-[var(--pb-line)] pt-8 md:hidden">
+            <div
+              className="pointer-events-none absolute inset-0 opacity-[0.14]"
+              style={{
+                backgroundImage: "url('/brand/pattern-seed-scatter.svg')",
+                backgroundSize: "120px 120px",
+              }}
+              aria-hidden
+            />
+            <div className="relative flex justify-center">
+              <HeroHubArt logoSize={68} items={hubItems} />
+            </div>
           </div>
         </div>
         <div className="relative hidden min-h-[260px] bg-[var(--pb-bg-alt)] md:block">
@@ -89,23 +109,17 @@ export default function Home() {
             aria-hidden
           />
           <div className="relative flex h-full min-h-[280px] items-center justify-center p-6 sm:p-8">
-            <HeroHubArt
-              logoSize={84}
-              items={panels.map((p) => ({
-                href: p.href,
-                icon: p.icon,
-                title: p.title,
-                tag: p.tag,
-              }))}
-            />
+            <HeroHubArt logoSize={84} items={hubItems} />
           </div>
         </div>
       </section>
 
       <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h2 className="text-sm font-semibold text-[var(--pb-ink)]">Region</h2>
-          <p className="text-sm text-[var(--pb-muted)]">
+          <h2 className="text-base font-semibold text-[var(--pb-ink)] md:text-sm">
+            Region
+          </h2>
+          <p className="mt-0.5 text-base text-[var(--pb-muted)] md:text-sm">
             Narrow what you see to your area (more filters coming soon).
           </p>
         </div>
@@ -119,7 +133,7 @@ export default function Home() {
       <section className="mt-10" aria-labelledby="panels-heading">
         <h2
           id="panels-heading"
-          className="text-lg font-bold tracking-tight text-[var(--pb-ink)]"
+          className="text-xl font-bold tracking-tight text-[var(--pb-ink)] md:text-lg"
         >
           Quick access
         </h2>
@@ -139,7 +153,7 @@ export default function Home() {
       </section>
 
       <section className="mt-12">
-        <h2 className="text-lg font-bold tracking-tight text-[var(--pb-ink)]">
+        <h2 className="text-xl font-bold tracking-tight text-[var(--pb-ink)] md:text-lg">
           Recent activity
         </h2>
         <div className="mt-4">
