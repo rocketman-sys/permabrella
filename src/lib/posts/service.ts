@@ -83,6 +83,8 @@ export async function createUserPost(input: {
   title: string;
   description: string;
   contactMethod?: string | null;
+  contactPhone?: string | null;
+  contactEmail?: string | null;
   externalUrl?: string | null;
   imageUrl?: string | null;
   region?: Region | null;
@@ -98,6 +100,8 @@ export async function createUserPost(input: {
       title: input.title.trim(),
       description: input.description.trim(),
       contactMethod: input.contactMethod?.trim() || null,
+      contactPhone: input.contactPhone?.trim() || null,
+      contactEmail: input.contactEmail?.trim() || null,
       externalUrl: input.externalUrl?.trim() || null,
       imageUrl: input.imageUrl?.trim() || null,
       region: input.region ?? null,

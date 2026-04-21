@@ -22,6 +22,8 @@ export async function createEventAction(
   const eventDateRaw = String(formData.get("eventDate") ?? "").trim();
   const regionRaw = String(formData.get("region") ?? "").trim();
   const locationDetail = String(formData.get("locationDetail") ?? "").trim();
+  const contactPhone = String(formData.get("contactPhone") ?? "").trim();
+  const contactEmail = String(formData.get("contactEmail") ?? "").trim();
   const contactMethod = String(formData.get("contactMethod") ?? "").trim();
   const externalUrl = String(formData.get("externalUrl") ?? "").trim();
   const imageUrl = String(formData.get("imageUrl") ?? "").trim();
@@ -49,6 +51,8 @@ export async function createEventAction(
     eventDate,
     region: region ?? null,
     locationDetail: locationDetail || null,
+    contactPhone: contactPhone || null,
+    contactEmail: contactEmail || null,
     contactMethod: contactMethod || null,
     externalUrl: externalUrl || null,
     imageUrl: imageUrl || null,

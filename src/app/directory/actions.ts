@@ -20,6 +20,8 @@ export async function createDirectoryEntryAction(
   const title = String(formData.get("title") ?? "").trim();
   const description = String(formData.get("description") ?? "").trim();
   const regionRaw = String(formData.get("region") ?? "").trim();
+  const contactPhone = String(formData.get("contactPhone") ?? "").trim();
+  const contactEmail = String(formData.get("contactEmail") ?? "").trim();
   const contactMethod = String(formData.get("contactMethod") ?? "").trim();
   const externalUrl = String(formData.get("externalUrl") ?? "").trim();
   const imageUrl = String(formData.get("imageUrl") ?? "").trim();
@@ -39,6 +41,8 @@ export async function createDirectoryEntryAction(
     title,
     description,
     region: region ?? null,
+    contactPhone: contactPhone || null,
+    contactEmail: contactEmail || null,
     contactMethod: contactMethod || null,
     externalUrl: externalUrl || null,
     imageUrl: imageUrl || null,

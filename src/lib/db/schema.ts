@@ -85,6 +85,8 @@ export const posts = pgTable("posts", {
   title: varchar("title", { length: 300 }).notNull(),
   description: text("description").notNull(),
   contactMethod: text("contact_method"),
+  contactPhone: text("contact_phone"),
+  contactEmail: text("contact_email"),
   externalUrl: text("external_url"),
   imageUrl: text("image_url"),
 

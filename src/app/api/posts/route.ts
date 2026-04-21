@@ -31,6 +31,8 @@ export async function GET(req: Request) {
       title: post.title,
       description: post.description,
       contactMethod: post.contactMethod,
+      contactPhone: post.contactPhone,
+      contactEmail: post.contactEmail,
       externalUrl: post.externalUrl,
       imageUrl: post.imageUrl,
       region: post.region,
@@ -82,6 +84,10 @@ export async function POST(req: Request) {
 
   const contactMethod =
     typeof b.contactMethod === "string" ? b.contactMethod.trim() : null;
+  const contactPhone =
+    typeof b.contactPhone === "string" ? b.contactPhone.trim() : null;
+  const contactEmail =
+    typeof b.contactEmail === "string" ? b.contactEmail.trim() : null;
   const externalUrl =
     typeof b.externalUrl === "string" ? b.externalUrl.trim() : null;
   const imageUrl =
@@ -101,6 +107,8 @@ export async function POST(req: Request) {
     title,
     description,
     contactMethod,
+    contactPhone: contactPhone || null,
+    contactEmail: contactEmail || null,
     externalUrl: externalUrl || null,
     imageUrl: imageUrl || null,
     region: region ?? null,

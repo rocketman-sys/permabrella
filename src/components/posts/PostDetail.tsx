@@ -10,6 +10,10 @@ function regionLabel(value: string | null): string | null {
   return r?.label ?? value;
 }
 
+function telHref(phone: string): string {
+  return `tel:${phone.trim().replace(/\s/g, "")}`;
+}
+
 const btnPrimary =
   "inline-flex items-center justify-center rounded-lg bg-[var(--perm-primary)] px-4 py-2 text-sm font-medium text-white transition hover:opacity-95";
 
@@ -71,14 +75,45 @@ export function PostDetail({
         {post.description}
       </div>
 
-      {post.contactMethod ? (
+      {post.contactPhone || post.contactEmail || post.contactMethod ? (
         <section className="mt-8 rounded-xl bg-[var(--perm-bg)] px-4 py-3">
           <h2 className="text-sm font-semibold text-[var(--perm-primary)]">
             Contact
           </h2>
-          <p className="mt-1 whitespace-pre-wrap text-sm text-[var(--perm-text-secondary)]">
-            {post.contactMethod}
-          </p>
+          <dl className="mt-2 space-y-2 text-sm text-[var(--perm-text-secondary)]">
+            {post.contactPhone ? (
+              <div className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-3">
+                <dt className="shrink-0 font-medium text-[var(--perm-text)]">Phone</dt>
+                <dd>
+                  <a
+                    href={telHref(post.contactPhone)}
+                    className="text-[var(--perm-secondary)] hover:underline"
+                  >
+                    {post.contactPhone}
+                  </a>
+                </dd>
+              </div>
+            ) : null}
+            {post.contactEmail ? (
+              <div className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-3">
+                <dt className="shrink-0 font-medium text-[var(--perm-text)]">Email</dt>
+                <dd>
+                  <a
+                    href={`mailto:${post.contactEmail.trim()}`}
+                    className="break-all text-[var(--perm-secondary)] hover:underline"
+                  >
+                    {post.contactEmail}
+                  </a>
+                </dd>
+              </div>
+            ) : null}
+            {post.contactMethod ? (
+              <div className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-3">
+                <dt className="shrink-0 font-medium text-[var(--perm-text)]">Other</dt>
+                <dd className="whitespace-pre-wrap">{post.contactMethod}</dd>
+              </div>
+            ) : null}
+          </dl>
         </section>
       ) : null}
 

@@ -47,13 +47,39 @@ export function DirectoryForm() {
         </Select>
       </div>
       <div>
+        <label htmlFor="contactPhone" className="text-sm font-medium text-[var(--perm-text)]">
+          Phone (optional)
+        </label>
+        <Input
+          id="contactPhone"
+          name="contactPhone"
+          type="tel"
+          autoComplete="tel"
+          placeholder="e.g. 02 … or 04 …"
+          className="mt-1"
+        />
+      </div>
+      <div>
+        <label htmlFor="contactEmail" className="text-sm font-medium text-[var(--perm-text)]">
+          Email (optional)
+        </label>
+        <Input
+          id="contactEmail"
+          name="contactEmail"
+          type="email"
+          autoComplete="email"
+          placeholder="contact@example.org"
+          className="mt-1"
+        />
+      </div>
+      <div>
         <label htmlFor="contactMethod" className="text-sm font-medium text-[var(--perm-text)]">
-          Contact
+          Other contact notes (optional)
         </label>
         <Input
           id="contactMethod"
           name="contactMethod"
-          placeholder="Email, phone, or how to connect"
+          placeholder="e.g. best time to call, contact form URL, social handle"
           className="mt-1"
         />
       </div>
