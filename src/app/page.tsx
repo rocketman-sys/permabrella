@@ -5,6 +5,8 @@ import { RegionFilter } from "@/components/layout/RegionFilter";
 import { Badge } from "@/components/ui/Badge";
 import { QuickAccessCard } from "@/components/brand/QuickAccessCard";
 import { HeroHubArt } from "@/components/brand/HeroHubArt";
+import { HeroStats } from "@/components/brand/HeroStats";
+import { getHeroStats } from "@/lib/posts/service";
 
 const panels = [
   {
@@ -56,7 +58,9 @@ const hubItems = panels.map((p) => ({
   tag: p.tag,
 }));
 
-export default function Home() {
+export default async function Home() {
+  const heroStats = await getHeroStats();
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-5 md:py-10">
       <section className="grid overflow-visible rounded-[var(--pb-r-lg)] border border-[var(--pb-line)] bg-[var(--pb-surface)] shadow-[var(--pb-shadow-card)] md:grid-cols-[1.3fr_1fr]">
@@ -79,13 +83,18 @@ export default function Home() {
               Post to the switchboard
             </Link>
             <Link
-              href="/community"
+              href="/submit"
               className="inline-flex min-h-12 items-center justify-center rounded-[var(--pb-r-sm)] border border-[var(--pb-line)] bg-transparent px-5 py-3 text-base font-semibold text-[var(--pb-ink)] transition hover:bg-[var(--pb-bg)]"
             >
-              Browse Q&amp;A
+              How it works
             </Link>
           </div>
-          <p className="mt-4 max-w-2xl text-base italic leading-relaxed text-[var(--pb-muted)] md:text-sm">
+          <HeroStats
+            activeGrowers={heroStats.activeGrowers}
+            landOffers={heroStats.landOffers}
+            eventsThisMonth={heroStats.eventsThisMonth}
+          />
+          <p className="mt-6 max-w-2xl text-base italic leading-relaxed text-[var(--pb-muted)] md:text-sm">
             This is a new site and needs to be populated. If you know of any
             organisations that should be on here, please add to the{" "}
             <Link href="/directory" className="underline hover:text-[var(--pb-ink)]">

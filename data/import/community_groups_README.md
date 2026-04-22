@@ -2,9 +2,10 @@
 
 Starter list of **31 Northern Rivers community groups** relevant to permaculture, food security, regenerative agriculture, and community resilience. Curated for the PermaBrella portal database. Scope: food + regen + resilience across all 7 Northern Rivers LGAs. Compiled 2026-04-22, revised to match the portal `posts (type: directory_entry)` schema after Cursor schema review.
 
-## File
+## Files
 
-`community_groups.csv` — UTF-8, comma-delimited, double-quoted text fields, one header row, 31 data rows.
+- **`community_groups.csv`** — first batch: UTF-8, comma-delimited, double-quoted fields, one header row, 31 data rows.
+- **`community_groups_batch2.csv`** — second batch: same columns as batch 1; **must include the same header row** as batch 1 (name, region, …). 28 additional groups (Clarence Valley, Casino, Ballina coast, Byron food relief, Landcare, etc.).
 
 ## Schema (mapped to PermaBrella `posts` table)
 
@@ -73,6 +74,15 @@ IMPORT_AUTHOR_USERNAME=siddh npm run db:import:community-groups
 ```
 
 By default **`author_id` is null** (allowed by the schema). Rows that already exist as `directory_entry` with the same **`title`** are skipped.
+
+Import batch 2 (or any other file with the same columns):
+
+```bash
+npm run db:import:community-groups -- --file=data/import/community_groups_batch2.csv
+npm run db:import:community-groups -- --dry-run --file=data/import/community_groups_batch2.csv
+```
+
+Each run records `metadata.importBatch` as `community_groups:<filename_without_ext>` so you can tell batches apart in the database.
 
 ## Import notes for Cursor
 

@@ -3,6 +3,7 @@
  *
  * Usage:
  *   npm run db:import:community-groups
+ *   npm run db:import:community-groups -- --file=data/import/community_groups_batch2.csv
  *   npm run db:import:community-groups -- --dry-run
  *
  * Requires DATABASE_URL (e.g. from .env.local — loaded automatically if present).
@@ -12,7 +13,7 @@
 
 import { parse } from "csv-parse/sync";
 import { readFileSync, existsSync } from "node:fs";
-import { resolve } from "node:path";
+import { basename, resolve } from "node:path";
 import { and, eq } from "drizzle-orm";
 import { parseRegionParam } from "../regions";
 import { db } from "./index";
@@ -126,9 +127,10 @@ async function main(): Promise<void> {
     }
 
     const tags = parseTags(row.tags ?? "");
+    const importFileRel = csvPath.replace(process.cwd() + "/", "");
     const metadata: Record<string, unknown> = {
-      importBatch: "community_groups_csv",
-      importFile: csvPath.replace(process.cwd() + "/", ""),
+      importBatch: `community_groups:${basename(csvPath, ".csv")}`,
+      importFile: importFileRel,
     };
     const source = (row.source ?? "").trim();
     if (source) metadata.source = source;
