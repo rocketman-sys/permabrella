@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/Card";
 import { formatPosted } from "@/lib/posts/format";
 import type { ThreadListRow } from "@/lib/community/service";
 import { REGIONS } from "@/lib/regions";
+import { AuthorIdentity } from "./AuthorIdentity";
 
 function regionLabel(value: string | null): string | null {
   if (!value) return null;
@@ -17,7 +18,7 @@ export function ThreadCard({
   row: ThreadListRow;
   topicSlug: string;
 }) {
-  const { thread, authorDisplay } = row;
+  const { thread, authorDisplay, authorBadge } = row;
 
   return (
     <Link
@@ -42,7 +43,8 @@ export function ThreadCard({
           {thread.body}
         </p>
         <p className="mt-3 text-xs text-[var(--perm-muted)]">
-          {authorDisplay ?? "Member"} · {thread.replyCount}{" "}
+          <AuthorIdentity name={authorDisplay} badge={authorBadge} /> ·{" "}
+          {thread.replyCount}{" "}
           {thread.replyCount === 1 ? "reply" : "replies"} · Active{" "}
           {formatPosted(thread.lastActivityAt)}
         </p>

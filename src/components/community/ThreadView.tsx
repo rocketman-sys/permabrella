@@ -7,6 +7,7 @@ import { REGIONS } from "@/lib/regions";
 import { MessageItem } from "./MessageItem";
 import { ReplyForm } from "./ReplyForm";
 import { SubscriptionToggle } from "./SubscriptionToggle";
+import { AuthorIdentity } from "./AuthorIdentity";
 
 function regionLabel(value: string | null): string | null {
   if (!value) return null;
@@ -24,7 +25,7 @@ export default async function ThreadView({
   topicSlug: string;
   canReply: boolean;
 }) {
-  const { thread, topic, authorDisplay } = detail;
+  const { thread, topic, authorDisplay, authorBadge } = detail;
   const locked = thread.isLocked;
 
   return (
@@ -52,7 +53,8 @@ export default async function ThreadView({
           ) : null}
         </div>
         <p className="mt-2 text-sm text-[var(--perm-muted)]">
-          {authorDisplay ?? "Member"} · Started {formatPosted(thread.createdAt)}
+          <AuthorIdentity name={authorDisplay} badge={authorBadge} /> · Started{" "}
+          {formatPosted(thread.createdAt)}
           {locked ? (
             <span className="ml-2 font-medium text-[var(--perm-earth)]">
               · Locked

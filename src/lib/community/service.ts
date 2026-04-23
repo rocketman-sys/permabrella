@@ -8,6 +8,7 @@ import {
   users,
 } from "@/lib/db/schema";
 import type { Region } from "@/lib/regions";
+import { resolveAuthorBadge, type AuthorBadge } from "./authorship";
 
 function authorLabel(
   displayName: string | null,
@@ -37,6 +38,7 @@ export async function getTopicBySlug(slug: string) {
 export type ThreadListRow = {
   thread: typeof threads.$inferSelect;
   authorDisplay: string | null;
+  authorBadge: AuthorBadge | null;
 };
 
 export async function listThreadsForTopic(
@@ -62,6 +64,7 @@ export async function listThreadsForTopic(
   return rows.map((r) => ({
     thread: r.thread,
     authorDisplay: authorLabel(r.displayName, r.username),
+    authorBadge: resolveAuthorBadge(r.username, r.displayName),
   }));
 }
 
@@ -69,6 +72,7 @@ export type ThreadDetail = {
   thread: typeof threads.$inferSelect;
   topic: typeof topics.$inferSelect;
   authorDisplay: string | null;
+  authorBadge: AuthorBadge | null;
 };
 
 export async function getThreadInTopic(
@@ -94,12 +98,14 @@ export async function getThreadInTopic(
     thread: r.thread,
     topic: r.topic,
     authorDisplay: authorLabel(r.displayName, r.username),
+    authorBadge: resolveAuthorBadge(r.username, r.displayName),
   };
 }
 
 export type MessageRow = {
   message: typeof messages.$inferSelect;
   authorDisplay: string | null;
+  authorBadge: AuthorBadge | null;
 };
 
 export async function listMessagesForThread(
@@ -119,6 +125,7 @@ export async function listMessagesForThread(
   return rows.map((r) => ({
     message: r.message,
     authorDisplay: authorLabel(r.displayName, r.username),
+    authorBadge: resolveAuthorBadge(r.username, r.displayName),
   }));
 }
 

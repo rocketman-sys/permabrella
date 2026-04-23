@@ -1,8 +1,9 @@
 import { formatPosted } from "@/lib/posts/format";
 import type { MessageRow } from "@/lib/community/service";
+import { AuthorIdentity } from "./AuthorIdentity";
 
 export function MessageItem({ row }: { row: MessageRow }) {
-  const { message, authorDisplay } = row;
+  const { message, authorDisplay, authorBadge } = row;
 
   return (
     <article
@@ -11,7 +12,7 @@ export function MessageItem({ row }: { row: MessageRow }) {
     >
       <header className="flex flex-wrap items-baseline justify-between gap-2 text-sm">
         <span className="font-medium text-[var(--perm-primary)]">
-          {authorDisplay ?? "Member"}
+          <AuthorIdentity name={authorDisplay} badge={authorBadge} />
         </span>
         <time
           className="text-xs text-[var(--perm-muted)]"
