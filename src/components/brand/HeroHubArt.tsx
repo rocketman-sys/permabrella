@@ -33,9 +33,15 @@ export type HeroHubItem = {
 export function HeroHubArt({
   items,
   logoSize = 88,
+  activeHref,
+  className,
+  centerHref,
 }: {
   items: HeroHubItem[];
   logoSize?: number;
+  activeHref?: string;
+  className?: string;
+  centerHref?: string;
 }) {
   const n = Math.min(items.length, HUB_MAX_SATELLITES);
   const points = hubPoints(n);
@@ -43,18 +49,34 @@ export function HeroHubArt({
   const centerLogoSize = Math.round(logoSize * 1.5);
 
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-[min(100%,300px)]">
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <LogoPermaBrella
-          size={centerLogoSize}
-          className="relative z-10 drop-shadow-sm"
-        />
-      </div>
+    <div className={`relative mx-auto aspect-square w-full max-w-[min(100%,300px)] ${className ?? ""}`}>
+      {centerHref ? (
+        <Link
+          href={centerHref}
+          className="absolute inset-0 z-20 flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--pb-primary)]"
+          aria-label="Back to homepage"
+          title="Back to homepage"
+        >
+          <LogoPermaBrella
+            size={centerLogoSize}
+            className="relative z-10 drop-shadow-sm transition-transform duration-200 ease-out hover:scale-105"
+          />
+        </Link>
+      ) : (
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <LogoPermaBrella
+            size={centerLogoSize}
+            className="relative z-10 drop-shadow-sm"
+          />
+        </div>
+      )}
 
       {list.map((item, i) => {
         const p = points[i];
         if (!p) return null;
-        const scale = ICON_SCALE[item.icon] ?? 1;
+        const isActive = activeHref === item.href;
+        const baseScale = ICON_SCALE[item.icon] ?? 1;
+        const scale = isActive ? baseScale * 1.16 : baseScale;
         return (
           <Link
             key={item.href}
@@ -64,9 +86,9 @@ export function HeroHubArt({
             aria-label={item.title}
             title={item.title}
           >
-            <div className="transition-transform duration-200 ease-out group-hover:scale-105 group-focus-visible:scale-105">
+            <div className={`transition-transform duration-200 ease-out group-hover:scale-105 group-focus-visible:scale-105 ${isActive ? "scale-110" : ""}`}>
               <div
-                className="drop-shadow-sm"
+                className={`drop-shadow-sm ${isActive ? "rounded-[12px] bg-[color-mix(in_srgb,var(--pb-surface)_92%,transparent)] ring-1 ring-[var(--pb-primary)]/35" : ""}`}
                 style={{
                   width: logoSize,
                   height: logoSize,

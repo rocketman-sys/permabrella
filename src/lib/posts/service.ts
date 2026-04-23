@@ -1,6 +1,6 @@
-import { and, count, desc, eq } from "drizzle-orm";
+import { and, count, desc, eq, inArray } from "drizzle-orm";
 import { db } from "@/lib/db";
-import { posts, users } from "@/lib/db/schema";
+import { posts, threads, users } from "@/lib/db/schema";
 
 type PostRow = typeof posts.$inferSelect;
 type PostType = PostRow["type"];
@@ -52,6 +52,40 @@ export async function listPostsByType(options: {
   }));
 }
 
+export async function listPostsByTypes(options: {
+  types: PostType[];
+  region?: Region | null;
+  limit?: number;
+}): Promise<PostWithAuthor[]> {
+  const limit = Math.min(options.limit ?? 60, 100);
+  if (!options.types.length) return [];
+
+  const conditions = [
+    inArray(posts.type, options.types),
+    eq(posts.status, "active"),
+  ];
+  if (options.region) {
+    conditions.push(eq(posts.region, options.region));
+  }
+
+  const rows = await db
+    .select({
+      post: posts,
+      displayName: users.displayName,
+      username: users.username,
+    })
+    .from(posts)
+    .leftJoin(users, eq(posts.authorId, users.id))
+    .where(and(...conditions))
+    .orderBy(desc(posts.createdAt))
+    .limit(limit);
+
+  return rows.map((r) => ({
+    post: r.post,
+    authorDisplay: authorLabel(r.displayName, r.username),
+  }));
+}
+
 export async function getActivePostById(
   id: string,
   type: PostType
@@ -67,6 +101,30 @@ export async function getActivePostById(
     .where(
       and(eq(posts.id, id), eq(posts.type, type), eq(posts.status, "active"))
     )
+    .limit(1);
+
+  if (!rows.length) return null;
+  const r = rows[0];
+  return {
+    post: r.post,
+    authorDisplay: authorLabel(r.displayName, r.username),
+  };
+}
+
+export async function getActivePostByIdInTypes(
+  id: string,
+  types: PostType[]
+): Promise<PostWithAuthor | null> {
+  if (!types.length) return null;
+  const rows = await db
+    .select({
+      post: posts,
+      displayName: users.displayName,
+      username: users.username,
+    })
+    .from(posts)
+    .leftJoin(users, eq(posts.authorId, users.id))
+    .where(and(eq(posts.id, id), inArray(posts.type, types), eq(posts.status, "active")))
     .limit(1);
 
   if (!rows.length) return null;
@@ -225,15 +283,15 @@ export async function listRecentForFeed(options: {
 /**
  * Hero switchboard headline stats — live counts from `posts`.
  * - Community groups: directory listings (`directory_entry`).
- * - Land offers: `land_available` listings.
+ * - Active threads: all community threads.
  * - Events: all active `event` posts (no date window).
  */
 export async function getHeroStats(): Promise<{
   activeGrowers: number;
-  landOffers: number;
+  activeThreads: number;
   events: number;
 }> {
-  const [growersRow, landRow, eventsRow] = await Promise.all([
+  const [growersRow, threadsRow, eventsRow] = await Promise.all([
     db
       .select({ n: count() })
       .from(posts)
@@ -242,8 +300,7 @@ export async function getHeroStats(): Promise<{
       ),
     db
       .select({ n: count() })
-      .from(posts)
-      .where(and(eq(posts.type, "land_available"), eq(posts.status, "active"))),
+      .from(threads),
     db
       .select({ n: count() })
       .from(posts)
@@ -252,7 +309,7 @@ export async function getHeroStats(): Promise<{
 
   return {
     activeGrowers: Number(growersRow[0]?.n ?? 0),
-    landOffers: Number(landRow[0]?.n ?? 0),
+    activeThreads: Number(threadsRow[0]?.n ?? 0),
     events: Number(eventsRow[0]?.n ?? 0),
   };
 }

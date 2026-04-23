@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/Badge";
 import { QuickAccessCard } from "@/components/brand/QuickAccessCard";
 import { HeroHubArt } from "@/components/brand/HeroHubArt";
 import { HeroStats } from "@/components/brand/HeroStats";
+import { GlobalSearchForm } from "@/components/search/GlobalSearchForm";
+import { listTopicsOrdered } from "@/lib/community/service";
 import { getHeroStats } from "@/lib/posts/service";
 
 /** Order matches navbar and hero hub satellites clockwise from the top. */
@@ -20,9 +22,9 @@ const panels = [
   },
   {
     href: "/offerings",
-    title: "Offerings & wants",
+    title: "Offerings, Wants & Exchange",
     blurb: "Share surplus, tools, seeds, and what you are looking for.",
-    tag: "Offerings",
+    tag: "Exchange",
     icon: "/brand/icon-offerings.svg",
     iconAlt: "",
   },
@@ -38,7 +40,7 @@ const panels = [
     href: "/directory",
     title: "Community groups",
     blurb: "Find local organisations already on the ground.",
-    tag: "Directory",
+    tag: "Groups",
     icon: "/brand/icon-groups.svg",
     iconAlt: "",
   },
@@ -68,7 +70,11 @@ const hubItems = panels.map((p) => ({
 }));
 
 export default async function Home() {
-  const heroStats = await getHeroStats();
+  const [heroStats, topicRows] = await Promise.all([
+    getHeroStats(),
+    listTopicsOrdered(),
+  ]);
+  const topicOptions = topicRows.map((t) => ({ slug: t.slug, name: t.name }));
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-5 md:py-10">
@@ -114,7 +120,7 @@ export default async function Home() {
           </div>
           <HeroStats
             activeGrowers={heroStats.activeGrowers}
-            landOffers={heroStats.landOffers}
+            activeThreads={heroStats.activeThreads}
             events={heroStats.events}
           />
           <div className="mt-6 max-w-2xl rounded-[var(--pb-r-md)] border border-[var(--pb-line)] bg-[color-mix(in_srgb,var(--pb-bg-alt)_35%,var(--pb-surface))] px-4 py-3.5 shadow-[var(--pb-shadow-card)] sm:px-5 sm:py-4">
@@ -149,6 +155,10 @@ export default async function Home() {
             <HeroHubArt logoSize={84} items={hubItems} />
           </div>
         </div>
+      </section>
+
+      <section className="mt-5" aria-label="System search">
+        <GlobalSearchForm topics={topicOptions} />
       </section>
 
       <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">

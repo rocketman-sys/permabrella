@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { auth } from "@/lib/auth";
+import { PageHeroBar } from "@/components/layout/PageHeroBar";
 import { PostList } from "@/components/posts/PostList";
 import { RegionFilter } from "@/components/layout/RegionFilter";
 import { Card } from "@/components/ui/Card";
@@ -23,31 +24,26 @@ export default async function GrantsPage({
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
-      <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <h1 className="text-2xl font-semibold text-[var(--perm-primary)]">
-            Community grants &amp; offerings
-          </h1>
-          <p className="mt-2 text-[var(--perm-text-secondary)]">
-            A starting point for funding rounds, in-kind support, and programs that strengthen
-            permaculture, food security, and resilience across the Northern Rivers.
-          </p>
-        </div>
-        <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center sm:justify-end">
-          <Link
-            href={session?.user ? "/grants/new" : "/login?callbackUrl=/grants/new"}
-            className="inline-flex min-h-10 items-center justify-center rounded-lg bg-[var(--perm-primary)] px-4 py-2 text-sm font-medium text-white hover:opacity-95"
-          >
-            Submit a grant
-          </Link>
-          <Link
-            href="/submit"
-            className="inline-flex min-h-10 items-center justify-center rounded-lg border border-[var(--perm-border)] bg-[var(--perm-card)] px-4 py-2 text-sm font-medium text-[var(--perm-primary)] hover:border-[var(--perm-secondary)]/40"
-          >
-            Post via switchboard
-          </Link>
-        </div>
-      </div>
+      <PageHeroBar
+        title="Community grants & offerings"
+        subtitle="A starting point for funding rounds, in-kind support, and programs that strengthen permaculture, food security, and resilience across the Northern Rivers."
+        actions={
+          <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center sm:justify-end">
+            <Link
+              href={session?.user ? "/grants/new" : "/login?callbackUrl=/grants/new"}
+              className="inline-flex min-h-10 items-center justify-center rounded-lg bg-[var(--perm-primary)] px-4 py-2 text-sm font-medium text-white hover:opacity-95"
+            >
+              Submit a grant
+            </Link>
+            <Link
+              href="/submit"
+              className="inline-flex min-h-10 items-center justify-center rounded-lg border border-[var(--perm-border)] bg-[var(--perm-card)] px-4 py-2 text-sm font-medium text-[var(--perm-primary)] hover:border-[var(--perm-secondary)]/40"
+            >
+              Post via switchboard
+            </Link>
+          </div>
+        }
+      />
       <p className="mt-3 max-w-2xl text-sm text-[var(--perm-text-secondary)]">
         Grant listings are visible to everyone. Publishing requires a free account — use either
         button above, or pick <strong className="font-medium text-[var(--perm-text)]">Grant or funding round</strong>{" "}
@@ -92,7 +88,7 @@ export default async function GrantsPage({
             href="/offerings"
             className="inline-flex rounded-lg border border-[var(--perm-border)] bg-[var(--perm-card)] px-4 py-3 text-sm font-medium text-[var(--perm-primary)] transition hover:border-[var(--perm-secondary)]/40 hover:shadow-sm"
           >
-            Offerings &amp; wants
+            Offerings, Wants &amp; Exchange
           </Link>
           <Link
             href="/submit"

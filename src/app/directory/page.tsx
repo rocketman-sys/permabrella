@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { PostList } from "@/components/posts/PostList";
+import { PageHeroBar } from "@/components/layout/PageHeroBar";
 import { RegionFilter } from "@/components/layout/RegionFilter";
 import { listPostsByType } from "@/lib/posts/service";
 import { parseRegionParam } from "@/lib/regions";
@@ -20,22 +21,18 @@ export default async function DirectoryPage({
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
-      <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <h1 className="text-2xl font-semibold text-[var(--perm-primary)]">
-            Community groups
-          </h1>
-          <p className="mt-2 text-[var(--perm-text-secondary)]">
-            Organisations, food hubs, and collectives across the Northern Rivers.
-          </p>
-        </div>
-        <Link
-          href="/directory/new"
-          className="inline-flex rounded-lg bg-[var(--perm-primary)] px-4 py-2 text-sm font-medium text-white hover:opacity-95"
-        >
-          Add a group
-        </Link>
-      </div>
+      <PageHeroBar
+        title="Community groups"
+        subtitle="Organisations, food hubs, and collectives across the Northern Rivers."
+        actions={
+          <Link
+            href="/directory/new"
+            className="inline-flex rounded-lg bg-[var(--perm-primary)] px-4 py-2 text-sm font-medium text-white hover:opacity-95"
+          >
+            Add a group
+          </Link>
+        }
+      />
 
       <div className="mt-8 flex max-w-xs flex-col gap-1">
         <label htmlFor="directory-region" className="text-sm font-medium text-[var(--perm-text)]">

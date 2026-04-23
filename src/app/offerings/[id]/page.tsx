@@ -1,4 +1,7 @@
-import { Card } from "@/components/ui/Card";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { PostDetail } from "@/components/posts/PostDetail";
+import { getActivePostByIdInTypes } from "@/lib/posts/service";
 
 export default async function OfferingDetailPage({
   params,
@@ -6,14 +9,17 @@ export default async function OfferingDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
+  const item = await getActivePostByIdInTypes(id, ["offering", "wanted"]);
+  if (!item) notFound();
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
-      <h1 className="text-2xl font-semibold text-[var(--perm-primary)]">Listing</h1>
-      <Card className="mt-4 border-dashed">
-        <p className="text-sm text-[var(--perm-muted)]">
-          Listing <code className="rounded bg-[var(--perm-bg)] px-1">{id}</code> — coming soon.
-        </p>
-      </Card>
+      <p className="mb-4 text-sm">
+        <Link href="/offerings" className="text-[var(--perm-secondary)] hover:underline">
+          ← Exchange
+        </Link>
+      </p>
+      <PostDetail item={item} backHref="/offerings" backLabel="Back to exchange" />
     </div>
   );
 }

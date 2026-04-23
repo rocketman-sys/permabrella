@@ -29,11 +29,11 @@ function StatBlock({
 
 export function HeroStats({
   activeGrowers,
-  landOffers,
+  activeThreads,
   events,
 }: {
   activeGrowers: number;
-  landOffers: number;
+  activeThreads: number;
   events: number;
 }) {
   return (
@@ -49,10 +49,10 @@ export function HeroStats({
           ariaLabel={`${activeGrowers} community groups listed — open directory`}
         />
         <StatBlock
-          value={landOffers}
-          label="Land offers"
-          href="/land-connect"
-          ariaLabel={`${landOffers} land offers — open land connect`}
+          value={activeThreads}
+          label="Active threads"
+          href="/community"
+          ariaLabel={`${activeThreads} active threads — open community Q&A`}
         />
         <StatBlock
           value={events}

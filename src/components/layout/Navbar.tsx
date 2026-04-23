@@ -2,12 +2,13 @@ import Link from "next/link";
 import { auth, signOut } from "@/lib/auth";
 import { Button } from "@/components/ui/Button";
 import { LogoPermaBrella } from "@/components/brand/Logo";
+import { ActiveNavLinks } from "./ActiveNavLinks";
 
 const navLinks = [
   { href: "/events", label: "Events" },
-  { href: "/offerings", label: "Offerings" },
+  { href: "/offerings", label: "Exchange" },
   { href: "/land-connect", label: "Land Connect" },
-  { href: "/directory", label: "Directory" },
+  { href: "/directory", label: "Groups" },
   { href: "/grants", label: "Grants" },
   { href: "/community", label: "Discuss" },
 ];
@@ -37,15 +38,7 @@ export async function Navbar() {
           </span>
         </Link>
         <nav className="order-3 flex w-full flex-wrap gap-x-4 gap-y-2 text-base font-semibold text-[var(--pb-ink)] md:order-none md:flex md:w-auto md:items-center md:text-sm">
-          {navLinks.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="text-[var(--pb-ink-soft)] transition hover:text-[var(--pb-primary)]"
-            >
-              {l.label}
-            </Link>
-          ))}
+          <ActiveNavLinks links={navLinks} />
         </nav>
         <div className="flex flex-wrap items-center gap-2">
           <Link href="/submit" className={linkSecondary}>

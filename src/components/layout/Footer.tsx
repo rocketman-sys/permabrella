@@ -29,7 +29,7 @@ export function Footer() {
                 href="/offerings"
                 className="hover:text-[var(--perm-secondary)]"
               >
-                Offerings & wants
+                Offerings, Wants &amp; Exchange
               </Link>
             </li>
             <li>

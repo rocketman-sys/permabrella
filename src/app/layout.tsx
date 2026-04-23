@@ -55,7 +55,7 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col font-sans">
         <AppProviders session={session}>
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="relative flex-1">{children}</main>
           <Footer />
         </AppProviders>
       </body>

@@ -10,9 +10,20 @@ export async function GET(req: Request) {
   const limitRaw = searchParams.get("limit");
   const limit = limitRaw ? Number.parseInt(limitRaw, 10) : 40;
 
-  if (type !== "event" && type !== "directory_entry" && type !== "grant") {
+  if (
+    type !== "event" &&
+    type !== "directory_entry" &&
+    type !== "grant" &&
+    type !== "offering" &&
+    type !== "wanted" &&
+    type !== "land_available" &&
+    type !== "land_wanted"
+  ) {
     return NextResponse.json(
-      { error: "Query param type must be event, directory_entry, or grant" },
+      {
+        error:
+          "Query param type must be event, directory_entry, grant, offering, wanted, land_available, or land_wanted",
+      },
       { status: 400 }
     );
   }
@@ -64,9 +75,20 @@ export async function POST(req: Request) {
 
   const b = body as Record<string, unknown>;
   const type = b.type;
-  if (type !== "event" && type !== "directory_entry" && type !== "grant") {
+  if (
+    type !== "event" &&
+    type !== "directory_entry" &&
+    type !== "grant" &&
+    type !== "offering" &&
+    type !== "wanted" &&
+    type !== "land_available" &&
+    type !== "land_wanted"
+  ) {
     return NextResponse.json(
-      { error: "type must be event, directory_entry, or grant" },
+      {
+        error:
+          "type must be event, directory_entry, grant, offering, wanted, land_available, or land_wanted",
+      },
       { status: 400 }
     );
   }
