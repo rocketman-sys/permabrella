@@ -8,6 +8,7 @@ const options: { href: string; label: string; note: string }[] = [
     label: "Community group",
     note: "Live — sign in to publish",
   },
+  { href: "/grants/new", label: "Grant or funding round", note: "Live — sign in to publish" },
   { href: "/offerings/new", label: "Offering or want", note: "Coming in Phase 4" },
   { href: "/land-connect/new", label: "Land listing", note: "Coming in Phase 5" },
   { href: "/community/new", label: "Q&A thread", note: "Live — sign in to post" },
@@ -20,8 +21,9 @@ export default function SubmitPage() {
         Post to the switchboard
       </h1>
       <p className="mt-2 text-[var(--perm-text-secondary)]">
-        Choose what you would like to share. Events, directory, and community Q&amp;A are
-        live; other panels are on the roadmap.
+        Choose what you would like to share. Events, directory, grants, and community Q&amp;A are
+        live; other panels are on the roadmap. Everything here is visible to everyone — you only
+        need to sign in when you are ready to publish.
       </p>
       <ul className="mt-8 space-y-3">
         {options.map((o) => (

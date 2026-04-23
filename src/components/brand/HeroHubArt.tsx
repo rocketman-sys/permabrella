@@ -2,16 +2,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { LogoPermaBrella } from "@/components/brand/Logo";
 
-/** ViewBox radius for satellite centers; nudge outward when icons match central `logoSize`. */
-const R = 38;
+/** ViewBox radius for satellite centers (% of viewBox). Slightly larger so a bigger centre logo clears the ring. */
+const R = 44;
 
 const ICON_SCALE: Record<string, number> = {
   "/brand/icon-offerings.svg": 1.18,
 };
 
-function hubPoints(): { x: number; y: number }[] {
-  return [0, 1, 2, 3, 4].map((k) => {
-    const rad = -Math.PI / 2 + (k * 2 * Math.PI) / 5;
+const HUB_MAX_SATELLITES = 6;
+
+function hubPoints(n: number): { x: number; y: number }[] {
+  const count = Math.min(Math.max(n, 1), HUB_MAX_SATELLITES);
+  return Array.from({ length: count }, (_, k) => {
+    const rad = -Math.PI / 2 + (k * 2 * Math.PI) / count;
     return {
       x: 50 + R * Math.cos(rad),
       y: 50 + R * Math.sin(rad),
@@ -34,44 +37,18 @@ export function HeroHubArt({
   items: HeroHubItem[];
   logoSize?: number;
 }) {
-  const points = hubPoints();
-  const list = items.slice(0, 5);
+  const n = Math.min(items.length, HUB_MAX_SATELLITES);
+  const points = hubPoints(n);
+  const list = items.slice(0, n);
+  const centerLogoSize = Math.round(logoSize * 1.5);
 
   return (
     <div className="relative mx-auto aspect-square w-full max-w-[min(100%,300px)]">
-      <svg
-        className="pointer-events-none absolute inset-0 h-full w-full"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="xMidYMid meet"
-        aria-hidden
-      >
-        {points.map((p, i) => (
-          <g key={i}>
-            <line
-              x1={50}
-              y1={50}
-              x2={p.x}
-              y2={p.y}
-              stroke="var(--pb-muted)"
-              strokeWidth={0.45}
-              strokeDasharray="1.4 2.4"
-              strokeLinecap="round"
-              opacity={0.55}
-            />
-            <circle
-              cx={p.x}
-              cy={p.y}
-              r={1.1}
-              fill="var(--pb-primary)"
-              opacity={0.45}
-            />
-          </g>
-        ))}
-        <circle cx={50} cy={50} r={1.35} fill="var(--pb-accent-2)" opacity={0.4} />
-      </svg>
-
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <LogoPermaBrella size={logoSize} className="relative z-10 drop-shadow-sm" />
+        <LogoPermaBrella
+          size={centerLogoSize}
+          className="relative z-10 drop-shadow-sm"
+        />
       </div>
 
       {list.map((item, i) => {

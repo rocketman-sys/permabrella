@@ -71,6 +71,13 @@ export function PostDetail({
         </p>
       ) : null}
 
+      {post.expiresAt ? (
+        <p className="mt-3 text-base font-medium text-[var(--perm-secondary)]">
+          {post.type === "grant" ? "Applications close " : "Closes "}
+          {formatPosted(post.expiresAt)}
+        </p>
+      ) : null}
+
       <div className="mt-6 max-w-none whitespace-pre-wrap text-base leading-relaxed text-[var(--perm-text)]">
         {post.description}
       </div>

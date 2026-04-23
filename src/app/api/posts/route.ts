@@ -10,9 +10,9 @@ export async function GET(req: Request) {
   const limitRaw = searchParams.get("limit");
   const limit = limitRaw ? Number.parseInt(limitRaw, 10) : 40;
 
-  if (type !== "event" && type !== "directory_entry") {
+  if (type !== "event" && type !== "directory_entry" && type !== "grant") {
     return NextResponse.json(
-      { error: "Query param type must be event or directory_entry" },
+      { error: "Query param type must be event, directory_entry, or grant" },
       { status: 400 }
     );
   }
@@ -38,6 +38,7 @@ export async function GET(req: Request) {
       region: post.region,
       locationDetail: post.locationDetail,
       eventDate: post.eventDate?.toISOString() ?? null,
+      expiresAt: post.expiresAt?.toISOString() ?? null,
       createdAt: post.createdAt.toISOString(),
       authorDisplay,
     })),
@@ -63,9 +64,9 @@ export async function POST(req: Request) {
 
   const b = body as Record<string, unknown>;
   const type = b.type;
-  if (type !== "event" && type !== "directory_entry") {
+  if (type !== "event" && type !== "directory_entry" && type !== "grant") {
     return NextResponse.json(
-      { error: "type must be event or directory_entry" },
+      { error: "type must be event, directory_entry, or grant" },
       { status: 400 }
     );
   }
@@ -101,6 +102,16 @@ export async function POST(req: Request) {
     if (!Number.isNaN(d.getTime())) eventDate = d;
   }
 
+  let expiresAt: Date | null = null;
+  if (
+    type === "grant" &&
+    typeof b.expiresAt === "string" &&
+    (b.expiresAt as string)
+  ) {
+    const d = new Date(b.expiresAt as string);
+    if (!Number.isNaN(d.getTime())) expiresAt = d;
+  }
+
   const id = await createUserPost({
     authorId: session.user.id,
     type,
@@ -114,6 +125,8 @@ export async function POST(req: Request) {
     region: region ?? null,
     locationDetail: locationDetail || null,
     eventDate,
+    expiresAt,
+    tags: type === "grant" ? ["grant"] : [],
   });
 
   return NextResponse.json({ id }, { status: 201 });

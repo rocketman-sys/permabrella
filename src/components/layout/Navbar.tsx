@@ -8,7 +8,8 @@ const navLinks = [
   { href: "/offerings", label: "Offerings" },
   { href: "/land-connect", label: "Land Connect" },
   { href: "/directory", label: "Directory" },
-  { href: "/community", label: "Community" },
+  { href: "/grants", label: "Grants" },
+  { href: "/community", label: "Discuss" },
 ];
 
 const linkPrimary =

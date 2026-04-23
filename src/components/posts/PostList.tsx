@@ -6,7 +6,7 @@ export function PostList({
   basePath,
 }: {
   items: PostWithAuthor[];
-  basePath: "/events" | "/directory";
+  basePath: "/events" | "/directory" | "/grants";
 }) {
   if (!items.length) {
     return (

@@ -1,4 +1,4 @@
-import { and, count, desc, eq, gte, isNotNull, lte } from "drizzle-orm";
+import { and, count, desc, eq } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { posts, users } from "@/lib/db/schema";
 
@@ -90,6 +90,8 @@ export async function createUserPost(input: {
   region?: Region | null;
   locationDetail?: string | null;
   eventDate?: Date | null;
+  expiresAt?: Date | null;
+  tags?: string[];
 }): Promise<string> {
   const [row] = await db
     .insert(posts)
@@ -107,6 +109,8 @@ export async function createUserPost(input: {
       region: input.region ?? null,
       locationDetail: input.locationDetail?.trim() || null,
       eventDate: input.eventDate ?? null,
+      expiresAt: input.expiresAt ?? null,
+      tags: input.tags ?? [],
       authorId: input.authorId,
     })
     .returning({ id: posts.id });
@@ -218,28 +222,17 @@ export async function listRecentForFeed(options: {
   };
 }
 
-/** Month bounds in UTC (matches typical serverless runtime). */
-function utcMonthBounds(reference = new Date()): { start: Date; end: Date } {
-  const y = reference.getUTCFullYear();
-  const m = reference.getUTCMonth();
-  const start = new Date(Date.UTC(y, m, 1, 0, 0, 0, 0));
-  const end = new Date(Date.UTC(y, m + 1, 0, 23, 59, 59, 999));
-  return { start, end };
-}
-
 /**
  * Hero switchboard headline stats — live counts from `posts`.
  * - Community groups: directory listings (`directory_entry`).
  * - Land offers: `land_available` listings.
- * - Events this month: `event` rows with `event_date` in the current UTC month.
+ * - Events: all active `event` posts (no date window).
  */
 export async function getHeroStats(): Promise<{
   activeGrowers: number;
   landOffers: number;
-  eventsThisMonth: number;
+  events: number;
 }> {
-  const { start, end } = utcMonthBounds();
-
   const [growersRow, landRow, eventsRow] = await Promise.all([
     db
       .select({ n: count() })
@@ -254,20 +247,12 @@ export async function getHeroStats(): Promise<{
     db
       .select({ n: count() })
       .from(posts)
-      .where(
-        and(
-          eq(posts.type, "event"),
-          eq(posts.status, "active"),
-          isNotNull(posts.eventDate),
-          gte(posts.eventDate, start),
-          lte(posts.eventDate, end)
-        )
-      ),
+      .where(and(eq(posts.type, "event"), eq(posts.status, "active"))),
   ]);
 
   return {
     activeGrowers: Number(growersRow[0]?.n ?? 0),
     landOffers: Number(landRow[0]?.n ?? 0),
-    eventsThisMonth: Number(eventsRow[0]?.n ?? 0),
+    events: Number(eventsRow[0]?.n ?? 0),
   };
 }

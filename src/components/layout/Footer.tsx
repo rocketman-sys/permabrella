@@ -41,6 +41,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/grants" className="hover:text-[var(--perm-secondary)]">
+                Community grants
+              </Link>
+            </li>
+            <li>
               <Link
                 href="/community"
                 className="hover:text-[var(--perm-secondary)]"

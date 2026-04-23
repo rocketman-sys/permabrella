@@ -8,12 +8,13 @@ import { HeroHubArt } from "@/components/brand/HeroHubArt";
 import { HeroStats } from "@/components/brand/HeroStats";
 import { getHeroStats } from "@/lib/posts/service";
 
+/** Order matches navbar and hero hub satellites clockwise from the top. */
 const panels = [
   {
     href: "/events",
     title: "Events & workshops",
     blurb: "Skill shares, working bees, and food security gatherings.",
-    tag: "Gather",
+    tag: "Events",
     icon: "/brand/icon-events.svg",
     iconAlt: "",
   },
@@ -21,7 +22,7 @@ const panels = [
     href: "/offerings",
     title: "Offerings & wants",
     blurb: "Share surplus, tools, seeds, and what you are looking for.",
-    tag: "Share",
+    tag: "Offerings",
     icon: "/brand/icon-offerings.svg",
     iconAlt: "",
   },
@@ -29,7 +30,7 @@ const panels = [
     href: "/land-connect",
     title: "Land connect",
     blurb: "Match landholders with growers who want to cultivate.",
-    tag: "Connect",
+    tag: "Land Connect",
     icon: "/brand/icon-land.svg",
     iconAlt: "",
   },
@@ -37,15 +38,23 @@ const panels = [
     href: "/directory",
     title: "Community groups",
     blurb: "Find local organisations already on the ground.",
-    tag: "Groups",
+    tag: "Directory",
     icon: "/brand/icon-groups.svg",
+    iconAlt: "",
+  },
+  {
+    href: "/grants",
+    title: "Community grants",
+    blurb: "Funding rounds, programs, and in-kind offerings for local resilience.",
+    tag: "Grants",
+    icon: "/brand/icon-grants.svg",
     iconAlt: "",
   },
   {
     href: "/community",
     title: "Community Q&A",
     blurb: "Ask and answer practical growing questions by topic.",
-    tag: "Learn",
+    tag: "Discuss",
     icon: "/brand/icon-qa.svg",
     iconAlt: "",
   },
@@ -92,16 +101,21 @@ export default async function Home() {
           <HeroStats
             activeGrowers={heroStats.activeGrowers}
             landOffers={heroStats.landOffers}
-            eventsThisMonth={heroStats.eventsThisMonth}
+            events={heroStats.events}
           />
-          <p className="mt-6 max-w-2xl text-base italic leading-relaxed text-[var(--pb-muted)] md:text-sm">
-            This is a new site and needs to be populated. If you know of any
-            organisations that should be on here, please add to the{" "}
-            <Link href="/directory" className="underline hover:text-[var(--pb-ink)]">
-              community groups page
-            </Link>
-            .
-          </p>
+          <div className="mt-6 max-w-2xl rounded-[var(--pb-r-md)] border border-[var(--pb-line)] bg-[color-mix(in_srgb,var(--pb-bg-alt)_35%,var(--pb-surface))] px-4 py-3.5 shadow-[var(--pb-shadow-card)] sm:px-5 sm:py-4">
+            <p className="text-base italic leading-relaxed text-[var(--pb-ink-soft)] md:text-sm">
+              This is a new site and needs to be populated. If you know of any
+              organisations that should be on here, please add to the{" "}
+              <Link
+                href="/directory"
+                className="font-semibold not-italic text-[var(--pb-primary)] underline decoration-[var(--pb-primary)]/35 underline-offset-2 transition hover:text-[var(--pb-primary-dk)] hover:decoration-[var(--pb-primary-dk)]/50"
+              >
+                community groups page
+              </Link>
+              .
+            </p>
+          </div>
           <div className="relative mt-8 border-t border-[var(--pb-line)] pt-8 md:hidden">
             <div
               className="pointer-events-none absolute inset-0 opacity-[0.14]"

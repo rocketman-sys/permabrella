@@ -22,6 +22,10 @@ export function PostCard({
   const { post, authorDisplay } = item;
   const when =
     post.type === "event" ? formatEventWhen(post.eventDate) : null;
+  const closes =
+    post.type === "grant" && post.expiresAt
+      ? formatPosted(post.expiresAt)
+      : null;
   const sourceLabel =
     post.source === "eventbrite"
       ? "Eventbrite"
@@ -43,6 +47,11 @@ export function PostCard({
         {when ? (
           <p className="mt-2 text-base font-medium text-[var(--perm-secondary)] md:text-sm">
             {when}
+          </p>
+        ) : null}
+        {closes ? (
+          <p className="mt-2 text-base font-medium text-[var(--perm-secondary)] md:text-sm">
+            Closes {closes}
           </p>
         ) : null}
         {post.locationDetail ? (

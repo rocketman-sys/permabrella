@@ -30,11 +30,11 @@ function StatBlock({
 export function HeroStats({
   activeGrowers,
   landOffers,
-  eventsThisMonth,
+  events,
 }: {
   activeGrowers: number;
   landOffers: number;
-  eventsThisMonth: number;
+  events: number;
 }) {
   return (
     <div
@@ -55,10 +55,10 @@ export function HeroStats({
           ariaLabel={`${landOffers} land offers — open land connect`}
         />
         <StatBlock
-          value={eventsThisMonth}
-          label="Events this month"
+          value={events}
+          label="Events"
           href="/events"
-          ariaLabel={`${eventsThisMonth} events this month — open events`}
+          ariaLabel={`${events} events listed — open events`}
         />
       </div>
     </div>

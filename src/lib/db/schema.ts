@@ -25,6 +25,7 @@ export const postTypeEnum = pgEnum("post_type", [
   "land_available",
   "land_wanted",
   "directory_entry",
+  "grant",
 ]);
 
 export const postStatusEnum = pgEnum("post_status", [
