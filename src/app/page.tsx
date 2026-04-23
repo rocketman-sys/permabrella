@@ -72,8 +72,22 @@ export default async function Home() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-5 md:py-10">
-      <section className="grid overflow-visible rounded-[var(--pb-r-lg)] border border-[var(--pb-line)] bg-[var(--pb-surface)] shadow-[var(--pb-shadow-card)] md:grid-cols-[1.3fr_1fr]">
-        <div className="p-6 sm:p-10 md:p-14">
+      <section className="relative grid overflow-visible rounded-[var(--pb-r-lg)] border border-[var(--pb-line)] shadow-[var(--pb-shadow-card)] md:grid-cols-[1.3fr_1fr]">
+        <div
+          className="pointer-events-none absolute inset-0 z-0 rounded-[inherit]"
+          style={{
+            backgroundImage: `linear-gradient(
+              165deg,
+              color-mix(in srgb, var(--pb-surface) 90%, transparent) 0%,
+              color-mix(in srgb, var(--pb-surface) 86%, transparent) 45%,
+              color-mix(in srgb, var(--pb-bg-alt) 82%, transparent) 100%
+            ), var(--pb-hero-bg-tile)`,
+            backgroundSize: "100% 100%, 160px 160px",
+            backgroundRepeat: "no-repeat, repeat",
+          }}
+          aria-hidden
+        />
+        <div className="relative z-10 p-6 sm:p-10 md:p-14">
           <Badge className="border-[var(--pb-line)] bg-[var(--pb-bg)] text-[var(--pb-primary)]">
             Northern Rivers, NSW
           </Badge>
@@ -130,15 +144,7 @@ export default async function Home() {
             </div>
           </div>
         </div>
-        <div className="relative hidden min-h-[260px] bg-[var(--pb-bg-alt)] md:block">
-          <div
-            className="pointer-events-none absolute inset-0 opacity-[0.18]"
-            style={{
-              backgroundImage: "url('/brand/pattern-seed-scatter.svg')",
-              backgroundSize: "120px 120px",
-            }}
-            aria-hidden
-          />
+        <div className="relative z-10 hidden min-h-[260px] md:block">
           <div className="relative flex h-full min-h-[280px] items-center justify-center p-6 sm:p-8">
             <HeroHubArt logoSize={84} items={hubItems} />
           </div>

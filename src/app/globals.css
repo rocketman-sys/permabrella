@@ -21,6 +21,10 @@
   --pb-shadow-card: 0 1px 2px rgba(42, 36, 24, 0.04);
   --pb-shadow-card-hover: 0 4px 12px rgba(42, 36, 24, 0.08);
 
+  /* Tiled SVG backgrounds (public/) */
+  --pb-page-bg-tile: url("/meadow-stripe-tile.svg");
+  --pb-hero-bg-tile: url("/cottage-garden-tile.svg");
+
   --pb-font-display: var(--font-display), "Inter Tight", ui-sans-serif, system-ui,
     sans-serif;
   --pb-font-body: var(--font-body), "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
@@ -59,7 +63,17 @@
 }
 
 html {
-  background: var(--pb-bg);
+  background-color: var(--pb-bg);
+  /* Lighter wash so meadow tile reads clearly (matches former hero tuning). */
+  background-image: linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--pb-surface) 42%, transparent) 0%,
+      color-mix(in srgb, var(--pb-surface) 36%, transparent) 45%,
+      color-mix(in srgb, var(--pb-bg-alt) 34%, transparent) 100%
+    ),
+    var(--pb-page-bg-tile);
+  background-size: 100% 100%, 140px 140px;
+  background-repeat: no-repeat, repeat;
   color: var(--pb-ink);
   -webkit-font-smoothing: antialiased;
   /* Slightly larger base on narrow viewports so body copy stays readable on phones */
@@ -79,7 +93,7 @@ html {
 }
 
 body {
-  background: var(--pb-bg);
+  background: transparent;
   color: var(--pb-ink);
   font-family: var(--pb-font-body);
   line-height: 1.55;
