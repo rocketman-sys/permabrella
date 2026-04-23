@@ -6,7 +6,12 @@ export function PostList({
   basePath,
 }: {
   items: PostWithAuthor[];
-  basePath: "/events" | "/directory" | "/grants";
+  basePath:
+    | "/events"
+    | "/directory"
+    | "/grants"
+    | "/offerings"
+    | "/land-connect";
 }) {
   if (!items.length) {
     return (
