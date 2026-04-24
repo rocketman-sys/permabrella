@@ -97,12 +97,17 @@ export default async function Home() {
           <Badge className="border-[var(--pb-line)] bg-[var(--pb-bg)] text-[var(--pb-primary)]">
             Northern Rivers, NSW
           </Badge>
-          <h1 className="pb-display mt-5 max-w-3xl text-[2.125rem] leading-[1.08] tracking-tight text-[var(--pb-ink)] sm:text-4xl md:text-[2.75rem]">
-            PermaBrella — Northern Rivers permaculture hub
+          <h1 className="pb-display mt-5 max-w-3xl tracking-tight text-[var(--pb-ink)]">
+            <span className="block text-[2.125rem] leading-[1.04] sm:text-4xl md:text-[2.75rem]">
+              PermaBrella
+            </span>
+            <span className="mt-1 block text-[1.5rem] leading-[1.12] sm:text-[1.8rem] md:text-[2rem]">
+              Northern Rivers permaculture hub
+            </span>
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[var(--pb-ink-soft)] md:text-[17px]">
-            An umbrella platform connecting all things permaculture, food security,
-            and community resilience in our local region.
+            Connecting people, land, skills, events, and practical knowledge to
+            grow food security and community resilience in the Northern Rivers.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-2">
             <Link
@@ -125,15 +130,8 @@ export default async function Home() {
           />
           <div className="mt-6 max-w-2xl rounded-[var(--pb-r-md)] border border-[var(--pb-line)] bg-[color-mix(in_srgb,var(--pb-bg-alt)_35%,var(--pb-surface))] px-4 py-3.5 shadow-[var(--pb-shadow-card)] sm:px-5 sm:py-4">
             <p className="text-base italic leading-relaxed text-[var(--pb-ink-soft)] md:text-sm">
-              This is a new site and needs to be populated. If you know of any
-              organisations that should be on here, please add to the{" "}
-              <Link
-                href="/directory"
-                className="font-semibold not-italic text-[var(--pb-primary)] underline decoration-[var(--pb-primary)]/35 underline-offset-2 transition hover:text-[var(--pb-primary-dk)] hover:decoration-[var(--pb-primary-dk)]/50"
-              >
-                community groups page
-              </Link>
-              .
+              PermaBrella helps turn local capacity into local action — growing food,
+              participation, and resilience in the process.
             </p>
           </div>
           <div className="relative mt-8 border-t border-[var(--pb-line)] pt-8 md:hidden">
