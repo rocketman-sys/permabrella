@@ -117,7 +117,7 @@ export default async function Home() {
               Post to the switchboard
             </Link>
             <Link
-              href="/submit"
+              href="/how-it-works"
               className="inline-flex min-h-12 items-center justify-center rounded-[var(--pb-r-sm)] border border-[var(--pb-line)] bg-transparent px-5 py-3 text-base font-semibold text-[var(--pb-ink)] transition hover:bg-[var(--pb-bg)]"
             >
               How it works

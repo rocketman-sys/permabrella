@@ -20,6 +20,14 @@ export function Footer() {
           <p className="text-base font-medium text-[var(--perm-text)] md:text-sm">Explore</p>
           <ul className="mt-2 space-y-1.5 text-base text-[var(--perm-text-secondary)] md:text-sm md:space-y-1">
             <li>
+              <Link
+                href="/how-it-works"
+                className="hover:text-[var(--perm-secondary)]"
+              >
+                How it works
+              </Link>
+            </li>
+            <li>
               <Link href="/events" className="hover:text-[var(--perm-secondary)]">
                 Events & workshops
               </Link>
