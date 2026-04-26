@@ -7,7 +7,7 @@ export default async function CommunityPage() {
   const topicRows = await listTopicsOrdered();
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-10">
+    <div className="mx-auto max-w-5xl px-4 py-10">
       <PageHeroBar
         title="Community Q&A"
         subtitle="Practical questions by topic — soil, water, land, preservation, and more."

@@ -23,7 +23,7 @@ const h2 =
 
 export default function HowItWorksPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-8 sm:px-5 md:py-10">
+    <div className="mx-auto max-w-5xl px-4 py-8 sm:px-5 md:py-10">
       <PageHeroBar
         title="How it works"
         subtitle="PermaBrella is a living regional switchboard — not a catalogue of noise, but a connective layer for practical action in the Northern Rivers."

@@ -14,6 +14,7 @@ export async function GET(req: Request) {
     type !== "event" &&
     type !== "directory_entry" &&
     type !== "grant" &&
+    type !== "news" &&
     type !== "offering" &&
     type !== "wanted" &&
     type !== "land_available" &&
@@ -22,7 +23,7 @@ export async function GET(req: Request) {
     return NextResponse.json(
       {
         error:
-          "Query param type must be event, directory_entry, grant, offering, wanted, land_available, or land_wanted",
+          "Query param type must be event, directory_entry, grant, news, offering, wanted, land_available, or land_wanted",
       },
       { status: 400 }
     );
@@ -79,6 +80,7 @@ export async function POST(req: Request) {
     type !== "event" &&
     type !== "directory_entry" &&
     type !== "grant" &&
+    type !== "news" &&
     type !== "offering" &&
     type !== "wanted" &&
     type !== "land_available" &&
@@ -87,7 +89,7 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         error:
-          "type must be event, directory_entry, grant, offering, wanted, land_available, or land_wanted",
+          "type must be event, directory_entry, grant, news, offering, wanted, land_available, or land_wanted",
       },
       { status: 400 }
     );
@@ -148,7 +150,8 @@ export async function POST(req: Request) {
     locationDetail: locationDetail || null,
     eventDate,
     expiresAt,
-    tags: type === "grant" ? ["grant"] : [],
+    tags:
+      type === "grant" ? ["grant"] : type === "news" ? ["news"] : [],
   });
 
   return NextResponse.json({ id }, { status: 201 });

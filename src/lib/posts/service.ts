@@ -52,6 +52,29 @@ export async function listPostsByType(options: {
   }));
 }
 
+/**
+ * Lists `news` posts. If the DB has not had migration `0004_post_type_news` applied,
+ * the driver throws; we return an empty list so pages still render (fallback copy can show).
+ */
+export async function listNewsPostsSafe(options: {
+  region?: Region | null;
+  limit?: number;
+}): Promise<PostWithAuthor[]> {
+  try {
+    return await listPostsByType({
+      type: "news",
+      region: options.region,
+      limit: options.limit,
+    });
+  } catch (err) {
+    console.warn(
+      "[permabrella] News query failed — run `npm run db:migrate` (0004_post_type_news) if `post_type` lacks `news`.",
+      err
+    );
+    return [];
+  }
+}
+
 export async function listPostsByTypes(options: {
   types: PostType[];
   region?: Region | null;

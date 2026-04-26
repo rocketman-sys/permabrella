@@ -54,6 +54,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link href="/news" className="hover:text-[var(--perm-secondary)]">
+                News and updates
+              </Link>
+            </li>
+            <li>
               <Link
                 href="/community"
                 className="hover:text-[var(--perm-secondary)]"

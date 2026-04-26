@@ -53,14 +53,20 @@ export function HeroHubArt({
       {centerHref ? (
         <Link
           href={centerHref}
-          className="absolute inset-0 z-20 flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--pb-primary)]"
-          aria-label="Back to homepage"
-          title="Back to homepage"
+          className="group absolute inset-0 z-20 flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--pb-primary)]"
+          aria-label="PermaBrella Home"
+          title="PermaBrella Home"
         >
           <LogoPermaBrella
             size={centerLogoSize}
             className="relative z-10 drop-shadow-sm transition-transform duration-200 ease-out hover:scale-105"
           />
+          <span
+            className="pb-tag pointer-events-none absolute left-1/2 top-[calc(50%+44px)] z-30 mt-1.5 -translate-x-1/2 translate-y-2 whitespace-nowrap rounded-[var(--pb-r-sm)] bg-[color-mix(in_srgb,var(--pb-surface)_92%,transparent)] px-2 py-0.5 text-[var(--pb-accent-2)] opacity-0 shadow-[var(--pb-shadow-card)] ring-1 ring-[var(--pb-line)] backdrop-blur-[2px] transition-[opacity,transform] duration-200 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
+            aria-hidden
+          >
+            Home
+          </span>
         </Link>
       ) : (
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
@@ -88,7 +94,7 @@ export function HeroHubArt({
           >
             <div className={`transition-transform duration-200 ease-out group-hover:scale-105 group-focus-visible:scale-105 ${isActive ? "scale-110" : ""}`}>
               <div
-                className={`drop-shadow-sm ${isActive ? "rounded-[12px] bg-[color-mix(in_srgb,var(--pb-surface)_92%,transparent)] ring-1 ring-[var(--pb-primary)]/35" : ""}`}
+                className="drop-shadow-sm"
                 style={{
                   width: logoSize,
                   height: logoSize,

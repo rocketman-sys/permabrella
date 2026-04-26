@@ -10,6 +10,7 @@ export function PostList({
     | "/events"
     | "/directory"
     | "/grants"
+    | "/news"
     | "/offerings"
     | "/land-connect";
 }) {

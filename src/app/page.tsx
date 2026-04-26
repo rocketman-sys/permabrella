@@ -8,7 +8,7 @@ import { HeroHubArt } from "@/components/brand/HeroHubArt";
 import { HeroStats } from "@/components/brand/HeroStats";
 import { GlobalSearchForm } from "@/components/search/GlobalSearchForm";
 import { listTopicsOrdered } from "@/lib/community/service";
-import { getHeroStats } from "@/lib/posts/service";
+import { getHeroStats, listNewsPostsSafe } from "@/lib/posts/service";
 
 /** Order matches navbar and hero hub satellites clockwise from the top. */
 const panels = [
@@ -69,12 +69,51 @@ const hubItems = panels.map((p) => ({
   tag: p.tag,
 }));
 
+type HomeNewsItem = { key: string; title: string; body: string; href?: string };
+
+function excerptText(text: string, max = 200): string {
+  const t = text.trim().replace(/\s+/g, " ");
+  if (t.length <= max) return t;
+  return `${t.slice(0, max - 1).trimEnd()}…`;
+}
+
+const NEWS_SECTION_FALLBACK: Omit<HomeNewsItem, "key">[] = [
+  {
+    title: "How it works page is now live",
+    body: "Read the project vision and how PermaBrella functions as an evolving networking node in the regional communal fabric.",
+    href: "/how-it-works",
+  },
+  {
+    title: "Exchange and land connect listings are active",
+    body: "You can now post offerings/wants and land opportunities directly through the switchboard.",
+    href: "/submit",
+  },
+  {
+    title: "Global search now spans listings and community threads",
+    body: "Search events, exchange, land connect, groups, grants, news, and practical Q&A from one place.",
+    href: "/search",
+  },
+];
+
 export default async function Home() {
-  const [heroStats, topicRows] = await Promise.all([
+  const [heroStats, topicRows, newsRows] = await Promise.all([
     getHeroStats(),
     listTopicsOrdered(),
+    listNewsPostsSafe({ limit: 12 }),
   ]);
   const topicOptions = topicRows.map((t) => ({ slug: t.slug, name: t.name }));
+
+  const fromDb: HomeNewsItem[] = newsRows.map(({ post }) => ({
+    key: post.id,
+    title: post.title,
+    body: excerptText(post.description),
+    href: `/news/${post.id}`,
+  }));
+  const fallbackWithKeys: HomeNewsItem[] = NEWS_SECTION_FALLBACK.map((item, i) => ({
+    key: `fallback-${i}`,
+    ...item,
+  }));
+  const newsUpdates: HomeNewsItem[] = [...fromDb, ...fallbackWithKeys].slice(0, 8);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-5 md:py-10">
@@ -143,14 +182,20 @@ export default async function Home() {
               }}
               aria-hidden
             />
-            <div className="relative flex justify-center">
-              <HeroHubArt logoSize={68} items={hubItems} />
+            <div className="relative flex flex-col items-center">
+              <p className="mb-4 text-center text-xs font-medium uppercase tracking-wide text-[var(--pb-muted)]">
+                Visual menu - click an icon to navigate
+              </p>
+              <HeroHubArt logoSize={68} items={hubItems} centerHref="/" />
             </div>
           </div>
         </div>
         <div className="relative z-10 hidden min-h-[260px] md:block">
-          <div className="relative flex h-full min-h-[280px] items-center justify-center p-6 sm:p-8">
-            <HeroHubArt logoSize={84} items={hubItems} />
+          <div className="relative flex h-full min-h-[280px] flex-col items-center justify-center p-6 sm:p-8">
+            <p className="mb-4 text-center text-xs font-medium uppercase tracking-wide text-[var(--pb-muted)]">
+              Visual menu - click an icon to navigate
+            </p>
+            <HeroHubArt logoSize={84} items={hubItems} centerHref="/" />
           </div>
         </div>
       </section>
@@ -195,6 +240,46 @@ export default async function Home() {
             />
           ))}
         </div>
+      </section>
+
+      <section className="mt-12">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h2 className="text-xl font-bold tracking-tight text-[var(--pb-ink)] md:text-lg">
+            News and updates
+          </h2>
+          <Link
+            href="/news/new"
+            className="inline-flex min-h-10 items-center justify-center rounded-[var(--pb-r-sm)] border border-[var(--pb-line)] bg-[var(--pb-surface)] px-3.5 py-2 text-sm font-semibold text-[var(--pb-ink)] transition hover:bg-[var(--pb-bg)]"
+          >
+            Add a news item
+          </Link>
+        </div>
+        {newsUpdates.length ? (
+          <ul className="mt-4 space-y-3">
+            {newsUpdates.map((item) => (
+              <li
+                key={item.key}
+                className="rounded-[var(--pb-r-md)] border border-[var(--pb-line)] bg-[var(--pb-surface)] p-4 shadow-[var(--pb-shadow-card)]"
+              >
+                <h3 className="text-base font-semibold text-[var(--pb-ink)]">
+                  {item.href ? (
+                    <Link href={item.href} className="hover:underline">
+                      {item.title}
+                    </Link>
+                  ) : (
+                    item.title
+                  )}
+                </h3>
+                <p className="mt-1 text-sm text-[var(--pb-muted)]">{item.body}</p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="mt-4 rounded-[var(--pb-r-md)] border border-dashed border-[var(--pb-line)] bg-[var(--pb-surface)] px-4 py-5 text-sm text-[var(--pb-muted)]">
+            No updates posted yet. This section will highlight noteworthy
+            regional news and major project updates.
+          </div>
+        )}
       </section>
 
       <section className="mt-12">

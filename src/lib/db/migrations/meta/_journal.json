@@ -29,6 +29,13 @@
       "when": 1776904318131,
       "tag": "0003_post_type_grant",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1777190049042,
+      "tag": "0004_post_type_news",
+      "breakpoints": true
     }
   ]
 }

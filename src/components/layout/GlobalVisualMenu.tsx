@@ -59,6 +59,9 @@ export function GlobalVisualMenu() {
       className="pointer-events-auto hidden md:block"
       aria-label="Visual section menu"
     >
+      <p className="mb-4 text-center text-xs font-medium uppercase tracking-wide text-[var(--pb-muted)]">
+        Visual menu - click an icon to navigate
+      </p>
       <HeroHubArt
         items={items}
         logoSize={50}

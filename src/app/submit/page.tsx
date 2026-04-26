@@ -9,6 +9,7 @@ const options: { href: string; label: string; note: string }[] = [
     label: "Community group",
     note: "Live — sign in to publish",
   },
+  { href: "/news/new", label: "News or update", note: "Live — sign in to publish" },
   { href: "/grants/new", label: "Grant or funding round", note: "Live — sign in to publish" },
   {
     href: "/offerings/new",
@@ -21,10 +22,10 @@ const options: { href: string; label: string; note: string }[] = [
 
 export default function SubmitPage() {
   return (
-    <div className="mx-auto max-w-2xl px-4 py-12">
+    <div className="mx-auto max-w-5xl px-4 py-12">
       <PageHeroBar
         title="Post to the switchboard"
-        subtitle="Choose what you would like to share. Events, groups, grants, exchange listings, land listings, and community Q&A are all live. Everything here is visible to everyone — you only need to sign in when you are ready to publish."
+        subtitle="Choose what you would like to share. Events, groups, news, grants, exchange listings, land listings, and community Q&A are all live. Everything here is visible to everyone — you only need to sign in when you are ready to publish."
       />
       <ul className="mt-8 space-y-3">
         {options.map((o) => (

@@ -11,6 +11,7 @@ function postHref(type: string, id: string): string {
   if (type === "event") return `/events/${id}`;
   if (type === "directory_entry") return `/directory/${id}`;
   if (type === "grant") return `/grants/${id}`;
+  if (type === "news") return `/news/${id}`;
   if (type === "land_available" || type === "land_wanted") return `/land-connect/${id}`;
   return `/offerings/${id}`;
 }
@@ -19,6 +20,7 @@ function postDomainLabel(type: string): string {
   if (type === "event") return "Event";
   if (type === "directory_entry") return "Community group";
   if (type === "grant") return "Grant";
+  if (type === "news") return "News";
   if (type === "land_available" || type === "land_wanted") return "Land";
   if (type === "wanted") return "Wanted";
   return "Offering";
@@ -54,10 +56,10 @@ export default async function SearchPage({
   const total = posts.length + threads.length;
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-5 md:py-10">
+    <div className="mx-auto max-w-5xl px-4 py-8 sm:px-5 md:py-10">
       <PageHeroBar
         title="Search"
-        subtitle="Search across events, offerings/wants/exchange, land connect, directory, grants, and community threads."
+        subtitle="Search across events, offerings/wants/exchange, land connect, directory, grants, news, and community threads."
       />
 
       <div className="mt-5">
