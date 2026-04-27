@@ -166,6 +166,7 @@ export default async function Home() {
             activeGrowers={heroStats.activeGrowers}
             activeThreads={heroStats.activeThreads}
             events={heroStats.events}
+            grants={heroStats.grants}
           />
           <div className="mt-6 max-w-2xl rounded-[var(--pb-r-md)] border border-[var(--pb-line)] bg-[color-mix(in_srgb,var(--pb-bg-alt)_35%,var(--pb-surface))] px-4 py-3.5 shadow-[var(--pb-shadow-card)] sm:px-5 sm:py-4">
             <p className="text-base italic leading-relaxed text-[var(--pb-ink-soft)] md:text-sm">

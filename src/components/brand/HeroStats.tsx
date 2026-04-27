@@ -31,17 +31,19 @@ export function HeroStats({
   activeGrowers,
   activeThreads,
   events,
+  grants,
 }: {
   activeGrowers: number;
   activeThreads: number;
   events: number;
+  grants: number;
 }) {
   return (
     <div
       className="mt-8 border-t border-dashed border-[var(--pb-line)] pt-8"
       aria-label="Switchboard activity"
     >
-      <div className="grid grid-cols-3 gap-3 sm:gap-6 md:gap-10">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-6 md:gap-10">
         <StatBlock
           value={activeGrowers}
           label="Community groups"
@@ -59,6 +61,12 @@ export function HeroStats({
           label="Events"
           href="/events"
           ariaLabel={`${events} events listed — open events`}
+        />
+        <StatBlock
+          value={grants}
+          label="Grants"
+          href="/grants"
+          ariaLabel={`${grants} grants listed — open grants`}
         />
       </div>
     </div>

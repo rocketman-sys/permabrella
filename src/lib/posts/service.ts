@@ -313,8 +313,9 @@ export async function getHeroStats(): Promise<{
   activeGrowers: number;
   activeThreads: number;
   events: number;
+  grants: number;
 }> {
-  const [growersRow, threadsRow, eventsRow] = await Promise.all([
+  const [growersRow, threadsRow, eventsRow, grantsRow] = await Promise.all([
     db
       .select({ n: count() })
       .from(posts)
@@ -328,11 +329,16 @@ export async function getHeroStats(): Promise<{
       .select({ n: count() })
       .from(posts)
       .where(and(eq(posts.type, "event"), eq(posts.status, "active"))),
+    db
+      .select({ n: count() })
+      .from(posts)
+      .where(and(eq(posts.type, "grant"), eq(posts.status, "active"))),
   ]);
 
   return {
     activeGrowers: Number(growersRow[0]?.n ?? 0),
     activeThreads: Number(threadsRow[0]?.n ?? 0),
     events: Number(eventsRow[0]?.n ?? 0),
+    grants: Number(grantsRow[0]?.n ?? 0),
   };
 }
