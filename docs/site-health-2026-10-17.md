@@ -25,7 +25,7 @@ Password reset uses hashed, expiring, single-use tokens; per-IP request limits; 
 
 The existing production database was provisioned without a Drizzle migration ledger. Do not replay the historical migrations against it. `node --import tsx scripts/apply-recovery-schema.ts` previews the additive `0005_password_recovery.sql` migration. Add `--apply` to run it atomically; a second run makes no changes. Fresh databases can use the normal migration sequence. The additive recovery schema was applied and its second run verified during this release.
 
-Production email delivery still requires a valid `RESEND_API_KEY` and `EMAIL_FROM` using a verified sender. Configure them in the existing Vercel project and redeploy. The page clearly reports temporary unavailability while email is unconfigured. A real inbox delivery check is still needed after configuration; no email was sent by the automated tests.
+At the user's request, production and the ignored local configuration now reuse Beam Car Wash's send-only Resend key. Production stores it as a sensitive environment variable. The sender is `PermaBrella <noreply@ecostoves.com.au>`, using the same verified sending address as Beam with PermaBrella's display name. Resend accepted a synthetic delivery test using its `delivered@resend.dev` simulator. No real inbox message was sent. `permabrella.org` is not yet verified in Resend; verify it before switching to a sender on that domain. The page reports temporary unavailability if email configuration is removed.
 
 Event imports also need their provider configuration and `CRON_SECRET`; no provider credentials were present during the review. No synthetic events, news or Exchange posts were added.
 
