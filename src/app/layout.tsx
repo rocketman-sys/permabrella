@@ -19,6 +19,14 @@ const fontBody = Nunito_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
+const shareImage = {
+  url: "/brand/share-permabrella-v1.png",
+  width: 1200,
+  height: 630,
+  type: "image/png",
+  alt: "PermaBrella umbrella and growing plant logo on a cream background",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
   title: "PermaBrella — Northern Rivers permaculture hub",
@@ -37,6 +45,11 @@ export const metadata: Metadata = {
     url: SITE_ORIGIN,
     locale: "en_AU",
     type: "website",
+    images: [shareImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [shareImage],
   },
 };
 
