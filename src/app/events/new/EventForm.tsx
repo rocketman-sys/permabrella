@@ -37,7 +37,8 @@ export function EventForm() {
         <label htmlFor="eventDate" className="text-sm font-medium text-[var(--perm-text)]">
           When (optional)
         </label>
-        <Input id="eventDate" name="eventDate" type="datetime-local" className="mt-1" />
+        <Input id="eventDate" name="eventDate" type="datetime-local" aria-describedby="eventDate-hint" className="mt-1" />
+        <p id="eventDate-hint" className="mt-1 text-xs text-[var(--pb-muted)]">Northern Rivers time (Australia/Sydney). Leave blank if the date is not confirmed.</p>
       </div>
       <div>
         <label htmlFor="region" className="text-sm font-medium text-[var(--perm-text)]">

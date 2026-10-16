@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
-import { formatEventWhen, formatPosted } from "@/lib/posts/format";
+import { FreshnessNotice } from "./FreshnessNotice";
+import { formatPosted } from "@/lib/posts/format";
 import type { PostWithAuthor } from "@/lib/posts/service";
 import { REGIONS } from "@/lib/regions";
 
@@ -30,8 +31,10 @@ export function PostDetail({
   backLabel: string;
 }) {
   const { post, authorDisplay } = item;
-  const when =
-    post.type === "event" ? formatEventWhen(post.eventDate) : null;
+  // Imported status text ages independently of the live deadline/status notice.
+  const description = post.type === "grant"
+    ? post.description.split("\n\n").filter((part) => !/^(Status|Funding|Who can apply):/i.test(part.trim())).join("\n\n")
+    : post.description;
   const sourceLabel =
     post.source === "eventbrite"
       ? "Eventbrite"
@@ -54,32 +57,23 @@ export function PostDetail({
 
       <p className="mt-2 text-sm text-[var(--perm-muted)]">
         Source: {sourceLabel}
-        {authorDisplay ? ` · Shared by ${authorDisplay}` : null}
+        {authorDisplay && !authorDisplay.includes("@") ? ` · Shared by ${authorDisplay}` : null}
         {" · Listed "}
-        {formatPosted(post.createdAt)}
+        {formatPosted(post.createdAt)}{post.updatedAt > post.createdAt ? ` · Updated ${formatPosted(post.updatedAt)}` : ""}
       </p>
 
-      {when ? (
-        <p className="mt-4 text-lg font-medium text-[var(--perm-secondary)]">
-          {when}
-        </p>
-      ) : null}
-
+      <FreshnessNotice post={post} detail />
+      {post.type === "grant" ? <dl className="mt-5 grid gap-4 sm:grid-cols-2">
+        {[["Funding", post.metadata.funding], ["Who can apply", post.metadata.whoCanApply]].map(([label, value]) => typeof value === "string" && value ? <div key={label as string}><dt className="text-xs font-semibold uppercase text-[var(--pb-muted)]">{label as string}</dt><dd className="mt-1 text-sm">{value}</dd></div> : null)}
+      </dl> : null}
       {post.locationDetail ? (
         <p className="mt-2 text-[var(--perm-text-secondary)]">
           {post.locationDetail}
         </p>
       ) : null}
 
-      {post.expiresAt ? (
-        <p className="mt-3 text-base font-medium text-[var(--perm-secondary)]">
-          {post.type === "grant" ? "Applications close " : "Closes "}
-          {formatPosted(post.expiresAt)}
-        </p>
-      ) : null}
-
       <div className="mt-6 max-w-none whitespace-pre-wrap text-base leading-relaxed text-[var(--perm-text)]">
-        {post.description}
+        {description}
       </div>
 
       {post.contactPhone || post.contactEmail || post.contactMethod ? (
@@ -132,7 +126,7 @@ export function PostDetail({
             rel="noopener noreferrer"
             className={btnPrimary}
           >
-            Open external link
+            {post.type === "grant" ? "Check funding with the provider" : post.type === "event" ? "Event details & booking" : "Visit website"}
           </a>
         ) : null}
         <Link href={backHref} className={btnGhost}>

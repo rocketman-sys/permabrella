@@ -3,6 +3,7 @@ import { auth, signOut } from "@/lib/auth";
 import { Button } from "@/components/ui/Button";
 import { LogoPermaBrella } from "@/components/brand/Logo";
 import { ActiveNavLinks } from "./ActiveNavLinks";
+import { MobileMenu } from "./MobileMenu";
 
 const navLinks = [
   { href: "/events", label: "Events" },
@@ -24,10 +25,15 @@ const linkSecondary =
 
 export async function Navbar() {
   const session = await auth();
+  const account = session?.user ? (
+    <form action={async () => { "use server"; await signOut({ redirectTo: "/" }); }}>
+      <Button variant="ghost" type="submit">Sign out</Button>
+    </form>
+  ) : <><Link href="/login" className={linkGhost}>Log in</Link><Link href="/register" className={linkPrimary}>Join free</Link></>;
 
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--pb-line)] bg-[var(--pb-surface)]/95 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2.5">
         <Link
           href="/"
           className="flex items-center gap-2.5 text-[var(--pb-ink)]"
@@ -37,12 +43,12 @@ export async function Navbar() {
             PermaBrella
           </span>
         </Link>
-        <nav className="order-3 flex w-full flex-wrap gap-x-4 gap-y-2 text-base font-semibold text-[var(--pb-ink)] md:order-none md:flex md:w-auto md:items-center md:text-sm">
+        <nav aria-label="Main navigation" className="hidden items-center gap-4 text-sm font-semibold lg:flex">
           <ActiveNavLinks links={navLinks} />
         </nav>
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="hidden items-center gap-2 lg:flex">
           <Link href="/submit" className={linkSecondary}>
-            Post to Switchboard
+            Post a listing
           </Link>
           {session?.user ? (
             <>
@@ -71,6 +77,7 @@ export async function Navbar() {
             </>
           )}
         </div>
+        <MobileMenu links={navLinks} account={account} />
       </div>
     </header>
   );

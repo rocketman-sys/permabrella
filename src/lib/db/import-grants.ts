@@ -15,6 +15,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { basename, resolve } from "node:path";
 import { and, eq } from "drizzle-orm";
 import { parseRegionParam } from "../regions";
+import { parseSydneyDateTime } from "../posts/dates";
 import { db } from "./index";
 import { posts, users } from "./schema";
 
@@ -163,6 +164,13 @@ async function main(): Promise<void> {
     };
     const source = (row.source ?? "").trim();
     if (source) metadata.source = source;
+    const verifiedAt = (row.last_verified_at ?? "").trim();
+    if (verifiedAt && /^\d{4}-\d{2}-\d{2}$/.test(verifiedAt)) metadata.lastVerifiedAt = verifiedAt;
+    const deadlineDate = (row.deadline_date ?? "").trim();
+    if (deadlineDate && /^\d{4}-\d{2}-\d{2}$/.test(deadlineDate)) metadata.deadlineDate = deadlineDate;
+    const deadlineLocal = (row.deadline_local ?? "").trim();
+    const expiresAt = deadlineLocal ? parseSydneyDateTime(deadlineLocal) : null;
+    if (deadlineLocal && !expiresAt) throw new Error(`Invalid NSW deadline for ${title}`);
 
     const externalUrl = (row.link ?? "").trim() || null;
     const values = {
@@ -175,6 +183,7 @@ async function main(): Promise<void> {
       contactEmail: null,
       contactMethod: null,
       externalUrl,
+      expiresAt,
       imageUrl: null,
       region: region ?? null,
       locationDetail: null,

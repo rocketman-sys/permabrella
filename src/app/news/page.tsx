@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { PostList } from "@/components/posts/PostList";
@@ -5,6 +6,8 @@ import { PageHeroBar } from "@/components/layout/PageHeroBar";
 import { RegionFilter } from "@/components/layout/RegionFilter";
 import { listNewsPostsSafe } from "@/lib/posts/service";
 import { parseRegionParam } from "@/lib/regions";
+
+export const metadata: Metadata = { title: "Community news | PermaBrella" };
 
 export default async function NewsPage({
   searchParams,
@@ -40,7 +43,7 @@ export default async function NewsPage({
       </div>
 
       <div className="mt-8">
-        <PostList items={items} basePath="/news" />
+        <PostList items={items} basePath="/news" region={region} />
       </div>
     </div>
   );

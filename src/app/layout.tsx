@@ -54,8 +54,9 @@ export default async function RootLayout({
     >
       <body className="min-h-full flex flex-col font-sans">
         <AppProviders session={session}>
+          <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:p-3">Skip to content</a>
           <Navbar />
-          <main className="relative flex-1">{children}</main>
+          <main id="main-content" className="relative flex-1">{children}</main>
           <Footer />
         </AppProviders>
       </body>

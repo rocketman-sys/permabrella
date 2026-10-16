@@ -1,6 +1,8 @@
-import { and, count, desc, eq, inArray } from "drizzle-orm";
+import { and, count, desc, eq, inArray, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { posts, threads, users } from "@/lib/db/schema";
+
+import { listingVisibility } from "./visibility";
 
 type PostRow = typeof posts.$inferSelect;
 type PostType = PostRow["type"];
@@ -25,14 +27,17 @@ export async function listPostsByType(options: {
   type: PostType;
   region?: Region | null;
   limit?: number;
+  view?: "current" | "past";
 }): Promise<PostWithAuthor[]> {
   const limit = Math.min(options.limit ?? 60, 100);
-  const conditions = [eq(posts.type, options.type), eq(posts.status, "active")];
+  const conditions = [eq(posts.type, options.type), listingVisibility(options.view)];
   if (options.region) {
     conditions.push(eq(posts.region, options.region));
   }
 
-  const orderBy = [desc(posts.createdAt)];
+  const orderBy = options.type === "event"
+    ? [sql`${posts.eventDate} asc nulls last`, desc(posts.updatedAt)]
+    : [desc(posts.updatedAt)];
 
   const rows = await db
     .select({
@@ -59,6 +64,7 @@ export async function listPostsByType(options: {
 export async function listNewsPostsSafe(options: {
   region?: Region | null;
   limit?: number;
+  view?: "current" | "past";
 }): Promise<PostWithAuthor[]> {
   try {
     return await listPostsByType({
@@ -79,13 +85,14 @@ export async function listPostsByTypes(options: {
   types: PostType[];
   region?: Region | null;
   limit?: number;
+  view?: "current" | "past";
 }): Promise<PostWithAuthor[]> {
   const limit = Math.min(options.limit ?? 60, 100);
   if (!options.types.length) return [];
 
   const conditions = [
     inArray(posts.type, options.types),
-    eq(posts.status, "active"),
+    listingVisibility(options.view),
   ];
   if (options.region) {
     conditions.push(eq(posts.region, options.region));
@@ -100,7 +107,7 @@ export async function listPostsByTypes(options: {
     .from(posts)
     .leftJoin(users, eq(posts.authorId, users.id))
     .where(and(...conditions))
-    .orderBy(desc(posts.createdAt))
+    .orderBy(desc(posts.updatedAt))
     .limit(limit);
 
   return rows.map((r) => ({
@@ -122,7 +129,7 @@ export async function getActivePostById(
     .from(posts)
     .leftJoin(users, eq(posts.authorId, users.id))
     .where(
-      and(eq(posts.id, id), eq(posts.type, type), eq(posts.status, "active"))
+      and(eq(posts.id, id), eq(posts.type, type), inArray(posts.status, ["active", "expired"]))
     )
     .limit(1);
 
@@ -147,7 +154,7 @@ export async function getActivePostByIdInTypes(
     })
     .from(posts)
     .leftJoin(users, eq(posts.authorId, users.id))
-    .where(and(eq(posts.id, id), inArray(posts.type, types), eq(posts.status, "active")))
+    .where(and(eq(posts.id, id), inArray(posts.type, types), inArray(posts.status, ["active", "expired"])))
     .limit(1);
 
   if (!rows.length) return null;
@@ -260,47 +267,15 @@ export async function upsertImportedEvent(input: {
   return "inserted";
 }
 
-export async function listRecentForFeed(options: {
-  limit?: number;
-}): Promise<{ events: PostWithAuthor[]; directory: PostWithAuthor[] }> {
-  const limit = Math.min(options.limit ?? 6, 20);
-  const half = Math.ceil(limit / 2);
-
-  const eventRows = await db
-    .select({
-      post: posts,
-      displayName: users.displayName,
-      username: users.username,
-    })
-    .from(posts)
-    .leftJoin(users, eq(posts.authorId, users.id))
-    .where(and(eq(posts.type, "event"), eq(posts.status, "active")))
-    .orderBy(desc(posts.createdAt))
-    .limit(half);
-
-  const dirRows = await db
-    .select({
-      post: posts,
-      displayName: users.displayName,
-      username: users.username,
-    })
-    .from(posts)
-    .leftJoin(users, eq(posts.authorId, users.id))
-    .where(
-      and(eq(posts.type, "directory_entry"), eq(posts.status, "active"))
-    )
-    .orderBy(desc(posts.createdAt))
-    .limit(half);
-
-  const mapRow = (r: (typeof eventRows)[number]): PostWithAuthor => ({
-    post: r.post,
-    authorDisplay: authorLabel(r.displayName, r.username),
-  });
-
-  return {
-    events: eventRows.map(mapRow),
-    directory: dirRows.map(mapRow),
-  };
+export async function listRecentForFeed(options: { region?: Region }) {
+  const [events, opportunities, directory, grants] = await Promise.all([
+    listPostsByType({ type: "event", region: options.region, limit: 2 }),
+    listPostsByTypes({ types: ["offering", "wanted", "land_available", "land_wanted"], region: options.region, limit: 2 }),
+    listPostsByType({ type: "directory_entry", region: options.region, limit: 2 }),
+    listPostsByType({ type: "grant", region: options.region, limit: 60 }),
+  ]);
+  const funding = grants.filter(({ post }) => post.expiresAt && post.expiresAt > new Date()).slice(0, 1);
+  return { events, opportunities, directory, funding };
 }
 
 /**
@@ -328,11 +303,11 @@ export async function getHeroStats(): Promise<{
     db
       .select({ n: count() })
       .from(posts)
-      .where(and(eq(posts.type, "event"), eq(posts.status, "active"))),
+      .where(and(eq(posts.type, "event"), listingVisibility())),
     db
       .select({ n: count() })
       .from(posts)
-      .where(and(eq(posts.type, "grant"), eq(posts.status, "active"))),
+      .where(and(eq(posts.type, "grant"), listingVisibility())),
   ]);
 
   return {

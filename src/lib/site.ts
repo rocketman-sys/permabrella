@@ -1,2 +1,2 @@
 /** Canonical production origin (no trailing slash). */
-export const SITE_ORIGIN = "https://permabrella.org";
+export const SITE_ORIGIN = "https://www.permabrella.org";

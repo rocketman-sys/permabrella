@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { PostList } from "@/components/posts/PostList";
@@ -5,6 +6,8 @@ import { PageHeroBar } from "@/components/layout/PageHeroBar";
 import { RegionFilter } from "@/components/layout/RegionFilter";
 import { listPostsByType } from "@/lib/posts/service";
 import { parseRegionParam } from "@/lib/regions";
+
+export const metadata: Metadata = { title: "Community groups | PermaBrella" };
 
 export default async function DirectoryPage({
   searchParams,
@@ -44,7 +47,7 @@ export default async function DirectoryPage({
       </div>
 
       <div className="mt-8">
-        <PostList items={items} basePath="/directory" />
+        <PostList items={items} basePath="/directory" region={region} />
       </div>
     </div>
   );

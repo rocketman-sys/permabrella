@@ -5,6 +5,7 @@ import { parseRegionParam } from "@/lib/regions";
 import { createUserPost } from "@/lib/posts/service";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { parseSydneyDateTime } from "@/lib/posts/dates";
 
 export type FormState = { error?: string } | null;
 
@@ -25,6 +26,9 @@ export async function createLandListingAction(
   const contactMethod = String(formData.get("contactMethod") ?? "").trim();
   const externalUrl = String(formData.get("externalUrl") ?? "").trim();
   const imageUrl = String(formData.get("imageUrl") ?? "").trim();
+  const expiresRaw = String(formData.get("expiresAt") ?? "").trim();
+  const expiresAt = expiresRaw ? parseSydneyDateTime(expiresRaw) : null;
+  if (expiresRaw && !expiresAt) return { error: "Please enter a valid availability end date and time." };
 
   if (listingType !== "land_available" && listingType !== "land_wanted") {
     return { error: "Choose land available or land wanted." };
@@ -50,6 +54,7 @@ export async function createLandListingAction(
     contactMethod: contactMethod || null,
     externalUrl: externalUrl || null,
     imageUrl: imageUrl || null,
+    expiresAt,
     tags: ["land-connect", listingType],
   });
 

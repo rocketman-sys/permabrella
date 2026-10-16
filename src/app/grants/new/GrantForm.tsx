@@ -67,9 +67,10 @@ export function GrantForm() {
         <Input
           id="applicationDeadline"
           name="applicationDeadline"
-          type="datetime-local"
+          type="datetime-local" aria-describedby="applicationDeadline-hint"
           className="mt-1"
         />
+        <p id="applicationDeadline-hint" className="mt-1 text-xs text-[var(--pb-muted)]">Northern Rivers time (Australia/Sydney). Leave blank if the date is not confirmed.</p>
       </div>
       <div>
         <label htmlFor="externalUrl" className="text-sm font-medium text-[var(--perm-text)]">

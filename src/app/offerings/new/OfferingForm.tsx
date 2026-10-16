@@ -65,7 +65,8 @@ export function OfferingForm() {
         <label htmlFor="expiresAt" className="text-sm font-medium text-[var(--perm-text)]">
           Expiry date (optional)
         </label>
-        <Input id="expiresAt" name="expiresAt" type="datetime-local" className="mt-1" />
+        <Input id="expiresAt" name="expiresAt" type="datetime-local" aria-describedby="expiresAt-hint" className="mt-1" />
+        <p id="expiresAt-hint" className="mt-1 text-xs text-[var(--pb-muted)]">Northern Rivers time (Australia/Sydney). Leave blank if the date is not confirmed.</p>
       </div>
       <div>
         <label htmlFor="contactPhone" className="text-sm font-medium text-[var(--perm-text)]">

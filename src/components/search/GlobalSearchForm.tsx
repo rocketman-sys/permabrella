@@ -10,36 +10,37 @@ export function GlobalSearchForm({
   initialRegion = "",
   initialTopic = "",
   compact = false,
+  home = false,
 }: {
   topics: TopicOption[];
   initialQuery?: string;
   initialRegion?: Region | "";
   initialTopic?: string;
   compact?: boolean;
+  home?: boolean;
 }) {
   return (
     <form
       action="/search"
       method="get"
-      className="rounded-[var(--pb-r-md)] border border-[var(--pb-line)] bg-[var(--pb-surface)] p-4 shadow-[var(--pb-shadow-card)] sm:p-5"
+      className={home ? "" : "rounded-lg border border-[var(--pb-line)] bg-[var(--pb-surface)] p-4 sm:p-5"}
       role="search"
       aria-label="Search across the switchboard"
     >
-      <div className={compact ? "grid gap-3 md:grid-cols-[1.7fr_1fr_1fr_auto]" : "grid gap-3 lg:grid-cols-[1.8fr_1fr_1fr_auto]"}>
-        <div>
+      <div className={home ? "grid grid-cols-[1fr_auto] gap-3 md:grid-cols-[2fr_1fr_auto]" : compact ? "grid gap-3 md:grid-cols-[1.7fr_1fr_1fr_auto]" : "grid gap-3 lg:grid-cols-[1.8fr_1fr_1fr_auto]"}>
+        <div className={home ? "col-span-2 min-w-0 md:col-span-1" : "min-w-0"}>
           <label htmlFor="search-q" className="mb-1 block text-sm font-medium text-[var(--pb-ink)]">
-            Find what you&apos;re looking for
+            What are you looking for?
           </label>
           <Input
             id="search-q"
             name="q"
             defaultValue={initialQuery}
-            placeholder="Search events, directory, grants, offerings/wants/exchange, and community threads..."
+            placeholder="Try seeds, compost or a local group"
             className="min-h-11 border-[var(--pb-line)] bg-white text-[var(--pb-ink)] placeholder:text-[var(--pb-muted)]"
-            required
           />
         </div>
-        <div>
+        <div className="min-w-0">
           <label htmlFor="search-region" className="mb-1 block text-sm font-medium text-[var(--pb-ink)]">
             Region
           </label>
@@ -57,7 +58,7 @@ export function GlobalSearchForm({
             ))}
           </Select>
         </div>
-        <div>
+        {!home ? <div>
           <label htmlFor="search-topic" className="mb-1 block text-sm font-medium text-[var(--pb-ink)]">
             Topic group
           </label>
@@ -74,7 +75,7 @@ export function GlobalSearchForm({
               </option>
             ))}
           </Select>
-        </div>
+        </div> : null}
         <div className="flex items-end">
           <button
             type="submit"
