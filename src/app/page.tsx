@@ -2,8 +2,9 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { FeedTimeline } from "@/components/feed/FeedTimeline";
 import { QuickAccessCard } from "@/components/brand/QuickAccessCard";
+import { HeroStats } from "@/components/brand/HeroStats";
 import { GlobalSearchForm } from "@/components/search/GlobalSearchForm";
-import { listNewsPostsSafe } from "@/lib/posts/service";
+import { getHeroStats, listNewsPostsSafe } from "@/lib/posts/service";
 import { formatPosted } from "@/lib/posts/format";
 import { parseRegionParam, type Region } from "@/lib/regions";
 
@@ -32,6 +33,7 @@ export default async function Home({ searchParams }: {
           <Link href="/how-it-works" className="hidden shrink-0 py-3 text-sm font-semibold text-[var(--pb-accent-2)] underline underline-offset-4 md:block">How it works</Link>
         </div>
         <div className="mt-5"><GlobalSearchForm topics={[]} initialRegion={region ?? ""} home /></div>
+        <Suspense fallback={<HeroStats />}><HomeStats /></Suspense>
       </section>
       <div className="mt-7 sm:mt-9">
         <Suspense fallback={<p className="rounded-lg bg-[var(--pb-surface)] p-5" role="status">Finding local connections…</p>}><FeedTimeline region={region} /></Suspense>
@@ -47,6 +49,11 @@ export default async function Home({ searchParams }: {
       </section>
     </div>
   );
+}
+
+async function HomeStats() {
+  const stats = await getHeroStats();
+  return <HeroStats stats={stats} />;
 }
 
 async function HomeNews({ region }: { region?: Region }) {

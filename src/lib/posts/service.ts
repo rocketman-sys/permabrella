@@ -3,6 +3,7 @@ import { db } from "@/lib/db";
 import { posts, threads, users } from "@/lib/db/schema";
 
 import { listingVisibility } from "./visibility";
+import { grantRegionVisibility, grantsClosingSoonVisibility } from "./grants";
 
 type PostRow = typeof posts.$inferSelect;
 type PostType = PostRow["type"];
@@ -32,7 +33,9 @@ export async function listPostsByType(options: {
   const limit = Math.min(options.limit ?? 60, 100);
   const conditions = [eq(posts.type, options.type), listingVisibility(options.view)];
   if (options.region) {
-    conditions.push(eq(posts.region, options.region));
+    conditions.push(options.type === "grant"
+      ? grantRegionVisibility(options.region)
+      : eq(posts.region, options.region));
   }
 
   const orderBy = options.type === "event"
@@ -267,6 +270,15 @@ export async function upsertImportedEvent(input: {
   return "inserted";
 }
 
+export async function listGrantsClosingSoon(options: { region?: Region; now?: Date } = {}) {
+  return db.select().from(posts)
+    .where(and(
+      grantsClosingSoonVisibility(options.now),
+      options.region ? grantRegionVisibility(options.region) : undefined,
+    ))
+    .orderBy(posts.expiresAt, posts.title);
+}
+
 export async function listRecentForFeed(options: { region?: Region }) {
   const [events, opportunities, directory, grants] = await Promise.all([
     listPostsByType({ type: "event", region: options.region, limit: 2 }),
@@ -279,14 +291,12 @@ export async function listRecentForFeed(options: { region?: Region }) {
 }
 
 /**
- * Hero switchboard headline stats — live counts from `posts`.
- * - Community groups: directory listings (`directory_entry`).
- * - Active threads: all community threads.
- * - Events: all active `event` posts (no date window).
+ * Region-wide totals for the homepage. Listings use the same current/undated
+ * visibility rules as their landing pages; discussions include all threads.
  */
 export async function getHeroStats(): Promise<{
-  activeGrowers: number;
-  activeThreads: number;
+  communityGroups: number;
+  discussions: number;
   events: number;
   grants: number;
 }> {
@@ -295,7 +305,7 @@ export async function getHeroStats(): Promise<{
       .select({ n: count() })
       .from(posts)
       .where(
-        and(eq(posts.type, "directory_entry"), eq(posts.status, "active"))
+        and(eq(posts.type, "directory_entry"), listingVisibility())
       ),
     db
       .select({ n: count() })
@@ -311,8 +321,8 @@ export async function getHeroStats(): Promise<{
   ]);
 
   return {
-    activeGrowers: Number(growersRow[0]?.n ?? 0),
-    activeThreads: Number(threadsRow[0]?.n ?? 0),
+    communityGroups: Number(growersRow[0]?.n ?? 0),
+    discussions: Number(threadsRow[0]?.n ?? 0),
     events: Number(eventsRow[0]?.n ?? 0),
     grants: Number(grantsRow[0]?.n ?? 0),
   };
