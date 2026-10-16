@@ -24,6 +24,7 @@ export default async function EventsPage({
     <div className="mx-auto max-w-5xl px-4 py-10">
       <PageHeroBar
         title="Events & workshops"
+        iconSrc="/brand/icon-events.svg"
         subtitle="Workshops, skill shares and working bees across the Northern Rivers. Check each listing for its date and how to join."
         actions={
           <Link

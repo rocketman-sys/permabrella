@@ -10,6 +10,7 @@ export default async function CommunityPage() {
     <div className="mx-auto max-w-5xl px-4 py-10">
       <PageHeroBar
         title="Community Q&A"
+        iconSrc="/brand/icon-qa.svg"
         subtitle="Practical questions by topic — soil, water, land, preservation, and more."
         actions={
           <Link
