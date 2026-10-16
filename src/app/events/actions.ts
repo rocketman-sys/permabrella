@@ -1,5 +1,6 @@
 "use server";
 
+import { parseSydneyDateTime } from "@/lib/posts/dates";
 import { auth } from "@/lib/auth";
 import { parseRegionParam } from "@/lib/regions";
 import { createUserPost } from "@/lib/posts/service";
@@ -34,8 +35,9 @@ export async function createEventAction(
 
   let eventDate: Date | null = null;
   if (eventDateRaw) {
-    const d = new Date(eventDateRaw);
-    if (!Number.isNaN(d.getTime())) eventDate = d;
+    const d = parseSydneyDateTime(eventDateRaw);
+    if (!d) return { error: "Please enter a valid Northern Rivers date and time." };
+    eventDate = d;
   }
 
   const region = regionRaw ? parseRegionParam(regionRaw) : undefined;

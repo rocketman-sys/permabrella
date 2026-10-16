@@ -36,6 +36,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           id: user.id,
           email: user.email,
           name: user.displayName || user.username,
+          sessionVersion: user.sessionVersion,
         };
       },
     }),
@@ -47,6 +48,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async jwt({ token, user }) {
       if (user?.id) {
         token.sub = user.id;
+        token.sessionVersion = user.sessionVersion;
+      }
+      if (token.sub) {
+        const [current] = await db.select({ version: users.sessionVersion }).from(users).where(eq(users.id, token.sub)).limit(1);
+        if (!current || current.version !== (token.sessionVersion ?? 0)) return null;
       }
       return token;
     },

@@ -36,6 +36,13 @@
       "when": 1777190049042,
       "tag": "0004_post_type_news",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1792189706557,
+      "tag": "0005_password_recovery",
+      "breakpoints": true
     }
   ]
 }

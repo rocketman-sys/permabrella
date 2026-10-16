@@ -1,24 +1,29 @@
+import { ListingViewFilter } from "@/components/posts/ListingViewFilter";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { auth } from "@/lib/auth";
 import { PageHeroBar } from "@/components/layout/PageHeroBar";
 import { PostList } from "@/components/posts/PostList";
 import { RegionFilter } from "@/components/layout/RegionFilter";
-import { Card } from "@/components/ui/Card";
 import { listPostsByType } from "@/lib/posts/service";
 import { parseRegionParam } from "@/lib/regions";
+
+export const metadata: Metadata = { title: "Community grants | PermaBrella" };
 
 export default async function GrantsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ region?: string }>;
+  searchParams: Promise<{ region?: string; view?: string }>;
 }) {
   const session = await auth();
-  const { region: regionQ } = await searchParams;
+  const { region: regionQ, view: viewQ } = await searchParams;
   const region = parseRegionParam(regionQ ?? null);
+  const view = viewQ === "past" ? "past" : "current";
   const items = await listPostsByType({
     type: "grant",
     region,
+    view,
     limit: 60,
   });
 
@@ -44,20 +49,7 @@ export default async function GrantsPage({
           </div>
         }
       />
-      <p className="mt-3 max-w-2xl text-sm text-[var(--perm-text-secondary)]">
-        Grant listings are visible to everyone. Publishing requires a free account — use either
-        button above, or pick <strong className="font-medium text-[var(--perm-text)]">Grant or funding round</strong>{" "}
-        from the switchboard menu.
-      </p>
-
-      <section className="mt-10 space-y-4 text-[var(--perm-text)]">
-        <h2 className="text-lg font-semibold text-[var(--perm-primary)]">What you will find here</h2>
-        <ul className="list-inside list-disc space-y-2 text-[var(--perm-text-secondary)]">
-          <li>Philanthropic and community foundation grants with a regional or food-systems lens.</li>
-          <li>Council, Landcare, and neighbourhood-centre programs that offer small project funding or support.</li>
-          <li>In-kind offerings (equipment, venue time, mentorship) surfaced via the wider switchboard.</li>
-        </ul>
-      </section>
+      <p className="text-sm text-[var(--pb-ink-soft)]">Dates and eligibility can change. Check the provider’s current round before applying.</p>
 
       <div className="mt-8 flex max-w-xs flex-col gap-1">
         <label htmlFor="grants-region" className="text-sm font-medium text-[var(--perm-text)]">
@@ -68,10 +60,11 @@ export default async function GrantsPage({
         </Suspense>
       </div>
 
-      <div className="mt-8">
+      <ListingViewFilter basePath="/grants" view={view} region={region} />
+      <div className="mt-5">
         <h2 className="text-lg font-semibold text-[var(--perm-primary)]">Listings</h2>
         <div className="mt-4">
-          <PostList items={items} basePath="/grants" />
+          <PostList items={items} basePath="/grants" region={region} view={view} />
         </div>
       </div>
 
@@ -99,20 +92,7 @@ export default async function GrantsPage({
         </div>
       </section>
 
-      <Card className="mt-10 border-dashed">
-        <p className="text-sm text-[var(--perm-muted)]">
-          Published grants appear in the list above for everyone. To add one, sign in and use
-          <strong className="font-medium text-[var(--perm-text)]"> Submit a grant</strong> or{" "}
-          <Link href="/submit" className="font-medium text-[var(--perm-secondary)] hover:underline">
-            Post via switchboard
-          </Link>
-          . For organisations not yet listed, add them via the{" "}
-          <Link href="/directory" className="font-medium text-[var(--perm-secondary)] hover:underline">
-            community groups directory
-          </Link>
-          .
-        </p>
-      </Card>
+
     </div>
   );
 }

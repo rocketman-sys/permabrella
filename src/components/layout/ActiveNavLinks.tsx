@@ -20,6 +20,7 @@ export function ActiveNavLinks({ links }: { links: NavLink[] }) {
           <Link
             key={l.href}
             href={l.href}
+            aria-current={active ? "page" : undefined}
             className={
               active
                 ? "font-bold text-[var(--pb-primary)] underline decoration-[var(--pb-primary)] underline-offset-4"

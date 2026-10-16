@@ -69,6 +69,7 @@ export const users = pgTable("users", {
   email: varchar("email", { length: 255 }).notNull().unique(),
   username: varchar("username", { length: 100 }).notNull().unique(),
   passwordHash: text("password_hash").notNull(),
+  sessionVersion: integer("session_version").default(0).notNull(),
   displayName: varchar("display_name", { length: 150 }),
   region: regionEnum("region"),
   role: userRoleEnum("role").default("member").notNull(),
@@ -184,4 +185,17 @@ export const automatedSources = pgTable("automated_sources", {
   lastFetchedAt: timestamp("last_fetched_at"),
   lastError: text("last_error"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const passwordResetTokens = pgTable("password_reset_tokens", {
+  userId: uuid("user_id").references(() => users.id, { onDelete: "cascade" }).primaryKey(),
+  tokenHash: varchar("token_hash", { length: 64 }).notNull().unique(),
+  expiresAt: timestamp("expires_at").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const passwordResetLimits = pgTable("password_reset_limits", {
+  key: varchar("key", { length: 64 }).primaryKey(),
+  attempts: integer("attempts").default(1).notNull(),
+  expiresAt: timestamp("expires_at").notNull(),
 });

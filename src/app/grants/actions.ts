@@ -1,5 +1,6 @@
 "use server";
 
+import { parseSydneyDateTime } from "@/lib/posts/dates";
 import { auth } from "@/lib/auth";
 import { parseRegionParam } from "@/lib/regions";
 import { createUserPost } from "@/lib/posts/service";
@@ -41,8 +42,9 @@ export async function createGrantAction(
 
   let expiresAt: Date | null = null;
   if (applicationDeadlineRaw) {
-    const d = new Date(applicationDeadlineRaw);
-    if (!Number.isNaN(d.getTime())) expiresAt = d;
+    const d = parseSydneyDateTime(applicationDeadlineRaw);
+    if (!d) return { error: "Please enter a valid Northern Rivers date and time." };
+    expiresAt = d;
   }
 
   const id = await createUserPost({

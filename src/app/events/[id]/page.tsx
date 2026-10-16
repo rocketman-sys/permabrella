@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { PostDetail } from "@/components/posts/PostDetail";
-import { getActivePostById } from "@/lib/posts/service";
+import { getActivePostById, getActivePostByIdInTypes } from "@/lib/posts/service";
 
 export default async function EventDetailPage({
   params,
@@ -10,7 +10,11 @@ export default async function EventDetailPage({
 }) {
   const { id } = await params;
   const item = await getActivePostById(id, "event");
-  if (!item) notFound();
+  if (!item) {
+    const moved = await getActivePostByIdInTypes(id, ["land_available", "land_wanted"]);
+    if (moved?.post.metadata.previousType === "event") permanentRedirect(`/land-connect/${id}`);
+    notFound();
+  }
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">

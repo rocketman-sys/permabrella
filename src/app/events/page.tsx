@@ -1,3 +1,5 @@
+import { ListingViewFilter } from "@/components/posts/ListingViewFilter";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { PostList } from "@/components/posts/PostList";
@@ -6,20 +8,23 @@ import { RegionFilter } from "@/components/layout/RegionFilter";
 import { listPostsByType } from "@/lib/posts/service";
 import { parseRegionParam } from "@/lib/regions";
 
+export const metadata: Metadata = { title: "Events & workshops | PermaBrella" };
+
 export default async function EventsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ region?: string }>;
+  searchParams: Promise<{ region?: string; view?: string }>;
 }) {
-  const { region: regionQ } = await searchParams;
+  const { region: regionQ, view: viewQ } = await searchParams;
   const region = parseRegionParam(regionQ ?? null);
-  const items = await listPostsByType({ type: "event", region, limit: 60 });
+  const view = viewQ === "past" ? "past" : "current";
+  const items = await listPostsByType({ type: "event", region, view, limit: 60 });
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
       <PageHeroBar
         title="Events & workshops"
-        subtitle="Local gatherings, skill shares, and listings synced from Eventbrite or Humanitix when configured."
+        subtitle="Workshops, skill shares and working bees across the Northern Rivers. Check each listing for its date and how to join."
         actions={
           <Link
             href="/events/new"
@@ -39,8 +44,9 @@ export default async function EventsPage({
         </Suspense>
       </div>
 
-      <div className="mt-8">
-        <PostList items={items} basePath="/events" />
+      <ListingViewFilter basePath="/events" view={view} region={region} />
+      <div className="mt-5">
+        <PostList items={items} basePath="/events" region={region} view={view} />
       </div>
     </div>
   );

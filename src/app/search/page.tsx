@@ -1,3 +1,4 @@
+import { FreshnessNotice } from "@/components/posts/FreshnessNotice";
 import Link from "next/link";
 import { PageHeroBar } from "@/components/layout/PageHeroBar";
 import { Card } from "@/components/ui/Card";
@@ -6,6 +7,9 @@ import { listTopicsOrdered } from "@/lib/community/service";
 import { formatPosted } from "@/lib/posts/format";
 import { parseRegionParam } from "@/lib/regions";
 import { runGlobalSearch } from "@/lib/search/service";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = { title: "Search | PermaBrella", robots: { index: false, follow: true } };
 
 function postHref(type: string, id: string): string {
   if (type === "event") return `/events/${id}`;
@@ -45,13 +49,11 @@ export default async function SearchPage({
   const topics = await listTopicsOrdered();
   const topicOptions = topics.map((t) => ({ slug: t.slug, name: t.name }));
 
-  const { posts, threads } = query
-    ? await runGlobalSearch({
+  const { posts, threads } = await runGlobalSearch({
         query,
         region,
         topicSlug: topic || undefined,
-      })
-    : { posts: [], threads: [] };
+      });
 
   const total = posts.length + threads.length;
 
@@ -72,17 +74,19 @@ export default async function SearchPage({
         />
       </div>
 
-      {!query ? (
-        <Card className="mt-6">
-          <p className="text-[var(--pb-muted)]">
-            Enter a search term to find listings and community threads.
-          </p>
-        </Card>
-      ) : (
-        <>
+      <>
           <p className="mt-6 text-sm text-[var(--pb-muted)]">
-            {total} result{total === 1 ? "" : "s"} for <span className="font-medium text-[var(--pb-ink)]">{query}</span>
+            {total} result{total === 1 ? "" : "s"}{query ? <> for <span className="font-medium text-[var(--pb-ink)]">{query}</span></> : " across the hub"}
           </p>
+
+          {total === 0 ? <Card className="mt-4">
+            <h2 className="text-lg font-semibold">Let’s try a broader search</h2>
+            <p className="mt-2 text-sm text-[var(--pb-ink-soft)]">Try fewer words or choose all regions and topics. You can also ask the community for what you need.</p>
+            <div className="mt-3 flex flex-wrap gap-4">
+              <Link href="/search" className="inline-flex min-h-11 items-center font-semibold text-[var(--pb-accent-2)] underline">Clear search and filters</Link>
+              <Link href="/community/new" className="inline-flex min-h-11 items-center font-semibold text-[var(--pb-accent-2)] underline">Ask the community</Link>
+            </div>
+          </Card> : null}
 
           <section className="mt-4" aria-labelledby="listing-results">
             <h2 id="listing-results" className="text-lg font-semibold text-[var(--pb-ink)]">
@@ -104,6 +108,7 @@ export default async function SearchPage({
                         <h3 className="mt-1 text-lg font-semibold text-[var(--pb-ink)]">
                           {p.title}
                         </h3>
+                        <FreshnessNotice post={p} />
                         <p className="mt-2 line-clamp-2 text-sm text-[var(--pb-muted)]">
                           {p.description}
                         </p>
@@ -142,7 +147,7 @@ export default async function SearchPage({
                           {t.body}
                         </p>
                         <p className="mt-2 text-xs text-[var(--pb-muted)]">
-                          {t.authorDisplay ?? "Member"} · Active {formatPosted(t.createdAt)}
+                          {t.authorDisplay ?? "Member"} · Last reply or post {formatPosted(t.lastActivityAt)}
                         </p>
                       </Card>
                     </Link>
@@ -151,8 +156,7 @@ export default async function SearchPage({
               </ul>
             )}
           </section>
-        </>
-      )}
+      </>
     </div>
   );
 }

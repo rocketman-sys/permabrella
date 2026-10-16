@@ -1,3 +1,5 @@
+import { ListingViewFilter } from "@/components/posts/ListingViewFilter";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { PageHeroBar } from "@/components/layout/PageHeroBar";
@@ -6,16 +8,20 @@ import { RegionFilter } from "@/components/layout/RegionFilter";
 import { listPostsByTypes } from "@/lib/posts/service";
 import { parseRegionParam } from "@/lib/regions";
 
+export const metadata: Metadata = { title: "Give, swap or ask | PermaBrella" };
+
 export default async function OfferingsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ region?: string }>;
+  searchParams: Promise<{ region?: string; view?: string }>;
 }) {
-  const { region: regionQ } = await searchParams;
+  const { region: regionQ, view: viewQ } = await searchParams;
   const region = parseRegionParam(regionQ ?? null);
+  const view = viewQ === "past" ? "past" : "current";
   const items = await listPostsByTypes({
     types: ["offering", "wanted"],
     region,
+    view,
     limit: 80,
   });
 
@@ -43,8 +49,9 @@ export default async function OfferingsPage({
         </Suspense>
       </div>
 
-      <div className="mt-8">
-        <PostList items={items} basePath="/offerings" />
+      <ListingViewFilter basePath="/offerings" view={view} region={region} />
+      <div className="mt-5">
+        <PostList items={items} basePath="/offerings" region={region} view={view} />
       </div>
     </div>
   );

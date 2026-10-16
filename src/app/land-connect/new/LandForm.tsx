@@ -91,6 +91,11 @@ export function LandForm() {
         </label>
         <Input id="imageUrl" name="imageUrl" type="url" className="mt-1" />
       </div>
+      <div>
+        <label htmlFor="expiresAt" className="text-sm font-medium">Available until (optional)</label>
+        <Input id="expiresAt" name="expiresAt" type="datetime-local" aria-describedby="expiry-hint" className="mt-1" />
+        <p id="expiry-hint" className="mt-1 text-sm text-[var(--perm-muted)]">Northern Rivers time. Leave blank if there is no end date.</p>
+      </div>
       {state?.error ? (
         <p className="text-sm text-red-700" role="alert">
           {state.error}

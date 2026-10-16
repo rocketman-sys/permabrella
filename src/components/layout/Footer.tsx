@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { Suspense } from "react";
-import { RegionFilter } from "./RegionFilter";
 import { SITE_ORIGIN } from "@/lib/site";
 
 export function Footer() {
@@ -19,6 +17,7 @@ export function Footer() {
         <div>
           <p className="text-base font-medium text-[var(--perm-text)] md:text-sm">Explore</p>
           <ul className="mt-2 space-y-1.5 text-base text-[var(--perm-text-secondary)] md:text-sm md:space-y-1">
+            <li><Link href="/directory" className="hover:text-[var(--perm-secondary)]">Community groups</Link></li>
             <li>
               <Link
                 href="/how-it-works"
@@ -69,20 +68,9 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <label
-            htmlFor="footer-region"
-            className="text-base font-medium text-[var(--perm-text)] md:text-sm"
-          >
-            Region
-          </label>
-          <p className="mt-1 text-sm text-[var(--perm-muted)] md:text-xs">
-            Filter lists and feeds by area (URL-based for now).
-          </p>
-          <div className="mt-2 max-w-xs">
-            <Suspense fallback={<div className="h-10 rounded-lg bg-[var(--perm-bg)]" />}>
-              <RegionFilter id="footer-region" />
-            </Suspense>
-          </div>
+          <p className="font-semibold">Get involved</p>
+          <p className="mt-2 text-sm text-[var(--pb-ink-soft)]">Have something to share or a question to ask? Your local knowledge helps this community grow.</p>
+          <Link href="/submit" className="mt-3 inline-flex min-h-11 items-center font-semibold text-[var(--pb-accent-2)] underline">Post a listing</Link>
         </div>
       </div>
       <div className="border-t border-[var(--perm-border)] px-2 py-5 text-center text-sm text-[var(--perm-muted)] md:py-4 md:text-xs">

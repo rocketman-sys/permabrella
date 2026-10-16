@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { GlobalVisualMenu } from "./GlobalVisualMenu";
 
 export function PageHeroBar({
   title,
@@ -17,9 +16,6 @@ export function PageHeroBar({
           <h1 className="text-2xl font-semibold text-[var(--perm-primary)]">{title}</h1>
           <p className="mt-2 max-w-3xl text-[var(--perm-text-secondary)]">{subtitle}</p>
           {actions ? <div className="mt-4 flex flex-wrap gap-2">{actions}</div> : null}
-        </div>
-        <div className="hidden shrink-0 md:block">
-          <GlobalVisualMenu />
         </div>
       </div>
     </section>
