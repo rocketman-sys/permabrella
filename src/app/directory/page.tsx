@@ -26,6 +26,7 @@ export default async function DirectoryPage({
     <div className="mx-auto max-w-5xl px-4 py-10">
       <PageHeroBar
         title="Community groups"
+        iconSrc="/brand/icon-groups.svg"
         subtitle="Organisations, food hubs, and collectives across the Northern Rivers."
         actions={
           <Link

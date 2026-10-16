@@ -29,6 +29,7 @@ export default async function OfferingsPage({
     <div className="mx-auto max-w-5xl px-4 py-10">
       <PageHeroBar
         title="Offerings, Wants & Exchange"
+        iconSrc="/brand/icon-offerings.svg"
         subtitle="Classifieds for surplus, tools, seeds, swaps, and requests."
         actions={
           <Link

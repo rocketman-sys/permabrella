@@ -31,6 +31,7 @@ export default async function GrantsPage({
     <div className="mx-auto max-w-5xl px-4 py-10">
       <PageHeroBar
         title="Community grants & offerings"
+        iconSrc="/brand/icon-grants.svg"
         subtitle="A starting point for funding rounds, in-kind support, and programs that strengthen permaculture, food security, and resilience across the Northern Rivers."
         actions={
           <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center sm:justify-end">
