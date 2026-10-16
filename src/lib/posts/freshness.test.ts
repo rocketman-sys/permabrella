@@ -39,6 +39,18 @@ test("date-only deadlines show the published date and ask users to confirm the t
   assert.match(listingFreshness(post, now).note, /Confirm the closing time/);
   assert.equal(isPastListing(post, new Date("2026-11-01T13:00:00Z")), true);
 });
+test("confirmed end-of-day deadlines show the published day, not the following midnight", () => {
+  const post: FreshnessPost = { ...base, type: "grant", expiresAt: parseSydneyDateTime("2026-11-01T00:00"), metadata: { deadlineDate: "2026-10-31", deadlineTime: "end_of_day" } };
+  assert.match(listingFreshness(post, now).note, /31 Oct 2026 at midnight \(end of day\), NSW time/);
+  assert.equal(isPastListing(post, new Date("2026-10-31T12:59:59Z")), false);
+  assert.equal(isPastListing(post, new Date("2026-10-31T13:00:00Z")), true);
+});
+test("rolling applications have no invented deadline and ask applicants to confirm remaining funds", () => {
+  const freshness = listingFreshness({ ...base, type: "grant", metadata: { statusLabel: "Rolling applications" } }, now);
+  assert.equal(freshness.label, "Rolling applications");
+  assert.match(freshness.note, /No fixed closing date/);
+  assert.match(freshness.note, /Confirm remaining funding/);
+});
 test("database filters bind timezone-correct boundaries and exclude unpublished posts", () => {
   const dialect = new PgDialect();
   const current=dialect.sqlToQuery(listingVisibility("current",now));

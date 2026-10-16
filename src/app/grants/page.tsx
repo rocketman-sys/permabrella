@@ -5,8 +5,9 @@ import { Suspense } from "react";
 import { auth } from "@/lib/auth";
 import { PageHeroBar } from "@/components/layout/PageHeroBar";
 import { PostList } from "@/components/posts/PostList";
+import { GrantsClosingSoon } from "@/components/posts/GrantsClosingSoon";
 import { RegionFilter } from "@/components/layout/RegionFilter";
-import { listPostsByType } from "@/lib/posts/service";
+import { listGrantsClosingSoon, listPostsByType } from "@/lib/posts/service";
 import { parseRegionParam } from "@/lib/regions";
 
 export const metadata: Metadata = { title: "Community grants | PermaBrella" };
@@ -16,16 +17,15 @@ export default async function GrantsPage({
 }: {
   searchParams: Promise<{ region?: string; view?: string }>;
 }) {
-  const session = await auth();
-  const { region: regionQ, view: viewQ } = await searchParams;
+  const [session, { region: regionQ, view: viewQ }] = await Promise.all([auth(), searchParams]);
   const region = parseRegionParam(regionQ ?? null);
   const view = viewQ === "past" ? "past" : "current";
-  const items = await listPostsByType({
-    type: "grant",
-    region,
-    view,
-    limit: 60,
-  });
+  const [items, closingSoon] = await Promise.all([
+    listPostsByType({ type: "grant", region, view, limit: 100 }),
+    view === "current" ? listGrantsClosingSoon({ region }) : Promise.resolve([]),
+  ]);
+  const closingIds = new Set(closingSoon.map((grant) => grant.id));
+  const otherItems = items.filter(({ post }) => !closingIds.has(post.id));
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
@@ -62,10 +62,11 @@ export default async function GrantsPage({
       </div>
 
       <ListingViewFilter basePath="/grants" view={view} region={region} />
+      {view === "current" ? <GrantsClosingSoon grants={closingSoon} filtered={Boolean(region)} /> : null}
       <div className="mt-5">
-        <h2 className="text-lg font-semibold text-[var(--perm-primary)]">Listings</h2>
+        <h2 className="text-lg font-semibold text-[var(--perm-primary)]">{view === "past" ? "Past & closed rounds" : closingSoon.length ? "More grants & funding" : "Grant listings"}</h2>
         <div className="mt-4">
-          <PostList items={items} basePath="/grants" region={region} view={view} />
+          {otherItems.length || !closingSoon.length ? <PostList items={otherItems} basePath="/grants" region={region} view={view} /> : <p className="text-sm text-[var(--pb-ink-soft)]">All current listings for this region are shown above.</p>}
         </div>
       </div>
 

@@ -23,8 +23,14 @@ export function listingFreshness(post: FreshnessPost, now = new Date()) {
     if (post.metadata.statusLabel === "Ongoing resource") return { label: "Funding directory", note: "Browse the provider’s website for individual funding rounds.", tone: "green" as const };
     // Date-only deadlines expire at the next NSW midnight without inventing a public cutoff time.
     const deadlineDate = post.metadata.deadlineDate;
-    if (post.expiresAt && typeof deadlineDate === "string" && /^\d{4}-\d{2}-\d{2}$/.test(deadlineDate)) return { label: "Deadline listed", note: `Applications close ${formatPosted(new Date(`${deadlineDate}T00:00:00Z`))}. Confirm the closing time and eligibility with the provider.`, tone: "green" as const };
+    if (post.expiresAt && typeof deadlineDate === "string" && /^\d{4}-\d{2}-\d{2}$/.test(deadlineDate)) {
+      const closingTime = post.metadata.deadlineTime === "end_of_day"
+        ? " at midnight (end of day), NSW time. Confirm eligibility with the provider."
+        : ". Confirm the closing time and eligibility with the provider.";
+      return { label: "Deadline listed", note: `Applications close ${formatPosted(new Date(`${deadlineDate}T00:00:00Z`))}${closingTime}`, tone: "green" as const };
+    }
     if (post.expiresAt) return { label: "Deadline listed", note: `Applications close ${formatEventWhen(post.expiresAt)}. Confirm eligibility and availability with the provider.`, tone: "green" as const };
+    if (post.metadata.statusLabel === "Rolling applications") return { label: "Rolling applications", note: "No fixed closing date is published. Confirm remaining funding and eligibility with the provider.", tone: "amber" as const };
     return { label: "Check current round", note: "No current deadline is recorded. Check the provider’s website before preparing an application.", tone: "amber" as const };
   }
   if (["offering", "wanted", "land_available", "land_wanted"].includes(post.type)) {
