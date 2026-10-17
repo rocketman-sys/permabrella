@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { SITE_ORIGIN } from "@/lib/site";
+import { BrandLogo } from "@/components/brand/Logo";
 
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-[var(--perm-border)] bg-[var(--perm-card)]">
       <div className="mx-auto grid max-w-6xl gap-6 px-4 py-10 sm:grid-cols-2 lg:grid-cols-3">
         <div>
-          <p className="text-lg font-semibold text-[var(--perm-primary)] md:text-base">
-            PermaBrella
-          </p>
+          <Link href="/" aria-label="PermaBrella home" className="inline-flex">
+            <BrandLogo width={180} />
+          </Link>
           <p className="mt-2 text-base leading-relaxed text-[var(--perm-text-secondary)] md:text-sm">
             A community food security switchboard for the Northern Rivers — connecting
             growers, land, and local knowledge.

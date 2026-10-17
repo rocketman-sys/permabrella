@@ -81,7 +81,7 @@ html {
 }
 
 :focus-visible { outline: 2px solid var(--pb-accent-2); outline-offset: 4px; }
-html { scroll-padding-top: 5rem; }
+html { scroll-padding-top: 6rem; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
 }

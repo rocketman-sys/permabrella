@@ -1,3 +1,19 @@
+import Image from "next/image";
+
+/** Selected brand lockup, with an outlined Quicksand wordmark beneath the icon. */
+export function BrandLogo({ width = 144, className }: { width?: number; className?: string }) {
+  return (
+    <Image
+      src="/brand/logo-permabrella-quicksand.svg"
+      alt="permabrella"
+      width={width}
+      height={width / 2}
+      unoptimized
+      className={`h-auto shrink-0 ${className ?? ""}`}
+    />
+  );
+}
+
 type LogoProps = {
   size?: number;
   color?: string;
