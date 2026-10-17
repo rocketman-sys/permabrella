@@ -4,6 +4,7 @@ import { posts, threads, users } from "@/lib/db/schema";
 
 import { listingVisibility } from "./visibility";
 import { grantRegionVisibility, grantsClosingSoonVisibility } from "./grants";
+import { ROOTS_RIVERS_GROUP_ID } from "./featured-groups";
 
 type PostRow = typeof posts.$inferSelect;
 type PostType = PostRow["type"];
@@ -41,6 +42,9 @@ export async function listPostsByType(options: {
   const orderBy = options.type === "event"
     ? [sql`${posts.eventDate} asc nulls last`, desc(posts.updatedAt)]
     : [desc(posts.updatedAt)];
+  if (options.type === "directory_entry") {
+    orderBy.unshift(desc(sql`${posts.id} = ${ROOTS_RIVERS_GROUP_ID}`));
+  }
 
   const rows = await db
     .select({
