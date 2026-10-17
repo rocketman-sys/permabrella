@@ -6,6 +6,7 @@ import { formatPosted } from "@/lib/posts/format";
 import { truncate } from "@/lib/posts/text";
 import type { PostWithAuthor } from "@/lib/posts/service";
 import { REGIONS } from "@/lib/regions";
+import { FOUNDING_PARTNER_LABEL, isFoundingPartner } from "@/lib/posts/featured-groups";
 
 function regionLabel(value: string | null): string | null {
   if (!value) return null;
@@ -31,6 +32,7 @@ export function PostCard({
   return (
     <Link href={href} className="group block">
       <Card className="h-full transition group-hover:border-[var(--perm-secondary)]/40 group-hover:shadow-md">
+        {isFoundingPartner(post) ? <p className="mb-2 text-xs font-semibold text-[var(--pb-accent-2)]">Featured group · {FOUNDING_PARTNER_LABEL}</p> : null}
         <div className="flex flex-wrap items-start justify-between gap-2">
           <h3 className="text-lg font-semibold leading-snug text-[var(--perm-primary)] group-hover:text-[var(--perm-secondary)] md:text-base">
             {post.title}

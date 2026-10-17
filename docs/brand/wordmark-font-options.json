@@ -7,8 +7,9 @@
   "preference": {
     "frontRunner": 5,
     "alternative": 2,
-    "status": "Tentative preference; retain all six options for future reference.",
-    "userNote": "2 and 5 are my faves, leaning towards 5 for now"
+    "status": "Quicksand selected for the site logo and social sharing image; retain all six options for future reference.",
+    "selectedOn": "2026-10-17",
+    "userNote": "let's go with 5, Quicksand, for now"
   },
   "options": [
     { "number": 1, "family": "Bree Serif", "weight": 400, "description": "Warm, sturdy, a little country.", "source": "https://fonts.google.com/specimen/Bree+Serif" },

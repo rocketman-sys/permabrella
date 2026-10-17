@@ -20,11 +20,11 @@ const fontBody = Nunito_Sans({
 });
 
 const shareImage = {
-  url: "/brand/share-permabrella-v1.png",
+  url: "/brand/share-permabrella-v2.png",
   width: 1200,
   height: 630,
   type: "image/png",
-  alt: "PermaBrella umbrella and growing plant logo on a cream background",
+  alt: "Umbrella and growing plant above the lowercase permabrella wordmark on a cream background",
 };
 
 export const metadata: Metadata = {

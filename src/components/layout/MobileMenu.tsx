@@ -21,7 +21,7 @@ export function MobileMenu({ links, account }: {
         <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
         Menu
       </summary>
-      <div className="absolute inset-x-0 top-full max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-[var(--pb-line)] bg-[var(--pb-surface)] p-4 shadow-lg" onClick={(event) => {
+      <div className="absolute inset-x-0 top-full max-h-[calc(100dvh-6rem)] overflow-y-auto border-b border-[var(--pb-line)] bg-[var(--pb-surface)] p-4 shadow-lg" onClick={(event) => {
         if (event.target instanceof Element && event.target.closest("a,button") && menu.current) menu.current.open = false;
       }}>
         <nav aria-label="Mobile navigation" className="grid grid-cols-2 gap-2 [&_a]:rounded-md [&_a]:p-3"><ActiveNavLinks links={links} /></nav>

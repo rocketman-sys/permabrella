@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { auth, signOut } from "@/lib/auth";
 import { Button } from "@/components/ui/Button";
-import { LogoPermaBrella } from "@/components/brand/Logo";
+import { BrandLogo } from "@/components/brand/Logo";
 import { ActiveNavLinks } from "./ActiveNavLinks";
 import { MobileMenu } from "./MobileMenu";
 
@@ -36,12 +36,10 @@ export async function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2.5">
         <Link
           href="/"
-          className="flex items-center gap-2.5 text-[var(--pb-ink)]"
+          aria-label="PermaBrella home"
+          className="inline-flex shrink-0 items-center text-[var(--pb-ink)]"
         >
-          <LogoPermaBrella size={34} className="shrink-0" />
-          <span className="pb-display text-xl leading-none tracking-tight sm:text-lg">
-            PermaBrella
-          </span>
+          <BrandLogo />
         </Link>
         <nav aria-label="Main navigation" className="hidden items-center gap-4 text-sm font-semibold lg:flex">
           <ActiveNavLinks links={navLinks} />

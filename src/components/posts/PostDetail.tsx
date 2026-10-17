@@ -4,6 +4,7 @@ import { FreshnessNotice } from "./FreshnessNotice";
 import { formatPosted } from "@/lib/posts/format";
 import type { PostWithAuthor } from "@/lib/posts/service";
 import { REGIONS } from "@/lib/regions";
+import { FOUNDING_PARTNER_LABEL, isFoundingPartner } from "@/lib/posts/featured-groups";
 
 function regionLabel(value: string | null): string | null {
   if (!value) return null;
@@ -46,6 +47,7 @@ export function PostDetail({
 
   return (
     <article className="rounded-2xl border border-[var(--perm-border)] bg-[var(--perm-card)] px-6 py-8 shadow-sm sm:px-10">
+      {isFoundingPartner(post) ? <p className="mb-3 text-sm font-semibold text-[var(--pb-accent-2)]">Featured group · {FOUNDING_PARTNER_LABEL}</p> : null}
       <div className="flex flex-wrap items-start justify-between gap-3">
         <h1 className="text-2xl font-semibold text-[var(--perm-primary)] sm:text-3xl">
           {post.title}

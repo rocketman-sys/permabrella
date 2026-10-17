@@ -6,6 +6,7 @@ import { HeroStats } from "@/components/brand/HeroStats";
 import { GlobalSearchForm } from "@/components/search/GlobalSearchForm";
 import { getHeroStats, listNewsPostsSafe } from "@/lib/posts/service";
 import { formatPosted } from "@/lib/posts/format";
+import { FOUNDING_PARTNER_LABEL, ROOTS_RIVERS_GROUP_ID } from "@/lib/posts/featured-groups";
 import { parseRegionParam, type Region } from "@/lib/regions";
 
 const panels = [
@@ -35,16 +36,29 @@ export default async function Home({ searchParams }: {
         <div className="mt-5"><GlobalSearchForm topics={[]} initialRegion={region ?? ""} home /></div>
         <Suspense fallback={<HeroStats />}><HomeStats /></Suspense>
       </section>
-      <section aria-labelledby="permablitz-heading" className="mt-5 flex flex-col gap-4 rounded-xl border border-[var(--pb-line)] bg-[var(--pb-surface)] p-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-        <div>
-          <p className="pb-tag text-[var(--pb-accent-2)]">Featured community</p>
-          <h2 id="permablitz-heading" className="pb-display mt-1 text-xl sm:text-2xl">Permablitz Northern Rivers</h2>
-          <p className="mt-1 text-sm text-[var(--pb-ink-soft)]">Connect with the local group on Facebook.</p>
-        </div>
-        <a href="https://www.facebook.com/groups/1474514084161615" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-md bg-[var(--pb-accent-2)] px-5 py-3 text-center font-semibold text-white transition-colors hover:bg-[var(--pb-ink)]">
-          Visit Facebook group <span aria-hidden="true">↗</span><span className="sr-only"> — Permablitz Northern Rivers (opens in a new tab)</span>
-        </a>
-      </section>
+      <div className="mt-5 grid gap-4 md:grid-cols-2">
+        <section aria-labelledby="roots-rivers-heading" className="flex flex-col justify-between gap-4 rounded-xl border border-[var(--pb-line)] bg-[var(--pb-surface)] p-5 sm:p-6">
+          <div>
+            <p className="pb-tag text-[var(--pb-accent-2)]">Featured group</p>
+            <h2 id="roots-rivers-heading" className="pb-display mt-1 text-xl sm:text-2xl">Roots &amp; Rivers Collective</h2>
+            <p className="mt-2 text-sm font-semibold text-[var(--pb-accent-2)]">{FOUNDING_PARTNER_LABEL}</p>
+            <p className="mt-1 text-sm text-[var(--pb-ink-soft)]">Growing food, caring for land and turning shared ideas into local action.</p>
+          </div>
+          <Link href={`/directory/${ROOTS_RIVERS_GROUP_ID}`} className="inline-flex min-h-11 items-center justify-center rounded-md bg-[var(--pb-accent-2)] px-5 py-3 text-center font-semibold text-white transition-colors hover:bg-[var(--pb-ink)] sm:self-start">
+            Meet Roots &amp; Rivers
+          </Link>
+        </section>
+        <section aria-labelledby="permablitz-heading" className="flex flex-col justify-between gap-4 rounded-xl border border-[var(--pb-line)] bg-[var(--pb-surface)] p-5 sm:p-6">
+          <div>
+            <p className="pb-tag text-[var(--pb-accent-2)]">Featured community</p>
+            <h2 id="permablitz-heading" className="pb-display mt-1 text-xl sm:text-2xl">Permablitz Northern Rivers</h2>
+            <p className="mt-2 text-sm text-[var(--pb-ink-soft)]">Connect with the local group on Facebook.</p>
+          </div>
+          <a href="https://www.facebook.com/groups/1474514084161615" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-[var(--pb-accent-2)] px-5 py-3 text-center font-semibold text-white transition-colors hover:bg-[var(--pb-ink)] sm:self-start">
+            Visit Facebook group <span aria-hidden="true">↗</span><span className="sr-only"> — Permablitz Northern Rivers (opens in a new tab)</span>
+          </a>
+        </section>
+      </div>
       <div className="mt-7 sm:mt-9">
         <Suspense fallback={<p className="rounded-lg bg-[var(--pb-surface)] p-5" role="status">Finding local connections…</p>}><FeedTimeline region={region} /></Suspense>
       </div>
