@@ -1,0 +1,27 @@
+{
+  "title": "PermaBrella lowercase wordmark options",
+  "reviewedOn": "2026-10-17",
+  "context": "Lowercase permabrella beneath the original umbrella icon, with a simple, homegrown, earthy feel.",
+  "comparisonImage": "wordmark-font-options.png",
+  "vectorComparison": "wordmark-font-options.svg",
+  "preference": {
+    "frontRunner": 5,
+    "alternative": 2,
+    "status": "Tentative preference; retain all six options for future reference.",
+    "userNote": "2 and 5 are my faves, leaning towards 5 for now"
+  },
+  "options": [
+    { "number": 1, "family": "Bree Serif", "weight": 400, "description": "Warm, sturdy, a little country.", "source": "https://fonts.google.com/specimen/Bree+Serif" },
+    { "number": 2, "family": "Averia Serif Libre", "weight": 400, "description": "Organic, gently imperfect, handmade.", "source": "https://fonts.google.com/specimen/Averia+Serif+Libre" },
+    { "number": 3, "family": "Fraunces", "weight": 600, "opticalSize": 72, "description": "Soft curves with a hint of vintage.", "source": "https://fonts.google.com/specimen/Fraunces" },
+    { "number": 4, "family": "Lora", "weight": 500, "description": "Calm, grounded and quietly elegant.", "source": "https://fonts.google.com/specimen/Lora" },
+    { "number": 5, "family": "Quicksand", "weight": 600, "description": "Simple, rounded and welcoming.", "source": "https://fonts.google.com/specimen/Quicksand" },
+    { "number": 6, "family": "Delius", "weight": 400, "description": "Light, personal and hand-lettered.", "source": "https://fonts.google.com/specimen/Delius" }
+  ],
+  "artwork": {
+    "icon": "../../public/brand/logo-permabrella.svg",
+    "wordmarkColour": "#2a2418",
+    "cardBackground": "#fffaf0",
+    "notes": "Samples use actual font outlines, not approximations. The SVG remains portable without installed fonts."
+  }
+}
