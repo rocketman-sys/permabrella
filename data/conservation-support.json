@@ -1,0 +1,104 @@
+{
+  "checkedDate": "2026-10-19",
+  "comparisonUrl": "https://www.nsw.gov.au/environment-land-and-water/conservation-on-private-land/compare-and-apply-for-a-conservation-agreement",
+  "programs": [
+    {
+      "id": "land-for-wildlife-nsw",
+      "title": "Land for Wildlife NSW",
+      "kind": "Voluntary habitat support",
+      "summary": "Free property assessment and habitat-management advice through regional providers, generally for land with at least 0.5 hectares of native vegetation.",
+      "commitment": "Voluntary and not legally binding. Registration does not change the property's legal status or put a covenant on title.",
+      "funding": "CEN's separate 2026–27 BCT grant allocation is fully allocated. Applications can join a waitlist; program registration itself remains available.",
+      "links": [
+        {
+          "label": "Read about Land for Wildlife",
+          "url": "https://cen.org.au/projects/land-for-wildlife/"
+        },
+        {
+          "label": "Find a regional provider",
+          "url": "https://cen.org.au/projects/land-for-wildlife/regional-providers/"
+        },
+        {
+          "label": "Check the grant waitlist",
+          "url": "https://cen.org.au/bct-grants/"
+        }
+      ],
+      "contacts": [
+        {
+          "area": "Byron Shire",
+          "name": "Brunswick Valley Landcare",
+          "url": "https://brunswickvalleylandcare.org.au/contact-us/",
+          "email": "info@brunswickvalleylandcare.org.au",
+          "phone": "0421 244 640",
+          "tel": "+61421244640"
+        },
+        {
+          "area": "Kyogle and Richmond Valley",
+          "name": "Border Ranges Richmond Valley Landcare Network",
+          "url": "https://www.brrvln.org.au/contact",
+          "email": "landcare.support@brrvln.org.au",
+          "phone": "02 6632 3722",
+          "tel": "+61266323722"
+        }
+      ]
+    },
+    {
+      "id": "conservation-partners-agreements",
+      "title": "Conservation Partners Agreements",
+      "kind": "Permanent conservation agreement",
+      "summary": "BCT conservation support for eligible NSW landholders, generally with at least 20 hectares of native vegetation in moderate to good condition. Smaller high-value sites may be considered.",
+      "commitment": "Voluntary to enter, then permanent, registered on title and binding on future owners. Restrictions protect the agreed conservation area.",
+      "funding": "No annual management payments. Eligible agreement holders can separately apply for Conservation Partners Grants. Agreement expressions of interest follow regional timing.",
+      "links": [
+        {
+          "label": "Check eligibility and regional timing",
+          "url": "https://www.nsw.gov.au/environment-land-and-water/conservation-on-private-land/compare-and-apply/conservation-agreements-grant-opportunities"
+        },
+        {
+          "label": "Read agreement responsibilities",
+          "url": "https://www.nsw.gov.au/environment-land-and-water/conservation-on-private-land/compare-and-apply/frequently-asked-questions-about-our-conservation-partners-agreements-and-wildlife-refuges"
+        }
+      ]
+    },
+    {
+      "id": "wildlife-refuge-agreements",
+      "title": "Wildlife Refuge Agreements",
+      "kind": "Revocable conservation agreement",
+      "summary": "An entry-level agreement for eligible NSW landholders, generally with at least 10 hectares of native vegetation in moderate to good condition. Enquiries are accepted year-round.",
+      "commitment": "Registered on title and continues when land is sold, but can be revoked by the landholder. Conservation restrictions apply while it is in place.",
+      "funding": "No annual management payments. Eligible holders can apply separately for Conservation Partners Grants, subject to assessment and available funding.",
+      "links": [
+        {
+          "label": "Explore Wildlife Refuge Agreements",
+          "url": "https://www.nsw.gov.au/environment-land-and-water/conservation-on-private-land/compare-and-apply/conservation-agreements-grant-opportunities"
+        },
+        {
+          "label": "Read agreement responsibilities",
+          "url": "https://www.nsw.gov.au/environment-land-and-water/conservation-on-private-land/compare-and-apply/frequently-asked-questions-about-our-conservation-partners-agreements-and-wildlife-refuges"
+        }
+      ]
+    },
+    {
+      "id": "biodiversity-stewardship-agreements",
+      "title": "Biodiversity stewardship agreements",
+      "kind": "Biodiversity credit pathway",
+      "summary": "Eligible landholders can create biodiversity credits for sale. Assessment costs, credit demand and a site management plan determine suitability; a sale or financial return is not guaranteed.",
+      "commitment": "Designed for permanent conservation and registered on title, binding future owners with ongoing management and reporting duties. Review the limited termination provisions before signing.",
+      "funding": "The separate Stewardship Support Program closed on 13 September 2026; reopening is expected in 2027. The underlying stewardship pathway remains available.",
+      "links": [
+        {
+          "label": "Understand the stewardship pathway",
+          "url": "https://www.environment.nsw.gov.au/topics/animals-and-plants/biodiversity-offsets-scheme/biodiversity-stewardship-agreement/generate-sell-credits"
+        },
+        {
+          "label": "Read the landholder application guide",
+          "url": "https://www.environment.nsw.gov.au/publications/biodiversity-stewardship-agreement-application-guide"
+        },
+        {
+          "label": "Check support-program status",
+          "url": "https://www.environment.nsw.gov.au/topics/animals-and-plants/biodiversity-offsets-scheme/biodiversity-stewardship-agreement/generate-sell-credits/stewardship-support-program"
+        }
+      ]
+    }
+  ]
+}

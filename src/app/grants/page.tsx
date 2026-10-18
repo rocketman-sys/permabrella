@@ -6,6 +6,7 @@ import { auth } from "@/lib/auth";
 import { PageHeroBar } from "@/components/layout/PageHeroBar";
 import { PostList } from "@/components/posts/PostList";
 import { GrantsClosingSoon } from "@/components/posts/GrantsClosingSoon";
+import { ConservationSupport } from "@/components/posts/ConservationSupport";
 import { RegionFilter } from "@/components/layout/RegionFilter";
 import { listGrantsClosingSoon, listPostsByType } from "@/lib/posts/service";
 import { parseRegionParam } from "@/lib/regions";
@@ -25,7 +26,8 @@ export default async function GrantsPage({
     view === "current" ? listGrantsClosingSoon({ region }) : Promise.resolve([]),
   ]);
   const closingIds = new Set(closingSoon.map((grant) => grant.id));
-  const otherItems = items.filter(({ post }) => !closingIds.has(post.id));
+  const directories = items.filter(({ post }) => post.metadata.statusLabel === "Ongoing resource");
+  const otherItems = items.filter(({ post }) => !closingIds.has(post.id) && post.metadata.statusLabel !== "Ongoing resource");
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
@@ -51,6 +53,7 @@ export default async function GrantsPage({
         }
       />
       <p className="text-sm text-[var(--pb-ink-soft)]">Dates and eligibility can change. Check the provider’s current round before applying.</p>
+      {view === "current" ? <a href="#conservation-support" className="mt-2 inline-flex min-h-11 items-center text-sm font-semibold text-[var(--pb-accent-2)] underline underline-offset-4">Explore conservation programs &amp; support</a> : null}
 
       <div className="mt-8 flex max-w-xs flex-col gap-1">
         <label htmlFor="grants-region" className="text-sm font-medium text-[var(--perm-text)]">
@@ -69,6 +72,14 @@ export default async function GrantsPage({
           {otherItems.length || !closingSoon.length ? <PostList items={otherItems} basePath="/grants" region={region} view={view} /> : <p className="text-sm text-[var(--pb-ink-soft)]">All current listings for this region are shown above.</p>}
         </div>
       </div>
+
+      {directories.length ? <section className="mt-8" aria-labelledby="funding-directories-heading">
+        <h2 id="funding-directories-heading" className="text-lg font-semibold text-[var(--perm-primary)]">Funding directories</h2>
+        <p className="mt-2 text-sm text-[var(--pb-ink-soft)]">Search services for finding funding rounds. These are not individual grants.</p>
+        <div className="mt-4"><PostList items={directories} basePath="/grants" region={region} view={view} /></div>
+      </section> : null}
+
+      {view === "current" ? <ConservationSupport /> : null}
 
       <section className="mt-10 space-y-4">
         <h2 className="text-lg font-semibold text-[var(--perm-primary)]">Related on PermaBrella</h2>
