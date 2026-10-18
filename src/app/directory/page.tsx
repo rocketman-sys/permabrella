@@ -1,26 +1,31 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Suspense } from "react";
 import { PostList } from "@/components/posts/PostList";
 import { PageHeroBar } from "@/components/layout/PageHeroBar";
-import { RegionFilter } from "@/components/layout/RegionFilter";
-import { listPostsByType } from "@/lib/posts/service";
+import { GroupSearchForm } from "@/components/search/GroupSearchForm";
+import { listPostsByType, type PostWithAuthor } from "@/lib/posts/service";
 import { parseRegionParam } from "@/lib/regions";
+import { firstParam, normalizeSearchQuery, type SearchParam } from "@/lib/search/filters";
 
 export const metadata: Metadata = { title: "Community groups | PermaBrella" };
 
 export default async function DirectoryPage({
   searchParams,
 }: {
-  searchParams: Promise<{ region?: string }>;
+  searchParams: Promise<{ region?: SearchParam; q?: SearchParam }>;
 }) {
-  const { region: regionQ } = await searchParams;
-  const region = parseRegionParam(regionQ ?? null);
-  const items = await listPostsByType({
-    type: "directory_entry",
-    region,
-    limit: 60,
-  });
+  const { region: regionQ, q } = await searchParams;
+  const region = parseRegionParam(firstParam(regionQ));
+  const query = normalizeSearchQuery(q);
+  let items: PostWithAuthor[] = [];
+  let loadFailed = false;
+  try {
+    items = await listPostsByType({ type: "directory_entry", region, limit: 100, query });
+  } catch {
+    console.error("[directory] Unable to load community groups.");
+    loadFailed = true;
+  }
+  const searchUrl = `/directory?${new URLSearchParams({ q: query, ...(region ? { region } : {}) })}`;
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
@@ -38,17 +43,27 @@ export default async function DirectoryPage({
         }
       />
 
-      <div className="mt-8 flex max-w-xs flex-col gap-1">
-        <label htmlFor="directory-region" className="text-sm font-medium text-[var(--perm-text)]">
-          Region
-        </label>
-        <Suspense fallback={<div className="h-10 rounded-lg bg-[var(--perm-card)] ring-1 ring-[var(--perm-border)]" />}>
-          <RegionFilter id="directory-region" />
-        </Suspense>
+      <div className="mt-6">
+        <GroupSearchForm key={`${query}:${region ?? ""}`} query={query} region={region ?? ""} />
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-x-5 gap-y-2 text-sm">
+          {!loadFailed ? <p role="status">{items.length === 100 ? "Showing the first 100" : items.length} group{items.length === 1 ? "" : "s"}{query ? <> matching <strong>“{query}”</strong></> : ""}</p> : null}
+          <div className="flex flex-wrap gap-5">
+            {query || region ? <Link href="/directory" className="inline-flex min-h-11 items-center text-[var(--pb-accent-2)] underline">Clear search and filters</Link> : null}
+            <Link href={`/search?${new URLSearchParams({ q: query, ...(region ? { region } : {}) })}`} className="inline-flex min-h-11 items-center text-[var(--pb-accent-2)] underline">Search the whole site</Link>
+          </div>
+        </div>
       </div>
 
-      <div className="mt-8">
-        <PostList items={items} basePath="/directory" region={region} />
+      <div className="mt-4">
+        {loadFailed ? <div role="alert" className="rounded-xl border border-[var(--pb-line)] bg-[var(--pb-surface)] p-6">
+          <h2 className="text-xl font-semibold">Groups couldn’t be loaded</h2>
+          <p className="mt-2">Please try again in a moment. Your search and region are still selected.</p>
+          <a href={searchUrl} className="mt-3 inline-flex min-h-11 items-center text-[var(--pb-accent-2)] underline">Try again</a>
+        </div> : query && !items.length ? <div className="rounded-xl border border-dashed border-[var(--pb-line)] bg-[var(--pb-surface)] p-6">
+          <h2 className="text-xl font-semibold">No groups match “{query}”</h2>
+          <p className="mt-2">Try fewer words, a nearby town or all regions.</p>
+          {region ? <Link href={`/directory?${new URLSearchParams({ q: query })}`} className="mt-3 inline-flex min-h-11 items-center text-[var(--pb-accent-2)] underline">Search these words in all regions</Link> : null}
+        </div> : <PostList items={items} basePath="/directory" region={region} />}
       </div>
     </div>
   );

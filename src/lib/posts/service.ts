@@ -5,6 +5,8 @@ import { posts, threads, users } from "@/lib/db/schema";
 import { listingVisibility } from "./visibility";
 import { grantRegionVisibility, grantsClosingSoonVisibility } from "./grants";
 import { ROOTS_RIVERS_GROUP_ID } from "./featured-groups";
+import { postTextMatch, titleRelevance } from "@/lib/search/conditions";
+import { normalizeSearchQuery } from "@/lib/search/filters";
 
 type PostRow = typeof posts.$inferSelect;
 type PostType = PostRow["type"];
@@ -30,9 +32,13 @@ export async function listPostsByType(options: {
   region?: Region | null;
   limit?: number;
   view?: "current" | "past";
+  query?: string;
 }): Promise<PostWithAuthor[]> {
   const limit = Math.min(options.limit ?? 60, 100);
   const conditions = [eq(posts.type, options.type), listingVisibility(options.view)];
+  const query = normalizeSearchQuery(options.query);
+  const textMatch = postTextMatch(query);
+  if (textMatch) conditions.push(textMatch);
   if (options.region) {
     conditions.push(options.type === "grant"
       ? grantRegionVisibility(options.region)
@@ -45,6 +51,7 @@ export async function listPostsByType(options: {
   if (options.type === "directory_entry") {
     orderBy.unshift(desc(sql`${posts.id} = ${ROOTS_RIVERS_GROUP_ID}`));
   }
+  if (query) orderBy.unshift(titleRelevance(posts.title, query));
 
   const rows = await db
     .select({
