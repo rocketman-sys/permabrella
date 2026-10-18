@@ -1,10 +1,10 @@
 # PermaBrella — Community Groups Seed Data
 
-Starter list of **31 Northern Rivers community groups** relevant to permaculture, food security, regenerative agriculture, and community resilience. Curated for the PermaBrella portal database. Scope: food + regen + resilience across all 7 Northern Rivers LGAs. Compiled 2026-04-22, revised to match the portal `posts (type: directory_entry)` schema after Cursor schema review.
+Starter list of **32 Northern Rivers community groups** relevant to permaculture, food security, regenerative agriculture, and community resilience. Curated for the PermaBrella portal database. Scope: food + regen + resilience across all 7 Northern Rivers LGAs. Compiled 2026-04-22, revised to match the portal `posts (type: directory_entry)` schema after Cursor schema review. On 2026-10-18 the conflated SEED/garden entry was separated using each organisation's official website.
 
 ## Files
 
-- **`community_groups.csv`** — first batch: UTF-8, comma-delimited, double-quoted fields, one header row, 31 data rows.
+- **`community_groups.csv`** — first batch: UTF-8, comma-delimited, double-quoted fields, one header row, 32 data rows.
 - **`community_groups_batch2.csv`** — second batch: same columns as batch 1; **must include the same header row** as batch 1 (name, region, …). 28 additional groups (Clarence Valley, Casino, Ballina coast, Byron food relief, Landcare, etc.).
 
 ## Schema (mapped to PermaBrella `posts` table)
@@ -54,6 +54,8 @@ The `source` column flags where email/phone was inferred vs. verified so a human
 - Transition Towns chapters: no active chapters surfaced. Check locally whether Mullum Cares / Transition Bangalow are still running.
 
 ## Running the import (repo script)
+
+**Existing databases with the old combined SEED/garden listing:** run the [scoped correction](../../docs/seed-garden-correction-2026-10-18.md) before importing this revised CSV. The importer skips exact titles and does not rename existing entries. Seed Northern Rivers and Mullumbimby Community Garden are separate entries with separate contacts; do not merge them based on their shared street address.
 
 From the project root, with `DATABASE_URL` set (or present in `.env.local`):
 
