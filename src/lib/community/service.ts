@@ -10,7 +10,7 @@ import {
 import type { Region } from "@/lib/regions";
 import { resolveAuthorBadge, type AuthorBadge } from "./authorship";
 import { RECENT_THREAD_LIMIT, type ReplyActivity } from "./activity";
-import { publicMessagesQuery, publicReplyStats } from "./public-replies";
+import { publicMessagesQuery, publicReplyStats, latestPublicReplyStats } from "./public-replies";
 
 function authorLabel(
   displayName: string | null,
@@ -314,4 +314,20 @@ export async function getUserDisplayForEmail(userId: string): Promise<string> {
   return (
     authorLabel(rows[0].displayName, rows[0].username) ?? rows[0].username
   );
+}
+
+/** Distinct threads ordered by actual public posts/replies, including unanswered posts. */
+export function latestConversationsQuery(region?: Region, now = new Date()) {
+  const replies = latestPublicReplyStats(now);
+  const latestAt = sql<Date>`greatest(${threads.createdAt}, ${replies.lastReplyAt})`.mapWith(threads.createdAt).as('latest_at');
+  return db.select({
+    id: threads.id, title: threads.title, topicSlug: topics.slug, topicName: topics.name,
+    latestAt, replyCount: sql<number>`coalesce(${replies.replyCount}, 0)`.mapWith(Number).as("reply_count"),
+    isReply: sql<boolean>`coalesce(${replies.lastReplyAt} > ${threads.createdAt}, false)`.as("is_reply"),
+    body: sql<string>`case when ${replies.lastReplyAt} > ${threads.createdAt} then ${replies.lastReplyBody} else ${threads.body} end`.as("excerpt_body"),
+  }).from(threads).innerJoin(topics, eq(threads.topicId, topics.id))
+    .innerJoin(users, eq(threads.authorId, users.id))
+    .leftJoin(replies, eq(threads.id, replies.threadId))
+    .where(and(sql`${threads.createdAt} <= ${now.toISOString()}::timestamp`, region ? eq(threads.region, region) : undefined))
+    .orderBy(desc(latestAt), asc(threads.id)).limit(3);
 }

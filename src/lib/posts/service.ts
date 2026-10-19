@@ -338,3 +338,19 @@ export async function getHeroStats(): Promise<{
     grants: Number(grantsRow[0]?.n ?? 0),
   };
 }
+
+/** A retained duplicate can point to an active canonical directory entry. */
+export async function getDirectoryCanonicalId(id: string): Promise<string | null> {
+  if (!/^[a-f0-9-]{36}$/.test(id)) return null;
+  const [row] = await db.select({ metadata: posts.metadata }).from(posts)
+    .where(and(eq(posts.id, id), eq(posts.type, "directory_entry"), eq(posts.status, "removed"))).limit(1);
+  const canonical = row?.metadata.canonicalDirectoryId;
+  if (typeof canonical !== "string" || !/^[a-f0-9-]{36}$/.test(canonical) || canonical === id) return null;
+  return await getActivePostById(canonical, "directory_entry") ? canonical : null;
+}
+
+export async function listLandConnectNetworks(region?: Region) {
+  const rows = await db.select({ post: posts, authorDisplay: sql<null>`null` }).from(posts)
+    .where(and(eq(posts.type, "directory_entry"), listingVisibility(), sql`${posts.metadata}->>'landConnectCategory' = 'network'`, region ? eq(posts.region, region) : undefined));
+  return rows;
+}

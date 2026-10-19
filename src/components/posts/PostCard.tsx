@@ -30,7 +30,7 @@ export function PostCard({
         : null;
 
   return (
-    <Link href={href} className="group block">
+    <Link href={href} className="group block min-w-0 [overflow-wrap:anywhere]">
       <Card className="h-full transition group-hover:border-[var(--perm-secondary)]/40 group-hover:shadow-md">
         {isFoundingPartner(post) ? <p className="mb-2 text-xs font-semibold text-[var(--pb-accent-2)]">Featured group · {FOUNDING_PARTNER_LABEL}</p> : null}
         <div className="flex flex-wrap items-start justify-between gap-2">

@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/Badge";
 import { FreshnessNotice } from "./FreshnessNotice";
 import { formatPosted } from "@/lib/posts/format";
 import type { PostWithAuthor } from "@/lib/posts/service";
+import { publicSourceUrls } from "@/lib/posts/verification";
 import { REGIONS } from "@/lib/regions";
 import { FOUNDING_PARTNER_LABEL, isFoundingPartner } from "@/lib/posts/featured-groups";
 
@@ -32,6 +33,7 @@ export function PostDetail({
   backLabel: string;
 }) {
   const { post, authorDisplay } = item;
+  const sources = publicSourceUrls(post.metadata);
   // Imported status text ages independently of the live deadline/status notice.
   const description = post.type === "grant"
     ? post.description.split("\n\n").filter((part) => !/^(Status|Funding|Who can apply):/i.test(part.trim())).join("\n\n")
@@ -46,7 +48,7 @@ export function PostDetail({
           : post.source;
 
   return (
-    <article className="rounded-2xl border border-[var(--perm-border)] bg-[var(--perm-card)] px-6 py-8 shadow-sm sm:px-10">
+    <article className="min-w-0 [overflow-wrap:anywhere] rounded-2xl border border-[var(--perm-border)] bg-[var(--perm-card)] px-6 py-8 shadow-sm sm:px-10">
       {isFoundingPartner(post) ? <p className="mb-3 text-sm font-semibold text-[var(--pb-accent-2)]">Featured group · {FOUNDING_PARTNER_LABEL}</p> : null}
       <div className="flex flex-wrap items-start justify-between gap-3">
         <h1 className="text-2xl font-semibold text-[var(--perm-primary)] sm:text-3xl">
@@ -120,6 +122,8 @@ export function PostDetail({
         </section>
       ) : null}
 
+      {typeof post.metadata.parentDirectoryId === "string" && /^[a-f0-9-]{36}$/.test(post.metadata.parentDirectoryId) ? <p className="mt-5 text-sm"><Link href={`/directory/${post.metadata.parentDirectoryId}`} className="font-semibold text-[var(--pb-accent-2)] underline">{typeof post.metadata.parentDirectoryName === "string" ? post.metadata.parentDirectoryName : "Related community organisation"}</Link></p> : null}
+      {sources.length ? <section className="mt-6" aria-label="Public sources"><h2 className="text-sm font-semibold">Public sources</h2><ul className="mt-2 space-y-2 text-sm">{sources.map((url, index) => <li key={url}><a href={url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center break-all text-[var(--pb-accent-2)] underline">{new URL(url).hostname} · source {index + 1}<span className="sr-only"> (opens in a new tab)</span></a></li>)}</ul></section> : null}
       <div className="mt-8 flex flex-wrap gap-3">
         {post.externalUrl ? (
           <a

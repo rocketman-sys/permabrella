@@ -14,7 +14,7 @@
 import { parse } from "csv-parse/sync";
 import { readFileSync, existsSync } from "node:fs";
 import { basename, resolve } from "node:path";
-import { and, eq } from "drizzle-orm";
+import { and, eq, or, sql } from "drizzle-orm";
 import { parseRegionParam } from "../regions";
 import { db } from "./index";
 import { posts, users } from "./schema";
@@ -110,7 +110,7 @@ async function main(): Promise<void> {
       .select({ id: posts.id })
       .from(posts)
       .where(
-        and(eq(posts.type, "directory_entry"), eq(posts.title, title))
+        and(eq(posts.type, "directory_entry"), or(eq(posts.title, title), sql`${posts.metadata}->'previousNames' @> ${JSON.stringify([title])}::jsonb`, sql`${posts.metadata}->'aliases' @> ${JSON.stringify([title])}::jsonb`))
       )
       .limit(1);
     if (dup.length) {
@@ -128,7 +128,9 @@ async function main(): Promise<void> {
 
     const tags = parseTags(row.tags ?? "");
     const importFileRel = csvPath.replace(process.cwd() + "/", "");
+    const extraMetadata = row.metadata_json ? JSON.parse(row.metadata_json) as Record<string, unknown> : {};
     const metadata: Record<string, unknown> = {
+      ...extraMetadata,
       importBatch: `community_groups:${basename(csvPath, ".csv")}`,
       importFile: importFileRel,
     };
@@ -141,7 +143,9 @@ async function main(): Promise<void> {
     const logoUrl = (row.logo_url ?? "").trim() || null;
     const locationDetail = (row.location_detail ?? "").trim() || null;
 
+    if (row.id && !/^[a-f0-9-]{36}$/.test(row.id)) throw new Error("Invalid imported ID");
     const values = {
+      ...(row.id ? { id: row.id } : {}),
       type: "directory_entry" as const,
       status: "active" as const,
       source: "direct" as const,
