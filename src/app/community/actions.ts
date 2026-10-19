@@ -45,6 +45,7 @@ export async function createThreadAction(
   });
 
   revalidatePath("/community");
+  revalidatePath("/");
   revalidatePath(`/community/${topicSlug}`);
   revalidatePath("/");
   redirect(`/community/${topicSlug}/${id}`);
@@ -91,6 +92,7 @@ export async function replyToThreadAction(
   revalidatePath(`/community/${topicSlug}/${threadId}`);
   revalidatePath(`/community/${topicSlug}`);
   revalidatePath("/community");
+  revalidatePath("/");
   revalidatePath("/");
   return { ok: true };
 }

@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { PostDetail } from "@/components/posts/PostDetail";
-import { getActivePostById } from "@/lib/posts/service";
+import { getActivePostById, getDirectoryCanonicalId } from "@/lib/posts/service";
 
 export default async function DirectoryDetailPage({
   params,
@@ -10,7 +10,11 @@ export default async function DirectoryDetailPage({
 }) {
   const { id } = await params;
   const item = await getActivePostById(id, "directory_entry");
-  if (!item) notFound();
+  if (!item) {
+    const canonical = await getDirectoryCanonicalId(id);
+    if (canonical) redirect(`/directory/${canonical}`);
+    notFound();
+  }
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">

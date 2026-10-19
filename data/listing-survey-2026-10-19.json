@@ -1,0 +1,2214 @@
+{
+  "checkedDate": "2026-10-19",
+  "batch": "researched-listings-2026-10-19",
+  "scope": "Approved directory corrections, separate researched resources and precise verification notes. Original identities and history preserved.",
+  "entries": [
+    {
+      "id": "3ef4e222-9425-4cfc-9cf3-af3c85b9c2d0",
+      "existing": true,
+      "expectedTitle": "Amrita Pantry Byron Bay",
+      "expectedUpdatedAt": "2026-04-21 23:24:43.273072",
+      "type": "directory_entry",
+      "patch": {
+        "contact_phone": "0402 980 805",
+        "contact_email": "byronbay@ammaaustralia.org.au",
+        "external_url": "https://ammaaustralia.org.au/amrita-pantry/byron-bay",
+        "contact_method": "WhatsApp is available on the published mobile."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://ammaaustralia.org.au/amrita-pantry/byron-bay"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "586bbe73-991b-420c-bc63-508d57167732",
+      "existing": true,
+      "expectedTitle": "Backyard Produce Swap",
+      "expectedUpdatedAt": "2026-04-22 10:01:19.850964",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Community-submitted produce-swap listing for Ocean Shores, coordinated through a Messenger group. Current public meeting details have not been independently confirmed.",
+        "location_detail": "Ocean Shores (contributor-reported)"
+      },
+      "metadata": {
+        "sourceUrls": [],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "Current meeting date, time, venue and public organiser contact have not been independently confirmed.",
+        "verificationStatus": "needs_verification",
+        "listingLabel": "Current activity unconfirmed"
+      }
+    },
+    {
+      "id": "04f492cb-6ca7-47c8-a6b0-6a985c46bc68",
+      "existing": true,
+      "expectedTitle": "Ballina Community Garden",
+      "expectedUpdatedAt": "2026-04-21 23:24:42.865335",
+      "type": "directory_entry",
+      "patch": {
+        "external_url": "https://ballinacommunitygardens.com.au/wp/"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://ballinacommunitygardens.com.au/wp/",
+          "https://ballinacommunitygardens.com.au/wp/?page_id=152"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "The listed mobile number is not published on the current contact page.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "f9c47aaa-d532-4f76-9507-c19fe8cc687e",
+      "existing": true,
+      "expectedTitle": "Bangalow Farmers Market",
+      "expectedUpdatedAt": "2026-04-21 23:03:23.130261",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Producer-focused farmers market at Piccabeen Park, off Deacon Street, Bangalow. The official market website advertises Saturdays 7–11 am.",
+        "location_detail": "Piccabeen Park, off Deacon Street, Bangalow",
+        "external_url": "https://byronfarmersmarket.com.au/",
+        "contact_email": null,
+        "contact_method": "Use the official market website contact form."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://byronfarmersmarket.com.au/",
+          "https://byronfarmersmarket.com.au/contact/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "111d4512-2602-4999-a72f-8750e39c9ec4",
+      "existing": true,
+      "expectedTitle": "Bangalow Koalas",
+      "expectedUpdatedAt": "2026-04-21 23:24:44.220941",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Not-for-profit restoring koala habitat corridors across the Northern Rivers with landholders, councils and community groups. Its website reports more than 500,000 trees planted and a goal of 850,000 by 2030.",
+        "location_detail": "Bangalow; habitat restoration across the Northern Rivers"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.bangalowkoalas.com.au/",
+          "https://www.bangalowkoalas.com.au/contact-us/",
+          "https://bangalowkoalas.mymedia.delivery/wp-content/uploads/2024/04/Bangalow-Koalas-Inc.-Code-of-Conduct-October-2023.pdf"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "The mobile number is supported by a 2023 document; current contact-holder details are unconfirmed.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "668fccb7-9121-416c-b636-fdb2a5976606",
+      "existing": true,
+      "expectedTitle": "Bangalow Land and Rivercare",
+      "expectedUpdatedAt": "2026-04-21 23:24:43.953202",
+      "type": "directory_entry",
+      "patch": {
+        "contact_email": "bangalowlandcare@gmail.com"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://bangalowlandcare.org.au/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "c8e5eb55-8e9c-4726-9114-e54df8da7e11",
+      "existing": true,
+      "expectedTitle": "Brunswick Valley Landcare",
+      "expectedUpdatedAt": "2026-04-21 23:03:22.581695",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Supports locality Landcare groups, bush regeneration, native habitat and community conservation across the Brunswick Valley. A regional provider of Land for Wildlife advice."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://brunswickvalleylandcare.org.au/",
+          "https://brunswickvalleylandcare.org.au/contact-us/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "3f81891e-0eb5-425e-980d-d2b86123fa8e",
+      "existing": true,
+      "expectedTitle": "Byron Bay Hinterland & Surrounds Seed Savers",
+      "expectedUpdatedAt": "2026-04-21 23:03:21.385579",
+      "type": "directory_entry",
+      "patch": {
+        "contact_email": null,
+        "contact_method": "Use the organisation’s website contact form."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://byronseedshare.org/",
+          "https://byronseedshare.org/contact-us",
+          "https://mullumfarmersmarket.org.au/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "6d6b5021-0273-41e3-9c2d-957285b39bcd",
+      "existing": true,
+      "expectedTitle": "Byron Centre for Permaculture",
+      "expectedUpdatedAt": "2026-04-21 23:03:20.917438",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Permaculture education historically presented under the Byron Centre for Permaculture name. Current courses are advertised by Byron Community College, including practical training at Mullumbimby Community Garden. Course funding and entry requirements depend on the course and applicant.",
+        "external_url": "https://byroncollege.org.au/course-category/cultivate/",
+        "contact_email": null,
+        "contact_method": "Use Byron Community College’s course enquiry form.",
+        "location_detail": "Mullumbimby; confirm the venue for the selected course"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://byroncollege.org.au/course-category/cultivate/",
+          "https://byroncollege.org.au/locations/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "Confirm current intake dates, funding eligibility and training venue directly with Byron Community College.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "2ae517ea-6607-4684-9159-cc84ee070465",
+      "existing": true,
+      "expectedTitle": "Byron Farmers Market",
+      "expectedUpdatedAt": "2026-04-21 23:03:22.89419",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Weekly market connecting local growers and producers with the community at Butler Street Reserve, Byron Bay. The organiser advertises Thursdays 7–11 am.",
+        "contact_email": null,
+        "contact_method": "Use the official market website contact form."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://byronfarmersmarket.com.au/",
+          "https://byronfarmersmarket.com.au/contact/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "efbc747b-a55a-49a2-88cb-75cdba3ea0ef",
+      "existing": true,
+      "expectedTitle": "Casino Community Garden",
+      "expectedUpdatedAt": "2026-04-21 23:24:42.560148",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Historical community-garden listing describing food growing and support for welfare agencies in South Casino. Earlier sources record an association with Casino Neighbourhood Centre; current operation and operator have not been confirmed."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "http://casino-garden.blogspot.com/",
+          "https://landcare.nsw.gov.au/groups/casino-community-garden/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "Current operation, operator, access and contacts are unconfirmed; the garden blog’s latest visible material is from 2014.",
+        "verificationStatus": "needs_verification",
+        "listingLabel": "Current activity unconfirmed"
+      }
+    },
+    {
+      "id": "b20c1095-5889-4e9f-8337-ee2e12b444e1",
+      "existing": true,
+      "expectedTitle": "Casino Neighbourhood Centre",
+      "expectedUpdatedAt": "2026-04-21 23:24:42.656978",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Community Gateway’s Casino neighbourhood centre, offering local community support and services across Richmond Valley.",
+        "contact_phone": "02 5603 1600",
+        "contact_email": "casinohub@nrcg.org.au",
+        "external_url": "https://nrcg.org.au/location/casino-neighbourhood-centre/",
+        "location_detail": "138 Canterbury Street, Casino"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://nrcg.org.au/location/casino-neighbourhood-centre/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "1c23524e-929d-4e78-a4a2-2b3cc415a80f",
+      "existing": true,
+      "expectedTitle": "Clarence Environment Centre",
+      "expectedUpdatedAt": "2026-04-21 23:24:42.049489",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Community environment centre established in 1989, supporting conservation advocacy, biodiversity and Land for Wildlife in the Clarence Valley.",
+        "contact_phone": "0425 162 172",
+        "contact_email": "admin@cec.org.au",
+        "location_detail": "New School of Arts & Neighbourhood House, 87–89 Skinner Street, South Grafton"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://cec.org.au/",
+          "https://cec.org.au/contact-us/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "74ba1506-fa3a-4104-aeaf-26c641b06e7d",
+      "existing": true,
+      "expectedTitle": "Clarence Valley Conservation Coalition",
+      "expectedUpdatedAt": "2026-04-21 23:24:42.173046",
+      "type": "directory_entry",
+      "patch": {
+        "contact_email": "clarencevcc@gmail.com"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://clarencevalleycc.blogspot.com/",
+          "https://clarencevalleycc.blogspot.com/p/contact.html"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "0daf5a78-6886-426b-b6c9-e572a011e67e",
+      "existing": true,
+      "expectedTitle": "Coorabell Crop Swap",
+      "expectedUpdatedAt": "2026-04-22 09:58:33.179905",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Free exchange of surplus produce, seeds, cuttings and seedlings at Coorabell Hall on alternating Sundays. Check the organiser’s calendar for the next session.",
+        "external_url": "https://www.coorabellhall.net/regular-happenings/crop-swap",
+        "location_detail": "Coorabell Hall, 565 Coolamon Scenic Drive, Coorabell",
+        "contact_method": "Use the Coorabell Hall website for current session details.",
+        "tags": [
+          "produce-swap",
+          "seed-saving",
+          "local-food"
+        ]
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.coorabellhall.net/regular-happenings/crop-swap",
+          "https://www.coorabellhall.net/calendar"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "The exact start and finish time needs confirmation in the organiser’s calendar.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "6f900cea-a629-415e-a0b1-b9c1fcda05be",
+      "existing": true,
+      "expectedTitle": "Fletcher Street Cottage",
+      "expectedUpdatedAt": "2026-04-21 23:24:44.396726",
+      "type": "directory_entry",
+      "patch": {
+        "external_url": "https://www.byroncentre.com.au/fsc/fletcher-street-cottage",
+        "contact_phone": "02 6685 7830",
+        "location_detail": "18 Fletcher Street, Byron Bay"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.byroncentre.com.au/fsc/fletcher-street-cottage",
+          "https://www.facebook.com/FletcherStreetCottage/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "The listed email is the parent organisation’s general contact; confirm the appropriate project contact.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "6a183362-ec8e-4815-9c79-fab74d445848",
+      "existing": true,
+      "expectedTitle": "FoodCare Grafton",
+      "expectedUpdatedAt": "2026-04-21 23:24:42.360919",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Food relief and low-cost grocery support in Grafton. The newer public Food Care Grafton page publishes a South Grafton address; confirm opening arrangements before visiting.",
+        "external_url": "https://www.facebook.com/p/Food-Care-Grafton-61571973693657/",
+        "contact_email": "foodcare-grafton@faithfamily.com.au",
+        "location_detail": "59 Armidale Road, South Grafton (published on the newer organisation page)"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.facebook.com/p/Food-Care-Grafton-61571973693657/",
+          "https://www.newaste.org.au/fooddonation/wp-content/uploads/2021/03/Food_Donation_Tool_Kit_March_2021.pdf"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "Current opening hours and phone number need confirmation; older sources give a different venue.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "aba081f2-3402-4c1e-ad0c-fbd38c623487",
+      "existing": true,
+      "expectedTitle": "Friends of the Koala",
+      "expectedUpdatedAt": "2026-04-21 23:24:44.132441",
+      "type": "directory_entry",
+      "patch": {
+        "contact_email": "info@friendsofthekoala.org",
+        "location_detail": "23 Rifle Range Road, East Lismore NSW 2480"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://friendsofthekoala.org/",
+          "https://friendsofthekoala.org/contact/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "50d3c6ca-8058-41b8-adf1-475a76fb7631",
+      "existing": true,
+      "expectedTitle": "Jagun Alliance Aboriginal Corporation",
+      "expectedUpdatedAt": "2026-04-21 23:24:44.308514",
+      "type": "directory_entry",
+      "patch": {
+        "contact_email": null,
+        "contact_method": "Use the official website enquiry form for general enquiries."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.jagunalliance.org.au/",
+          "https://www.jagunalliance.org.au/contact-us"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "bc0d3b69-5e53-4188-9a24-65a7ff70051b",
+      "existing": true,
+      "expectedTitle": "Kyogle Family Support Services Neighbourhood Centre",
+      "expectedUpdatedAt": "2026-04-21 23:24:44.485416",
+      "type": "directory_entry",
+      "patch": {
+        "title": "Kyogle Neighbourhood Centre",
+        "description": "Community Gateway’s Kyogle neighbourhood centre offers family support, outreach, a community garden and help accessing services. This listing was previously titled Kyogle Family Support Services Neighbourhood Centre; it preserves that listing’s history.",
+        "contact_email": "kyoglehub@nrcg.org.au",
+        "contact_phone": "02 6621 7397",
+        "contact_method": "Community Gateway main number; ask for the Kyogle hub.",
+        "external_url": "https://nrcg.org.au/location/kyogle-neighbourhood-centre/",
+        "location_detail": "Grove House, 8 Geneva Street, Kyogle NSW 2474"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://nrcg.org.au/location/kyogle-neighbourhood-centre/",
+          "https://buy.nsw.gov.au/notices/78539CC2-4E2A-46B5-81ACCFADF2A02BFB"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "The operator publishes inconsistent opening hours and more than one phone reference; confirm Kyogle hub arrangements.",
+        "verificationStatus": "needs_verification",
+        "previousNames": [
+          "Kyogle Family Support Services Neighbourhood Centre"
+        ]
+      }
+    },
+    {
+      "id": "0f8ac5ac-c815-4565-980d-4ea1f67c7299",
+      "existing": true,
+      "expectedTitle": "Kyogle Landcare Inc / Northern Landcare Support Services",
+      "expectedUpdatedAt": "2026-04-21 23:03:22.729783",
+      "type": "directory_entry",
+      "patch": {
+        "title": "Kyogle Landcare Inc",
+        "description": "Local Landcare group involved in nursery work, native habitat restoration and community planting in Kyogle. It is a member of the Border Ranges Richmond Valley Landcare Network. Northern Landcare Support Services is a separately named entity and is not used as an alias here.",
+        "external_url": "https://www.brrvln.org.au/kyogle-landcare-inc",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": "Use the network’s Kyogle Landcare page to find the current group contact."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://landcare.nsw.gov.au/groups/kyogle-landcare-and-northern-landcare-support/",
+          "https://www.brrvln.org.au/kyogle-landcare-inc",
+          "https://richmondriverfest.com/event/community-planting-and-creek-walk-with-kyogle-landcare/",
+          "https://abr.business.gov.au/ABN/View?abn=95114600510"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "A current general group contact has not been verified; an older Gateway contact and a dated event contact are not treated as permanent.",
+        "verificationStatus": "needs_verification",
+        "previousNames": [
+          "Kyogle Landcare Inc / Northern Landcare Support Services"
+        ]
+      }
+    },
+    {
+      "id": "ea1c3ead-fa51-4cfe-8c3d-851c1b6b2828",
+      "existing": true,
+      "expectedTitle": "Lennox Community Gardens",
+      "expectedUpdatedAt": "2026-04-21 23:24:42.961132",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Volunteer community garden at Ocean Breeze Reserve with vegetable plots and a diverse fruit-tree collection. Its website advertises working bees Thursday 8:30–10:30 am and Sunday 2–4 pm.",
+        "external_url": "https://www.lennoxcommunitygardens.com.au/",
+        "location_detail": "Ocean Breeze Reserve, Hutley Drive, Lennox Head",
+        "region": "ballina"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.lennoxcommunitygardens.com.au/",
+          "https://www.lennoxcommunitygardens.com.au/contact.html"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "The listed email could not be independently confirmed from the current contact page.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "2a98bd78-7363-4dde-bd6d-c08bb7e60124",
+      "existing": true,
+      "expectedTitle": "Lennox Head Landcare",
+      "expectedUpdatedAt": "2026-04-21 23:24:43.052525",
+      "type": "directory_entry",
+      "patch": {
+        "external_url": "https://landcare.nsw.gov.au/groups/lennox-head-landcare/",
+        "contact_email": "lennoxheadlandcare@gmail.com",
+        "region": "ballina"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://landcare.nsw.gov.au/groups/lennox-head-landcare/",
+          "https://www.facebook.com/lennoxheadlandcare/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "The published email comes from an undated Landcare profile; current contact details need reconfirmation.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "cb307b61-90db-4682-b725-fabbbb69a049",
+      "existing": true,
+      "expectedTitle": "Liberation Larder",
+      "expectedUpdatedAt": "2026-04-21 23:24:43.153341",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Volunteer-led local charity rescuing food and preparing meals for people in need. The organiser advertises Monday and Thursday services, with breakfast 7–9 am and cooked meals noon–2 pm.",
+        "contact_email": "liberationlarder@gmail.com",
+        "location_detail": "42 Fletcher Street, behind Byron Community Centre"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.liberationlarder.org/",
+          "https://www.liberationlarder.org/contact-us"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "a1a0e05a-4ee5-4a64-b79c-de602a1fe788",
+      "existing": true,
+      "expectedTitle": "Lismore Environment Centre",
+      "expectedUpdatedAt": "2026-04-21 23:24:44.584294",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Lismore environmental community organisation documented through its public social and campaign profiles. Current premises, shop operation and program availability have not been confirmed."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.facebook.com/lisenvirocentre/",
+          "https://actionnetwork.org/groups/lismore-environment-centre"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "Current premises, shop operation, programs and public contact details need confirmation.",
+        "verificationStatus": "needs_verification",
+        "listingLabel": "Current activity unconfirmed"
+      }
+    },
+    {
+      "id": "ccdefd3b-3a75-4cd8-bda0-1a5e0e4e40ce",
+      "existing": true,
+      "expectedTitle": "Lismore Farmers Market",
+      "expectedUpdatedAt": "2026-04-21 23:03:23.054355",
+      "type": "directory_entry",
+      "patch": {
+        "external_url": "https://www.facebook.com/Lismore.Farmers.Market/",
+        "contact_email": "lismorefarmersmarket@gmail.com",
+        "contact_phone": "0401 190 912",
+        "location_detail": "Lismore Showground, 116 Alexandra Parade, North Lismore"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.nsw.gov.au/visiting-and-exploring-nsw/nsw-events/lismore-farmers-market",
+          "https://www.facebook.com/Lismore.Farmers.Market/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "dea7ca14-72e3-4534-bc29-c383166f8a9d",
+      "existing": true,
+      "expectedTitle": "Lower Clarence Community Gardens (Yamba Community Garden)",
+      "expectedUpdatedAt": "2026-04-21 23:03:21.305767",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Community gardening organisation in Yamba. FRRR’s May 2026 funding announcement records a Stage 2 garden extension and accessible raised beds.",
+        "external_url": "https://frrr.org.au/blog/2026/05/28/src-r28-recipients/",
+        "location_detail": "Yamba; confirm the current garden entrance before visiting"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://frrr.org.au/blog/2026/05/28/src-r28-recipients/",
+          "https://www.clarence.nsw.gov.au/Environment/Living-Sustainably-Awards",
+          "https://www.yambafarmersandproducersmarket.com/new-gallery-62"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "The current garden entrance and visitor arrangements need confirmation.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "6913dbd7-cf3b-42e7-a5e3-a07165692608",
+      "existing": true,
+      "expectedTitle": "Mid Richmond Neighbourhood Centre (Community Pantry)",
+      "expectedUpdatedAt": "2026-04-21 23:24:42.756746",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Neighbourhood centre serving Evans Head, Woodburn, Broadwater and Coraki, with community pantry, gardening and support programs.",
+        "contact_email": "admin@mrnc.com.au"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.mrnc.com.au/",
+          "https://www.mrnc.com.au/pages/contact"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "410d768e-cbf8-4abb-9762-cc6ec3b93e75",
+      "existing": true,
+      "expectedTitle": "Minyon Resilience Network",
+      "expectedUpdatedAt": "2026-04-18 13:11:12.789931",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Community resilience network supporting emergency preparedness, training and communication around Minyon Falls, Repentance Creek, Upper Coopers Creek and Rosebank.",
+        "contact_email": "info@minyonresiliencenetwork.com",
+        "contact_method": null,
+        "external_url": "https://www.minyonresiliencenetwork.com/",
+        "location_detail": "Minyon Falls, Repentance Creek, Upper Coopers Creek and Rosebank"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.minyonresiliencenetwork.com/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "e10b0540-34a0-438c-beba-344577423623",
+      "existing": true,
+      "expectedTitle": "Mullumbimby & District Neighbourhood Centre",
+      "expectedUpdatedAt": "2026-04-21 23:24:43.472475",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Neighbourhood centre offering food support, emergency relief and community services. Gulganii Pantry is advertised on Monday, Wednesday and Friday; check the centre for current meal and service times.",
+        "contact_email": "communityhub@mdnc.org.au",
+        "location_detail": "55 Dalley Street, Mullumbimby NSW 2482"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.mdnc.org.au/",
+          "https://www.mdnc.org.au/contact-us/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "Current community lunch and soup-kitchen times need confirmation.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "eacec348-1c69-4b00-ac2c-41fe77ef7e5e",
+      "existing": true,
+      "expectedTitle": "Mullumbimby Community Garden",
+      "expectedUpdatedAt": "2026-10-18 22:18:50.896",
+      "type": "directory_entry",
+      "patch": {},
+      "metadata": {
+        "sourceUrls": [
+          "https://mullumbimbycommunitygarden.org/",
+          "https://mullumbimbycommunitygarden.org/contact"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "87ba25f0-82b1-4c47-906d-3ef3e98f1b93",
+      "existing": true,
+      "expectedTitle": "Mullumbimby Farmers Market",
+      "expectedUpdatedAt": "2026-04-21 23:03:22.969883",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Not-for-profit local farmers market at Mullumbimby Showgrounds. The organiser advertises Fridays 7–11 am, with regional produce and community activities.",
+        "contact_email": "allie@nbfm.com.au",
+        "contact_phone": "0424 168 672"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://mullumfarmersmarket.org.au/",
+          "https://mullumfarmersmarket.org.au/contact-us/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "0f4f2304-2f28-43d4-a113-3cc0fb815c78",
+      "existing": true,
+      "expectedTitle": "Murwillumbah Community Garden",
+      "expectedUpdatedAt": "2026-04-21 23:03:21.23321",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Community garden in Murwillumbah with an organic food-growing mission. Its public social page identifies the Showgrounds location; confirm current visiting arrangements.",
+        "external_url": "https://www.facebook.com/MurwillumbahCommunityGarden/",
+        "location_detail": "Showgrounds Gate 2, Mooball Street, Murwillumbah (confirm access)"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://murwillumbahcommunitygarden.wordpress.com/",
+          "https://murwillumbahcommunitygarden.wordpress.com/contact-us/",
+          "https://murwillumbahcommunitygarden.wordpress.com/about/",
+          "https://www.facebook.com/MurwillumbahCommunityGarden/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "Current visiting arrangements, listed email and legal/auspicing relationship need confirmation; legacy contacts are dated.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "077d469e-a668-4afb-9b30-ea5b8e02af66",
+      "existing": true,
+      "expectedTitle": "New Brighton Farmers Market",
+      "expectedUpdatedAt": "2026-04-21 23:24:43.672698",
+      "type": "directory_entry",
+      "patch": {
+        "contact_email": "allie@nbfm.com.au",
+        "contact_phone": "0424 168 672"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://newbrightonfarmersmarket.org.au/",
+          "https://newbrightonfarmersmarket.org.au/contact-us/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "The homepage advertises Tuesday 7–11 am, but older contact-page text says 8–11 am. Confirm the opening time.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "a0b2117d-a71f-4203-8e12-08ff12d58e76",
+      "existing": true,
+      "expectedTitle": "Nimbin Neighbourhood & Information Centre (NNIC)",
+      "expectedUpdatedAt": "2026-04-21 23:03:22.118148",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Nimbin neighbourhood and information centre supporting community wellbeing, practical assistance and food security, including a neighbourhood food pantry."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://nnic.org.au/pub/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "The listed email was not independently confirmed in the current source text.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "3fadd0a5-e8a7-4d76-b9da-9dbd711c5275",
+      "existing": true,
+      "expectedTitle": "Nimbin Organic Food Co-op",
+      "expectedUpdatedAt": "2026-04-21 23:03:21.457999",
+      "type": "directory_entry",
+      "patch": {},
+      "metadata": {
+        "sourceUrls": [
+          "https://www.nimbinfoodcoop.org.au/",
+          "https://www.nimbinfoodcoop.org.au/contact"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "The listed email was not independently confirmed; the official contact form is available.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "c2190ded-ea15-4a7f-9cf9-18b1be8bbb8f",
+      "existing": true,
+      "expectedTitle": "North Coast Regional Landcare Network",
+      "expectedUpdatedAt": "2026-04-21 23:03:22.425657",
+      "type": "directory_entry",
+      "patch": {
+        "contact_email": "office@northcoastlandcare.org.au",
+        "contact_phone": "0480 739 961",
+        "location_detail": "North Coast NSW; postal address PO Box 594, Grafton NSW 2460"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://northcoastlandcare.org.au/",
+          "https://northcoastlandcare.org.au/contact-us/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "2741b1f8-d961-4aa3-a9a4-4876160108fc",
+      "existing": true,
+      "expectedTitle": "Northern Rivers Community Foundation",
+      "expectedUpdatedAt": "2026-04-21 23:03:22.353926",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Regional philanthropic foundation connecting community generosity with local organisations and projects across the Northern Rivers. Check its current program pages for grant availability.",
+        "location_detail": "Northern Rivers; postal address PO Box 304, Clunes NSW 2480"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://nrcf.org.au/",
+          "https://nrcf.org.au/contact-us/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "568a5c02-48da-44ac-a474-cc701f75cc5e",
+      "existing": true,
+      "expectedTitle": "Northern Rivers Community Gateway",
+      "expectedUpdatedAt": "2026-04-21 23:03:22.19788",
+      "type": "directory_entry",
+      "patch": {
+        "location_detail": "76 Carrington Street, Lismore NSW 2480"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://nrcg.org.au/contact/",
+          "https://nrcg.org.au/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "058b8b40-9ef2-4fd6-8530-0f52c09eec94",
+      "existing": true,
+      "expectedTitle": "Northern Rivers Food Coalition",
+      "expectedUpdatedAt": "2026-04-21 23:03:21.61007",
+      "type": "directory_entry",
+      "patch": {
+        "title": "Northern Rivers Regenerative Food System Coalition",
+        "description": "Regional collaboration among farmers, businesses and community stakeholders working on a regenerative food system. SEED’s official project page describes its development with Santos Organics; enquiries go through that project page.",
+        "external_url": "https://seednorthernrivers.org.au/foodresilience",
+        "contact_email": null,
+        "contact_phone": null,
+        "contact_method": "Use the project enquiry form on SEED’s website."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://seednorthernrivers.org.au/foodresilience"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked",
+        "previousNames": [
+          "Northern Rivers Food Coalition"
+        ]
+      }
+    },
+    {
+      "id": "1504febf-2055-4c2d-803f-b63a0639f099",
+      "existing": true,
+      "expectedTitle": "Northern Rivers Food Inc",
+      "expectedUpdatedAt": "2026-04-21 23:03:21.533629",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Existing listing for Northern Rivers Food Inc, a regional food organisation. Its current website presents an under-construction page; current programs and service area have not been independently confirmed."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.northernriversfood.org/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "Current operations, service area and listed email are unconfirmed; the website is under construction.",
+        "verificationStatus": "needs_verification",
+        "listingLabel": "Current activity unconfirmed"
+      }
+    },
+    {
+      "id": "ee5b5acf-34de-4064-841d-2adee55e38b5",
+      "existing": true,
+      "expectedTitle": "Permaculture College Australia (Djanbung Gardens)",
+      "expectedUpdatedAt": "2026-04-21 23:03:20.825646",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Permaculture College Australia at Djanbung Gardens offers permaculture education, design courses and demonstration gardens in Nimbin. Check the provider for current course dates and accreditation details.",
+        "contact_email": "admin@permaculture.com.au",
+        "location_detail": "74 Cecil Street, Nimbin NSW 2480"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://permaculture.com.au/",
+          "https://permaculture.com.au/contact-us/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "51297ced-3e9c-4adc-badf-5eeb1ce266a6",
+      "existing": true,
+      "expectedTitle": "Plan C",
+      "expectedUpdatedAt": "2026-04-21 23:03:21.773738",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Plan C, formerly Resilient Byron, supports community resilience across the Northern Rivers. The organisation is officially Our Plan C Incorporated and works on local preparedness, connection and regional collaboration."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.planc.org.au/",
+          "https://www.planc.org.au/latest-news/introducing-plan-c"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked",
+        "aliases": [
+          "Resilient Byron"
+        ]
+      }
+    },
+    {
+      "id": "3a9aabb0-8c99-4b7d-8d56-9d33082ee71b",
+      "existing": true,
+      "expectedTitle": "Pottsville Beach Neighbourhood Centre",
+      "expectedUpdatedAt": "2026-04-21 23:24:43.57651",
+      "type": "directory_entry",
+      "patch": {
+        "contact_email": "info@pbnc.org.au"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.pbnc.org.au/",
+          "https://www.pbnc.org.au/contact/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "c19c1ab1-5574-4ddc-a490-4fa398929285",
+      "existing": true,
+      "expectedTitle": "Rainbow Region Community Farms / Lismore Community Garden",
+      "expectedUpdatedAt": "2026-04-21 23:03:21.153893",
+      "type": "directory_entry",
+      "patch": {
+        "external_url": "https://www.facebook.com/lismorecommunitygarden/",
+        "description": "Rainbow Region Community Farms is documented as the operator of Lismore Community Garden. Public garden and partner event pages support recent community-gardening activity; confirm access and current contact details before visiting."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.rrcf.org.au/",
+          "https://www.facebook.com/lismorecommunitygarden/",
+          "https://www.kevinhogan.com.au/kevin-hogan-announces-funding-for-lismore-community-gardens/",
+          "https://richmondriverfest.com/event/springfair/",
+          "https://chuffed.org/project/lismore-community-garden"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "Current visiting address, access and listed email need confirmation.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "87911564-7906-4b86-93fc-eaab020ebdd8",
+      "existing": true,
+      "expectedTitle": "Relocalise Northern Rivers",
+      "expectedUpdatedAt": "2026-04-21 23:03:21.689951",
+      "type": "directory_entry",
+      "patch": {
+        "location_detail": "Northern Rivers; no fixed visitor address confirmed"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://relocalise.org/",
+          "https://relocalise.org/#connect"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "The listed email and a fixed visitor address were not confirmed; use the website connect section.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "35a9819a-506d-4d1f-bea8-27dd6003d939",
+      "existing": true,
+      "expectedTitle": "Resilient Byron",
+      "expectedUpdatedAt": "2026-04-21 23:03:21.92986",
+      "type": "directory_entry",
+      "patch": {
+        "status": "removed"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.planc.org.au/latest-news/introducing-plan-c",
+          "https://www.planc.org.au/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked",
+        "canonicalDirectoryId": "51297ced-3e9c-4adc-badf-5eeb1ce266a6",
+        "listingLabel": "Merged into Plan C"
+      }
+    },
+    {
+      "id": "b29e45d0-7ba7-45ee-87c9-fff9a2742a23",
+      "existing": true,
+      "expectedTitle": "Resilient Lismore",
+      "expectedUpdatedAt": "2026-04-21 23:03:21.853908",
+      "type": "directory_entry",
+      "patch": {
+        "contact_email": "hello@resilientlismore.org.au",
+        "location_detail": "172 Casino Street, South Lismore NSW 2480"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://resilientlismore.org.au/",
+          "https://resilientlismore.org.au/contact-us/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "9ff0b363-f98a-4ba9-9e0d-4a3a84b38728",
+      "existing": true,
+      "expectedTitle": "Resilient Uki",
+      "expectedUpdatedAt": "2026-04-21 23:03:22.005463",
+      "type": "directory_entry",
+      "patch": {},
+      "metadata": {
+        "sourceUrls": [
+          "https://resilientuki.org/",
+          "https://resilientuki.org/get-involved/#contact"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "The listed email was not independently confirmed; the official contact form is available.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "8c7cb5e3-fedc-467b-883c-ea3be5ea194f",
+      "existing": true,
+      "expectedTitle": "Richmond Landcare Inc",
+      "expectedUpdatedAt": "2026-04-21 23:03:22.501722",
+      "type": "directory_entry",
+      "patch": {
+        "contact_email": "info@richmondlandcare.org"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.richmondlandcare.org/",
+          "https://www.richmondlandcare.org/contact-us"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "The listed phone number was not exposed on the current contact pages.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "a75ca39a-51af-4599-a7c1-ae124a4fba71",
+      "existing": true,
+      "expectedTitle": "Roots & Rivers Collective",
+      "expectedUpdatedAt": "2026-10-17 00:47:43.477271",
+      "type": "directory_entry",
+      "patch": {
+        "external_url": "https://events.humanitix.com/host/roots-and-rivers-collective",
+        "contact_method": "Use Contact host on the public organiser page."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://events.humanitix.com/host/roots-and-rivers-collective",
+          "https://events.humanitix.com/fuel-for-the-future",
+          "https://events.humanitix.com/char-and-spa"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "f3758b76-4857-46ea-91b9-51119066d785",
+      "existing": true,
+      "expectedTitle": "Santos Organics",
+      "expectedUpdatedAt": "2026-04-21 23:24:43.372484",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Not-for-profit organic and local-food organisation with shops in Byron Bay and Mullumbimby. Supports community and environmental initiatives through its food retail activities.",
+        "contact_email": "general@santosorganics.com.au",
+        "contact_phone": "02 6685 5685",
+        "contact_method": "General enquiries. Byron Bay shop: 02 6685 7071."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://santosorganics.com.au/",
+          "https://santosorganics.com.au/pages/contact"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "d7442de8-38a9-488d-bd83-6e0d1de2c5e7",
+      "existing": true,
+      "expectedTitle": "Seed Northern Rivers",
+      "expectedUpdatedAt": "2026-10-18 22:18:50.896",
+      "type": "directory_entry",
+      "patch": {},
+      "metadata": {
+        "sourceUrls": [
+          "https://seednorthernrivers.org.au/",
+          "https://seednorthernrivers.org.au/contact"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "74300822-2a2c-498c-8553-bbf38ccf1354",
+      "existing": true,
+      "expectedTitle": "The Good Pantry (Lismore Soup Kitchen)",
+      "expectedUpdatedAt": "2026-04-21 23:03:22.269947",
+      "type": "directory_entry",
+      "patch": {
+        "description": "The Good Pantry, auspiced by Lismore Soup Kitchen, provides low-cost groceries for people in need. Membership is free and assistance may be available for people without money; produce is not universally free.",
+        "contact_phone": "0422 981 363",
+        "location_detail": "Lismore; confirm current address and hours before visiting"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://winsome.org.au/the-good-pantry.html"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "Current street address, opening hours and prices need confirmation; the source includes older operational information.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "ad954b0f-6069-46b0-8851-79902f45bfb7",
+      "existing": true,
+      "expectedTitle": "The Grass Roots Mentoring Group",
+      "expectedUpdatedAt": "2026-04-21 23:24:43.852929",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Peer mentoring network for people restoring land and native habitat around the Northern Rivers. Members share practical regeneration knowledge and experience; check current gatherings with the group.",
+        "contact_email": "grassrootsmentoringgroup@outlook.com"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://landcare.nsw.gov.au/groups/border-ranges-richmond-valley-landcare-network-incorporated/from-the-grass-roots-mentoring-regeneration-projects-in-the-northern-rivers/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "Current gathering schedule and membership details are unconfirmed.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "748748da-05e6-491e-8cfa-d45f99bc8a61",
+      "existing": true,
+      "expectedTitle": "Tweed Heads Community Markets",
+      "expectedUpdatedAt": "2026-04-21 23:24:44.673149",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Community-submitted listing for Tweed Heads Community Markets. Current operator, venue and trading schedule have not been independently confirmed."
+      },
+      "metadata": {
+        "sourceUrls": [],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "Operator identity, venue, schedule and both listed contacts need confirmation.",
+        "verificationStatus": "needs_verification",
+        "listingLabel": "Current activity unconfirmed"
+      }
+    },
+    {
+      "id": "48c58a96-5ae6-4959-b4c7-7bfbb8aaaa0f",
+      "existing": true,
+      "expectedTitle": "Tweed Landcare Inc",
+      "expectedUpdatedAt": "2026-04-21 23:03:22.809919",
+      "type": "directory_entry",
+      "patch": {
+        "contact_email": "tli@tweedlandcare.org.au",
+        "contact_phone": "02 6670 2199",
+        "location_detail": "Murwillumbah; postal address PO Box 42, Murwillumbah NSW 2484"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://tweedlandcare.org.au/",
+          "https://tweedlandcare.org.au/contact/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "b7f5cbf1-c179-4d42-b6e9-f8995f79a4b7",
+      "existing": true,
+      "expectedTitle": "Valley Watch Inc",
+      "expectedUpdatedAt": "2026-04-21 23:24:42.256826",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Existing listing for Valley Watch Inc in the Lower Clarence area. Current organisational details and activity could not be confirmed from accessible public sources."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "http://www.clarencevalleywatchyamba.com/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "Current identity, location, activities and listed email were not independently reconfirmed. Website failure does not establish closure.",
+        "verificationStatus": "needs_verification",
+        "listingLabel": "Current activity unconfirmed"
+      }
+    },
+    {
+      "id": "bcada6ac-c56d-4678-a83e-8b54b758fdc5",
+      "existing": true,
+      "expectedTitle": "Vitality Farms Northern Rivers",
+      "expectedUpdatedAt": "2026-04-22 10:27:14.960756",
+      "type": "directory_entry",
+      "patch": {
+        "external_url": "https://www.vfnr.com.au/",
+        "contact_phone": "1300 465 478",
+        "contact_email": "info@vfnr.com.au"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.vfnr.com.au/",
+          "https://www.vfnr.com.au/about",
+          "https://www.vfnr.com.au/contact"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "965f29a7-5156-4ee2-aa63-22e5105ed8a1",
+      "existing": true,
+      "expectedTitle": "Wilsons Creek / Huonbrook Landcare Group",
+      "expectedUpdatedAt": "2026-04-21 23:24:44.052566",
+      "type": "directory_entry",
+      "patch": {},
+      "metadata": {
+        "sourceUrls": [
+          "https://landcare.nsw.gov.au/groups/wilsons-creek-huonbrook-landcare-group/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "The group profile has no clear recent activity date; confirm current gatherings.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "e3aaaabc-d3cd-4b49-82dc-e17520a005ac",
+      "existing": true,
+      "expectedTitle": "Wilsons River Landcare Group",
+      "expectedUpdatedAt": "2026-04-21 23:03:22.657513",
+      "type": "directory_entry",
+      "patch": {
+        "external_url": "https://landcare.nsw.gov.au/groups/wilsons-river-landcare-group-inc/"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://landcare.nsw.gov.au/groups/wilsons-river-landcare-group-inc/",
+          "https://richmondriverfest.com/event/wilsons-river-lismore-community-planting/",
+          "https://www.facebook.com/wilsonsriverlandcare/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "Use the public group page to confirm current contacts and upcoming sessions.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "aeb0ecf4-e300-4513-9ccc-f6bfe4b4e0d4",
+      "existing": true,
+      "expectedTitle": "Yamba Farmers & Producers Market",
+      "expectedUpdatedAt": "2026-04-21 23:24:42.460766",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Weekly market with local and regional farmers, producers, makers and artisans. The organiser advertises Wednesdays 7–11 am at Whiting Beach Carpark, Yamba."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.yambafarmersandproducersmarket.com/about",
+          "https://www.yambafarmersandproducersmarket.com/contact-1"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "",
+        "verificationStatus": "source_checked"
+      }
+    },
+    {
+      "id": "253ed249-97ea-4649-9ee1-c43389c9a826",
+      "existing": true,
+      "expectedTitle": "Young Farmers Connect (Northern Rivers)",
+      "expectedUpdatedAt": "2026-04-21 23:24:43.768682",
+      "type": "directory_entry",
+      "patch": {
+        "description": "Northern Rivers chapter of Young Farmers Connect, supporting new, young and aspiring farmers through regional connections and occasional field days. The national FarmLinks and FarmJobs boards are paused; use the chapter route for current connections.",
+        "external_url": "https://www.youngfarmersconnect.com/chapters",
+        "contact_email": "gday@youngfarmersconnect.com",
+        "contact_method": "National enquiries address; a regional coordinator contact is not verified."
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.youngfarmersconnect.com/",
+          "https://www.youngfarmersconnect.com/contact",
+          "https://www.youngfarmersconnect.com/chapters"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "Regional coordinator and current field-day dates are unconfirmed. FarmLinks and FarmJobs are paused.",
+        "verificationStatus": "needs_verification",
+        "landConnectCategory": "network",
+        "listingLabel": "Regional network · matching boards paused"
+      }
+    },
+    {
+      "id": "0b182917-12c9-4658-94d9-75f72cdad1ca",
+      "existing": true,
+      "expectedTitle": "Zaytuna Farm / Permaculture Research Institute",
+      "expectedUpdatedAt": "2026-04-21 23:03:20.998041",
+      "type": "directory_entry",
+      "patch": {
+        "title": "Zaytuna Farm",
+        "description": "Permaculture education and demonstration farm offering courses, internships and farm tours near The Channon. Visits require a pre-booked tour. The farm identifies the Permaculture Research Institute as a sister site; current course and volunteer opportunities should be checked with the relevant provider.",
+        "contact_email": "admin@zaytunafarm.com",
+        "contact_method": "Courses and tours: education@zaytunafarm.com. Volunteer enquiries: volunteers@permaculture.org.au.",
+        "location_detail": "1158 Pinchin Road, The Channon NSW 2480"
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.zaytunafarm.com/",
+          "https://www.zaytunafarm.com/contact-us/"
+        ],
+        "lastCheckedAt": "2026-10-19",
+        "verificationNote": "Current course, tour and volunteer dates must be confirmed with the provider.",
+        "verificationStatus": "needs_verification",
+        "previousNames": [
+          "Zaytuna Farm / Permaculture Research Institute"
+        ]
+      }
+    },
+    {
+      "id": "0aa934e5-c376-42f3-9025-dec1e51648d2",
+      "existing": true,
+      "expectedTitle": "Rescue orchard in mid Burringbar",
+      "expectedUpdatedAt": "2026-04-22 00:30:26.071804",
+      "type": "land_available",
+      "patch": {
+        "description": "Community-submitted request for help restoring an orchard in mid Burringbar. The original listing says the need has not been qualified. No land tenure, remuneration, exchange terms or current availability have been established."
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Community lead · availability unconfirmed",
+        "verificationNote": "Confirm the owner’s current need, work arrangements, payment or exchange terms, and whether any cultivation access is actually offered.",
+        "verificationStatus": "needs_verification"
+      }
+    },
+    {
+      "id": "1637a9c9-9a60-5f80-a0f5-41cd5cc87218",
+      "existing": false,
+      "type": "directory_entry",
+      "patch": {
+        "title": "Shara Community Gardens",
+        "description": "A volunteer-run community garden where local members grow food, share harvests and learn together, using low-impact and regenerative gardening practices.",
+        "external_url": "https://sharagardens.com/blog/about/",
+        "region": "other",
+        "location_detail": "Shara Boulevarde, North Ocean Shores, NSW; next to the preschool.",
+        "contact_phone": null,
+        "contact_email": "sharagardens@gmail.com",
+        "contact_method": null,
+        "tags": [
+          "community-group"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Community group",
+        "verificationNote": "Current opening and volunteer session times have not been confirmed.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://sharagardens.com/blog/about/",
+          "https://sharagardens.com/blog/contact/"
+        ]
+      }
+    },
+    {
+      "id": "97eacea7-c44a-54a7-aaca-a265e17f49ea",
+      "existing": false,
+      "type": "directory_entry",
+      "patch": {
+        "title": "Clarence Landcare",
+        "description": "A community-based nonprofit supporting groups and landholders with biodiversity, sustainable land management and natural resource management in the mid and lower Clarence catchment.",
+        "external_url": "https://clarencelandcare.com.au/",
+        "region": "other",
+        "location_detail": "1/48 Prince Street, Grafton, NSW 2460; serves the mid and lower Clarence catchment.",
+        "contact_phone": "02 6643 5009",
+        "contact_email": "landcare@clarencelandcare.com.au",
+        "contact_method": null,
+        "tags": [
+          "landcare"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Community group",
+        "verificationNote": "",
+        "verificationStatus": "source_checked",
+        "sourceUrls": [
+          "https://clarencelandcare.com.au/"
+        ]
+      }
+    },
+    {
+      "id": "dd351df5-779d-543d-b2aa-85cc6951c44a",
+      "existing": false,
+      "type": "directory_entry",
+      "patch": {
+        "title": "Border Ranges Richmond Valley Landcare Network (BRRVLN)",
+        "description": "A nonprofit landcare network supporting biodiversity and sustainable agriculture across the Kyogle and Richmond Valley local government areas, working with local member groups and landholders.",
+        "external_url": "https://www.brrvln.org.au/",
+        "region": "kyogle",
+        "location_detail": "40 Summerland Way, Kyogle, NSW; serves Kyogle and Richmond Valley LGAs.",
+        "contact_phone": "0457 052 636",
+        "contact_email": "landcare.support@brrvln.org.au",
+        "contact_method": null,
+        "tags": [
+          "landcare"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Community group",
+        "verificationNote": "",
+        "verificationStatus": "source_checked",
+        "sourceUrls": [
+          "https://www.brrvln.org.au/",
+          "https://www.brrvln.org.au/contact",
+          "https://landcare.nsw.gov.au/groups/border-ranges-richmond-valley-landcare-network-incorporated/"
+        ]
+      }
+    },
+    {
+      "id": "ba3bc588-a8a9-5e7c-bf34-ad212356b181",
+      "existing": false,
+      "type": "directory_entry",
+      "patch": {
+        "title": "Caldera Environment Centre",
+        "description": "A volunteer environmental organisation and centre in Murwillumbah supporting ecological conservation, community information and environmental events.",
+        "external_url": "https://calderaenvironmentcentre.org/",
+        "region": "murwillumbah",
+        "location_detail": "43 Wollumbin Street, Murwillumbah, NSW.",
+        "contact_phone": null,
+        "contact_email": "caldera@calderaenvironmentcentre.org",
+        "contact_method": null,
+        "tags": [
+          "community-group"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Community group",
+        "verificationNote": "",
+        "verificationStatus": "source_checked",
+        "sourceUrls": [
+          "https://calderaenvironmentcentre.org/"
+        ]
+      }
+    },
+    {
+      "id": "1329b13f-0d68-534c-9dc3-16f34f9ca28e",
+      "existing": false,
+      "type": "directory_entry",
+      "patch": {
+        "title": "WardellCORE",
+        "description": "A volunteer community resilience organisation serving Wardell and surrounding districts, with food support, shared meals, gardening activities and a tool library.",
+        "external_url": "https://www.wardellcore.community/",
+        "region": "ballina",
+        "location_detail": "The Old Bank, 3 Sinclair Street, Wardell, NSW.",
+        "contact_phone": "0431 716 457",
+        "contact_email": "wardellCORE@gmail.com",
+        "contact_method": null,
+        "tags": [
+          "community-group"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Community group",
+        "verificationNote": "",
+        "verificationStatus": "source_checked",
+        "sourceUrls": [
+          "https://www.wardellcore.community/"
+        ]
+      }
+    },
+    {
+      "id": "59dcda7e-d05e-5621-b602-4a166dc9259c",
+      "existing": false,
+      "type": "directory_entry",
+      "patch": {
+        "title": "Murwillumbah Farmers’ Market",
+        "description": "A weekly farmers’ market offering local fresh and seasonal food at Murwillumbah Showground on Wednesday mornings.",
+        "external_url": "https://murbahfarmersmarket.com.au/",
+        "region": "murwillumbah",
+        "location_detail": "Murwillumbah Showground, 37 Queensland Road, Murwillumbah, NSW 2484.",
+        "contact_phone": "0459 566 990",
+        "contact_email": "hello@murbahfarmersmarket.com.au",
+        "contact_method": null,
+        "tags": [
+          "community-group"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Community group",
+        "verificationNote": "",
+        "verificationStatus": "source_checked",
+        "sourceUrls": [
+          "https://murbahfarmersmarket.com.au/"
+        ]
+      }
+    },
+    {
+      "id": "c85de05a-7953-5461-8f78-7ad26b277cfa",
+      "existing": false,
+      "type": "directory_entry",
+      "patch": {
+        "title": "Green Heroes",
+        "description": "A volunteer conservation group on the Tweed Coast engaging the community in marine and coastal wildlife monitoring, citizen science and environmental education.",
+        "external_url": "https://greenheroes.org.au/",
+        "region": "tweed",
+        "location_detail": "Tweed Coast, NSW; activities include Fingal Head and Cook Island Aquatic Reserve.",
+        "contact_phone": null,
+        "contact_email": "hello@greenheroes.org.au",
+        "contact_method": null,
+        "tags": [
+          "community-group"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Community group",
+        "verificationNote": "",
+        "verificationStatus": "source_checked",
+        "sourceUrls": [
+          "https://greenheroes.org.au/"
+        ]
+      }
+    },
+    {
+      "id": "fbd82dcb-0fc9-556d-8927-84b4c5018e33",
+      "existing": false,
+      "type": "directory_entry",
+      "patch": {
+        "title": "Nimbin Environment Centre",
+        "description": "A volunteer environment centre supporting local environmental protection and sustainable community initiatives in the Nimbin area.",
+        "external_url": "https://www.nimbincommunity.org.au/properties/nimbin-environment-centre",
+        "region": "nimbin",
+        "location_detail": "Nimbin, NSW; a precise current public street address was not independently verified.",
+        "contact_phone": "02 6689 1441",
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "community-group"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Current activity unconfirmed",
+        "verificationNote": "Current activities, visitor address and phone need reconfirmation. The organisation’s own site was unavailable; identity and listed phone come from the venue’s tenant profile.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://www.nimbincommunity.org.au/properties/nimbin-environment-centre",
+          "https://nimbinenvironmentcentre.org.au/mulgum-creek-restoration-project/",
+          "https://nimbinenvironmentcentre.org.au/"
+        ]
+      }
+    },
+    {
+      "id": "a03921cd-28cc-5fd0-95ad-c64f3abfb4ac",
+      "existing": false,
+      "type": "directory_entry",
+      "patch": {
+        "title": "Growing Culture — Season 1 CSA",
+        "description": "Seasonal CSA supporting aspiring landless farmers. The October–November 2026 season provides four fortnightly produce boxes over eight weeks. Season 1 enrolment is closed. Published season prices are $200 for small boxes or $360 for large boxes. Monday pickups are advertised at 911 Binna Burra Road, Federal, and Ottilies, 5/59a Station Street, Mullumbimby, 3–5:30 pm.",
+        "external_url": "https://growingculture.com.au/csa",
+        "region": "federal",
+        "location_detail": "Federal, Byron Shire; pickup also Mullumbimby",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "local-food",
+          "CSA / seasonal farm subscription"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "CSA · enrolment closed",
+        "verificationNote": "Season 1 enrolment is closed. Future seasons and availability are not confirmed.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://growingculture.com.au/csa",
+          "https://www.instagram.com/p/DeJOpKjEye0/"
+        ],
+        "seasonEnd": "2026-11-30"
+      }
+    },
+    {
+      "id": "82830498-33a2-55ea-b758-611fe3795364",
+      "existing": false,
+      "type": "directory_entry",
+      "patch": {
+        "title": "Nimbin Food, Seed and Plant Swap — Seven on Sibley",
+        "description": "Food, seed and plant swap at Seven on Sibley, advertised for the third Wednesday of each month, 1:30–2:30 pm, with a gold coin donation. Bring surplus and take what is useful. This program is linked to the existing Nimbin Neighbourhood & Information Centre listing.",
+        "external_url": "https://nimbinvillage.au/events/food-swap-3rd-wednesday/",
+        "region": "nimbin",
+        "location_detail": "7 Sibley Street, Nimbin, Lismore LGA",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "local-food",
+          "Recurring food / seed / plant swap"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Recurring community swap",
+        "verificationNote": "Confirm the next session with the organiser before travelling; the checked event advertised 21 October 2026.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://nimbinvillage.au/events/food-swap-3rd-wednesday/",
+          "https://nimbinvillage.au/profile/venue/7sibley/"
+        ],
+        "parentDirectoryId": "a0b2117d-a71f-4203-8e12-08ff12d58e76",
+        "parentDirectoryName": "Nimbin Neighbourhood & Information Centre"
+      }
+    },
+    {
+      "id": "4079e952-1270-5652-a7a2-0c326d0ba3cd",
+      "existing": false,
+      "type": "directory_entry",
+      "patch": {
+        "title": "Blue Knob Backyarders Table",
+        "description": "Venue says the Backyarders Table continues after the earlier farmers-market format. Surplus garden produce can be sold without a table charge; this does not mean the produce is free or that it is a barter-only swap. Saturdays 8:30 am–noon",
+        "external_url": "https://www.blueknobgallery.com/farmers_market.html",
+        "region": "other",
+        "location_detail": "Blue Knob Hall Gallery, 719 Blue Knob Road, Lillian Rock NSW 2480",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "local-food",
+          "Backyard-grower surplus table / local food sales"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Surplus produce sales",
+        "verificationNote": "The venue page is undated; confirm the next session. Produce is sold, not necessarily free or barter-only.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://www.blueknobgallery.com/farmers_market.html"
+        ]
+      }
+    },
+    {
+      "id": "d6c43414-14d8-54ab-a733-352a8884901a",
+      "existing": false,
+      "type": "directory_entry",
+      "patch": {
+        "title": "Northern Rivers Produce Swap",
+        "description": "Private Facebook produce-exchange group serving Ballina and the Northern Rivers. Its public About page showed 13 posts in the month before the 19 October 2026 check. The Ballina’s Fresh Produce Swap address identifies this same group.",
+        "external_url": "https://www.facebook.com/groups/northernriversproduceswap/",
+        "region": "ballina",
+        "location_detail": "Ballina / Northern Rivers",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "local-food",
+          "Online produce-exchange network"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Private online exchange",
+        "verificationNote": "Only the public About page was checked. Private posts, exchange availability and any meeting schedule were not verified.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://www.facebook.com/groups/northernriversproduceswap/"
+        ]
+      }
+    },
+    {
+      "id": "06ff81ad-9ed0-5174-9137-cec34da6776d",
+      "existing": false,
+      "type": "directory_entry",
+      "patch": {
+        "title": "Northern Rivers Seed Savers and Organic Food Exchange",
+        "description": "Private Facebook group for growers sharing seeds and food around Mullumbimby and Byron Bay. Its public About page showed one post in the month before the 19 October 2026 check. It is not established as the same organisation as Byron Seed Share.",
+        "external_url": "https://www.facebook.com/groups/735841266557399/",
+        "region": "mullumbimby",
+        "location_detail": "Public About page names Mullumbimby and Byron Bay",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "local-food",
+          "Online seed / food-exchange network"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Private online exchange",
+        "verificationNote": "Only the public About page was checked. Current exchanges and any physical meeting schedule are unverified.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://www.facebook.com/groups/735841266557399/"
+        ]
+      }
+    },
+    {
+      "id": "1fc10b4c-9f8e-52d5-9c89-369f9aece57c",
+      "existing": false,
+      "type": "directory_entry",
+      "patch": {
+        "title": "The Farmers' Store Byron",
+        "description": "Optional weekly/adjustable produce subscription with ability to suspend, requesting at least a week's notice. No seasonal shared-risk commitment established; label as produce-box delivery, not a CSA. Delivery days vary by locality; official page has suburb lists and cutoffs",
+        "external_url": "https://thefarmersstore.com.au/pages/delivery-areas",
+        "region": "byron_bay",
+        "location_detail": "Byron Shire farm; published delivery areas cover Tweed, Byron, Ballina and Lismore",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "local-food",
+          "Commercial seasonal produce-box subscription"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Commercial produce boxes",
+        "verificationNote": "Confirm delivery eligibility, prices and terms for your address. This is a commercial subscription; a shared-risk CSA arrangement was not established.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://thefarmersstore.com.au/pages/delivery-areas",
+          "https://thefarmersstore.com.au/blogs/whats-in-the-box/subscription-veggie-boxes-our-farm-is-your-farm-coming-soon"
+        ]
+      }
+    },
+    {
+      "id": "7df35965-a3d3-50f1-8d16-c7152cfe9dbc",
+      "existing": false,
+      "type": "directory_entry",
+      "patch": {
+        "title": "Clarence Valley Organics",
+        "description": "Weekly organic/local/seasonal produce boxes plus groceries; subscription option. Sources across Clarence Valley, Coffs Coast, Northern NSW and southeast Queensland, so do not claim every item is grown locally or a shared-risk CSA. Weekly",
+        "external_url": "https://www.clarencevalleyorganics.com.au/",
+        "region": "other",
+        "location_detail": "Clarence and Richmond Valleys; advertised service from Minnie Water to Wardell",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "local-food",
+          "Commercial multi-producer produce-box delivery"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Commercial produce boxes",
+        "verificationNote": "Confirm delivery eligibility, prices and fees. Produce is sourced from multiple regions; not every item is necessarily local.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://www.clarencevalleyorganics.com.au/"
+        ]
+      }
+    },
+    {
+      "id": "e55478e7-18f2-583e-9ab8-fea3c3134263",
+      "existing": false,
+      "type": "directory_entry",
+      "patch": {
+        "title": "Lismore Organic Market",
+        "description": "Direct purchasing from growers; neither a swap nor a CSA Tuesdays; official tourism guide dated 8 May 2026 says 7:30–11:30 am",
+        "external_url": "https://www.visitlismore.com.au/operator/lismore-organic-market/",
+        "region": "lismore",
+        "location_detail": "Lismore Showground, 116 Alexandra Parade, North Lismore",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "local-food",
+          "Weekly organic growers' market"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Weekly growers market",
+        "verificationNote": "Published finish times differ between directories; confirm the current trading hours with the organiser.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://www.visitlismore.com.au/operator/lismore-organic-market/",
+          "https://www.visitlismore.com.au/2026/05/08/local-market-guide/"
+        ]
+      }
+    },
+    {
+      "id": "f199bcd9-e25c-5e99-8f03-51e960dce635",
+      "existing": false,
+      "type": "land_available",
+      "patch": {
+        "title": "WWOOF Australia",
+        "description": "Organic, biodynamic and permaculture host network offering learning and practical help in exchange for meals and accommodation; the stated usual contribution is 4–6 hours daily. Public Northern Rivers keyword search showed Shroom Brothers at Stokers Siding and Amazing Byron Rainbow Farm near Brunswick Heads active 18 October 2026; Heartwood Farm at Newrybar active 14 October.",
+        "external_url": "https://wwoof.com.au/host-search/",
+        "region": "other",
+        "location_detail": "Australia, with public Northern Rivers hosts",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "land-connect",
+          "organic_farm_learning",
+          "food_accommodation_exchange"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Platform with local coverage",
+        "verificationNote": "Examples establish local coverage, not date-specific host availability. No paid employment or land tenure is implied.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://wwoof.com.au/host-search/",
+          "https://wwoof.com.au/",
+          "https://wwoof.com.au/join-wwoof/"
+        ],
+        "landConnectCategory": "resource",
+        "activityEvidence": "Public Northern Rivers keyword search showed Shroom Brothers at Stokers Siding and Amazing Byron Rainbow Farm near Brunswick Heads active 18 October 2026; Heartwood Farm at Newrybar active 14 October."
+      }
+    },
+    {
+      "id": "76c8ca5d-931b-5960-a63d-d0f7e7bcaa3c",
+      "existing": false,
+      "type": "land_available",
+      "patch": {
+        "title": "HelpX",
+        "description": "Public host directory with farmstay, gardening and homestay exchanges. Tasks, hours, meals and accommodation vary by host. Public farmstay profiles: Mullumbimby updated 16 October 2026; Byron Bay/Bangalow 15 October; Eltham organic farmstay 13 October.",
+        "external_url": "https://www.helpx.net/host",
+        "region": "other",
+        "location_detail": "International, including Northern Rivers NSW",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "land-connect",
+          "food_accommodation_exchange",
+          "farmstay",
+          "homestay"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Platform with local coverage",
+        "verificationNote": "Profile activity is not a vacancy guarantee. Search matches are not a reliable count of regional hosts.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://www.helpx.net/",
+          "https://www.helpx.net/host/SANJOHPNA",
+          "https://www.helpx.net/host/1560520LW",
+          "https://www.helpx.net/host/846206XF"
+        ],
+        "landConnectCategory": "resource",
+        "activityEvidence": "Public farmstay profiles: Mullumbimby updated 16 October 2026; Byron Bay/Bangalow 15 October; Eltham organic farmstay 13 October."
+      }
+    },
+    {
+      "id": "b81e2123-1362-5cf5-b24c-746655a319d2",
+      "existing": false,
+      "type": "land_available",
+      "patch": {
+        "title": "Workaway",
+        "description": "Host directory for cultural exchanges, including farm and garden projects. A public Byron hinterland profile describes organic garden and orchard help with accommodation and food. Byron hinterland host 947732791286 last active and replied 10 September 2026.",
+        "external_url": "https://www.workaway.info/en/hostlist?country=AU&region=New-south-wales",
+        "region": "other",
+        "location_detail": "International, including NSW and Byron hinterland",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "land-connect",
+          "food_accommodation_exchange",
+          "cultural_exchange",
+          "farm_garden_help"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Platform with local coverage",
+        "verificationNote": "No date-specific availability was verified; calendar colours were not reliably represented in page text. Terms vary by host.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://www.workaway.info/en/host/947732791286",
+          "https://www.workaway.info/en/signup/workawayer"
+        ],
+        "landConnectCategory": "resource",
+        "activityEvidence": "Byron hinterland host 947732791286 last active and replied 10 September 2026."
+      }
+    },
+    {
+      "id": "ed993687-73b7-5970-a502-984352eb9310",
+      "existing": false,
+      "type": "land_available",
+      "patch": {
+        "title": "Agri Labour Australia — current positions",
+        "description": "Agricultural labour hire and recruitment provider with a public job board. Regional roles change with seasons and employer demand. Current board linked a Casino forestry pruning vacancy starting 26 October 2026.",
+        "external_url": "https://www.agrilabour.com.au/candidates/current-positions/",
+        "region": "other",
+        "location_detail": "Australia; current Northern Rivers example near Casino",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "land-connect",
+          "paid_employment"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Platform with local coverage",
+        "verificationNote": "Use exact role locations; a NSW filter includes many places outside Northern Rivers.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://www.agrilabour.com.au/candidates/current-positions/",
+          "https://www.agrilabour.com.au/"
+        ],
+        "landConnectCategory": "resource",
+        "activityEvidence": "Current board linked a Casino forestry pruning vacancy starting 26 October 2026."
+      }
+    },
+    {
+      "id": "5be4d7e7-2cc2-5521-9ee1-9ae77f9a39b1",
+      "existing": false,
+      "type": "land_available",
+      "patch": {
+        "title": "Forestry pruning near Casino — Agri Labour Australia",
+        "description": "Casual hardwood plantation pruning role, advertised to start 26 October 2026 for approximately eight weeks, around 38 hours weekly. Live on official current-positions board at review; start date is after the check date. Advertised pay: $36.69/hour plus penalties. Driver’s licence and reliable transport required. Affordable accommodation is advertised, not free accommodation.",
+        "external_url": "https://www.agrilabour.com.au/candidates/current-positions/forestry-pruning-casino-nsw-bbbh29684/",
+        "region": "casino",
+        "location_detail": "Near Casino, Northern Rivers NSW",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "land-connect",
+          "paid_employment"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Dated paid-work advertisement",
+        "verificationNote": "Recheck before publication or application; no closing date or remaining places stated. Header labels Lismore while the title and description locate work near Casino.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://www.agrilabour.com.au/candidates/current-positions/forestry-pruning-casino-nsw-bbbh29684/"
+        ],
+        "landConnectCategory": "lead",
+        "activityEvidence": "Live on official current-positions board at review; start date is after the check date.",
+        "advertisedStartDate": "2026-10-26"
+      }
+    },
+    {
+      "id": "335ee674-c6c7-594d-b7ee-94ad72718623",
+      "existing": false,
+      "type": "land_available",
+      "patch": {
+        "title": "Farm Army — Rural Aid",
+        "description": "Rural Aid's board connects farmers with workers and volunteers. Listings distinguish paid work, volunteering and meals/accommodation exchange; Rural Aid is not the applicant selector. Public board functioning and linked by Rural Aid; current index contains Yorklea farm-sitting listing 38099.",
+        "external_url": "https://www.farmarmy.com.au/find-a-job/",
+        "region": "other",
+        "location_detail": "Australia; public Yorklea/Lismore-area listing",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "land-connect",
+          "paid_employment",
+          "volunteering",
+          "food_accommodation_exchange",
+          "farm_sitting"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Platform with local coverage",
+        "verificationNote": "Local listing is undated. Check the arrangement and dates for each advert; the platform contains several types of work.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://www.farmarmy.com.au/find-a-job/",
+          "https://www.farmarmy.com.au/faqs/",
+          "https://www.ruralaid.org.au/volunteers/"
+        ],
+        "landConnectCategory": "resource",
+        "activityEvidence": "Public board functioning and linked by Rural Aid; current index contains Yorklea farm-sitting listing 38099."
+      }
+    },
+    {
+      "id": "204fa0d1-a442-58da-8b05-805d8c4b367d",
+      "existing": false,
+      "type": "land_available",
+      "patch": {
+        "title": "Farm sitting at Yorklea — Farm Army lead",
+        "description": "Public volunteer farm-sitting advert for a mixed-animal property. Flexible dates; own caravan/motorhome or an on-site undercover caravan is described. Publicly listed on the live board, but no publication/update date shown. No wage is advertised; exact hours, duties and meals need confirmation.",
+        "external_url": "https://www.farmarmy.com.au/find-a-job/?entry=38099",
+        "region": "other",
+        "location_detail": "Yorklea, between Lismore and Casino",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "land-connect",
+          "volunteering",
+          "farm_sitting"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Undated farm-sitting lead",
+        "verificationNote": "Do not publish as confirmed available until dates, duties and arrangement are reconfirmed. Index postcode appears inconsistent, so use the detailed Yorklea description rather than the index postcode.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://www.farmarmy.com.au/find-a-job/?entry=38099"
+        ],
+        "landConnectCategory": "lead",
+        "activityEvidence": "Publicly listed on the live board, but no publication/update date shown."
+      }
+    },
+    {
+      "id": "8ef28510-21fa-5826-8501-360a4768758e",
+      "existing": false,
+      "type": "land_available",
+      "patch": {
+        "title": "Cultivate Farms",
+        "description": "Farm entry and succession service connecting aspiring and retiring farmers and exploring arrangements including leasing and share farming. Public guides and planning tools offer a starting point. Current official site presents services for aspiring and retiring farmers.",
+        "external_url": "https://cultivatefarms.com/",
+        "region": "other",
+        "location_detail": "Australia; no current Northern Rivers property verified",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "land-connect",
+          "farm_succession",
+          "share_farming",
+          "leasing_information",
+          "farmer_connections"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Network or support resource",
+        "verificationNote": "An Australian support service, not evidence that local land is available. Do not promise ownership, investment returns or funding.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://cultivatefarms.com/"
+        ],
+        "landConnectCategory": "resource",
+        "activityEvidence": "Current official site presents services for aspiring and retiring farmers."
+      }
+    },
+    {
+      "id": "f968f2c5-d93c-5b5f-81d3-64a33253d687",
+      "existing": false,
+      "type": "land_available",
+      "patch": {
+        "title": "NSW Young Farmer Business and Farm Business Resilience support",
+        "description": "Official farm business planning, resilience and training support. Useful preparation for leasing, sharing or entering farming, but not a land or vacancy marketplace. Official March 2026 announcement confirms the Young Farmer Business Program; legacy youngfarmer.nsw.gov.au redirects to the current NSW business-support page.",
+        "external_url": "https://www.nsw.gov.au/regional-and-primary-industries/drought/business-support",
+        "region": "other",
+        "location_detail": "NSW",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "land-connect",
+          "business_planning",
+          "training",
+          "financial_readiness"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Network or support resource",
+        "verificationNote": "The April 2026 Young Farmer Exchange event is past. Do not present it as an upcoming intake or assume every workshop is available locally.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://www.nsw.gov.au/regional-and-primary-industries/drought/business-support",
+          "https://www.nsw.gov.au/ministerial-releases/young-farmer-business-program-kicks-off-at-sydney-royal-easter-show"
+        ],
+        "landConnectCategory": "resource",
+        "activityEvidence": "Official March 2026 announcement confirms the Young Farmer Business Program; legacy youngfarmer.nsw.gov.au redirects to the current NSW business-support page."
+      }
+    },
+    {
+      "id": "a5b5603e-7c5c-5037-9f92-b00761bd45be",
+      "existing": false,
+      "type": "land_available",
+      "patch": {
+        "title": "Farming Together — Southern Cross University",
+        "description": "Research, case studies and tools on collaboration and regenerative agriculture. Relevant background for cooperative or shared farming models. Official site has October 2026 North Coast news and identifies its Southern Cross University team.",
+        "external_url": "https://farmingtogether.com.au/",
+        "region": "other",
+        "location_detail": "Southern Cross University / NSW North Coast connection, with national resources",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "land-connect",
+          "cooperative_models",
+          "collaboration_resources",
+          "regenerative_farming_information"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Network or support resource",
+        "verificationNote": "Original 2016–2019 pilot, RAMP and Northern Rivers Net Zero appear under past projects. No current matching or funded intake was verified.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://farmingtogether.com.au/",
+          "https://farmingtogether.com.au/our-work/farming-together/",
+          "https://farmingtogether.com.au/resources-and-tools/tools-2/"
+        ],
+        "landConnectCategory": "resource",
+        "activityEvidence": "Official site has October 2026 North Coast news and identifies its Southern Cross University team."
+      }
+    },
+    {
+      "id": "73f0704f-d26b-54c7-b690-239312ea0fb9",
+      "existing": false,
+      "type": "land_available",
+      "patch": {
+        "title": "Backpacker Job Board — Northern Rivers filters",
+        "description": "Public job marketplace with regional farm-work filters. Use the actual local-results section: promoted national jobs also appear at the top. Tweed section carries a 13 October 2026 Chinderah seafood-processing advert; Byron and Ballina pages also retain older adverts.",
+        "external_url": "https://www.backpackerjobboard.com.au/jobs/farm-work/tweed-heads/",
+        "region": "other",
+        "location_detail": "Australia; Ballina, Byron Bay and Tweed filters",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "land-connect",
+          "paid_employment",
+          "some_exchange_advertisements"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Platform with local coverage",
+        "verificationNote": "Secondary source: employer availability, pay and legal eligibility are not independently confirmed. Its farm-work category includes seafood processing and mixed arrangements.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://www.backpackerjobboard.com.au/jobs/farm-work/tweed-heads/",
+          "https://www.backpackerjobboard.com.au/jobs/farm-work/byron-bay/",
+          "https://www.backpackerjobboard.com.au/jobs/farm-work/ballina/"
+        ],
+        "landConnectCategory": "resource",
+        "activityEvidence": "Tweed section carries a 13 October 2026 Chinderah seafood-processing advert; Byron and Ballina pages also retain older adverts."
+      }
+    },
+    {
+      "id": "42d55849-6ab4-5ea1-86eb-0a297d6370b7",
+      "existing": false,
+      "type": "land_available",
+      "patch": {
+        "title": "Australian Bay Lobster Producers — Chinderah seasonal processing lead",
+        "description": "Advert published 13 October 2026 seeks seafood processing staff for the October–February season, with weekday early starts and at least 38 hours weekly. Fresh dated employer-attributed advertisement; official employer website linked but could not be retrieved.",
+        "external_url": "https://www.backpackerjobboard.com.au/job/123775/seasonal-process-worker-seafood-processing-october-to-february-at-australian-bay-lobster-producers/",
+        "region": "tweed",
+        "location_detail": "Chinderah, Tweed",
+        "contact_phone": null,
+        "contact_email": null,
+        "contact_method": null,
+        "tags": [
+          "land-connect",
+          "paid_employment",
+          "aquaculture_processing"
+        ]
+      },
+      "metadata": {
+        "lastCheckedAt": "2026-10-19",
+        "listingLabel": "Third-party paid-work lead",
+        "verificationNote": "Treat as a secondary lead, not independently verified vacancy. Do not reproduce the advert's visa badge or percentage-above-award pay claim as verified.",
+        "verificationStatus": "needs_verification",
+        "sourceUrls": [
+          "https://www.backpackerjobboard.com.au/job/123775/seasonal-process-worker-seafood-processing-october-to-february-at-australian-bay-lobster-producers/",
+          "https://australianbaylobster.com.au/"
+        ],
+        "landConnectCategory": "lead",
+        "activityEvidence": "Fresh dated employer-attributed advertisement; official employer website linked but could not be retrieved."
+      }
+    }
+  ],
+  "notAdded": [
+    {
+      "name": "Crop Swap Northern Rivers",
+      "reason": "Public group exists, but visible feed mixed a produce offer dated 19 March (year not displayed) with old unrelated spam. No reliable current recurring swap schedule established. Distinct from the more active private Northern Rivers Produce Swap."
+    },
+    {
+      "name": "Munch Crunch Organics",
+      "reason": "Historical CSA/multi-farm-network evidence includes a 2015 crowdfunding offer and 2019 profile. Website retrieval failed and no current order/season verified. Do not use old prices or advertise current membership from this evidence."
+    },
+    {
+      "name": "Federal Exchange seasonal crop swaps",
+      "reason": "Discovery evidence was from 2017/2018 notices only. No current organiser schedule established; don't infer active quarterly recurrence."
+    }
+  ]
+}

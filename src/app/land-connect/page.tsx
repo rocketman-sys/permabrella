@@ -3,9 +3,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { PageHeroBar } from "@/components/layout/PageHeroBar";
+import { PostCard } from "@/components/posts/PostCard";
 import { PostList } from "@/components/posts/PostList";
 import { RegionFilter } from "@/components/layout/RegionFilter";
-import { listPostsByTypes } from "@/lib/posts/service";
+import { listPostsByTypes, listLandConnectNetworks } from "@/lib/posts/service";
 import { parseRegionParam } from "@/lib/regions";
 
 export const metadata: Metadata = { title: "Land Connect | PermaBrella" };
@@ -25,12 +26,16 @@ export default async function LandConnectPage({
     limit: 80,
   });
 
+  const land = items.filter(({ post }) => !post.metadata.landConnectCategory);
+  const leads = items.filter(({ post }) => post.metadata.landConnectCategory === "lead");
+  const resources = [...items.filter(({ post }) => post.metadata.landConnectCategory === "resource"), ...(view === "current" ? await listLandConnectNetworks(region) : [])];
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
       <PageHeroBar
         title="Land connect"
         iconSrc="/brand/icon-land.svg"
-        subtitle="Match landholders with growers and land stewards seeking cultivation opportunities."
+        subtitle="Explore land connections, farm work, exchanges and support. Each listing explains its scope and what still needs checking."
         actions={
           <Link
             href="/land-connect/new"
@@ -52,7 +57,10 @@ export default async function LandConnectPage({
 
       <ListingViewFilter basePath="/land-connect" view={view} region={region} />
       <div className="mt-5">
-        <PostList items={items} basePath="/land-connect" region={region} view={view} />
+        <h2 className="mb-3 text-xl font-semibold">Land and cultivation listings</h2>
+        <PostList items={land} basePath="/land-connect" region={region} view={view} />
+        {leads.length ? <section className="mt-8" aria-labelledby="work-leads"><h2 id="work-leads" className="text-xl font-semibold">Work and exchange leads</h2><p className="mb-4 mt-2 text-sm">Dated advertisements and unconfirmed leads. These do not offer ownership or a lease.</p><PostList items={leads} basePath="/land-connect" region={region} view={view} /></section> : null}
+        {resources.length ? <section className="mt-8" aria-labelledby="land-resources"><h2 id="land-resources" className="text-xl font-semibold">Networks, platforms and support</h2><p className="mb-4 mt-2 text-sm">Local coverage does not confirm a vacancy. Check availability, membership fees and terms with the provider.</p><ul className="grid gap-4 sm:grid-cols-2">{resources.map(item => <li key={item.post.id}><PostCard item={item} href={`${item.post.type === "directory_entry" ? "/directory" : "/land-connect"}/${item.post.id}`} /></li>)}</ul></section> : null}
       </div>
     </div>
   );

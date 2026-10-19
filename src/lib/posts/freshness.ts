@@ -16,6 +16,9 @@ export function listingFreshness(post: FreshnessPost, now = new Date()) {
   const past = isPastListing(post, now);
   const old = now.getTime() - post.updatedAt.getTime() > 90 * 24 * 60 * 60 * 1000;
   if (past) return { label: post.type === "event" ? "Past event" : post.type === "grant" ? "Closed round" : "Expired listing", note: "Kept for reference. Check with the organiser for any new opportunity.", tone: "muted" as const };
+  if (typeof post.metadata.advertisedStartDate === "string" && /^\d{4}-\d{2}-\d{2}$/.test(post.metadata.advertisedStartDate) && post.metadata.advertisedStartDate < now.toLocaleDateString("en-CA", {timeZone:"Australia/Sydney"})) return { label: "Advertised start date passed", note: "This is a dated advertisement. Ask the advertiser whether any positions remain available.", tone: "amber" as const };
+  if (typeof post.metadata.seasonEnd === "string" && post.metadata.seasonEnd < now.toLocaleDateString("en-CA", {timeZone:"Australia/Sydney"})) return { label: "Past CSA season", note: "The recorded season has ended. Check the grower for future enrolment.", tone: "muted" as const };
+  if (typeof post.metadata.listingLabel === "string" && post.metadata.listingLabel.trim()) return { label: post.metadata.listingLabel, note: "", tone: "muted" as const };
   if (post.type === "event") return post.eventDate
     ? { label: "Scheduled event", note: formatEventWhen(post.eventDate)!, tone: "green" as const }
     : { label: "Date to be arranged", note: "Contact the organiser to confirm the date and whether help is still needed.", tone: "amber" as const };

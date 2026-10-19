@@ -26,3 +26,15 @@ export function publicReplyStats(now: Date) {
       .as("recent_reply_times"),
   }).from(visible).groupBy(visible.message.threadId).as("reply_activity");
 }
+
+/** Homepage summaries share the thread-detail public-message boundary. */
+export function latestPublicReplyStats(now: Date) {
+  const visible = publicMessagesQuery().as('latest_public_messages');
+  return db.select({
+    threadId: visible.message.threadId,
+    replyCount: sql<number>`count(*)::integer`.as('public_reply_count'),
+    lastReplyAt: sql<Date>`max(${visible.message.createdAt})`.mapWith(messages.createdAt).as('latest_reply_at'),
+    lastReplyBody: sql<string>`(array_agg(${visible.message.body} order by ${visible.message.createdAt} desc, ${visible.message.id} desc))[1]`.as('latest_reply_body'),
+  }).from(visible).where(sql`${visible.message.createdAt} <= ${now.toISOString()}::timestamp`)
+    .groupBy(visible.message.threadId).as('latest_reply_summary');
+}

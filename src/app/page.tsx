@@ -1,3 +1,4 @@
+import { LatestConversations } from "@/components/community/LatestConversations";
 import Link from "next/link";
 import { Suspense } from "react";
 import { FeedTimeline } from "@/components/feed/FeedTimeline";
@@ -59,6 +60,7 @@ export default async function Home({ searchParams }: {
           </a>
         </section>
       </div>
+      <Suspense fallback={<p className="mt-8 text-sm" role="status">Loading latest conversations…</p>}><LatestConversations region={region} /></Suspense>
       <div className="mt-7 sm:mt-9">
         <Suspense fallback={<p className="rounded-lg bg-[var(--pb-surface)] p-5" role="status">Finding local connections…</p>}><FeedTimeline region={region} /></Suspense>
       </div>
