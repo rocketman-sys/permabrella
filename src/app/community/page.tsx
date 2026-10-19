@@ -1,10 +1,14 @@
 import Link from "next/link";
 import { PageHeroBar } from "@/components/layout/PageHeroBar";
 import { TopicCard } from "@/components/community/TopicCard";
-import { listTopicsOrdered } from "@/lib/community/service";
+import { listRecentlyActiveThreads, listTopicsOrdered } from "@/lib/community/service";
+import { RecentlyActiveThreads } from "@/components/community/RecentlyActiveThreads";
+import { connection } from "next/server";
 
 export default async function CommunityPage() {
-  const topicRows = await listTopicsOrdered();
+  await connection();
+  const now = new Date();
+  const [topicRows, recentRows] = await Promise.all([listTopicsOrdered(), listRecentlyActiveThreads(now)]);
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
@@ -22,6 +26,8 @@ export default async function CommunityPage() {
         }
       />
 
+      <RecentlyActiveThreads rows={recentRows} initialNow={now.getTime()} />
+      <h2 className="mt-8 text-xl font-semibold text-[var(--perm-primary)]">Browse topics</h2>
       {topicRows.length === 0 ? (
         <p className="mt-10 rounded-xl border border-dashed border-[var(--perm-border)] px-4 py-8 text-center text-sm text-[var(--perm-muted)]">
           No topics yet. Run{" "}

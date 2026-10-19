@@ -90,6 +90,7 @@ export async function replyToThreadAction(
 
   revalidatePath(`/community/${topicSlug}/${threadId}`);
   revalidatePath(`/community/${topicSlug}`);
+  revalidatePath("/community");
   revalidatePath("/");
   return { ok: true };
 }

@@ -9,6 +9,8 @@ import {
 } from "@/lib/db/schema";
 import type { Region } from "@/lib/regions";
 import { resolveAuthorBadge, type AuthorBadge } from "./authorship";
+import { RECENT_THREAD_LIMIT, type ReplyActivity } from "./activity";
+import { publicMessagesQuery, publicReplyStats } from "./public-replies";
 
 function authorLabel(
   displayName: string | null,
@@ -39,25 +41,30 @@ export type ThreadListRow = {
   thread: typeof threads.$inferSelect;
   authorDisplay: string | null;
   authorBadge: AuthorBadge | null;
+  activity: ReplyActivity;
 };
 
 export async function listThreadsForTopic(
   topicId: string,
-  region?: Region | null
+  region?: Region | null,
+  now = new Date()
 ): Promise<ThreadListRow[]> {
   const conditions = [eq(threads.topicId, topicId)];
   if (region) {
     conditions.push(eq(threads.region, region));
   }
 
+  const activity = publicReplyStats(now);
   const rows = await db
     .select({
       thread: threads,
       displayName: users.displayName,
       username: users.username,
+      activity: { totalReplyCount: activity.totalReplyCount, lastReplyAt: activity.lastReplyAt, recentReplyTimes: activity.recentReplyTimes },
     })
     .from(threads)
     .innerJoin(users, eq(threads.authorId, users.id))
+    .leftJoin(activity, eq(threads.id, activity.threadId))
     .where(and(...conditions))
     .orderBy(desc(threads.isPinned), desc(threads.lastActivityAt));
 
@@ -65,7 +72,42 @@ export async function listThreadsForTopic(
     thread: r.thread,
     authorDisplay: authorLabel(r.displayName, r.username),
     authorBadge: resolveAuthorBadge(r.username, r.displayName),
+    activity: { totalReplyCount: r.activity?.totalReplyCount ?? 0, lastReplyAt: r.activity?.lastReplyAt ?? null, recentReplyTimes: r.activity?.recentReplyTimes ?? [] },
   }));
+}
+
+export type ThreadCardRow = Omit<ThreadListRow, "thread"> & {
+  thread: Pick<ThreadListRow["thread"], "id" | "title" | "body" | "region" | "isPinned" | "createdAt">;
+};
+export type RecentThreadRow = ThreadCardRow & { topicSlug: string; topicName: string };
+
+/** Only public card fields cross the client boundary; no account IDs/settings. */
+export function recentThreadCard(row: ThreadListRow, topicSlug: string, topicName: string): RecentThreadRow {
+  const { id, title, body, region, isPinned, createdAt } = row.thread;
+  return { thread: { id, title, body, region, isPinned, createdAt }, authorDisplay: row.authorDisplay,
+    authorBadge: row.authorBadge, activity: row.activity, topicSlug, topicName };
+}
+
+export function recentlyActiveThreadsQuery(now: Date) {
+  const activity = publicReplyStats(now);
+  return db.select({
+    thread: { id: threads.id, title: threads.title, body: threads.body, region: threads.region, isPinned: threads.isPinned, createdAt: threads.createdAt },
+    topicSlug: topics.slug, topicName: topics.name,
+    displayName: users.displayName, username: users.username,
+    activity: { totalReplyCount: activity.totalReplyCount, lastReplyAt: activity.lastReplyAt, recentReplyTimes: activity.recentReplyTimes },
+  }).from(threads)
+    .innerJoin(topics, eq(threads.topicId, topics.id))
+    .innerJoin(users, eq(threads.authorId, users.id))
+    .innerJoin(activity, eq(threads.id, activity.threadId))
+    .where(sql`json_array_length(${activity.recentReplyTimes}) > 0`)
+    .orderBy(desc(activity.lastReplyAt), asc(threads.id))
+    .limit(RECENT_THREAD_LIMIT);
+}
+
+export async function listRecentlyActiveThreads(now = new Date()): Promise<RecentThreadRow[]> {
+  const rows = await recentlyActiveThreadsQuery(now);
+  return rows.map((row) => ({ thread: row.thread, topicSlug: row.topicSlug, topicName: row.topicName,
+    authorDisplay: authorLabel(row.displayName, row.username), authorBadge: resolveAuthorBadge(row.username, row.displayName), activity: row.activity }));
 }
 
 export type ThreadDetail = {
@@ -111,14 +153,7 @@ export type MessageRow = {
 export async function listMessagesForThread(
   threadId: string
 ): Promise<MessageRow[]> {
-  const rows = await db
-    .select({
-      message: messages,
-      displayName: users.displayName,
-      username: users.username,
-    })
-    .from(messages)
-    .innerJoin(users, eq(messages.authorId, users.id))
+  const rows = await publicMessagesQuery()
     .where(eq(messages.threadId, threadId))
     .orderBy(asc(messages.createdAt));
 

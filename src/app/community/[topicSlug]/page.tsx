@@ -3,8 +3,11 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { ThreadCard } from "@/components/community/ThreadCard";
 import { RegionFilter } from "@/components/layout/RegionFilter";
-import { getTopicBySlug, listThreadsForTopic } from "@/lib/community/service";
+import { getTopicBySlug, listThreadsForTopic, recentThreadCard } from "@/lib/community/service";
 import { parseRegionParam } from "@/lib/regions";
+import { RecentlyActiveThreads } from "@/components/community/RecentlyActiveThreads";
+import { recentlyActive } from "@/lib/community/activity";
+import { connection } from "next/server";
 
 export default async function TopicThreadsPage({
   params,
@@ -19,7 +22,10 @@ export default async function TopicThreadsPage({
   if (!topic) notFound();
 
   const region = parseRegionParam(regionQ ?? null);
-  const threads = await listThreadsForTopic(topic.id, region);
+  await connection();
+  const now = new Date();
+  const threads = await listThreadsForTopic(topic.id, region, now);
+  const recentRows = recentlyActive(threads, now.getTime()).map((row) => recentThreadCard(row, topic.slug, topic.name));
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
@@ -54,10 +60,12 @@ export default async function TopicThreadsPage({
         </Suspense>
       </div>
 
-      <ul className="mt-8 space-y-3">
+      <RecentlyActiveThreads rows={recentRows} initialNow={now.getTime()} />
+      <h2 className="mt-8 text-xl font-semibold text-[var(--perm-primary)]">All threads</h2>
+      <ul className="mt-4 space-y-3">
         {threads.map((row) => (
           <li key={row.thread.id}>
-            <ThreadCard row={row} topicSlug={topic.slug} />
+            <ThreadCard row={row} topicSlug={topic.slug} now={now.getTime()} />
           </li>
         ))}
       </ul>
