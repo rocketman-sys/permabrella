@@ -4,7 +4,7 @@ export type TextPart = { text: string; href?: string };
 export function sharedTextParts(text: string, maxLength?: number): TextPart[] {
   const parts: TextPart[] = [];
   // Consume literal HTML tags as text so attributes aren't partially linkified.
-  const pattern = /<[^>\n]*>|(?:https?:\/\/|www\.)[^\s<>"'`\u0000-\u001f\u007f]+/giu;
+  const pattern = /<[^<>\n]*>|(?:https?:\/\/|www\.)[^\s<>"'`\u0000-\u001f\u007f]+/giu;
   let end = 0;
   for (const match of text.matchAll(pattern)) {
     const start = match.index!;
@@ -12,13 +12,21 @@ export function sharedTextParts(text: string, maxLength?: number): TextPart[] {
     if (candidate.startsWith('<')) continue;
     // Reject embedded schemes, email fragments and protocol lookalikes.
     if (start > 0 && /[\p{L}\p{N}_@:/\\.\-]/u.test(text[start - 1])) continue;
-    candidate = candidate.replace(/[.,!?;:…\u2018\u2019\u201c\u201d]+$/u, '');
-    for (;;) {
-      const last = candidate.at(-1);
-      const opening = last === ')' ? '(' : last === ']' ? '[' : last === '}' ? '{' : null;
-      if (!opening || candidate.split(last!).length <= candidate.split(opening).length) break;
-      candidate = candidate.slice(0, -1).replace(/[.,!?;:…]+$/u, '');
+    // Count brackets once; repeated unmatched closing punctuation stays linear.
+    const balances:Record<string,number>={')':0,']':0,'}':0};
+    const closing:Record<string,string>={'(':')','[':']','{':'}'};
+    for(const char of candidate){
+      if(closing[char])balances[closing[char]]++;
+      else if(char in balances)balances[char]--;
     }
+    let length=candidate.length;
+    while(length){
+      const char=candidate[length-1];
+      if(/[.,!?;:…\u2018\u2019\u201c\u201d]/u.test(char)){length--;continue;}
+      if(char in balances && balances[char]<0){balances[char]++;length--;continue;}
+      break;
+    }
+    candidate=candidate.slice(0,length);
     let href: string;
     try {
       const url = new URL(/^www\./i.test(candidate) ? `https://${candidate}` : candidate);
