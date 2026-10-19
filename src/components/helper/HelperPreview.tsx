@@ -7,7 +7,7 @@ import type { HelperCategory, HelperKind, HelperReply } from '@/lib/helper/polic
 type Turn = { question: string; reply: HelperReply };
 const control = 'min-h-11 rounded-xl border border-[var(--perm-border)] bg-white px-3 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--perm-primary)]';
 
-export function HelperPreview({ aiEnabled }: { aiEnabled: boolean }) {
+export function HelperPreview({ aiEnabled, signedIn = false }: { aiEnabled: boolean; signedIn?: boolean }) {
   const [kind, setKind] = useState<HelperKind>('site');
   const [category, setCategory] = useState<HelperCategory>('all');
   const [query, setQuery] = useState('');
@@ -40,15 +40,15 @@ export function HelperPreview({ aiEnabled }: { aiEnabled: boolean }) {
   return <section className="overflow-hidden rounded-3xl border border-[var(--perm-border)] bg-[var(--perm-card)] shadow-sm" aria-label="PermaBrella helper preview">
     <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--perm-border)] px-5 py-4">
       <div><h2 className="text-xl font-bold text-[var(--perm-primary)]">A little help finding your people</h2>
-        <p className="mt-1 text-sm text-[var(--perm-muted)]">{aiEnabled ? 'Live search · optional AI answers require sign-in' : 'Review preview · live search, AI off'}</p></div>
+        <p className="mt-1 text-sm text-[var(--perm-muted)]">{aiEnabled ? signedIn ? 'AI answers enabled · signed in' : 'Live search · sign in for AI answers' : 'Review preview · live search, AI off'}</p></div>
       <button type="button" className={control} disabled={pending || !turns.length} onClick={() => { setTurns([]); setQuery(''); setError(''); input.current?.focus(); }}>Clear chat</button>
     </div>
     <div ref={panel} className="relative max-h-[65vh] min-h-56 overflow-y-auto p-5 sm:p-6" aria-busy={pending}>
       {!turns.length && <div className="py-4"><p className="max-w-lg text-lg leading-relaxed">Find local groups, workshops, land connections and funding opportunities. Every local result links back to its listing.</p>
         <p className="mt-3 text-sm text-[var(--perm-muted)]">Try a name, town or activity. Each question starts fresh; this preview does not remember earlier questions.</p>
-        <div className="mt-5 flex flex-wrap gap-2">{['Mullumbimby garden', 'SEED Northern Rivers', 'Nimbin events'].map(q => <button key={q} type="button" className={`${control} text-[var(--perm-primary)]`} onClick={() => { setKind('site'); setCategory('all'); setQuery(q); input.current?.focus(); }}>{q}</button>)}</div>
+        <div className="mt-5 flex flex-wrap gap-2">{['Mullumbimby garden', 'SEED Northern Rivers', 'Local regeneration grants'].map(q => <button key={q} type="button" className={`${control} text-[var(--perm-primary)]`} onClick={() => { setKind('site'); setCategory('all'); setQuery(q); input.current?.focus(); }}>{q}</button>)}</div>
       </div>}
-      <div className="space-y-7">{turns.map(({ question, reply }, index) => <article key={index} ref={index === turns.length - 1 ? latest : null} className="min-w-0 [overflow-wrap:anywhere]">
+      <div className="space-y-7">{turns.map(({ question, reply }, index) => <article key={index} data-helper-result={reply.generated ? 'generated' : 'lookup'} ref={index === turns.length - 1 ? latest : null} className="min-w-0 [overflow-wrap:anywhere]">
         <p className="ml-auto max-w-[90%] rounded-2xl bg-[var(--perm-primary)] px-4 py-3 text-white">{question}</p>
         <div className="mt-4"><p className="text-xs font-bold uppercase tracking-wide text-[var(--perm-secondary)]">{reply.kind === 'general' ? 'General guidance · not locally verified' : reply.generated ? 'From PermaBrella · AI summary' : 'From PermaBrella · live lookup'}</p>
           <p className="mt-2 whitespace-pre-wrap leading-relaxed">{reply.answer}</p>
@@ -57,6 +57,7 @@ export function HelperPreview({ aiEnabled }: { aiEnabled: boolean }) {
             <Link href={source.href} className="inline-block min-h-11 text-lg font-bold text-[var(--perm-primary)] underline decoration-1 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4">[{i + 1}] {source.title}</Link>
             {source.region && <p className="text-xs font-semibold uppercase tracking-wide text-[var(--perm-muted)]">{source.region}</p>}
             <p className="mt-2 text-sm leading-relaxed">{source.excerpt}</p>
+            {source.eligibility && <p className="mt-2 text-sm leading-relaxed"><span className="font-semibold">Eligibility recorded: </span>{source.eligibility}</p>}
             <p className="mt-3 text-xs font-semibold">{source.verification}</p>
             <p className="mt-1 text-xs">{source.freshness}</p>
             {source.note && <p className="mt-2 text-xs leading-relaxed text-[var(--perm-muted)]">{source.note}</p>}

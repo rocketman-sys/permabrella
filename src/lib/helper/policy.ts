@@ -10,6 +10,7 @@ export type HelperSource = {
   id: string; title: string; href: string; excerpt: string; region: string;
   verification: string; note: string; freshness: string; updated: string;
   sourceUrls: string[];
+  funding?: string; eligibility?: string; status?: string;
 };
 export type HelperReply = {
   answer: string; kind: HelperKind; generated: boolean; sources: HelperSource[];
@@ -45,10 +46,10 @@ export function parseInput(value: unknown): HelperInput {
   if (!['all', 'groups', 'events', 'grants', 'land'].includes(String(v.category))) throw Error('Choose a listing category.');
   return { query: v.query.trim(), kind: v.kind, category: v.category as HelperCategory };
 }
-export function searchTerms(query: string): string[] {
+export function searchTerms(query: string, limit = 6): string[] {
   const stop = new Set('a an the is are i me my we our you your can could would should please find show tell about what which when where who how near nearby around in at on for to of and with do does have has any there local looking want available happening groups group events event grants grant gardens'.split(' '));
   const words = query.toLowerCase().replace(/gardens/g, 'garden').match(/[\p{L}\p{N}]+/gu) ?? [];
-  return [...new Set(words.filter(w => w.length > 1 && !stop.has(w)))].slice(0, 6);
+  return [...new Set(words.filter(w => w.length > 1 && !stop.has(w)))].slice(0, limit);
 }
 export function safeSourceUrl(value: unknown): string | null {
   if (typeof value !== 'string') return null;
@@ -71,7 +72,7 @@ export function lookupReply(input: HelperInput, sources: HelperSource[], now = n
     answer: general
       ? 'General permaculture AI guidance is not enabled in this review preview. You can explore current PermaBrella listings in the Local listings tab.'
       : sources.length ? `I found ${sources.length} matching public ${sources.length === 1 ? 'listing' : 'listings'}. Read the source cards below and confirm current details with the organiser.`
-      : 'I could not find a current public listing matching that search. Try a shorter name, a town or another category. This does not mean no local option exists.',
+      : 'I could not find a current public listing matching that search, so I have no local sources for an AI summary. Try a name, town or topic, or choose General permaculture for general advice. This does not mean no local option exists.',
     notice: general ? 'General guidance is distinct from verified local information.' : 'Live listing lookup · no AI-generated answer. A recorded source check is not a guarantee of current availability.',
   };
 }

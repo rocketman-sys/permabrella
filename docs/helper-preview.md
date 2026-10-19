@@ -5,7 +5,8 @@ This branch adds `/helper-preview` and `/api/helper-preview` for local developme
 ## Behaviour and data
 
 - Local mode retrieves up to six current Groups, Events, Grants or Land Connect records using parameterized searches and the existing visibility rules. Removed, expired and past-event records are excluded.
-- Results link to the original listing and retain source-check dates, uncertainty notes and availability labels. Matching is keyword-based, not semantic search. A missing result does not establish that no local option exists.
+- Results link to the original listing and retain source-check dates, uncertainty notes and availability labels. Search recognises grant/funding intent, removes conversational filler and expands a small set of related regeneration, restoration, conservation and compost terms. Public grant eligibility and discovery fields are searchable; place constraints remain required. This is controlled keyword expansion, not embedding search. A missing result does not establish that no local option exists.
+- Grant summaries receive the recorded funding, applicant restrictions and status. They distinguish possible matches, open rounds, rolling applications and directories without promising eligibility or remaining funds. Category-only questions return current results without an invalid PostgreSQL positional sort.
 - General permaculture, gardening and food-growing guidance is a separate mode with no local citations. This preview does not yet implement the requested broader general-purpose Q&A. With AI off it explicitly explains that generation is unavailable.
 - Local lookup is independent of optional AI access: anonymous visitors and signed-in users with paused, expired or exhausted AI allowances still receive listing results with HTTP 200 and a calm explanatory notice. AI authentication, context, budget or provider failures also preserve retrieved results. Invalid requests, lookup rate limits and retrieval failures remain actual search errors. General AI guidance still requires authentication and allowance.
 - The tab keeps at most six exchanges in memory and clears on reload. Only the current question is sent to the route. There is no transcript persistence, contact capture, lead delivery or action tool.
@@ -37,6 +38,8 @@ Rollback of this review is simply to close the draft PR/remove its preview. For 
 ```sh
 node --import tsx --test src/lib/helper/helper.test.ts
 node --import tsx --test src/lib/helper/answer.test.ts
+node --import tsx --test src/lib/helper/search.test.ts
+node --import tsx --test src/lib/helper/retrieval.test.ts
 node --import tsx --test src/lib/helper/budget.test.ts
 npx eslint src/lib/helper src/components/helper src/app/helper-preview src/app/api/helper-preview
 npx tsc --noEmit
@@ -46,3 +49,5 @@ npm run build
 Budget tests require existing `DATABASE_URL`; they use transaction-scoped temporary tables and never apply the operator schema. They test exhausted/shared, per-user, paused and expired allowances. The separate `scripts/prepare-helper-budget.ts --verify` operator check exercises concurrent database connections without model calls and leaves a disabled verification record. Browser verification covers real public lookups, direct listing links, empty results, general-mode separation, keyboard focus, mobile overflow and production blocking.
 
 References: [Gateway Chat Completions](https://vercel.com/docs/ai-gateway/sdks-and-apis/openai-chat-completions), [provider routing](https://vercel.com/docs/ai-gateway/models-and-providers/provider-filtering-and-ordering), [live model endpoint metadata](https://ai-gateway.vercel.sh/v1/models/openai/gpt-6-luna/endpoints).
+
+Retrieval regressions also use transaction-scoped temporary tables, including the reported query `what grants are available for local regen`, metadata-only matches, town constraints, unknown terms, category-only browsing and closed/expired/removed records. They never write live listings. `scripts/evaluate-helper-regen-once.ts` is an explicit operator-only answer check for this query: it can claim one US$0.01 reservation only from the previously reviewed US$0.04 accounting state. It is not part of normal builds or application routes and cannot replay after that claim, including after a failed request.
