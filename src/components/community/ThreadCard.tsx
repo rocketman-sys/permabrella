@@ -1,3 +1,4 @@
+import { SharedText } from "@/components/ui/SharedText";
 import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
@@ -31,10 +32,7 @@ export function ThreadCard({
   const latest = Math.max(...recentTimes);
 
   return (
-    <Link
-      href={`/community/${topicSlug}/${thread.id}`}
-      className="group block rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--perm-primary)]"
-    >
+    <div className="group relative min-w-0 [overflow-wrap:anywhere]">
       <Card className={`transition group-hover:border-[var(--perm-secondary)]/40 group-hover:shadow-md ${recent ? "border-emerald-200 bg-emerald-50/70" : ""}`}>
         {recent ? <p className="mb-2 text-xs font-semibold text-emerald-900">Recent replies{topicName ? ` · ${topicName}` : ""}</p> : null}
         <div className="flex flex-wrap items-start justify-between gap-2">
@@ -44,21 +42,21 @@ export function ThreadCard({
                 Pinned
               </span>
             ) : null}
-            {thread.title}
+            <Link href={`/community/${topicSlug}/${thread.id}`} className="after:absolute after:inset-0 after:rounded-xl focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-[var(--pb-accent-2)]">{thread.title}</Link>
           </h3>
           {isNewUnanswered(thread.createdAt.getTime(), row.activity.totalReplyCount, now) ? <NewThreadBadge createdAt={thread.createdAt.getTime()} initialNow={now} /> : null}
           {regionLabel(thread.region) ? (
             <Badge className="shrink-0">{regionLabel(thread.region)}</Badge>
           ) : null}
         </div>
-        <p className="mt-2 line-clamp-2 text-sm text-[var(--perm-text-secondary)]">
-          {thread.body}
+        <p className="mt-2 text-sm text-[var(--perm-text-secondary)]">
+          <SharedText text={thread.body} maxLength={220} />
         </p>
         <p className="mt-3 text-xs text-[var(--perm-muted)]">
           <AuthorIdentity name={authorDisplay} badge={authorBadge} /> ·{" "}
           {recent ? <>{recentTimes.length} {recentTimes.length === 1 ? "reply" : "replies"} in the past 7 days · Last reply <time dateTime={new Date(latest).toISOString()} title={new Date(latest).toLocaleString("en-AU", { timeZone: "Australia/Sydney" })}>{relativeReplyTime(latest, now)}</time></> : <>{row.activity.totalReplyCount} {row.activity.totalReplyCount === 1 ? "reply" : "replies"} · {row.activity.lastReplyAt ? <>Last reply {formatPosted(row.activity.lastReplyAt)}</> : <>Started {formatPosted(thread.createdAt)}</>}</>}
         </p>
       </Card>
-    </Link>
+    </div>
   );
 }

@@ -1,3 +1,4 @@
+import { SharedText } from "@/components/ui/SharedText";
 import Link from "next/link";
 import { canEditListing, safePublicUrl } from "@/lib/listing-edits/policy";
 import { Badge } from "@/components/ui/Badge";
@@ -74,16 +75,16 @@ export function PostDetail({
       </section> : null}
       <FreshnessNotice post={post} detail />
       {post.type === "grant" ? <dl className="mt-5 grid gap-4 sm:grid-cols-2">
-        {[["Funding", post.metadata.funding], ["Who can apply", post.metadata.whoCanApply]].map(([label, value]) => typeof value === "string" && value ? <div key={label as string}><dt className="text-xs font-semibold uppercase text-[var(--pb-muted)]">{label as string}</dt><dd className="mt-1 text-sm">{value}</dd></div> : null)}
+        {[["Funding", post.metadata.funding], ["Who can apply", post.metadata.whoCanApply]].map(([label, value]) => typeof value === "string" && value ? <div key={label as string}><dt className="text-xs font-semibold uppercase text-[var(--pb-muted)]">{label as string}</dt><dd className="mt-1 text-sm"><SharedText text={value} /></dd></div> : null)}
       </dl> : null}
       {post.locationDetail ? (
         <p className="mt-2 text-[var(--perm-text-secondary)]">
-          {post.locationDetail}
+          <SharedText text={post.locationDetail} />
         </p>
       ) : null}
 
       <div className="mt-6 max-w-none whitespace-pre-wrap text-base leading-relaxed text-[var(--perm-text)]">
-        {description}
+        <SharedText text={description} />
       </div>
 
       {post.contactPhone || post.contactEmail || post.contactMethod ? (
@@ -121,7 +122,7 @@ export function PostDetail({
             {post.contactMethod ? (
               <div className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-3">
                 <dt className="shrink-0 font-medium text-[var(--perm-text)]">Other</dt>
-                <dd className="whitespace-pre-wrap">{post.contactMethod}</dd>
+                <dd className="whitespace-pre-wrap"><SharedText text={post.contactMethod} /></dd>
               </div>
             ) : null}
           </dl>
