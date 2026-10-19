@@ -59,6 +59,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async session({ session, token }) {
       if (token.sub) {
         session.user.id = token.sub;
+        session.user.sessionVersion = Number(token.sessionVersion ?? 0);
       }
       return session;
     },

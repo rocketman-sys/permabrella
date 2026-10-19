@@ -11,12 +11,13 @@ export function FreshnessNotice({ post, detail = false }: { post: FreshnessPost;
     <div className={detail ? "mt-5 rounded-lg border border-[var(--pb-line)] bg-[var(--pb-bg)] p-4" : "mt-3"}>
       <span className={`inline-flex rounded-md px-2 py-1 text-xs font-semibold ${colors}`}>{status.label}</span>
       {status.note ? <p className="mt-2 text-sm leading-relaxed text-[var(--pb-ink-soft)]">{status.note}</p> : null}
+      {post.metadata.communityEdited === true ? <div className="mt-2 rounded-md border border-[#e5cd93] bg-[#fff7e4] px-3 py-2 text-sm text-[#624810]"><p className="font-semibold">To be verified · community updated</p><p className="mt-1">These details include community edits that have not been independently verified. Confirm current arrangements directly with the provider.</p>{typeof post.metadata.communityNote==='string' && post.metadata.communityNote ? <p className="mt-1">{post.metadata.communityNote}</p>:null}</div>:null}
       {verification.note ? <div className="mt-2 rounded-md border border-[#e5cd93] bg-[#fff7e4] px-3 py-2 text-sm text-[#624810]">
         <p className="font-semibold">To be verified</p>
         <p className="mt-1">{verification.note}</p>
-        {verification.checked ? <p className="mt-1 text-xs">Checked <time dateTime={verification.checked}>{formatPosted(new Date(`${verification.checked}T00:00:00Z`))}</time></p> : null}
+        {verification.checked ? <p className="mt-1 text-xs">{post.metadata.communityEdited===true?"Research sources checked ":"Checked "}<time dateTime={verification.checked}>{formatPosted(new Date(`${verification.checked}T00:00:00Z`))}</time></p> : null}
       </div> : null}
-      {detail && !verification.note && verification.checked ? <p className="mt-2 text-xs text-[var(--pb-muted)]">Sources checked <time dateTime={verification.checked}>{formatPosted(new Date(`${verification.checked}T00:00:00Z`))}</time></p> : null}
+      {detail && !verification.note && verification.checked ? <p className="mt-2 text-xs text-[var(--pb-muted)]">{post.metadata.communityEdited===true?"Research sources checked ":"Sources checked "}<time dateTime={verification.checked}>{formatPosted(new Date(`${verification.checked}T00:00:00Z`))}</time></p> : null}
       {detail && !verification.checked && verified && !Number.isNaN(verified.getTime()) ? <p className="mt-2 text-xs text-[var(--pb-muted)]">Source checked {formatPosted(verified)}.{post.type === "grant" ? " Funding rounds can change." : ""}</p> : null}
     </div>
   );

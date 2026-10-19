@@ -43,6 +43,13 @@
       "when": 1792189706557,
       "tag": "0005_password_recovery",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1792371205391,
+      "tag": "0006_community_listing_edits",
+      "breakpoints": true
     }
   ]
 }
