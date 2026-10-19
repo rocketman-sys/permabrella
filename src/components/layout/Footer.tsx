@@ -18,6 +18,7 @@ export function Footer() {
         <div>
           <p className="text-base font-medium text-[var(--perm-text)] md:text-sm">Explore</p>
           <ul className="mt-2 space-y-1.5 text-base text-[var(--perm-text-secondary)] md:text-sm md:space-y-1">
+            <li><Link href="/helper" className="hover:text-[var(--perm-secondary)]">PermaBrella Helper</Link></li>
             <li><Link href="/directory" className="hover:text-[var(--perm-secondary)]">Community groups</Link></li>
             <li>
               <Link

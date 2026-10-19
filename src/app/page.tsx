@@ -35,6 +35,7 @@ export default async function Home({ searchParams }: {
           <Link href="/how-it-works" className="hidden shrink-0 py-3 text-sm font-semibold text-[var(--pb-accent-2)] underline underline-offset-4 md:block">How it works</Link>
         </div>
         <div className="mt-5"><GlobalSearchForm topics={[]} initialRegion={region ?? ""} home /></div>
+        <p className="mt-3 text-sm text-[var(--pb-ink-soft)]">Looking for a starting point? <Link href="/helper" className="inline-flex min-h-11 items-center font-semibold text-[var(--pb-accent-2)] underline underline-offset-4">Ask the PermaBrella Helper</Link> for local connections and growing guidance.</p>
         <Suspense fallback={<HeroStats />}><HomeStats /></Suspense>
       </section>
       <div className="mt-5 grid gap-4 md:grid-cols-2">
