@@ -41,7 +41,7 @@ export async function POST(request: Request) {
     try {
       return Response.json(await generateAnswer(input, sources, process.env.PB_HELPER_GATEWAY_KEY!), { headers });
     } catch {
-      return Response.json({ ...fallback, notice: 'AI generation was unavailable. These are listing search results, not an AI answer.' }, { headers });
+      return Response.json({ ...fallback, notice: input.kind === 'site' ? 'AI generation was unavailable. These are listing search results, not an AI answer.' : 'AI generation was unavailable. No general guidance was generated.' }, { headers });
     }
   } catch { return fail('The helper is temporarily unavailable. Please use the directory or try again later.', 503); }
 }

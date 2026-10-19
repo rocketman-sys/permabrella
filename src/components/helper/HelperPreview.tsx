@@ -15,11 +15,12 @@ export function HelperPreview({ aiEnabled }: { aiEnabled: boolean }) {
   const [pending, setPending] = useState(false);
   const [error, setError] = useState('');
   const input = useRef<HTMLTextAreaElement>(null);
-  const end = useRef<HTMLDivElement>(null);
+  const panel = useRef<HTMLDivElement>(null);
+  const latest = useRef<HTMLElement>(null);
   const controller = useRef<AbortController | null>(null);
   useEffect(() => () => controller.current?.abort(), []);
-  useEffect(() => { if (turns.length) end.current?.scrollIntoView({ block: 'nearest' }); }, [turns]);
-  useEffect(() => { if (!pending && turns.length) input.current?.focus(); }, [pending, turns.length]);
+  useEffect(() => { if (panel.current && latest.current) panel.current.scrollTop = latest.current.offsetTop; }, [turns]);
+  useEffect(() => { if (!pending && turns.length) input.current?.focus({ preventScroll: true }); }, [pending, turns.length]);
 
   async function submit(event: FormEvent) {
     event.preventDefault(); if (pending || query.trim().length < 2) return;
@@ -42,12 +43,12 @@ export function HelperPreview({ aiEnabled }: { aiEnabled: boolean }) {
         <p className="mt-1 text-sm text-[var(--perm-muted)]">{aiEnabled ? 'AI evaluation preview · sign-in required' : 'Review preview · live search, AI off'}</p></div>
       <button type="button" className={control} disabled={pending || !turns.length} onClick={() => { setTurns([]); setQuery(''); setError(''); input.current?.focus(); }}>Clear chat</button>
     </div>
-    <div className="max-h-[65vh] min-h-56 overflow-y-auto p-5 sm:p-6" aria-busy={pending}>
+    <div ref={panel} className="relative max-h-[65vh] min-h-56 overflow-y-auto p-5 sm:p-6" aria-busy={pending}>
       {!turns.length && <div className="py-4"><p className="max-w-lg text-lg leading-relaxed">Find local groups, workshops, land connections and funding opportunities. Every local result links back to its listing.</p>
         <p className="mt-3 text-sm text-[var(--perm-muted)]">Try a name, town or activity. Each question starts fresh; this preview does not remember earlier questions.</p>
         <div className="mt-5 flex flex-wrap gap-2">{['Mullumbimby garden', 'SEED Northern Rivers', 'Nimbin events'].map(q => <button key={q} type="button" className={`${control} text-[var(--perm-primary)]`} onClick={() => { setKind('site'); setCategory('all'); setQuery(q); input.current?.focus(); }}>{q}</button>)}</div>
       </div>}
-      <div className="space-y-7">{turns.map(({ question, reply }, index) => <article key={index} className="min-w-0 [overflow-wrap:anywhere]">
+      <div className="space-y-7">{turns.map(({ question, reply }, index) => <article key={index} ref={index === turns.length - 1 ? latest : null} className="min-w-0 [overflow-wrap:anywhere]">
         <p className="ml-auto max-w-[90%] rounded-2xl bg-[var(--perm-primary)] px-4 py-3 text-white">{question}</p>
         <div className="mt-4"><p className="text-xs font-bold uppercase tracking-wide text-[var(--perm-secondary)]">{reply.kind === 'general' ? 'General guidance · not locally verified' : reply.generated ? 'From PermaBrella · AI summary' : 'From PermaBrella · live lookup'}</p>
           <p className="mt-2 whitespace-pre-wrap leading-relaxed">{reply.answer}</p>
@@ -65,7 +66,7 @@ export function HelperPreview({ aiEnabled }: { aiEnabled: boolean }) {
             </details>
           </li>)}</ol>
         </div>
-      </article>)}</div><div ref={end} />
+      </article>)}</div>
     </div>
     <form onSubmit={submit} className="border-t border-[var(--perm-border)] bg-white/70 p-5 sm:p-6">
       <fieldset className="mb-3 flex flex-wrap gap-2" disabled={pending}><legend className="mb-2 text-sm font-semibold">What kind of help?</legend>
