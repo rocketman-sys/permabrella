@@ -6,7 +6,8 @@ This branch adds `/helper-preview` and `/api/helper-preview` for local developme
 
 - Local mode retrieves up to six current Groups, Events, Grants or Land Connect records using parameterized searches and the existing visibility rules. Removed, expired and past-event records are excluded.
 - Results link to the original listing and retain source-check dates, uncertainty notes and availability labels. Matching is keyword-based, not semantic search. A missing result does not establish that no local option exists.
-- General permaculture guidance is a separate mode with no local citations. With AI off it explicitly explains that generation is unavailable.
+- General permaculture, gardening and food-growing guidance is a separate mode with no local citations. This preview does not yet implement the requested broader general-purpose Q&A. With AI off it explicitly explains that generation is unavailable.
+- Local lookup is independent of optional AI access: anonymous visitors and signed-in users with paused, expired or exhausted AI allowances still receive listing results with HTTP 200 and a calm explanatory notice. AI authentication, context, budget or provider failures also preserve retrieved results. Invalid requests, lookup rate limits and retrieval failures remain actual search errors. General AI guidance still requires authentication and allowance.
 - The tab keeps at most six exchanges in memory and clears on reload. Only the current question is sent to the route. There is no transcript persistence, contact capture, lead delivery or action tool.
 - Returned text is rendered as escaped React text. External links come only from retrieved records, accept HTTP(S) without credentials, and use `noopener noreferrer`. Model-provided links are never rendered as links.
 - Public descriptions and metadata can contain untrusted community edits. Citation validation proves source membership, **not factual entailment**. A live answer-quality and injection evaluation remains necessary before activation.
@@ -35,6 +36,7 @@ Rollback of this review is simply to close the draft PR/remove its preview. For 
 
 ```sh
 node --import tsx --test src/lib/helper/helper.test.ts
+node --import tsx --test src/lib/helper/answer.test.ts
 node --import tsx --test src/lib/helper/budget.test.ts
 npx eslint src/lib/helper src/components/helper src/app/helper-preview src/app/api/helper-preview
 npx tsc --noEmit

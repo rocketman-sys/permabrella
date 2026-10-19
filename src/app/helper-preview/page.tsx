@@ -13,7 +13,7 @@ export default function HelperPreviewPage() {
       <header className="lg:sticky lg:top-24"><p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--perm-secondary)]">Growing connections</p>
         <h1 className="mt-4 text-4xl font-bold leading-tight text-[var(--perm-primary)] sm:text-5xl">Your next local connection starts here.</h1>
         <p className="mt-5 text-lg leading-relaxed text-[var(--perm-text-secondary)]">A helping hand to explore the people, places and opportunities already shared on PermaBrella.</p>
-        <div className="mt-7 rounded-2xl border border-[var(--perm-border)] bg-white/60 p-5 text-sm leading-relaxed"><p className="font-semibold">A preview for review</p><p className="mt-2">Local search uses current public listings. General guidance is a separate mode, so suggestions won’t be mistaken for checked local information.</p><p className="mt-2">This helper is not yet part of the public site.</p></div>
+        <div className="mt-7 rounded-2xl border border-[var(--perm-border)] bg-white/60 p-5 text-sm leading-relaxed"><p className="font-semibold">A preview for review</p><p className="mt-2">Local search uses current public listings and works without an AI answer. The separate general guidance mode covers permaculture, gardening and growing food; broader general-purpose Q&amp;A is not included in this preview.</p><p className="mt-2">Each question stands alone. Earlier questions and answers are not used as context.</p><p className="mt-2">This helper is not yet part of the public site.</p></div>
       </header>
       <HelperPreview aiEnabled={aiConfigured()} />
     </div>

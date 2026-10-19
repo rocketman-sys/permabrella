@@ -1,10 +1,11 @@
 import { createHash } from 'node:crypto';
 import { auth } from '@/lib/auth';
-import { aiConfigured, lookupReply, MAX_BODY_BYTES, parseInput, previewAvailable, sameOrigin } from '@/lib/helper/policy';
+import { aiConfigured, MAX_BODY_BYTES, parseInput, previewAvailable, sameOrigin } from '@/lib/helper/policy';
 import { allowPreviewLookup } from '@/lib/helper/limits';
 import { retrievePublicListings } from '@/lib/helper/retrieval';
 import { reserveGeneration } from '@/lib/helper/budget';
-import { generateAnswer, modelPayload } from '@/lib/helper/provider';
+import { generateAnswer } from '@/lib/helper/provider';
+import { answerHelper } from '@/lib/helper/answer';
 
 export const runtime = 'nodejs';
 export const maxDuration = 30;
@@ -31,17 +32,13 @@ export async function POST(request: Request) {
     input = parseInput(JSON.parse(Buffer.concat(chunks).toString('utf8')));
   } catch { return fail('Enter a valid question of 2–500 characters.', 400); }
   try {
-    const sources = input.kind === 'site' ? await retrievePublicListings(input) : [];
-    const fallback = lookupReply(input, sources);
-    if (!aiConfigured() || (input.kind === 'site' && !sources.length)) return Response.json(fallback, { headers });
-    const session = await auth();
-    if (!session?.user?.id) return fail('Sign in before using the AI evaluation preview.', 401);
-    modelPayload(input, sources); // Validate size before reserving budget.
-    if (!await reserveGeneration(process.env.PB_HELPER_BUDGET_ID!, session.user.id)) return fail('The preview allowance is exhausted or paused.', 429);
-    try {
-      return Response.json(await generateAnswer(input, sources, process.env.PB_HELPER_GATEWAY_KEY!), { headers });
-    } catch {
-      return Response.json({ ...fallback, notice: input.kind === 'site' ? 'AI generation was unavailable. These are listing search results, not an AI answer.' : 'AI generation was unavailable. No general guidance was generated.' }, { headers });
-    }
+    const result = await answerHelper(input, {
+      aiEnabled: aiConfigured,
+      retrieve: retrievePublicListings,
+      currentUserId: async () => (await auth())?.user?.id ?? null,
+      reserve: userId => reserveGeneration(process.env.PB_HELPER_BUDGET_ID!, userId),
+      generate: (question, sources) => generateAnswer(question, sources, process.env.PB_HELPER_GATEWAY_KEY!),
+    });
+    return Response.json(result.body, { status: result.status, headers });
   } catch { return fail('The helper is temporarily unavailable. Please use the directory or try again later.', 503); }
 }

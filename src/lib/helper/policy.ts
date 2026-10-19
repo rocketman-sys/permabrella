@@ -69,7 +69,7 @@ export function lookupReply(input: HelperInput, sources: HelperSource[], now = n
   return {
     kind: input.kind, generated: false, sources: general ? [] : sources, retrievedAt: now.toISOString(),
     answer: general
-      ? 'General AI guidance is not enabled in this review preview. You can explore current PermaBrella listings in the Local listings tab.'
+      ? 'General permaculture AI guidance is not enabled in this review preview. You can explore current PermaBrella listings in the Local listings tab.'
       : sources.length ? `I found ${sources.length} matching public ${sources.length === 1 ? 'listing' : 'listings'}. Read the source cards below and confirm current details with the organiser.`
       : 'I could not find a current public listing matching that search. Try a shorter name, a town or another category. This does not mean no local option exists.',
     notice: general ? 'General guidance is distinct from verified local information.' : 'Live listing lookup · no AI-generated answer. A recorded source check is not a guarantee of current availability.',
