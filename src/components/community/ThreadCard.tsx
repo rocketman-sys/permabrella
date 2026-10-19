@@ -2,9 +2,11 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { formatPosted } from "@/lib/posts/format";
-import type { ThreadListRow } from "@/lib/community/service";
+import type { ThreadCardRow } from "@/lib/community/service";
 import { REGIONS } from "@/lib/regions";
 import { AuthorIdentity } from "./AuthorIdentity";
+import { isNewUnanswered, recentReplyTimes, relativeReplyTime } from "@/lib/community/activity";
+import { NewThreadBadge } from "./NewThreadBadge";
 
 function regionLabel(value: string | null): string | null {
   if (!value) return null;
@@ -14,27 +16,37 @@ function regionLabel(value: string | null): string | null {
 export function ThreadCard({
   row,
   topicSlug,
+  topicName,
+  now,
+  recent = false,
 }: {
-  row: ThreadListRow;
+  row: ThreadCardRow;
   topicSlug: string;
+  topicName?: string;
+  now: number;
+  recent?: boolean;
 }) {
   const { thread, authorDisplay, authorBadge } = row;
+  const recentTimes = recentReplyTimes(row.activity, now);
+  const latest = Math.max(...recentTimes);
 
   return (
     <Link
       href={`/community/${topicSlug}/${thread.id}`}
-      className="group block"
+      className="group block rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--perm-primary)]"
     >
-      <Card className="transition group-hover:border-[var(--perm-secondary)]/40 group-hover:shadow-md">
+      <Card className={`transition group-hover:border-[var(--perm-secondary)]/40 group-hover:shadow-md ${recent ? "border-emerald-200 bg-emerald-50/70" : ""}`}>
+        {recent ? <p className="mb-2 text-xs font-semibold text-emerald-900">Recent replies{topicName ? ` · ${topicName}` : ""}</p> : null}
         <div className="flex flex-wrap items-start justify-between gap-2">
-          <h2 className="font-medium text-[var(--perm-primary)] group-hover:text-[var(--perm-secondary)]">
+          <h3 className="font-medium text-[var(--perm-primary)] group-hover:text-[var(--perm-secondary)]">
             {thread.isPinned ? (
               <span className="mr-1.5 text-xs font-semibold uppercase tracking-wide text-[var(--perm-earth)]">
                 Pinned
               </span>
             ) : null}
             {thread.title}
-          </h2>
+          </h3>
+          {isNewUnanswered(thread.createdAt.getTime(), row.activity.totalReplyCount, now) ? <NewThreadBadge createdAt={thread.createdAt.getTime()} initialNow={now} /> : null}
           {regionLabel(thread.region) ? (
             <Badge className="shrink-0">{regionLabel(thread.region)}</Badge>
           ) : null}
@@ -44,9 +56,7 @@ export function ThreadCard({
         </p>
         <p className="mt-3 text-xs text-[var(--perm-muted)]">
           <AuthorIdentity name={authorDisplay} badge={authorBadge} /> ·{" "}
-          {thread.replyCount}{" "}
-          {thread.replyCount === 1 ? "reply" : "replies"} · Active{" "}
-          {formatPosted(thread.lastActivityAt)}
+          {recent ? <>{recentTimes.length} {recentTimes.length === 1 ? "reply" : "replies"} in the past 7 days · Last reply <time dateTime={new Date(latest).toISOString()} title={new Date(latest).toLocaleString("en-AU", { timeZone: "Australia/Sydney" })}>{relativeReplyTime(latest, now)}</time></> : <>{row.activity.totalReplyCount} {row.activity.totalReplyCount === 1 ? "reply" : "replies"} · {row.activity.lastReplyAt ? <>Last reply {formatPosted(row.activity.lastReplyAt)}</> : <>Started {formatPosted(thread.createdAt)}</>}</>}
         </p>
       </Card>
     </Link>
