@@ -20,7 +20,9 @@ export function listingFreshness(post: FreshnessPost, now = new Date()) {
   if (typeof post.metadata.seasonEnd === "string" && post.metadata.seasonEnd < now.toLocaleDateString("en-CA", {timeZone:"Australia/Sydney"})) return { label: "Past CSA season", note: "The recorded season has ended. Check the grower for future enrolment.", tone: "muted" as const };
   if (typeof post.metadata.listingLabel === "string" && post.metadata.listingLabel.trim()) return { label: post.metadata.listingLabel, note: "", tone: "muted" as const };
   if (post.type === "event") return post.eventDate
-    ? { label: "Scheduled event", note: formatEventWhen(post.eventDate)!, tone: "green" as const }
+    ? post.metadata.eventTimeConfirmed === false
+      ? { label: "Time to be verified", note: `${formatPosted(post.eventDate)} · Confirm the time with the organiser.`, tone: "amber" as const }
+      : { label: "Scheduled event", note: `${formatEventWhen(post.eventDate)!} · NSW time`, tone: "green" as const }
     : { label: "Date to be arranged", note: "Contact the organiser to confirm the date and whether help is still needed.", tone: "amber" as const };
   if (post.type === "grant") {
     if (post.metadata.statusLabel === "Ongoing resource") return { label: "Funding directory", note: "Browse the provider’s website for individual funding rounds.", tone: "green" as const };

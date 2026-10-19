@@ -1,0 +1,533 @@
+{
+  "batch": "local-events-2026-10-19",
+  "checkedDate": "2026-10-19",
+  "entries": [
+    {
+      "id": "411988f6-9eac-52e0-8329-f57b67e955a3",
+      "key": "community-planting-and-creek-walk-with-kyogle-landcare-2026-10-20",
+      "title": "Community Planting and Creek Walk with Kyogle Landcare",
+      "description": "Help plant trees beside Fawcetts Creek, join a guided walk and visit Kyogle Landcare Nursery during Richmond RiverFest. All ages are welcome. Bring drinking water, a hat, gloves, long trousers and enclosed footwear. Morning tea is provided; organisers may reschedule in heavy rain.\n\nWhen: 9:00am–12:00pm AEDT (NSW time)\nOrganiser: Kyogle Council, Border Ranges–Richmond Valley Landcare Network, Landcare Kyogle Group Inc\nCost: Not published; confirm with the organiser.\nBooking: Registration essential; organiser-linked registration form was accessible on 19 October 2026. No form submitted.",
+      "eventDate": "2026-10-20T09:00:00+11:00",
+      "externalUrl": "https://form.jotform.com/262658463301861",
+      "region": "kyogle",
+      "locationDetail": "Fawcetts Creek, corner of Anzac Drive and McDougall Street, Kyogle NSW 2474",
+      "contactEmail": "landcare.support@brrvln.org.au",
+      "contactPhone": "0438 752 233",
+      "metadata": {
+        "eventResearchBatch": "local-events-2026-10-19",
+        "lastCheckedAt": "2026-10-19",
+        "sourceUrls": [
+          "https://richmondriverfest.com/event/community-planting-and-creek-walk-with-kyogle-landcare/",
+          "https://form.jotform.com/262658463301861"
+        ],
+        "verificationNote": "The organiser has not published an admission price. Confirm any cost when registering.",
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "Kyogle Council, Border Ranges–Richmond Valley Landcare Network, Landcare Kyogle Group Inc",
+        "cost": null,
+        "dateEvidence": [
+          {
+            "url": "https://richmondriverfest.com/event/community-planting-and-creek-walk-with-kyogle-landcare/",
+            "summary": "Explicit date 20 October 2026, 9am–noon; Fawcetts Creek; planting, walk and nursery tour; three presenting organisations and information phone."
+          },
+          {
+            "url": "https://form.jotform.com/262658463301861",
+            "summary": "Linked form confirms intersection meeting location, morning tea, weather contingency and Landcare support email. Browser title is an old cloned-form title, but visible form heading and all event details identify this planting."
+          }
+        ],
+        "eventEnd": "2026-10-20T12:00:00+11:00",
+        "parentDirectoryId": "0f8ac5ac-c815-4565-980d-4ea1f67c7299",
+        "parentDirectoryName": "Kyogle Landcare Inc"
+      }
+    },
+    {
+      "id": "6466bdb9-3341-5c1d-86e2-0e05196bc8ab",
+      "key": "mullum-garden-community-lunch-2026-10-20",
+      "title": "Mullumbimby Community Garden — Tuesday Community Lunch",
+      "description": "Share a lunch prepared from garden produce. Everyone is welcome and no booking is needed. This listing is for the Tuesday 20 October occurrence shown in the garden’s current October 2026 calendar.\n\nWhen: 12:30pm–2:00pm AEDT (NSW time)\nOrganiser: Mullumbimby Community Garden\nCost: By donation; no fixed admission price",
+      "eventDate": "2026-10-20T12:30:00+11:00",
+      "externalUrl": "https://mullumbimbycommunitygarden.org/events/community-lunch",
+      "region": "mullumbimby",
+      "locationDetail": "156 Stuart Street, Mullumbimby NSW 2482",
+      "contactEmail": "mullumcommunitygarden@gmail.com",
+      "contactPhone": "+61 498 833 850",
+      "metadata": {
+        "eventResearchBatch": "local-events-2026-10-19",
+        "lastCheckedAt": "2026-10-19",
+        "sourceUrls": [
+          "https://mullumbimbycommunitygarden.org/events/community-lunch",
+          "https://mullumbimbycommunitygarden.org/events"
+        ],
+        "verificationNote": "",
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "Mullumbimby Community Garden",
+        "cost": "By donation; no fixed admission price",
+        "dateEvidence": {
+          "url": "https://mullumbimbycommunitygarden.org/events",
+          "detail": "Official calendar headed October 2026 explicitly includes Tuesday Community Lunch on day 20; also lists day 27.",
+          "quote": "October 2026"
+        },
+        "eventEnd": "2026-10-20T14:00:00+11:00",
+        "parentDirectoryId": "eacec348-1c69-4b00-ac2c-41fe77ef7e5e",
+        "parentDirectoryName": "Mullumbimby Community Garden"
+      }
+    },
+    {
+      "id": "139fec82-58ec-578c-889e-1605288f3229",
+      "key": "gullibul-daytime-dreaming-cultural-tour-—-21-october-2026-10-21",
+      "title": "Gullibul Daytime Dreaming Cultural Tour — 21 October",
+      "description": "Join Gullibul Elder Michael (Wayne) Walker and language teacher Kye Walker for a bus tour exploring cultural sites, stories and connections to Country and waterways around Kyogle and Wiangaree. A picnic lunch is included. Arrive for check-in at 9:45am; the bus departs at 10am and returns about 2pm.\n\nWhen: 10:00am–about 2:00pm AEDT (NSW time)\nOrganiser: Kyogle Council, Gugin Gudduba Local Aboriginal Land Council\nCost: AUD $10 per person plus booking fee\nBooking: Booking essential; limited to 10 people per tour. Booking page returned HTTP 429 during research, so remaining places could not be confirmed.",
+      "eventDate": "2026-10-21T10:00:00+11:00",
+      "externalUrl": "https://www.eventbrite.com.au/e/gullibul-daytime-dreaming-cultural-tours-tickets-2000241634574",
+      "region": "kyogle",
+      "locationDetail": "Kyogle Visitor Information Centre car park, corner of Summerland Way and Anzac Drive, Kyogle NSW 2474",
+      "contactEmail": null,
+      "contactPhone": null,
+      "metadata": {
+        "eventResearchBatch": "local-events-2026-10-19",
+        "lastCheckedAt": "2026-10-19",
+        "sourceUrls": [
+          "https://richmondriverfest.com/event/gullibulculturaltours/",
+          "https://www.visitkyogle.com.au/",
+          "https://www.eventbrite.com.au/e/gullibul-daytime-dreaming-cultural-tours-tickets-2000241634574"
+        ],
+        "verificationNote": "The 21 October date and advertised price are confirmed by the organiser. Remaining ticket availability and the booking fee are to be verified on the booking page.",
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "Kyogle Council, Gugin Gudduba Local Aboriginal Land Council",
+        "cost": "AUD $10 per person plus booking fee",
+        "dateEvidence": [
+          {
+            "url": "https://richmondriverfest.com/event/gullibulculturaltours/",
+            "summary": "Lists three 2026 Wednesdays including 21 October; check-in 9:45am, departure 10am, approximate return 2pm; $10 plus booking fee, 10 places and included picnic lunch. Earlier 7 and 14 October departures are excluded."
+          },
+          {
+            "url": "https://www.visitkyogle.com.au/",
+            "summary": "Official visitor website gives the information centre address as the corner of Summerland Way and Anzac Drive."
+          }
+        ],
+        "eventEnd": "2026-10-21T14:00:00+11:00"
+      }
+    },
+    {
+      "id": "2280eb22-3d77-5009-97ac-0c7be77d3e06",
+      "key": "nimbin-food-swap-2026-10-21",
+      "title": "Nimbin Food, Seed and Plant Swap",
+      "description": "Share surplus food, seeds and plants with other local growers, exchange growing tips and recipes, and take what you need. The organiser's current calendar lists this Wednesday session from 1:30pm to 2:30pm at Seven on Sibley.\n\nWhen: 1:30pm–2:30pm AEDT (NSW time)\nOrganiser: 7 Sibley Street / Nimbin Neighbourhood and Information Centre Inc.\nCost: Gold coin donation",
+      "eventDate": "2026-10-21T13:30:00+11:00",
+      "externalUrl": "https://nimbinvillage.au/events/food-swap-3rd-wednesday/",
+      "region": "nimbin",
+      "locationDetail": "Seven on Sibley – Nimbin's Sustainable Living Hub, 7 Sibley Street, Nimbin NSW",
+      "contactEmail": "sibley@nnic.org.au",
+      "contactPhone": null,
+      "metadata": {
+        "eventResearchBatch": "local-events-2026-10-19",
+        "lastCheckedAt": "2026-10-19",
+        "sourceUrls": [
+          "https://nimbinvillage.au/events/food-swap-3rd-wednesday/",
+          "https://nimbinvillage.au/author/7sibley/",
+          "https://nimbinvillage.au/profile/venue/7sibley/"
+        ],
+        "verificationNote": "This date is listed in the organiser's recurring calendar; check the source for changes before travelling.",
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "7 Sibley Street / Nimbin Neighbourhood and Information Centre Inc.",
+        "cost": "Gold coin donation",
+        "dateEvidence": "Event header explicitly says Wed 21 Oct 2026; time 1:30pm–2:30pm. The page is authored by 7 Sibley Street, whose profile identifies NNIC as the parent project.",
+        "eventEnd": "2026-10-21T14:30:00+11:00",
+        "parentDirectoryId": "82830498-33a2-55ea-b758-611fe3795364",
+        "parentDirectoryName": "Nimbin Food, Seed and Plant Swap — Seven on Sibley"
+      }
+    },
+    {
+      "id": "f0813651-acf6-509b-812c-ef7a7d420d57",
+      "key": "ballina-marine-debris-cleanup-2026-10-24",
+      "title": "Beach Clean Up & Litter Survey with Ballina Coastcare",
+      "description": "Join a Lighthouse Beach cleanup and marine-debris survey contributing to regional litter research. The organisers ask participants to wear covered shoes, long sleeves, long pants and sun protection, and bring water and snacks. The date is confirmed across sources, but published starting times conflict.\n\nWhen: 24 October 2026; time to be confirmed with the organiser.\nOrganiser: Richmond Landcare Inc. and Ballina Coastcare, alongside Dolphin Research Australia\nCost: Free registration",
+      "eventDate": "2026-10-24T00:00:00+11:00",
+      "externalUrl": "https://events.humanitix.com/beach-clean-up-and-litter-survey-with-dolphin-research-australia",
+      "region": "ballina",
+      "locationDetail": "Lighthouse Beach, Ballina, Lighthouse Beach, East Ballina NSW",
+      "contactEmail": null,
+      "contactPhone": null,
+      "metadata": {
+        "eventResearchBatch": "local-events-2026-10-19",
+        "lastCheckedAt": "2026-10-19",
+        "sourceUrls": [
+          "https://events.humanitix.com/beach-clean-up-and-litter-survey-with-dolphin-research-australia",
+          "https://events.humanitix.com/beach-clean-up-and-litter-survey-with-dolphin-research-australia/tickets",
+          "https://richmondriverfest.com/event/lighthouse-beach-marine-debris-survey-cleanup/",
+          "https://richmondriverfest.com/",
+          "https://oceanconservation.org.au/events/"
+        ],
+        "verificationNote": "Starting time needs confirmation: Richmond Landcare's booking page lists 10:30am–12:45pm, RiverFest says meet at 10am, and Ocean Conservation lists 11:30am–1pm. Check directly with the organiser before attending.",
+        "eventTimeConfirmed": false,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "Richmond Landcare Inc. and Ballina Coastcare, alongside Dolphin Research Australia",
+        "cost": "Free registration",
+        "dateEvidence": "Richmond Landcare's Humanitix page gives Sat 24 Oct, 10:30am–12:45pm AEDT and explicitly references RiverFest 2026. Festival page says meet 10am. Partner Ocean Conservation lists 24 October 2026, 11:30am–1pm. All refer to Lighthouse Beach cleanup with overlapping organisers.",
+        "eventEnd": null,
+        "parentDirectoryId": "8c7cb5e3-fedc-467b-883c-ea3be5ea194f",
+        "parentDirectoryName": "Richmond Landcare Inc"
+      }
+    },
+    {
+      "id": "1451335c-e2db-5417-b3ef-dec14a36f412",
+      "key": "mullum-garden-working-bee-2026-10-24",
+      "title": "Mullumbimby Community Garden — Saturday Working Bee",
+      "description": "Help with weeding and mulching, meet local gardeners and share morning tea. Beginners are welcome and tools are supplied. Bring a hat, water and closed shoes. No booking needed. This occurrence is explicitly shown in the October 2026 garden calendar.\n\nWhen: 8:00am–12:00pm AEDT (NSW time)\nOrganiser: Mullumbimby Community Garden\nCost: Free",
+      "eventDate": "2026-10-24T08:00:00+11:00",
+      "externalUrl": "https://mullumbimbycommunitygarden.org/events/saturday-working-bee",
+      "region": "mullumbimby",
+      "locationDetail": "156 Stuart Street, Mullumbimby NSW 2482",
+      "contactEmail": "mullumcommunitygarden@gmail.com",
+      "contactPhone": "+61 498 833 850",
+      "metadata": {
+        "eventResearchBatch": "local-events-2026-10-19",
+        "lastCheckedAt": "2026-10-19",
+        "sourceUrls": [
+          "https://mullumbimbycommunitygarden.org/events/saturday-working-bee",
+          "https://mullumbimbycommunitygarden.org/events"
+        ],
+        "verificationNote": "",
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "Mullumbimby Community Garden",
+        "cost": "Free",
+        "dateEvidence": {
+          "url": "https://mullumbimbycommunitygarden.org/events",
+          "detail": "Official October 2026 calendar explicitly includes Saturday Working Bee on day 24, as well as day 31."
+        },
+        "eventEnd": "2026-10-24T12:00:00+11:00",
+        "parentDirectoryId": "eacec348-1c69-4b00-ac2c-41fe77ef7e5e",
+        "parentDirectoryName": "Mullumbimby Community Garden"
+      }
+    },
+    {
+      "id": "f0e4bbcb-3f05-5777-a49d-0cbeebabdd35",
+      "key": "nimbin-local-pantry-market-2026-10-24",
+      "title": "Re-love Market: Local Pantry at Seven on Sibley",
+      "description": "The October Re-love Market focuses on a Local Pantry of home-grown produce, brews and bakes. Meet local makers and growers at Seven on Sibley from 10:30am to 12:30pm. Stall bookings are handled by the organiser.\n\nWhen: 10:30am–12:30pm AEDT (NSW time)\nOrganiser: 7 Sibley Street / Nimbin Neighbourhood and Information Centre Inc.\nCost: Stalls $10; visitor admission cost not specified",
+      "eventDate": "2026-10-24T10:30:00+11:00",
+      "externalUrl": "https://nimbinvillage.au/events/flea-market-7-sibley-street/",
+      "region": "nimbin",
+      "locationDetail": "Seven on Sibley – Nimbin's Sustainable Living Hub, 7 Sibley Street, Nimbin NSW",
+      "contactEmail": "sibley@nnic.org.au",
+      "contactPhone": null,
+      "metadata": {
+        "eventResearchBatch": "local-events-2026-10-19",
+        "lastCheckedAt": "2026-10-19",
+        "sourceUrls": [
+          "https://nimbinvillage.au/events/flea-market-7-sibley-street/",
+          "https://nimbinvillage.au/author/7sibley/",
+          "https://nimbinvillage.au/profile/venue/7sibley/"
+        ],
+        "verificationNote": "Visitor admission cost is not stated; the advertised $10 charge is for stalls.",
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "7 Sibley Street / Nimbin Neighbourhood and Information Centre Inc.",
+        "cost": "Stalls $10; visitor admission cost not specified",
+        "dateEvidence": "Header explicitly says Sat 24 Oct 2026, 10:30am–12:30pm. Body specifically identifies 24th Oct as Local Pantry and lists stalls at $10.",
+        "eventEnd": "2026-10-24T12:30:00+11:00",
+        "parentDirectoryId": "a0b2117d-a71f-4203-8e12-08ff12d58e76",
+        "parentDirectoryName": "Nimbin Neighbourhood & Information Centre (NNIC)"
+      }
+    },
+    {
+      "id": "1c0015a9-99c9-5420-ae6f-0f6b028a8c05",
+      "key": "lismore-riverfest-picnic-2026-10-24",
+      "title": "Picnic by the River – Richmond RiverFest Closing Event",
+      "description": "Bring a picnic and blanket for riverside music and community activities celebrating the close of Richmond RiverFest. Two separately booked canoe tours explore riverbank restoration and the Rainforest to Rivers project, departing at 11:30am and 1pm. The picnic begins at 11am.\n\nWhen: 11:00am AEDT (NSW time)\nOrganiser: Richmond Riverkeeper, supported by Lismore Council, Rous County Council and Jagun Alliance\nCost: Picnic admission cost not specified. First guided paddle is advertised at $10 plus $0.75 booking fee; check the relevant session booking page.\n\nPaddle bookings:\nRiver Paddle 1: https://events.humanitix.com/river-paddle-1-riverfest-closing-event\nRiver Paddle 2: https://events.humanitix.com/copy-of-river-paddle-2-riverfest-closing-event",
+      "eventDate": "2026-10-24T11:00:00+11:00",
+      "externalUrl": "https://richmondriverfest.com/event/lismore-picnic-by-the-river/",
+      "region": "lismore",
+      "locationDetail": "Riverside Park, by the Lismore Boat Ramp, Riverside Park, Lismore NSW",
+      "contactEmail": null,
+      "contactPhone": null,
+      "metadata": {
+        "eventResearchBatch": "local-events-2026-10-19",
+        "lastCheckedAt": "2026-10-19",
+        "sourceUrls": [
+          "https://richmondriverfest.com/event/lismore-picnic-by-the-river/",
+          "https://richmondriverfest.com/",
+          "https://richmondriverfest.com/event/river-paddle-riverfest-closing-event/",
+          "https://events.humanitix.com/river-paddle-1-riverfest-closing-event",
+          "https://events.humanitix.com/river-paddle-1-riverfest-closing-event/tickets",
+          "https://events.humanitix.com/copy-of-river-paddle-2-riverfest-closing-event"
+        ],
+        "verificationNote": "Picnic finishing time and admission cost are not published. Guided paddles require separate bookings and have limited places.",
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "Richmond Riverkeeper, supported by Lismore Council, Rous County Council and Jagun Alliance",
+        "cost": "Picnic admission cost not specified. First guided paddle is advertised at $10 plus $0.75 booking fee; check the relevant session booking page.",
+        "dateEvidence": "Official festival page gives 11am Saturday 24 October, Riverside Park by the boat ramp, and identifies Richmond RiverFest 2026. Humanitix gives first paddle 11:30am–12:30pm AEDT with $10 plus $0.75 fee.",
+        "eventEnd": null
+      }
+    },
+    {
+      "id": "32338404-7a8a-511a-b509-53d804c85726",
+      "key": "ocean-champion-citizen-science-2026-10-25",
+      "title": "Ocean Champion Citizen Science Workshop",
+      "description": "Learn to record marine wildlife observations, then join a boat trip and guided snorkel around the Byron–Tweed Hope Spot. Complete the approximately one-hour online module beforehand. Ages 16+; under-18s need an adult guardian. Participants must already be comfortable snorkelling and travelling in a small open boat.\n\nWhen: 7:00am–1:00pm AEDT (NSW time)\nOrganiser: Dolphin Research Australia / Ocean Education & Conservation, with Byron Bay Sea Turtle School\nCost: $100 per person plus $3 booking fee",
+      "eventDate": "2026-10-25T07:00:00+11:00",
+      "externalUrl": "https://events.humanitix.com/ocean-champion-citizen-science-workshop/tickets",
+      "region": "byron_bay",
+      "locationDetail": "Byron Bay Sea Turtle School, Byron Plaza, 5/90–96 Jonson Street, Byron Bay NSW 2481",
+      "contactEmail": "byronhope@dolphinresearchaustralia.org",
+      "contactPhone": null,
+      "metadata": {
+        "eventResearchBatch": "local-events-2026-10-19",
+        "lastCheckedAt": "2026-10-19",
+        "sourceUrls": [
+          "https://events.humanitix.com/ocean-champion-citizen-science-workshop",
+          "https://events.humanitix.com/ocean-champion-citizen-science-workshop/tickets"
+        ],
+        "verificationNote": "Weather dependent: the organiser confirms ocean conditions before the trip and may reschedule. Check current availability and requirements before booking.",
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "Dolphin Research Australia / Ocean Education & Conservation, with Byron Bay Sea Turtle School",
+        "cost": "$100 per person plus $3 booking fee",
+        "dateEvidence": {
+          "url": "https://events.humanitix.com/ocean-champion-citizen-science-workshop",
+          "method": "Public Add to calendar → iCal download",
+          "DTSTART": "20261024T200000Z",
+          "DTEND": "20261025T020000Z",
+          "localEvidenceFile": "events-research/ocean-champion-2026.ics",
+          "quote": "Sunday October 25th, 7am - 1pm"
+        },
+        "eventEnd": "2026-10-25T13:00:00+11:00"
+      }
+    },
+    {
+      "id": "89233b84-b310-51ea-89f4-4507c5c32825",
+      "key": "river-dreaming-—-grafton-jacaranda-festival-2026-10-30",
+      "title": "River Dreaming — Grafton Jacaranda Festival",
+      "description": "A First Nations community day celebrating Bundjalung, Yaegl and Gumbaynggirr cultures through dance, music, stories, workshops and market stalls. The festival describes the event as an opportunity to learn about local history, language and connections to land and river.\n\nWhen: 10:00am–2:00pm AEDT (NSW time)\nOrganiser: Grafton Jacaranda Festival Inc\nCost: Free admission\nBooking: No advance booking requirement stated on the event page.",
+      "eventDate": "2026-10-30T10:00:00+11:00",
+      "externalUrl": "https://jacafest.com/upcoming/river-dreaming",
+      "region": "other",
+      "locationDetail": "Market Square, Prince Street, Grafton NSW 2460",
+      "contactEmail": "info@jacarandafestival.com",
+      "contactPhone": null,
+      "metadata": {
+        "eventResearchBatch": "local-events-2026-10-19",
+        "lastCheckedAt": "2026-10-19",
+        "sourceUrls": [
+          "https://jacafest.com/upcoming/river-dreaming",
+          "https://www.clarence.nsw.gov.au/Parks/Market-Square"
+        ],
+        "verificationNote": "",
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "Grafton Jacaranda Festival Inc",
+        "cost": "Free admission",
+        "dateEvidence": [
+          {
+            "url": "https://jacafest.com/upcoming/river-dreaming",
+            "summary": "Organiser page explicitly lists Friday 30 October 2026, 10am–2pm, Market Square and free admission."
+          },
+          {
+            "url": "https://www.clarence.nsw.gov.au/Parks/Market-Square",
+            "summary": "Council venue listing identifies Market Square on Prince Street, Grafton 2460."
+          }
+        ],
+        "eventEnd": "2026-10-30T14:00:00+11:00"
+      }
+    },
+    {
+      "id": "c5e38bd8-a3fd-5b76-87a4-6eae90ae7b44",
+      "key": "remade-ecocraft-pottsville-2026-10-31",
+      "title": "ReMade Eco-Craft Workshop",
+      "description": "Make a coiled basket using recovered fishing rope, fabric and other reused materials with facilitators Liz Hawkins and Carol Moss. The workshop connects creative reuse with caring for waterways and marine wildlife. Beginners welcome; essential materials supplied. Ages 13+; participants under 18 must attend with an adult. Advance tickets required.\n\nWhen: 9:00am–12:30pm AEDT (NSW time)\nOrganiser: Dolphin Research Australia / Ocean Education & Conservation\nCost: $38 per person (check booking page for any fees)",
+      "eventDate": "2026-10-31T09:00:00+11:00",
+      "externalUrl": "https://events.humanitix.com/remade-ecocraft-workshop",
+      "region": "tweed",
+      "locationDetail": "Pottsville Community Hall, 1 Tweed Coast Road, Pottsville NSW 2489",
+      "contactEmail": "info@dolphinresearchaustralia.org",
+      "contactPhone": null,
+      "metadata": {
+        "eventResearchBatch": "local-events-2026-10-19",
+        "lastCheckedAt": "2026-10-19",
+        "sourceUrls": [
+          "https://events.humanitix.com/remade-ecocraft-workshop",
+          "https://oceanconservation.org.au/events/"
+        ],
+        "verificationNote": "",
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "Dolphin Research Australia / Ocean Education & Conservation",
+        "cost": "$38 per person (check booking page for any fees)",
+        "dateEvidence": {
+          "url": "https://events.humanitix.com/remade-ecocraft-workshop",
+          "quote": "Date: Saturday, 31 October 2026"
+        },
+        "eventEnd": "2026-10-31T12:30:00+11:00"
+      }
+    },
+    {
+      "id": "f2e07626-922e-52f1-af9e-69e73007c389",
+      "key": "federal-nature-based-flood-resilience-2026-10-31",
+      "title": "Science in the Federal Hall: Nature Based Solutions for Flood Resilience",
+      "description": "Hear project manager Louissa Rogers explain Richmond Landcare’s Nature Based Solutions project and the science behind its approach to flood resilience. Doors open at 1:30pm, with a light afternoon tea. Free tickets are available through the organiser.\n\nWhen: 1:30pm–4:00pm AEDT (NSW time)\nOrganiser: Richmond Landcare Inc.\nCost: Free general admission; optional donation",
+      "eventDate": "2026-10-31T13:30:00+11:00",
+      "externalUrl": "https://events.humanitix.com/science-in-the-federal-hall-nature-based-solutions-for-flood-resilience/tickets",
+      "region": "federal",
+      "locationDetail": "Federal Hall, 466 Federal Drive, Federal NSW 2480",
+      "contactEmail": null,
+      "contactPhone": null,
+      "metadata": {
+        "eventResearchBatch": "local-events-2026-10-19",
+        "lastCheckedAt": "2026-10-19",
+        "sourceUrls": [
+          "https://events.humanitix.com/science-in-the-federal-hall-nature-based-solutions-for-flood-resilience",
+          "https://events.humanitix.com/science-in-the-federal-hall-nature-based-solutions-for-flood-resilience/tickets"
+        ],
+        "verificationNote": "",
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "Richmond Landcare Inc.",
+        "cost": "Free general admission; optional donation",
+        "dateEvidence": {
+          "url": "https://events.humanitix.com/science-in-the-federal-hall-nature-based-solutions-for-flood-resilience",
+          "method": "Public Add to calendar → iCal download",
+          "DTSTART": "20261031T023000Z",
+          "DTEND": "20261031T050000Z",
+          "localEvidenceFile": "events-research/federal-flood-resilience-2026.ics",
+          "quote": "Doors open at 1.30 pm."
+        },
+        "eventEnd": "2026-10-31T16:00:00+11:00",
+        "parentDirectoryId": "8c7cb5e3-fedc-467b-883c-ea3be5ea194f",
+        "parentDirectoryName": "Richmond Landcare Inc"
+      }
+    },
+    {
+      "id": "459207a1-f3cb-5dd7-b26b-11826deeaaf4",
+      "key": "free-community-breakfast-—-jacaranda-thursday-2026-11-05",
+      "title": "Free Community Breakfast — Jacaranda Thursday",
+      "description": "Start Jacaranda Thursday with a shared community breakfast in central Grafton. Local community groups donate the food, with the advertised menu including a sausage and egg sandwich, fruit and milk. Markets and entertainment follow across the town centre.\n\nWhen: 7:00am–9:00am AEDT (NSW time)\nOrganiser: Grafton Jacaranda Festival Inc, Local community groups\nCost: Free\nBooking: No advance booking requirement stated on the event page.",
+      "eventDate": "2026-11-05T07:00:00+11:00",
+      "externalUrl": "https://jacafest.com/upcoming/breakfast",
+      "region": "other",
+      "locationDetail": "Market Square, Prince Street, Grafton NSW 2460",
+      "contactEmail": "info@jacarandafestival.com",
+      "contactPhone": null,
+      "metadata": {
+        "eventResearchBatch": "local-events-2026-10-19",
+        "lastCheckedAt": "2026-10-19",
+        "sourceUrls": [
+          "https://jacafest.com/upcoming/breakfast",
+          "https://www.clarence.nsw.gov.au/Parks/Market-Square"
+        ],
+        "verificationNote": "",
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "Grafton Jacaranda Festival Inc, Local community groups",
+        "cost": "Free",
+        "dateEvidence": [
+          {
+            "url": "https://jacafest.com/upcoming/breakfast",
+            "summary": "Organiser page lists Thursday 5 November 2026, 7–9am, Market Square, free breakfast and donated community food."
+          },
+          {
+            "url": "https://www.clarence.nsw.gov.au/Parks/Market-Square",
+            "summary": "Council venue listing identifies Market Square on Prince Street, Grafton 2460."
+          }
+        ],
+        "eventEnd": "2026-11-05T09:00:00+11:00"
+      }
+    },
+    {
+      "id": "3b1a9382-5927-53aa-838b-7b0f3ab79f9e",
+      "key": "the-channon-catchment-health-2026-11-07",
+      "title": "Citizen Science: Catchment Health Testing Spring 2026",
+      "description": "Help collect waterway-health data in Terania Creek for the Richmond River Catchment Health Report Card. Richmond Landcare hosts this citizen-science session as part of its Nature Based Solutions project. The organiser welcomes all ages and says no experience is needed.\n\nWhen: 8:30am–1:30pm AEDT (NSW time)\nOrganiser: Richmond Landcare Inc.\nCost: Free ticket displayed; optional donation",
+      "eventDate": "2026-11-07T08:30:00+11:00",
+      "externalUrl": "https://events.humanitix.com/citizen-science-catchment-health-testing-spring-2026",
+      "region": "the_channon",
+      "locationDetail": "Terania Creek meeting point, 53 Terania Street, The Channon NSW 2480",
+      "contactEmail": null,
+      "contactPhone": null,
+      "metadata": {
+        "eventResearchBatch": "local-events-2026-10-19",
+        "lastCheckedAt": "2026-10-19",
+        "sourceUrls": [
+          "https://events.humanitix.com/citizen-science-catchment-health-testing-spring-2026",
+          "https://events.humanitix.com/citizen-science-catchment-health-testing-spring-2026/tickets",
+          "https://www.richmondlandcare.org/"
+        ],
+        "verificationNote": "The event page lists 7 November 2026, but the booking form retains an old 'Saturday 2nd May' ticket label. Confirm your booking is for the November session.",
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "Richmond Landcare Inc.",
+        "cost": "Free ticket displayed; optional donation",
+        "dateEvidence": "Host's event title explicitly says Spring 2026 and schedule says Sat 7 Nov, 8:30am–1:30pm AEDT. Street address is explicit. Ticket chooser shows Free but its ticket-type name still refers to Saturday 2nd May.",
+        "eventEnd": "2026-11-07T13:30:00+11:00",
+        "parentDirectoryId": "8c7cb5e3-fedc-467b-883c-ea3be5ea194f",
+        "parentDirectoryName": "Richmond Landcare Inc"
+      }
+    },
+    {
+      "id": "6224eb00-1fe3-5265-9470-d1a52cb8db4d",
+      "key": "nimbin-food-swap-2026-11-07",
+      "title": "Nimbin Saturday Food Swap",
+      "description": "Bring surplus food to share with local growers at Seven on Sibley's Saturday food swap, listed for 9am to 10am. A following workshop is mentioned on the organiser's recurring page, but the November topic and charge have not been published.\n\nWhen: 9:00am–10:00am AEDT (NSW time)\nOrganiser: 7 Sibley Street / Nimbin Neighbourhood and Information Centre Inc.\nCost: Food swap by gold coin donation; November workshop cost unknown",
+      "eventDate": "2026-11-07T09:00:00+11:00",
+      "externalUrl": "https://nimbinvillage.au/events/food-swap-1st-saturday-7-sibley-street/",
+      "region": "nimbin",
+      "locationDetail": "Seven on Sibley – Nimbin's Sustainable Living Hub, 7 Sibley Street, Nimbin NSW",
+      "contactEmail": "sibley@nnic.org.au",
+      "contactPhone": null,
+      "metadata": {
+        "eventResearchBatch": "local-events-2026-10-19",
+        "lastCheckedAt": "2026-10-19",
+        "sourceUrls": [
+          "https://nimbinvillage.au/events/food-swap-1st-saturday-7-sibley-street/",
+          "https://nimbinvillage.au/author/7sibley/",
+          "https://nimbinvillage.au/profile/venue/7sibley/"
+        ],
+        "verificationNote": "November's workshop topic, cost and finishing time are not announced. Confirm these with the organiser; the listed 9–10am time is for the food swap.",
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "7 Sibley Street / Nimbin Neighbourhood and Information Centre Inc.",
+        "cost": "Food swap by gold coin donation; November workshop cost unknown",
+        "dateEvidence": "Header explicitly says Sat 7 Nov 2026, 9:00am–10:00am. Body lists the first-Saturday food swap and gold coin donation; the only specific workshop theme/price remains September's coffee workshop.",
+        "eventEnd": "2026-11-07T10:00:00+11:00",
+        "parentDirectoryId": "82830498-33a2-55ea-b758-611fe3795364",
+        "parentDirectoryName": "Nimbin Food, Seed and Plant Swap — Seven on Sibley"
+      }
+    },
+    {
+      "id": "9c965db9-bcfe-5b73-8027-1a60e279dae9",
+      "key": "herbal-creams-mullumbimby-2026-11-07",
+      "title": "Herbal Creams Making Hands-On Workshop",
+      "description": "A practical workshop on mixing and making herbal creams, including a demonstration and guided hands-on formulation. Tools and ingredients are provided and participants take home two creams. Bring lunch. Book directly with the organiser.\n\nWhen: 10:00am–2:00pm AEDT (NSW time)\nOrganiser: Kaja Skraskova / Herbae Thylacini, co-hosted by The Elder Tree\nCost: $125 general admission; $115 for registered Elder Tree members",
+      "eventDate": "2026-11-07T10:00:00+11:00",
+      "externalUrl": "https://herbaethylacini.com.au/products/herbal-creams-making-hands-on-in-person-workshop-07-november-2026-mullumbimby-nsw",
+      "region": "mullumbimby",
+      "locationDetail": "Mullumbimby Community Garden, 156 Stuart Street, Mullumbimby NSW 2482",
+      "contactEmail": null,
+      "contactPhone": null,
+      "metadata": {
+        "eventResearchBatch": "local-events-2026-10-19",
+        "lastCheckedAt": "2026-10-19",
+        "sourceUrls": [
+          "https://herbaethylacini.com.au/products/herbal-creams-making-hands-on-in-person-workshop-07-november-2026-mullumbimby-nsw",
+          "https://mullumbimbycommunitygarden.org/events/herbal-creams-making-hands-on-workshop"
+        ],
+        "verificationNote": "",
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "Kaja Skraskova / Herbae Thylacini, co-hosted by The Elder Tree",
+        "cost": "$125 general admission; $115 for registered Elder Tree members",
+        "dateEvidence": {
+          "url": "https://herbaethylacini.com.au/products/herbal-creams-making-hands-on-in-person-workshop-07-november-2026-mullumbimby-nsw",
+          "quote": "SATURDAY 07 NOVEMBER 2026 10.00am-2.00pm (BYO lunch)"
+        },
+        "eventEnd": "2026-11-07T14:00:00+11:00",
+        "parentDirectoryId": "eacec348-1c69-4b00-ac2c-41fe77ef7e5e",
+        "parentDirectoryName": "Mullumbimby Community Garden"
+      }
+    }
+  ]
+}
