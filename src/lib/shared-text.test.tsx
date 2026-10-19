@@ -34,3 +34,10 @@ test('clipped previews keep the complete destination and avoid nested card ancho
   const anchors=html.match(/<a\b[^>]*>[\s\S]*?<\/a>/g)??[];
   assert.equal(anchors.length,2);assert.ok(anchors.every(a=>(a.match(/<a\b/g)??[]).length===1));assert.ok(html.includes('after:absolute'));
 });
+
+test('long unmatched punctuation and tag-like strings preserve text without repeated rescanning',()=>{
+  const text='<'.repeat(30000)+' https://example.org/a_(b)'+')'.repeat(30000)+'.';
+  const parts=sharedTextParts(text);
+  assert.deepEqual(parts.filter(p=>p.href).map(p=>p.href),['https://example.org/a_(b)']);
+  assert.equal(parts.map(p=>p.text).join(''),text);
+});
