@@ -19,6 +19,13 @@ test("today's event stays visible all day in Sydney", () => {
   assert.equal(isPastListing({...base,eventDate:new Date("2026-10-16T14:00:00Z")},now),false);
   assert.equal(isPastListing({...base,eventDate:new Date("2026-10-16T12:59:00Z")},now),true);
 });
+test("confirmed event dates with conflicting times never display a fabricated midnight", () => {
+  const post:FreshnessPost={...base,eventDate:parseSydneyDateTime('2026-10-24T00:00'),metadata:{eventTimeConfirmed:false}};
+  const status=listingFreshness(post,now);
+  assert.equal(status.label,'Time to be verified');assert.match(status.note,/24 Oct 2026/);assert.doesNotMatch(status.note,/12:00|00:00/);
+  assert.equal(isPastListing(post,new Date('2026-10-24T12:59:59Z')),false);
+  assert.equal(isPastListing(post,new Date('2026-10-24T13:00:00Z')),true);
+});
 test("unknown dates and stale listings never imply verified availability", () => {
   assert.equal(listingFreshness(base,now).label,"Date to be arranged");
   assert.equal(listingFreshness({...base,type:"grant"},now).label,"Check current round");
