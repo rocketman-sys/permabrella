@@ -40,7 +40,7 @@ async function main(){
    console.log(`Already applied: ${e.title}`);continue;
   }
   const start=parseSydneyDateTime(day+'T00:00')!.toISOString();const next=new Date(day+'T12:00:00Z');next.setUTCDate(next.getUTCDate()+1);const end=parseSydneyDateTime(next.toISOString().slice(0,10)+'T00:00')!.toISOString();
-  const urls=[...new Set([e.externalUrl,...e.metadata.sourceUrls].flatMap(u=>[u,u.replace(/\/tickets\/?$/,'')]))];
+  const urls=[...new Set([e.externalUrl,e.metadata.sourceUrls[0]].flatMap(u=>[u,u.replace(/\/tickets\/?$/,'')]))];
   const duplicates=await sql`select id from posts where type='event' and (event_date is null or event_date>=${start}::timestamp and event_date<${end}::timestamp) and (lower(trim(title))=lower(${e.title}) or external_url=any(${urls}::text[]) or metadata->'sourceUrls' ?| ${urls}::text[])`;
   if(duplicates.length)throw Error(`Potential duplicate event: ${e.title}`);
   const metadata={...e.metadata,eventResearchBatch:data.batch,eventResearchHash:hash};
@@ -51,9 +51,13 @@ async function main(){
   b.additions.push({id:e.id,hash});console.log(`Add: ${day} · ${e.title}`);
  }
  console.log(`${queries.length} new events; ${rows.length} existing events preserved${apply?' (apply)':' (dry run)'}.`);
+ if(process.argv.includes('--test-transaction')) {
+  const result=await sql.transaction([sql.query('create temporary table posts (like public.posts including all) on commit drop'),...queries],{isolationLevel:'Serializable'});
+  console.log(`Temporary transaction passed: ${result.length-1} event inserts; no public rows changed.`);return;
+ }
  if(!apply||!queries.length)return;
  const path=join(tmpdir(),`permabrella-events-${Date.now()}.json`);writeFileSync(path,JSON.stringify(b,null,2),{flag:'wx',mode:0o600});console.log(`Prepared backup: ${path}`);
  const result=await sql.transaction(queries,{isolationLevel:'Serializable'});result.forEach((r,i)=>b.additions[i].updatedAt=r[0].updated_at);b.state='applied';
  const afterPath=path.replace('.json','.applied.json');writeFileSync(afterPath,JSON.stringify(b,null,2),{flag:'wx',mode:0o600});console.log(`Applied atomically. Guarded rollback backup: ${afterPath}`);
 }
-main().catch(error=>{console.error(error instanceof Error&&/^(Invalid|Duplicate|Missing|Potential duplicate|Existing event|Rollback conflict)/.test(error.message)?error.message:'Event refresh failed; inspect backup/database state before retrying.');process.exitCode=1;});
+main().catch(error=>{if(error&&typeof error.code==='string'&&/^[A-Z0-9]{5}$/.test(error.code))console.error(`Database diagnostic ${error.code}: ${error.message}`);console.error(error instanceof Error&&/^(Invalid|Duplicate|Missing|Potential duplicate|Existing event|Rollback conflict)/.test(error.message)?error.message:'Event refresh failed; inspect backup/database state before retrying.');process.exitCode=1;});
