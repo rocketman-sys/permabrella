@@ -24,7 +24,7 @@ export function modelPayload(input: HelperInput, sources: HelperSource[]) {
 export async function generateAnswer(input: HelperInput, sources: HelperSource[], key: string, fetcher: typeof fetch = fetch) {
   const response = await fetcher('https://ai-gateway.vercel.sh/v1/chat/completions', {
     method: 'POST', headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify(modelPayload(input, sources)), signal: AbortSignal.timeout(20_000), cache: 'no-store',
+    body: JSON.stringify(modelPayload(input, sources)), signal: AbortSignal.timeout(45_000), cache: 'no-store',
   }); // Exactly one attempt. Never retry an uncertain billable request.
   if (!response.ok) throw Error('AI answer unavailable.');
   const data = await response.json();

@@ -8,7 +8,14 @@ import { RESERVATION_MICRO_USD, type HelperInput } from '../src/lib/helper/polic
 async function main() {
   assert.equal(process.env.VERCEL_ENV, 'preview');
   assert.equal(process.env.PB_HELPER_BUDGET_ID, 'permabrella-pr20-2026-10-19');
-  assert.equal(process.env.PB_HELPER_REGEN_EVALUATION_ONCE, '2026-10-19-regen');
+  const evaluations: Record<string, number> = {
+    '2026-10-19-regen': 40000,
+    // Initial attempt was inspected in Gateway Logs: HTTP 499 after the
+    // client deadline; provider duration 33.47s. This checks the 45s fix once.
+    '2026-10-19-regen-timeout-fix': 50000,
+  };
+  const expectedReserved = evaluations[process.env.PB_HELPER_REGEN_EVALUATION_ONCE ?? ''];
+  assert(Number.isSafeInteger(expectedReserved));
   assert(process.env.DATABASE_URL && process.env.PB_HELPER_GATEWAY_KEY);
   const key = process.env.PB_HELPER_GATEWAY_KEY;
   const sql = neon(process.env.DATABASE_URL);
@@ -20,7 +27,7 @@ async function main() {
   // refund or retry a billable outcome, and stop if other usage changed it.
   const claim = await sql`update helper_preview_budgets set reserved_microusd=reserved_microusd+${RESERVATION_MICRO_USD}
     where id=${process.env.PB_HELPER_BUDGET_ID} and enabled=true and expires_at>now()
-    and reserved_microusd=40000 and limit_microusd=5000000
+    and reserved_microusd=${expectedReserved} and limit_microusd=5000000
     and reserved_microusd+${RESERVATION_MICRO_USD}<=limit_microusd returning reserved_microusd,limit_microusd`;
   assert.equal(claim.length, 1, 'Regression allowance already claimed or accounting changed; do not retry');
   let usage: ReturnType<typeof generationUsage> | undefined;

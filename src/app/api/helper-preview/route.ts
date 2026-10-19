@@ -8,7 +8,7 @@ import { generateAnswer } from '@/lib/helper/provider';
 import { answerHelper } from '@/lib/helper/answer';
 
 export const runtime = 'nodejs';
-export const maxDuration = 30;
+export const maxDuration = 60;
 const headers = { 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex, nofollow' };
 function fail(error: string, status: number) { return Response.json({ error }, { status, headers }); }
 
