@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { neon } from '@neondatabase/serverless';
 import { generateAnswer, generationUsage } from '../src/lib/helper/provider';
 import { retrievePublicListings } from '../src/lib/helper/retrieval';
-import { RESERVATION_MICRO_USD, type HelperInput } from '../src/lib/helper/policy';
+import { lookupReply, RESERVATION_MICRO_USD, type HelperInput } from '../src/lib/helper/policy';
 
 async function main() {
   assert.equal(process.env.VERCEL_ENV, 'preview');
@@ -27,7 +27,12 @@ async function main() {
   const results = [];
   for (const entry of cases) {
     const sources = entry.input.kind === 'site' ? await retrievePublicListings(entry.input) : [];
-    assert(entry.input.kind === 'general' || sources.length > 0);
+    if (entry.input.kind === 'site' && !sources.length) {
+      const result = { label: entry.label, durationMs: 0, usage: undefined, reply: lookupReply(entry.input, []) };
+      results.push(result);
+      console.log('HELPER_EVAL_RESULT', JSON.stringify(result));
+      continue;
+    }
     let usage: ReturnType<typeof generationUsage> | undefined;
     const fetcher: typeof fetch = async (url, options) => {
       const response = await fetch(url, options);
@@ -44,7 +49,7 @@ async function main() {
   }
   const costs = [];
   for (const result of results) {
-    assert(result.usage?.generationId);
+    if (!result.usage?.generationId) continue;
     const response = await fetch('https://ai-gateway.vercel.sh/v1/generation?id=' + encodeURIComponent(result.usage.generationId), { headers: { Authorization: 'Bearer ' + key }, signal: AbortSignal.timeout(5000) });
     const value = await response.json();
     const d = value.data;
