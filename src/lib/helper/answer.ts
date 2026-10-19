@@ -23,9 +23,9 @@ export async function answerHelper(input: HelperInput, deps: Dependencies): Prom
   if (!deps.aiEnabled() || (input.kind === 'site' && !sources.length)) return lookup();
   try {
     const userId = await deps.currentUserId();
-    if (!userId) return unavailable('Your listing results are ready. Sign in if you would also like an AI summary.', 'Sign in before using the AI evaluation preview.', 401);
+    if (!userId) return unavailable('Your listing results are ready. Sign in if you would also like an AI summary.', 'Sign in to ask the AI helper.', 401);
     modelPayload(input, sources); // Validate size before reserving budget.
-    if (!await deps.reserve(userId)) return unavailable('Your listing results are ready. AI summaries are currently paused or the preview allowance has been reached.', 'The preview allowance is exhausted or paused.', 429);
+    if (!await deps.reserve(userId)) return unavailable('Your listing results are ready. AI summaries are currently paused or the trial allowance has been reached.', 'The AI trial allowance is exhausted or paused.', 429);
     try {
       return { status: 200, body: await deps.generate(input, sources) };
     } catch {

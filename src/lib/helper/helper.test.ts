@@ -2,19 +2,20 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { createElement } from 'react';
-import { aiConfigured, lookupReply, parseGenerated, parseInput, previewAvailable, sameOrigin, safeSourceUrl, searchTerms, verificationLabel, type HelperSource } from './policy';
+import { aiConfigured, CLIENT_TIMEOUT_MS, PROVIDER_TIMEOUT_MS, lookupReply, parseGenerated, parseInput, helperAvailable, sameOrigin, safeSourceUrl, searchTerms, verificationLabel, type HelperSource } from './policy';
 import { allowPreviewLookup } from './limits';
 import { generateAnswer, generationUsage, modelPayload } from './provider';
 
 const input = { query: 'Mullumbimby garden', kind: 'site' as const, category: 'groups' as const };
 const source: HelperSource = { id: 'garden', title: 'Garden', href: '/directory/garden', excerpt: 'A public garden.', region: 'Mullumbimby', verification: 'Community listing', note: '', freshness: '', updated: '2026-10-19', sourceUrls: [] };
 
-test('production and ordinary builds cannot expose the review route or generation', () => {
-  assert.equal(previewAvailable({ NODE_ENV: 'production' }), false);
-  assert.equal(previewAvailable({ NODE_ENV: 'production', VERCEL_ENV: 'production' }), false);
-  assert.equal(previewAvailable({ NODE_ENV: 'production', VERCEL_ENV: 'preview' }), true);
+test('public deployments expose search but AI still requires the complete approved trial configuration', () => {
+  assert.equal(helperAvailable({ NODE_ENV: 'production' }), false);
+  assert.equal(helperAvailable({ NODE_ENV: 'production', VERCEL_ENV: 'production' }), true);
+  assert.equal(helperAvailable({ NODE_ENV: 'production', VERCEL_ENV: 'preview' }), true);
   assert.equal(aiConfigured({ NODE_ENV: 'production', VERCEL_ENV: 'preview' }), false);
-  assert.equal(aiConfigured({ NODE_ENV: 'production', VERCEL_ENV: 'production', PB_HELPER_AI_ENABLED: 'true', PB_HELPER_GATEWAY_KEY: 'fake', PB_HELPER_BUDGET_ID: 'fake', PB_HELPER_PRICING_REVIEW: '2026-10-19' }), false);
+  assert.equal(aiConfigured({ NODE_ENV: 'production', VERCEL_ENV: 'production', PB_HELPER_AI_ENABLED: 'true' }), false);
+  assert.equal(aiConfigured({ NODE_ENV: 'production', VERCEL_ENV: 'production', PB_HELPER_AI_ENABLED: 'true', PB_HELPER_GATEWAY_KEY: 'fake', PB_HELPER_BUDGET_ID: 'fake', PB_HELPER_PRICING_REVIEW: '2026-10-19' }), Date.now() < Date.parse('2026-10-27T00:00:00Z'));
 });
 test('same-origin browser requests work behind Next while foreign and missing origins fail', () => {
   const request = (origin: string, host = '127.0.0.1:3003') => new Request('http://localhost:3003/api/helper-preview', { headers: { origin, host } });
@@ -40,7 +41,7 @@ test('verification labels retain uncertainty and later community edits', () => {
 test('general guidance and local lookup never share sources or verification claims', () => {
   assert.equal(lookupReply(input, [source]).generated, false);
   const reply = lookupReply({ ...input, kind: 'general' }, [source]);
-  assert.deepEqual(reply.sources, []); assert.match(reply.answer, /not enabled/);
+  assert.deepEqual(reply.sources, []); assert.match(reply.answer, /currently unavailable/);
   assert.match(lookupReply(input, []).answer, /does not mean no local option exists/);
 });
 test('model citations must refer to supplied records, with no cross-mode citation leakage', () => {
@@ -77,4 +78,21 @@ test('billing logs contain only bounded identifiers and token counts', () => {
 test('provider truncation is rejected and only validated source data reaches UI', async () => {
   const fetcher = (async () => new Response(JSON.stringify({ choices: [{ finish_reason: 'length', message: { content: '{"answer":"cut' } }] }))) as typeof fetch;
   await assert.rejects(generateAnswer(input, [source], 'fake', fetcher));
+});
+
+test('browser waits beyond the route allowance and provider timeout stays within it', () => {
+  assert(PROVIDER_TIMEOUT_MS < 60_000);
+  assert(CLIENT_TIMEOUT_MS > 60_000);
+});
+
+test('public launch cannot extend the approved AI trial or enable it with incomplete configuration', t => {
+  const env: NodeJS.ProcessEnv = { NODE_ENV: 'production', VERCEL_ENV: 'production', PB_HELPER_AI_ENABLED: 'true', PB_HELPER_GATEWAY_KEY: 'fake', PB_HELPER_BUDGET_ID: 'permabrella-pr20-2026-10-19', PB_HELPER_PRICING_REVIEW: '2026-10-19' };
+  t.mock.method(Date, 'now', () => Date.parse('2026-10-26T23:59:59Z'));
+  assert.equal(aiConfigured(env), true);
+  assert.equal(aiConfigured({ ...env, PB_HELPER_AI_ENABLED: 'false' }), false);
+  assert.equal(aiConfigured({ ...env, PB_HELPER_GATEWAY_KEY: '' }), false);
+  assert.equal(aiConfigured({ ...env, PB_HELPER_BUDGET_ID: '' }), false);
+  t.mock.method(Date, 'now', () => Date.parse('2026-10-27T00:00:00Z'));
+  assert.equal(aiConfigured(env), false);
+  assert.equal(helperAvailable(env), true);
 });

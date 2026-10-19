@@ -78,7 +78,7 @@ test('AI-enabled anonymous local search returns listings and optional sign-in gu
 for (const budget of ['exhausted', 'paused', 'expired', 'hourly-limit'] as const) {
   test(`signed-in local search keeps listings when the AI budget is ${budget}`, async () => {
     const h = harness({ budget });
-    assertLookup(await answerHelper(input, h.deps), /AI summaries are currently paused or the preview allowance has been reached/);
+    assertLookup(await answerHelper(input, h.deps), /AI summaries are currently paused or the trial allowance has been reached/);
     assert.deepEqual(h.calls, ['retrieve', 'auth', 'reserve']);
     assert.deepEqual(h.accounting, { reserved: 0, providerRequests: 0 });
   });

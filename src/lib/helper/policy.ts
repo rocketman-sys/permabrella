@@ -2,6 +2,8 @@ export const HELPER_MODEL = 'openai/gpt-6-luna';
 export const MAX_BODY_BYTES = 8_192;
 export const MAX_QUERY = 500;
 export const MAX_OUTPUT_TOKENS = 512;
+export const PROVIDER_TIMEOUT_MS = 45_000;
+export const CLIENT_TIMEOUT_MS = 65_000;
 export const RESERVATION_MICRO_USD = 10_000; // $0.01; no automatic reset/refund.
 export type HelperKind = 'site' | 'general';
 export type HelperCategory = 'all' | 'groups' | 'events' | 'grants' | 'land';
@@ -17,12 +19,12 @@ export type HelperReply = {
   retrievedAt: string; notice: string;
 };
 
-// This review route can never be activated in production by setting an AI key.
-export function previewAvailable(env = process.env): boolean {
-  return env.VERCEL_ENV === 'preview' || (!env.VERCEL_ENV && env.NODE_ENV === 'development');
+// Public release approved 19 October 2026; AI still requires all trial gates.
+export function helperAvailable(env = process.env): boolean {
+  return ['preview', 'production'].includes(env.VERCEL_ENV ?? '') || (!env.VERCEL_ENV && env.NODE_ENV === 'development');
 }
 export function aiConfigured(env = process.env): boolean {
-  return previewAvailable(env) && env.PB_HELPER_AI_ENABLED === 'true' &&
+  return helperAvailable(env) && env.PB_HELPER_AI_ENABLED === 'true' &&
     Boolean(env.PB_HELPER_GATEWAY_KEY) && Boolean(env.PB_HELPER_BUDGET_ID) &&
     env.PB_HELPER_PRICING_REVIEW === '2026-10-19' && Date.now() < Date.parse('2026-10-27T00:00:00Z');
 }
@@ -70,7 +72,7 @@ export function lookupReply(input: HelperInput, sources: HelperSource[], now = n
   return {
     kind: input.kind, generated: false, sources: general ? [] : sources, retrievedAt: now.toISOString(),
     answer: general
-      ? 'General permaculture AI guidance is not enabled in this review preview. You can explore current PermaBrella listings in the Local listings tab.'
+      ? 'General permaculture AI guidance is currently unavailable. You can explore current PermaBrella listings in the Local listings tab.'
       : sources.length ? `I found ${sources.length} matching public ${sources.length === 1 ? 'listing' : 'listings'}. Read the source cards below and confirm current details with the organiser.`
       : 'I could not find a current public listing matching that search, so I have no local sources for an AI summary. Try a name, town or topic, or choose General permaculture for general advice. This does not mean no local option exists.',
     notice: general ? 'General guidance is distinct from verified local information.' : 'Live listing lookup · no AI-generated answer. A recorded source check is not a guarantee of current availability.',

@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/directory", label: "Groups" },
   { href: "/grants", label: "Grants" },
   { href: "/community", label: "Discuss" },
+  { href: "/helper", label: "Helper" },
 ];
 
 const linkPrimary =
@@ -41,7 +42,7 @@ export async function Navbar() {
         >
           <BrandLogo />
         </Link>
-        <nav aria-label="Main navigation" className="hidden items-center gap-4 text-sm font-semibold lg:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-3 text-sm font-semibold lg:flex">
           <ActiveNavLinks links={navLinks} />
         </nav>
         <div className="hidden items-center gap-2 lg:flex">
