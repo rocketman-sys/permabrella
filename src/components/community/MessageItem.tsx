@@ -1,8 +1,11 @@
+import { AcknowledgeButton } from "./AcknowledgeButton";
+import type { AcknowledgementState } from "@/lib/community/acknowledgement-queries";
+import { SharedText } from "@/components/ui/SharedText";
 import { formatPosted } from "@/lib/posts/format";
 import type { MessageRow } from "@/lib/community/service";
 import { AuthorIdentity } from "./AuthorIdentity";
 
-export function MessageItem({ row }: { row: MessageRow }) {
+export function MessageItem({ row, topicSlug, signedIn, acknowledgement }: { row: MessageRow; topicSlug:string; signedIn:boolean; acknowledgement:AcknowledgementState }) {
   const { message, authorDisplay, authorBadge } = row;
 
   return (
@@ -22,8 +25,9 @@ export function MessageItem({ row }: { row: MessageRow }) {
         </time>
       </header>
       <div className="mt-2 whitespace-pre-wrap text-sm text-[var(--perm-text)]">
-        {message.body}
+        <SharedText text={message.body} />
       </div>
+      <AcknowledgeButton target={{threadId:message.threadId,topicSlug,messageId:message.id}} initial={acknowledgement} signedIn={signedIn} />
     </article>
   );
 }

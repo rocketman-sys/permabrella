@@ -1,3 +1,6 @@
+import { AcknowledgeButton } from "./AcknowledgeButton";
+import type { AcknowledgementState } from "@/lib/community/acknowledgement-queries";
+import { SharedText } from "@/components/ui/SharedText";
 import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { formatPosted } from "@/lib/posts/format";
@@ -19,11 +22,13 @@ export default async function ThreadView({
   messages,
   topicSlug,
   canReply,
+  acknowledgements,
 }: {
   detail: ThreadDetail;
   messages: MessageRow[];
   topicSlug: string;
   canReply: boolean;
+  acknowledgements: {thread:AcknowledgementState;messages:Record<string,AcknowledgementState>};
 }) {
   const { thread, topic, authorDisplay, authorBadge } = detail;
   const locked = thread.isLocked;
@@ -62,8 +67,9 @@ export default async function ThreadView({
           ) : null}
         </p>
         <div className="mt-4 whitespace-pre-wrap text-[var(--perm-text)]">
-          {thread.body}
+          <SharedText text={thread.body} />
         </div>
+        <AcknowledgeButton target={{threadId:thread.id,topicSlug}} initial={acknowledgements.thread} signedIn={canReply} />
         <div className="mt-4 border-t border-[var(--perm-border)] pt-4">
           <SubscriptionToggle threadId={thread.id} topicSlug={topicSlug} />
         </div>
@@ -76,7 +82,7 @@ export default async function ThreadView({
         <ul className="mt-4 space-y-3">
           {messages.map((row) => (
             <li key={row.message.id}>
-              <MessageItem row={row} />
+              <MessageItem row={row} topicSlug={topicSlug} signedIn={canReply} acknowledgement={acknowledgements.messages[row.message.id]??{count:0,selected:false}} />
             </li>
           ))}
         </ul>

@@ -1,5 +1,6 @@
 import {
   pgTable,
+  primaryKey,
   uuid,
   text,
   varchar,
@@ -220,3 +221,15 @@ export const listingEditLimits = pgTable('listing_edit_limits', {
   windowStart: timestamp('window_start', { withTimezone: true }).notNull(),
   attempts: integer('attempts').notNull(),
 });
+
+/** Voluntary member choices; never a visit log and never exposed as a voter list. */
+export const threadAcknowledgements = pgTable('thread_acknowledgements', {
+  targetId: uuid('target_id').references(() => threads.id, { onDelete: 'cascade' }).notNull(),
+  userId: uuid('user_id').references(() => users.id, { onDelete: 'cascade' }).notNull(),
+  active: boolean('active').default(true).notNull(),
+}, t => [primaryKey({columns:[t.targetId,t.userId]})]);
+export const messageAcknowledgements = pgTable('message_acknowledgements', {
+  targetId: uuid('target_id').references(() => messages.id, { onDelete: 'cascade' }).notNull(),
+  userId: uuid('user_id').references(() => users.id, { onDelete: 'cascade' }).notNull(),
+  active: boolean('active').default(true).notNull(),
+}, t => [primaryKey({columns:[t.targetId,t.userId]})]);
