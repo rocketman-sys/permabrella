@@ -9,6 +9,7 @@ import {
   integer,
   jsonb,
   uniqueIndex,
+  index,
 } from "drizzle-orm/pg-core";
 import type { AnyPgColumn } from "drizzle-orm/pg-core";
 
@@ -198,4 +199,24 @@ export const passwordResetLimits = pgTable("password_reset_limits", {
   key: varchar("key", { length: 64 }).primaryKey(),
   attempts: integer("attempts").default(1).notNull(),
   expiresAt: timestamp("expires_at").notNull(),
+});
+
+/** Public-field snapshots only; account data and moderation fields never enter history. */
+export const listingRevisions = pgTable('listing_revisions', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  postId: uuid('post_id').references(() => posts.id).notNull(),
+  editorId: uuid('editor_id').references(() => users.id).notNull(),
+  editorName: varchar('editor_name', { length: 150 }).notNull(),
+  kind: varchar('kind', { length: 20 }).notNull(),
+  summary: varchar('summary', { length: 500 }).notNull(),
+  before: jsonb('before').$type<import('../listing-edits/policy').ListingContent>().notNull(),
+  after: jsonb('after').$type<import('../listing-edits/policy').ListingContent>().notNull(),
+  restoredFromId: uuid('restored_from_id').references((): AnyPgColumn => listingRevisions.id),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
+}, (t) => [index('listing_revisions_post_created_idx').on(t.postId,t.createdAt)]);
+
+export const listingEditLimits = pgTable('listing_edit_limits', {
+  userId: uuid('user_id').references(() => users.id, { onDelete: 'cascade' }).primaryKey(),
+  windowStart: timestamp('window_start', { withTimezone: true }).notNull(),
+  attempts: integer('attempts').notNull(),
 });

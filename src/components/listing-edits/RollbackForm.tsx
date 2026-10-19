@@ -1,0 +1,7 @@
+'use client';
+import { useActionState } from 'react';
+import { rollbackListingAction } from '@/app/listings/actions';
+export function RollbackForm({id,revisionId,version}:{id:string;revisionId:string;version:string}) {
+  const [state,action,pending]=useActionState(rollbackListingAction.bind(null,id),null);
+  return <details className="mt-4 rounded-lg border border-[var(--pb-line)] p-3"><summary className="cursor-pointer text-sm font-semibold">Administrator: restore this revision</summary><p className="mt-2 text-sm">Review the values above. Restoring replaces the current editable content and adds a new revision; the history remains available.</p><form action={action} className="mt-3 flex flex-wrap items-center gap-3"><input type="hidden" name="revisionId" value={revisionId}/><input type="hidden" name="version" value={version}/><label htmlFor={`restore-${revisionId}`} className="text-sm">Version to restore</label><select id={`restore-${revisionId}`} name="restoreSide" className="min-h-11 max-w-full rounded border bg-white px-2"><option value="before">Before this change</option><option value="after">After this change</option></select><button type="submit" disabled={pending} className="min-h-11 rounded-lg bg-[var(--pb-primary)] px-4 py-2 text-sm font-semibold text-white disabled:opacity-50">{pending?'Restoring…':'Restore selected content'}</button>{state?.error?<p role="alert" className="w-full text-sm text-red-700">{state.error}</p>:null}</form></details>;
+}

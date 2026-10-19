@@ -140,6 +140,8 @@ export default function HowItWorksPage() {
       </ul>
 
       <div className={`${prose} mt-8`}>
+        <h2 id="community-editing" className={h2}>Keep listings fresh together</h2>
+        <p>Anyone signed in can edit public details for Groups, Grants and Land Connect listings, including food resources in Groups. Open a listing and choose “Edit this listing”. Add reliable public sources, explain what you changed and flag anything uncertain. Your changes appear immediately with your public display name and the time. Before-and-after versions remain in public edit history, and administrators can restore earlier content. Community edits are marked “To be verified”; they do not confirm availability, funding or eligibility. Please share only contact details intended for public use.</p>
         <h2 className={h2}>Trust and clarity</h2>
         <p>
           We care that you can see what something is, who it is for, and what to

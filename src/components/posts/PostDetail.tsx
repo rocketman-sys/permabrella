@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { canEditListing, safePublicUrl } from "@/lib/listing-edits/policy";
 import { Badge } from "@/components/ui/Badge";
 import { FreshnessNotice } from "./FreshnessNotice";
 import { formatPosted } from "@/lib/posts/format";
@@ -66,6 +67,11 @@ export function PostDetail({
         {formatPosted(post.createdAt)}{post.updatedAt > post.createdAt ? ` · Updated ${formatPosted(post.updatedAt)}` : ""}
       </p>
 
+      {canEditListing(post.type,post.status) ? <section className="mt-5 rounded-lg border border-[var(--pb-line)] p-4 text-sm" aria-label="Community editing">
+        <p>Help keep this listing useful. Anyone signed in can update its public details. Every edit shows who changed it and is kept in the edit history.</p>
+        {typeof post.metadata.communityEditedBy === 'string' && typeof post.metadata.communityEditedAt === 'string' && !Number.isNaN(Date.parse(post.metadata.communityEditedAt)) ? <p className="mt-2 font-semibold">Last edited by {post.metadata.communityEditedBy.includes('@')?'Community member':post.metadata.communityEditedBy} · <time dateTime={post.metadata.communityEditedAt}>{new Date(post.metadata.communityEditedAt).toLocaleString('en-AU',{timeZone:'Australia/Sydney',dateStyle:'medium',timeStyle:'short'})} NSW time</time></p> : null}
+        <div className="mt-2 flex flex-wrap gap-x-5"><Link href={`/listings/${post.id}/edit`} className="inline-flex min-h-11 items-center font-semibold underline">Edit this listing</Link><Link href={`/listings/${post.id}/history`} className="inline-flex min-h-11 items-center underline">View edit history</Link><Link href="/how-it-works#community-editing" className="inline-flex min-h-11 items-center underline">How community editing works</Link></div>
+      </section> : null}
       <FreshnessNotice post={post} detail />
       {post.type === "grant" ? <dl className="mt-5 grid gap-4 sm:grid-cols-2">
         {[["Funding", post.metadata.funding], ["Who can apply", post.metadata.whoCanApply]].map(([label, value]) => typeof value === "string" && value ? <div key={label as string}><dt className="text-xs font-semibold uppercase text-[var(--pb-muted)]">{label as string}</dt><dd className="mt-1 text-sm">{value}</dd></div> : null)}
@@ -124,6 +130,7 @@ export function PostDetail({
 
       {typeof post.metadata.parentDirectoryId === "string" && /^[a-f0-9-]{36}$/.test(post.metadata.parentDirectoryId) ? <p className="mt-5 text-sm"><Link href={`/directory/${post.metadata.parentDirectoryId}`} className="font-semibold text-[var(--pb-accent-2)] underline">{typeof post.metadata.parentDirectoryName === "string" ? post.metadata.parentDirectoryName : "Related community organisation"}</Link></p> : null}
       {sources.length ? <section className="mt-6" aria-label="Public sources"><h2 className="text-sm font-semibold">Public sources</h2><ul className="mt-2 space-y-2 text-sm">{sources.map((url, index) => <li key={url}><a href={url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center break-all text-[var(--pb-accent-2)] underline">{new URL(url).hostname} · source {index + 1}<span className="sr-only"> (opens in a new tab)</span></a></li>)}</ul></section> : null}
+      {Array.isArray(post.metadata.communitySources) && post.metadata.communitySources.some(u=>typeof u==='string'&&safePublicUrl(u)) ? <section className="mt-6"><h2 className="text-sm font-semibold">Community-provided sources</h2><ul className="mt-2 space-y-2 text-sm">{post.metadata.communitySources.filter((u):u is string=>typeof u==='string'&&safePublicUrl(u)).map(url=><li key={url}><a href={url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center break-all underline">{url}<span className="sr-only"> (opens in a new tab)</span></a></li>)}</ul></section>:null}
       <div className="mt-8 flex flex-wrap gap-3">
         {post.externalUrl ? (
           <a
