@@ -1,5 +1,5 @@
--- Review only. NOT an app migration and NOT applied automatically.
--- Requires action-time approval for a separate PermaBrella evaluation allowance.
+-- Explicit operator schema; never applied automatically by the app.
+-- The separate one-time PR20 evaluation allowance was approved on 19 October 2026.
 create table helper_preview_budgets (
   id text primary key,
   enabled boolean not null default false,

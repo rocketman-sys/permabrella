@@ -4,7 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { createElement } from 'react';
 import { aiConfigured, lookupReply, parseGenerated, parseInput, previewAvailable, sameOrigin, safeSourceUrl, searchTerms, verificationLabel, type HelperSource } from './policy';
 import { allowPreviewLookup } from './limits';
-import { generateAnswer, modelPayload } from './provider';
+import { generateAnswer, generationUsage, modelPayload } from './provider';
 
 const input = { query: 'Mullumbimby garden', kind: 'site' as const, category: 'groups' as const };
 const source: HelperSource = { id: 'garden', title: 'Garden', href: '/directory/garden', excerpt: 'A public garden.', region: 'Mullumbimby', verification: 'Community listing', note: '', freshness: '', updated: '2026-10-19', sourceUrls: [] };
@@ -62,10 +62,17 @@ test('one bounded model request has no tools, transcript or client retries and r
   assert.equal(payload.messages.length, 2); assert.equal(payload.store, false);
   assert.equal('tools' in payload, false);
   assert.deepEqual(payload.providerOptions.gateway.only, ['openai']);
+  assert.equal(payload.providerOptions.gateway.zeroDataRetention, true);
   assert.throws(() => modelPayload(input, [{ ...source, excerpt: 'x'.repeat(30_000) }]));
   let attempts = 0;
   const fetcher = (async () => { attempts++; return new Response('{}', { status: 429 }); }) as typeof fetch;
   await assert.rejects(generateAnswer(input, [source], 'fake', fetcher)); assert.equal(attempts, 1);
+});
+test('billing logs contain only bounded identifiers and token counts', () => {
+  assert.deepEqual(generationUsage({ id: 'gen_123', usage: { prompt_tokens: 10, completion_tokens: 2, total_tokens: 12, secret: 'never-log' }, choices: [{ message: { content: 'private answer' } }], key: 'secret' }), {
+    generationId: 'gen_123', model: 'openai/gpt-6-luna', promptTokens: 10, completionTokens: 2, totalTokens: 12,
+  });
+  assert.equal(generationUsage({ id: 'unsafe\ncontent', usage: { total_tokens: -1 } }).generationId, undefined);
 });
 test('provider truncation is rejected and only validated source data reaches UI', async () => {
   const fetcher = (async () => new Response(JSON.stringify({ choices: [{ finish_reason: 'length', message: { content: '{"answer":"cut' } }] }))) as typeof fetch;
