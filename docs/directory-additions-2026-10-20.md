@@ -1,6 +1,6 @@
 # Mullumbimby directory additions — 20 October 2026
 
-The live directory audit found 80 records (79 active and one recoverably removed). None of the seven suggested groups had a separate record or matching title/alias. Six additions use fixed IDs, an explicit source list and visible verification notes. No existing listing is edited.
+The initial live directory audit found 80 records (79 active and one recoverably removed). None of the seven suggested groups had a separate record or matching title/alias. Six additions were published first. The user subsequently confirmed the exact Byron Bees Instagram profile, allowing the seventh listing to be published with minimal content. All seven use fixed IDs, source metadata and visible verification notes. No existing listing is edited.
 
 | Listing | Evidence and limits |
 | --- | --- |
@@ -10,7 +10,7 @@ The live directory audit found 80 records (79 active and one recoverably removed
 | Generous Earth Co-operative | Provisional community-reported nursery initiative. The description attributes its intended seedling/cutting activity to the report; current location, name and arrangements remain unverified. Website and contacts remain blank. No nursery handover, registration, named participants or private anecdotes are published. |
 | Mullum Library of Stuff | Its [about page](https://libraryofstuff.org.au/about/) describes the lending collection and member participation and places it in the blue brick shed beside the Community Hall on River Terrace. It is not placed at the community garden. Current opening and membership arrangements should be checked. |
 | Shedding Community Workshop (The Railway Shed) | Its [official Linktree](https://linktr.ee/sheddingcommunityworkshop) links current workshop categories and its own site. The [workshops](https://www.shedding.com.au/workshops/) and [contact](https://www.shedding.com.au/contact-us/) pages identify the Railway Shed, 18 Prince Street, and public email. Different published phone numbers were found, so the phone field is blank. Shedding remains separate from the Men's Shed. |
-| Byron Bees | Held pending exact identity or official profile confirmation. No social handle or listing is attached to an unrelated similarly named campaign, product or organisation. |
+| Byron Bees | The user confirmed [@byron.bees](https://www.instagram.com/byron.bees/) as the intended group's exact profile. Instagram limited access to its public content during review. The listing therefore contains only the confirmed name/profile and a verification note; activities, services, region, address, phone and email are not inferred. |
 
 Existing Mullumbimby Community Garden (`eacec348-1c69-4b00-ac2c-41fe77ef7e5e`), SEED Northern Rivers (`d7442de8-38a9-488d-bd83-6e0d1de2c5e7`) and Mullumbimby & District Neighbourhood Centre (`e10b0540-34a0-438c-beba-344577423623`) are distinct related records and remain unchanged.
 
@@ -31,4 +31,8 @@ The script checks IDs, existing titles/websites and field validity, saves a mode
 
 The six additions were applied together on 20 October 2026. A before/after comparison found all 80 existing records unchanged; the directory now contains 86 records, including 85 active records. Each new detail page returned HTTP 200, displayed its verification note, and appeared in directory search. The Generous Earth notice was also checked in the browser. A repeat dry run reported `0 updates; 0 additions`.
 
-The JSON manifest and retained CSV agree on all six IDs, descriptions and metadata. ESLint, TypeScript and whitespace checks passed. The applied rollback backup and before/after public-field snapshots are retained privately outside Git. Byron Bees remains unpublished pending an exact identity or official profile link.
+The initial JSON manifest and retained CSV agreed on all six IDs, descriptions and metadata. ESLint, TypeScript and whitespace checks passed. The applied rollback backup and before/after public-field snapshots are retained privately outside Git.
+
+The subsequent Byron Bees audit found 86 directory records and no matching title, alias or profile URL. Its fixed ID is `94689580-01b9-5592-9eef-b2e1eeda23b5`. The seventh entry is appended to the same manifest and CSV; the first six entries remain unchanged. Its visible verification note distinguishes the user-confirmed profile from details that have not been independently verified.
+
+Byron Bees was then published as one addition with zero updates. All 86 prior directory records remained unchanged. Its detail page returned HTTP 200, showed the verification note in the browser, and linked to exactly `https://www.instagram.com/byron.bees/`. Searches for both `Byron Bees` and `byron.bees` returned the listing. The directory contains 87 records, including 86 active records. The seven manifest entries and CSV rows agree, and a repeat dry run reported `0 updates; 0 additions`. The new applied rollback backup and before/after snapshots are retained privately outside Git.
