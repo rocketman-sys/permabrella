@@ -31,7 +31,8 @@ async function main(){
   const queries=b.rows.map(r=>{const row=rows.find(x=>x.id===r.id);if(!row||row.updated_at!==r.appliedUpdatedAt||row.metadata.listingSurveyBatch!==b.batch)throw Error('Rollback conflict; later edit must be reviewed');return update(r.id,r.type,r.appliedUpdatedAt!,r.before??{...fields(row),status:'removed'});});
   console.log(`Rollback: ${queries.length} records validated${apply?' for atomic restore':' in dry run'}.`);if(apply)await sql.transaction(queries);return;
  }
- const data=JSON.parse(readFileSync('data/listing-survey-2026-10-19.json','utf8')) as {batch:string;checkedDate:string;entries:Entry[]};
+ const inputFile=process.argv.find(x=>x.startsWith('--file='))?.slice(7)??'data/listing-survey-2026-10-19.json';
+ const data=JSON.parse(readFileSync(inputFile,'utf8')) as {batch:string;checkedDate:string;entries:Entry[]};
  const queries=[];const backup:Backup={state:'prepared',batch:data.batch,rows:[]};const ids=new Set<string>();let additions=0;let updates=0;
  for(const e of data.entries){
   if(ids.has(e.id)||!/^([a-f0-9]{8}-)([a-f0-9]{4}-){3}[a-f0-9]{12}$/.test(e.id)||!['directory_entry','land_available','land_wanted'].includes(e.type))throw Error('Invalid identity');ids.add(e.id);
