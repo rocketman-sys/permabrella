@@ -226,6 +226,38 @@
         "importFile": "data/import/community_groups_mullum_2026_10_20.csv",
         "importBatch": "community_groups:community_groups_mullum_2026_10_20"
       }
+    },
+    {
+      "id": "94689580-01b9-5592-9eef-b2e1eeda23b5",
+      "existing": false,
+      "type": "directory_entry",
+      "patch": {
+        "title": "Byron Bees",
+        "description": "Byron Bees — Instagram profile: @byron.bees. Further information about the group is awaiting verification.",
+        "status": "active",
+        "contact_method": null,
+        "contact_phone": null,
+        "contact_email": null,
+        "external_url": "https://www.instagram.com/byron.bees/",
+        "region": null,
+        "location_detail": null,
+        "tags": []
+      },
+      "metadata": {
+        "sourceUrls": [
+          "https://www.instagram.com/byron.bees/"
+        ],
+        "lastCheckedAt": "2026-10-20",
+        "verificationStatus": "needs_verification",
+        "verificationNote": "The Instagram profile has been confirmed for this listing. Activities, services, location and contact details have not been independently verified. Check the profile for current information before making arrangements.",
+        "aliases": [
+          "byron.bees"
+        ],
+        "source": "User-confirmed Instagram profile, 2026-10-20; profile content not independently verified.",
+        "importFile": "data/import/community_groups_mullum_2026_10_20.csv",
+        "importBatch": "community_groups:community_groups_mullum_2026_10_20",
+        "communityReported": true
+      }
     }
   ]
 }
