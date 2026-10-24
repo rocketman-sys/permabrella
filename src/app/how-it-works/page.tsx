@@ -41,6 +41,7 @@ export default function HowItWorksPage() {
 
       <div className={prose}>
         <h2 className={h2}>The vision</h2>
+        <p>Our next stage brings together shared equipment, formal membership, practical learning and dedicated coordination. These services are <strong>coming soon</strong>; you can already <Link href="/join" className="font-semibold text-[var(--pb-primary)] underline">register membership interest</Link>, <Link href="/equipment" className="font-semibold text-[var(--pb-primary)] underline">explore the planned equipment library</Link> or <Link href="/contact" className="font-semibold text-[var(--pb-primary)] underline">contact the team</Link>. <Link href="/about" className="font-semibold text-[var(--pb-primary)] underline">Meet the partners</Link> helping establish the network.</p>
         <p>
           We are building toward a region that grows more food, shares more
           generously, and weathers disruption with stronger local relationships.

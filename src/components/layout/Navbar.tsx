@@ -6,6 +6,7 @@ import { ActiveNavLinks } from "./ActiveNavLinks";
 import { MobileMenu } from "./MobileMenu";
 
 const navLinks = [
+  { href: "/equipment", label: "Equipment" },
   { href: "/events", label: "Events" },
   { href: "/offerings", label: "Exchange" },
   { href: "/land-connect", label: "Land Connect" },
@@ -30,7 +31,7 @@ export async function Navbar() {
     <form action={async () => { "use server"; await signOut({ redirectTo: "/" }); }}>
       <Button variant="ghost" type="submit">Sign out</Button>
     </form>
-  ) : <><Link href="/login" className={linkGhost}>Log in</Link><Link href="/register" className={linkPrimary}>Join free</Link></>;
+  ) : <><Link href="/login" className={linkGhost}>Log in</Link><Link href="/register" className={linkPrimary}>Create account</Link></>;
 
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--pb-line)] bg-[var(--pb-surface)]/95 backdrop-blur">
@@ -42,10 +43,10 @@ export async function Navbar() {
         >
           <BrandLogo />
         </Link>
-        <nav aria-label="Main navigation" className="hidden items-center gap-3 text-sm font-semibold lg:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-3 text-sm font-semibold xl:flex">
           <ActiveNavLinks links={navLinks} />
         </nav>
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden items-center gap-2 xl:flex">
           <Link href="/submit" className={linkSecondary}>
             Post a listing
           </Link>

@@ -72,6 +72,7 @@ export function Footer() {
         <div>
           <p className="font-semibold">Get involved</p>
           <p className="mt-2 text-sm text-[var(--pb-ink-soft)]">Have something to share or a question to ask? Your local knowledge helps this community grow.</p>
+          <ul className="mt-3 space-y-1 text-sm font-semibold text-[var(--pb-accent-2)]"><li><Link href="/join" className="inline-flex min-h-11 items-center underline">Membership interest</Link></li><li><Link href="/equipment" className="inline-flex min-h-11 items-center underline">Shared equipment — coming soon</Link></li><li><Link href="/contact" className="inline-flex min-h-11 items-center underline">Contact the team</Link></li><li><Link href="/about" className="inline-flex min-h-11 items-center underline">Our network and partners</Link></li></ul>
           <Link href="/submit" className="mt-3 inline-flex min-h-11 items-center font-semibold text-[var(--pb-accent-2)] underline">Post a listing</Link>
         </div>
       </div>

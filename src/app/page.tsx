@@ -9,6 +9,7 @@ import { getHeroStats, listNewsPostsSafe } from "@/lib/posts/service";
 import { formatPosted } from "@/lib/posts/format";
 import { FOUNDING_PARTNER_LABEL, ROOTS_RIVERS_GROUP_ID } from "@/lib/posts/featured-groups";
 import { parseRegionParam, type Region } from "@/lib/regions";
+import { ComingSoon, networkButton, networkLink } from "@/components/network/NetworkLayout";
 
 const panels = [
   { href: "/directory", title: "Find a local group", blurb: "Community gardens, growers and neighbours.", icon: "/brand/icon-groups.svg" },
@@ -26,13 +27,15 @@ export default async function Home({ searchParams }: {
   return (
     <div className="mx-auto max-w-6xl px-4 py-6 sm:px-5 md:py-10">
       <section aria-labelledby="home-heading" className="rounded-xl border border-[var(--pb-line)] bg-[var(--pb-surface)] p-5 sm:p-8">
-        <div className="flex items-start justify-between gap-8">
+        <div className="grid items-start gap-6 lg:grid-cols-[1.7fr_1fr]">
           <div className="max-w-2xl">
-            <p className="pb-tag text-[var(--pb-accent-2)]">Northern Rivers, NSW</p>
+            <p className="pb-tag text-[var(--pb-accent-2)]">Northern Rivers food &amp; farming network</p>
             <h1 id="home-heading" className="pb-display mt-2 text-3xl leading-tight text-[var(--pb-ink)] sm:text-4xl">Grow food. Share what you have.<br className="hidden sm:block" /> Find your community.</h1>
-            <p className="mt-3 max-w-xl text-base text-[var(--pb-ink-soft)]">Your local permaculture hub for people, growing spaces, skills and opportunities.</p>
+            <p className="mt-3 max-w-xl text-base text-[var(--pb-ink-soft)]">Connecting growers, community groups and local knowledge to help our region grow food, care for land and support one another.</p>
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap"><Link href="/join" className={networkButton}>Register membership interest</Link><Link href="/events" className="inline-flex min-h-11 items-center justify-center rounded-md border border-[var(--pb-line)] px-5 py-3 font-semibold text-[var(--pb-accent-2)] hover:bg-[var(--pb-bg)]">Find an event or workshop</Link></div>
+            <p className="mt-3 text-sm text-[var(--pb-ink-soft)]">Membership is coming soon. Expressions of interest are open now.</p>
           </div>
-          <Link href="/how-it-works" className="hidden shrink-0 py-3 text-sm font-semibold text-[var(--pb-accent-2)] underline underline-offset-4 md:block">How it works</Link>
+          <aside className="rounded-lg bg-[var(--pb-bg)] p-5" aria-labelledby="home-equipment-heading"><ComingSoon /><h2 id="home-equipment-heading" className="pb-display mt-3 text-2xl">More tools in more hands.</h2><p className="mt-3 text-sm text-[var(--pb-ink-soft)]">A shared equipment library, based at the Mullum Gardens EcoHub, is being developed for growers across Byron, Ballina, Lismore, Richmond Valley and Kyogle.</p><p className="mt-3 text-sm text-[var(--pb-ink-soft)]">Equipment bookings, membership and the PermaBrella workshop programme are not open yet.</p><Link href="/equipment" className={`${networkLink} mt-2`}>Explore shared equipment <span aria-hidden="true" className="ml-2">→</span></Link></aside>
         </div>
         <div className="mt-5"><GlobalSearchForm topics={[]} initialRegion={region ?? ""} home /></div>
         <p className="mt-3 text-sm text-[var(--pb-ink-soft)]">Looking for a starting point? <Link href="/helper" className="inline-flex min-h-11 items-center font-semibold text-[var(--pb-accent-2)] underline underline-offset-4">Ask the PermaBrella Helper</Link> for local connections and growing guidance.</p>
@@ -70,6 +73,7 @@ export default async function Home({ searchParams }: {
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{panels.map((p) => <QuickAccessCard key={p.href} href={region ? `${p.href}?region=${region}` : p.href} iconSrc={p.icon} iconAlt="" title={p.title} description={p.blurb} />)}</div>
       </section>
       <Suspense fallback={null}><HomeNews region={region} /></Suspense>
+      <section className="mt-10 rounded-xl border border-[var(--pb-line)] bg-[var(--pb-surface)] p-6" aria-labelledby="network-next-heading"><h2 id="network-next-heading" className="pb-display text-2xl">Help shape what comes next.</h2><p className="mt-3 max-w-3xl text-[var(--pb-ink-soft)]">Have a question, a growing project or a group to connect? Leave an enquiry for the team while dedicated coordinator support is being established.</p><div className="mt-3 flex flex-wrap gap-x-6"><Link href="/contact" className={networkLink}>Contact the team</Link><Link href="/about" className={networkLink}>Meet our partners</Link><Link href="/how-it-works" className={networkLink}>How PermaBrella works</Link></div></section>
       <section className="mt-10 flex flex-col gap-4 rounded-xl bg-[var(--pb-accent-2)] p-6 text-white sm:flex-row sm:items-center sm:justify-between">
         <div><h2 className="pb-display text-2xl">A little to share can go a long way.</h2><p className="mt-2 max-w-xl text-sm">Spare seedlings, a patch of land, a working bee or a question. Help your neighbours find it here.</p></div>
         <Link href="/submit" className="inline-flex min-h-11 shrink-0 items-center justify-center rounded-md bg-[var(--pb-surface)] px-5 py-3 font-semibold text-[var(--pb-accent-2)]">Post a listing</Link>

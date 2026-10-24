@@ -14,7 +14,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]);
   const base = { event: "events", offering: "offerings", wanted: "offerings", land_available: "land-connect", land_wanted: "land-connect", directory_entry: "directory", grant: "grants", news: "news" };
   return [
-    ...["", "/events", "/offerings", "/land-connect", "/directory", "/grants", "/community", "/news", "/how-it-works", "/helper"].map((path) => ({ url: `${SITE_ORIGIN}${path}`, priority: path ? 0.7 : 1 })),
+    ...["", "/events", "/offerings", "/land-connect", "/directory", "/grants", "/community", "/news", "/how-it-works", "/helper", "/equipment", "/join", "/contact", "/about"].map((path) => ({ url: `${SITE_ORIGIN}${path}`, priority: path ? 0.7 : 1 })),
     ...listings.map((p) => ({ url: `${SITE_ORIGIN}/${base[p.type]}/${p.id}`, lastModified: p.updatedAt })),
     ...topicRows.map((t) => ({ url: `${SITE_ORIGIN}/community/${t.slug}` })),
     ...discussions.map((t) => ({ url: `${SITE_ORIGIN}/community/${t.slug}/${t.id}`, lastModified: t.updatedAt })),
