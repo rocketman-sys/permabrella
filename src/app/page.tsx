@@ -41,6 +41,10 @@ export default async function Home({ searchParams }: {
         <p className="mt-3 text-sm text-[var(--pb-ink-soft)]">Looking for a starting point? <Link href="/helper" className="inline-flex min-h-11 items-center font-semibold text-[var(--pb-accent-2)] underline underline-offset-4">Ask the PermaBrella Helper</Link> for local connections and growing guidance.</p>
         <Suspense fallback={<HeroStats />}><HomeStats /></Suspense>
       </section>
+      <section className="mt-7 sm:mt-9" aria-labelledby="browse-heading">
+        <h2 id="browse-heading" className="pb-display text-2xl">Explore the community</h2>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{panels.map((p) => <QuickAccessCard key={p.href} href={region ? `${p.href}?region=${region}` : p.href} iconSrc={p.icon} iconAlt="" title={p.title} description={p.blurb} />)}</div>
+      </section>
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         <section aria-labelledby="roots-rivers-heading" className="flex flex-col justify-between gap-4 rounded-xl border border-[var(--pb-line)] bg-[var(--pb-surface)] p-5 sm:p-6">
           <div>
@@ -68,10 +72,6 @@ export default async function Home({ searchParams }: {
       <div className="mt-7 sm:mt-9">
         <Suspense fallback={<p className="rounded-lg bg-[var(--pb-surface)] p-5" role="status">Finding local connections…</p>}><FeedTimeline region={region} /></Suspense>
       </div>
-      <section className="mt-10" aria-labelledby="browse-heading">
-        <h2 id="browse-heading" className="pb-display text-2xl">Explore the community</h2>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{panels.map((p) => <QuickAccessCard key={p.href} href={region ? `${p.href}?region=${region}` : p.href} iconSrc={p.icon} iconAlt="" title={p.title} description={p.blurb} />)}</div>
-      </section>
       <Suspense fallback={null}><HomeNews region={region} /></Suspense>
       <section className="mt-10 rounded-xl border border-[var(--pb-line)] bg-[var(--pb-surface)] p-6" aria-labelledby="network-next-heading"><h2 id="network-next-heading" className="pb-display text-2xl">Help shape what comes next.</h2><p className="mt-3 max-w-3xl text-[var(--pb-ink-soft)]">Have a question, a growing project or a group to connect? Leave an enquiry for the team while dedicated coordinator support is being established.</p><div className="mt-3 flex flex-wrap gap-x-6"><Link href="/contact" className={networkLink}>Contact the team</Link><Link href="/about" className={networkLink}>Meet our partners</Link><Link href="/how-it-works" className={networkLink}>How PermaBrella works</Link></div></section>
       <section className="mt-10 flex flex-col gap-4 rounded-xl bg-[var(--pb-accent-2)] p-6 text-white sm:flex-row sm:items-center sm:justify-between">

@@ -27,14 +27,14 @@ function authorLabel(
   return null;
 }
 
-export async function listPostsByType(options: {
+type PostListFilters = {
   type: PostType;
   region?: Region | null;
-  limit?: number;
   view?: "current" | "past";
   query?: string;
-}): Promise<PostWithAuthor[]> {
-  const limit = Math.min(options.limit ?? 60, 100);
+};
+
+function postListConditions(options: PostListFilters) {
   const conditions = [eq(posts.type, options.type), listingVisibility(options.view)];
   const query = normalizeSearchQuery(options.query);
   const textMatch = postTextMatch(query);
@@ -44,12 +44,23 @@ export async function listPostsByType(options: {
       ? grantRegionVisibility(options.region)
       : eq(posts.region, options.region));
   }
+  return and(...conditions);
+}
+
+export async function listPostsByType(options: PostListFilters & {
+  limit?: number;
+  offset?: number;
+}): Promise<PostWithAuthor[]> {
+  const limit = Math.min(options.limit ?? 60, 100);
+  const query = normalizeSearchQuery(options.query);
 
   const orderBy = options.type === "event"
     ? [sql`${posts.eventDate} asc nulls last`, desc(posts.updatedAt)]
     : [desc(posts.updatedAt)];
   if (options.type === "directory_entry") {
     orderBy.unshift(desc(sql`${posts.id} = ${ROOTS_RIVERS_GROUP_ID}`));
+    // Imported listings can share an update time; a unique tie-breaker keeps pages stable.
+    orderBy.push(desc(posts.id));
   }
   if (query) orderBy.unshift(titleRelevance(posts.title, query));
 
@@ -61,14 +72,31 @@ export async function listPostsByType(options: {
     })
     .from(posts)
     .leftJoin(users, eq(posts.authorId, users.id))
-    .where(and(...conditions))
+    .where(postListConditions(options))
     .orderBy(...orderBy)
-    .limit(limit);
+    .limit(limit)
+    .offset(options.offset ?? 0);
 
   return rows.map((r) => ({
     post: r.post,
     authorDisplay: authorLabel(r.displayName, r.username),
   }));
+}
+
+export const DIRECTORY_PAGE_SIZE = 12;
+
+export async function listDirectoryPage(options: {
+  region?: Region;
+  query?: string;
+  page: number;
+}) {
+  const filters = { type: "directory_entry" as const, region: options.region, query: options.query };
+  const [{ total }] = await db.select({ total: count() }).from(posts).where(postListConditions(filters));
+  const pageCount = Math.max(1, Math.ceil(total / DIRECTORY_PAGE_SIZE));
+  const requestedPage = Number.isSafeInteger(options.page) && options.page > 0 ? options.page : 1;
+  const page = Math.min(requestedPage, pageCount);
+  const items = total ? await listPostsByType({ ...filters, limit: DIRECTORY_PAGE_SIZE, offset: (page - 1) * DIRECTORY_PAGE_SIZE }) : [];
+  return { items, total, page, pageCount };
 }
 
 /**
