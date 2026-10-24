@@ -11,7 +11,7 @@ export function MobileMenu({ links, account }: {
 }) {
   const menu = useRef<HTMLDetailsElement>(null);
   return (
-    <details ref={menu} className="group lg:hidden" onKeyDown={(event) => {
+    <details ref={menu} className="group xl:hidden" onKeyDown={(event) => {
       if (event.key === "Escape" && menu.current) {
         menu.current.open = false;
         menu.current.querySelector("summary")?.focus();
@@ -25,6 +25,7 @@ export function MobileMenu({ links, account }: {
         if (event.target instanceof Element && event.target.closest("a,button") && menu.current) menu.current.open = false;
       }}>
         <nav aria-label="Mobile navigation" className="grid grid-cols-2 gap-2 [&_a]:rounded-md [&_a]:p-3"><ActiveNavLinks links={links} /></nav>
+        <nav aria-label="Network information" className="mt-3 grid grid-cols-2 gap-2 border-t border-[var(--pb-line)] pt-3 text-sm font-semibold [&_a]:rounded-md [&_a]:p-3"><Link href="/join">Membership interest</Link><Link href="/contact">Contact the team</Link><Link href="/about">Our partners</Link></nav>
         <div className="mt-3 flex flex-wrap items-center gap-3 border-t border-[var(--pb-line)] pt-3"><Link href="/submit" className="rounded-md bg-[var(--pb-primary)] px-4 py-3 text-sm font-semibold text-white">Post a listing</Link>{account}</div>
         <Link href="/how-it-works" className="mt-2 inline-flex min-h-11 items-center text-sm text-[var(--pb-accent-2)] underline">How it works</Link>
       </div>

@@ -233,3 +233,23 @@ export const messageAcknowledgements = pgTable('message_acknowledgements', {
   userId: uuid('user_id').references(() => users.id, { onDelete: 'cascade' }).notNull(),
   active: boolean('active').default(true).notNull(),
 }, t => [primaryKey({columns:[t.targetId,t.userId]})]);
+
+/** Private enquiries: never included in public listings, search or member profiles. */
+export const networkEnquiries = pgTable("network_enquiries", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  kind: varchar("kind", { length: 20 }).notNull(),
+  name: varchar("name", { length: 150 }).notNull(),
+  email: varchar("email", { length: 254 }).notNull(),
+  area: varchar("area", { length: 80 }).notNull(),
+  interests: jsonb("interests").$type<string[]>().notNull(),
+  message: text("message").notNull(),
+  submissionKey: varchar("submission_key", { length: 64 }).notNull().unique(),
+  status: varchar("status", { length: 20 }).default("new").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+}, t => [index("network_enquiries_status_created_idx").on(t.status, t.createdAt)]);
+
+export const networkEnquiryLimits = pgTable("network_enquiry_limits", {
+  key: varchar("key", { length: 64 }).primaryKey(),
+  attempts: integer("attempts").notNull(),
+  expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+});
