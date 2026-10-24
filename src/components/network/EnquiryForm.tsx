@@ -23,7 +23,7 @@ export function EnquiryForm({ kind }: { kind: EnquiryKind }) {
   );
 
   return (
-    <form action={action} className="space-y-5" aria-label={kind === "membership" ? "Membership expression of interest" : "Contact the PermaBrella team"}>
+    <form action={action} className="space-y-5 [&_input]:scroll-mt-16 [&_select]:scroll-mt-16 [&_textarea]:scroll-mt-16" aria-label={kind === "membership" ? "Membership expression of interest" : "Contact the PermaBrella team"}>
       <input type="hidden" name="kind" value={kind} />
       <div hidden aria-hidden="true"><label htmlFor={`${kind}-website`}>Leave this blank</label><input id={`${kind}-website`} name="website" tabIndex={-1} autoComplete="off" /></div>
       <div className="grid gap-5 sm:grid-cols-2">
