@@ -15,7 +15,7 @@ test('public deployments expose search but AI still requires the complete approv
   assert.equal(helperAvailable({ NODE_ENV: 'production', VERCEL_ENV: 'preview' }), true);
   assert.equal(aiConfigured({ NODE_ENV: 'production', VERCEL_ENV: 'preview' }), false);
   assert.equal(aiConfigured({ NODE_ENV: 'production', VERCEL_ENV: 'production', PB_HELPER_AI_ENABLED: 'true' }), false);
-  assert.equal(aiConfigured({ NODE_ENV: 'production', VERCEL_ENV: 'production', PB_HELPER_AI_ENABLED: 'true', PB_HELPER_GATEWAY_KEY: 'fake', PB_HELPER_BUDGET_ID: 'fake', PB_HELPER_PRICING_REVIEW: '2026-10-19' }), Date.now() < Date.parse('2026-10-27T00:00:00Z'));
+  assert.equal(aiConfigured({ NODE_ENV: 'production', VERCEL_ENV: 'production', PB_HELPER_AI_ENABLED: 'true', PB_HELPER_GATEWAY_KEY: 'fake', PB_HELPER_BUDGET_ID: 'fake', PB_HELPER_PRICING_REVIEW: '2026-10-28' }), Date.now() < Date.parse('2026-11-28T00:00:00Z'));
 });
 test('same-origin browser requests work behind Next while foreign and missing origins fail', () => {
   const request = (origin: string, host = '127.0.0.1:3003') => new Request('http://localhost:3003/api/helper-preview', { headers: { origin, host } });
@@ -85,14 +85,17 @@ test('browser waits beyond the route allowance and provider timeout stays within
   assert(CLIENT_TIMEOUT_MS > 60_000);
 });
 
-test('public launch cannot extend the approved AI trial or enable it with incomplete configuration', t => {
-  const env: NodeJS.ProcessEnv = { NODE_ENV: 'production', VERCEL_ENV: 'production', PB_HELPER_AI_ENABLED: 'true', PB_HELPER_GATEWAY_KEY: 'fake', PB_HELPER_BUDGET_ID: 'permabrella-pr20-2026-10-19', PB_HELPER_PRICING_REVIEW: '2026-10-19' };
-  t.mock.method(Date, 'now', () => Date.parse('2026-10-26T23:59:59Z'));
+test('approved continuation works after the old expiry, requires fresh pricing review and stops at its new boundary', t => {
+  const env: NodeJS.ProcessEnv = { NODE_ENV: 'production', VERCEL_ENV: 'production', PB_HELPER_AI_ENABLED: 'true', PB_HELPER_GATEWAY_KEY: 'fake', PB_HELPER_BUDGET_ID: 'permabrella-pr20-2026-10-19', PB_HELPER_PRICING_REVIEW: '2026-10-28' };
+  t.mock.method(Date, 'now', () => Date.parse('2026-10-28T00:00:00Z'));
   assert.equal(aiConfigured(env), true);
+  assert.equal(aiConfigured({ ...env, PB_HELPER_PRICING_REVIEW: '2026-10-19' }), false);
   assert.equal(aiConfigured({ ...env, PB_HELPER_AI_ENABLED: 'false' }), false);
   assert.equal(aiConfigured({ ...env, PB_HELPER_GATEWAY_KEY: '' }), false);
   assert.equal(aiConfigured({ ...env, PB_HELPER_BUDGET_ID: '' }), false);
-  t.mock.method(Date, 'now', () => Date.parse('2026-10-27T00:00:00Z'));
+  t.mock.method(Date, 'now', () => Date.parse('2026-11-27T23:59:59Z'));
+  assert.equal(aiConfigured(env), true);
+  t.mock.method(Date, 'now', () => Date.parse('2026-11-28T00:00:00Z'));
   assert.equal(aiConfigured(env), false);
   assert.equal(helperAvailable(env), true);
 });

@@ -5,6 +5,9 @@ export const MAX_OUTPUT_TOKENS = 512;
 export const PROVIDER_TIMEOUT_MS = 45_000;
 export const CLIENT_TIMEOUT_MS = 65_000;
 export const RESERVATION_MICRO_USD = 10_000; // $0.01; no automatic reset/refund.
+// One-month continuation approved 28 October; the original accounting balance remains intact.
+export const HELPER_TRIAL_END = '2026-11-28T00:00:00Z';
+export const HELPER_PRICING_REVIEW = '2026-10-28';
 export type HelperKind = 'site' | 'general';
 export type HelperCategory = 'all' | 'groups' | 'events' | 'grants' | 'land';
 export type HelperInput = { query: string; kind: HelperKind; category: HelperCategory };
@@ -23,10 +26,13 @@ export type HelperReply = {
 export function helperAvailable(env = process.env): boolean {
   return ['preview', 'production'].includes(env.VERCEL_ENV ?? '') || (!env.VERCEL_ENV && env.NODE_ENV === 'development');
 }
+export function helperTrialEnded(): boolean {
+  return Date.now() >= Date.parse(HELPER_TRIAL_END);
+}
 export function aiConfigured(env = process.env): boolean {
   return helperAvailable(env) && env.PB_HELPER_AI_ENABLED === 'true' &&
     Boolean(env.PB_HELPER_GATEWAY_KEY) && Boolean(env.PB_HELPER_BUDGET_ID) &&
-    env.PB_HELPER_PRICING_REVIEW === '2026-10-19' && Date.now() < Date.parse('2026-10-27T00:00:00Z');
+    env.PB_HELPER_PRICING_REVIEW === HELPER_PRICING_REVIEW && !helperTrialEnded();
 }
 export function sameOrigin(request: Request): boolean {
   const origin = request.headers.get('origin');
