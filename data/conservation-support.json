@@ -99,6 +99,40 @@
           "url": "https://www.environment.nsw.gov.au/topics/animals-and-plants/biodiversity-offsets-scheme/biodiversity-stewardship-agreement/generate-sell-credits/stewardship-support-program"
         }
       ]
+    },
+    {
+      "id": "big-scrub-rainforest-support",
+      "title": "Big Scrub Rainforest Conservancy",
+      "kind": "Rainforest restoration enquiries",
+      "checkedDate": "2026-10-30",
+      "summary": "Landholders in the Big Scrub footprint can enquire about restoration assistance and a possible inspection of suitable subtropical lowland rainforest sites.",
+      "commitment": "An enquiry starts a suitability discussion. The team asks about the property's location, area available for regeneration, vegetation and soil; inspections depend on suitability and available resources.",
+      "funding": "A support pathway, not an open cash grant. An enquiry does not guarantee an inspection, restoration work or funding. Ask the team about available assistance and any costs.",
+      "links": [
+        {
+          "label": "Read restoration assistance FAQs",
+          "url": "https://bigscrubrainforest.org/faqs/"
+        },
+        {
+          "label": "Email Big Scrub about your site",
+          "url": "mailto:info@bigscrubrainforest.org"
+        }
+      ]
+    },
+    {
+      "id": "byron-habitat-restoration-register",
+      "title": "Byron habitat restoration register",
+      "kind": "Byron Shire landholder interest register",
+      "checkedDate": "2026-10-30",
+      "summary": "Byron Shire Council keeps a register of landholders interested in tree planting and habitat restoration, and contacts them when project funding becomes available.",
+      "commitment": "Contact Council's Biodiversity Team to register your interest. Council will discuss the requirements of any later project; registering does not guarantee selection.",
+      "funding": "An interest register, not a currently open grant. Assistance depends on future funding and project suitability. This is a Byron Shire pathway; landholders elsewhere should contact their own council.",
+      "links": [
+        {
+          "label": "Contact Council about habitat restoration",
+          "url": "https://www.byron.nsw.gov.au/Environment-Resilience/Biodiversity/Native-Wildlife-Plants/Restoring-Wildlife-Habitat"
+        }
+      ]
     }
   ]
 }

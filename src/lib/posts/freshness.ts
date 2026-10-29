@@ -26,6 +26,7 @@ export function listingFreshness(post: FreshnessPost, now = new Date()) {
     : { label: "Date to be arranged", note: "Contact the organiser to confirm the date and whether help is still needed.", tone: "amber" as const };
   if (post.type === "grant") {
     if (post.metadata.statusLabel === "Ongoing resource") return { label: "Funding directory", note: "Browse the provider’s website for individual funding rounds.", tone: "green" as const };
+    if (post.metadata.statusLabel === "Upcoming - check opening") return { label: "Upcoming round", note: "Applications are not confirmed open. Check the provider’s latest round dates and eligibility before applying.", tone: "amber" as const };
     // Date-only deadlines expire at the next NSW midnight without inventing a public cutoff time.
     const deadlineDate = post.metadata.deadlineDate;
     if (post.expiresAt && typeof deadlineDate === "string" && /^\d{4}-\d{2}-\d{2}$/.test(deadlineDate)) {

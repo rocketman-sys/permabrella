@@ -79,7 +79,7 @@ async function main() {
     ids.add(entry.id);
     if (!entry.title || !entry.summary || !entry.notes || !entry.funding || !entry.whoCanApply ||
       !parseRegionParam(entry.region) || entry.eligibleRegions.some((r) => !parseRegionParam(r)) ||
-      !["Open now", "Rolling applications", "Closed - track next round", "Ongoing resource", "Check current round"].includes(entry.statusLabel) ||
+      !["Open now", "Rolling applications", "Upcoming - check opening", "Closed - track next round", "Ongoing resource", "Check current round"].includes(entry.statusLabel) ||
       [entry.url, ...entry.sourceUrls].some((url) => new URL(url).protocol !== "https:")) throw new Error("Invalid survey entry");
     const deadline = entry.deadlineLocal ? parseSydneyDateTime(entry.deadlineLocal) : null;
     if (entry.deadlineLocal && !deadline) throw new Error("Invalid NSW deadline");

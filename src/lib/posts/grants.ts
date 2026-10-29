@@ -20,6 +20,6 @@ export function grantsClosingSoonVisibility(now = new Date()) {
     gt(posts.expiresAt, now),
     lte(posts.expiresAt, through),
     sql`${posts.metadata}->>'deadlineConfirmed' = 'true'`,
-    sql`coalesce(${posts.metadata}->>'statusLabel', '') <> 'Ongoing resource'`,
+    sql`coalesce(${posts.metadata}->>'statusLabel', '') not in ('Ongoing resource', 'Upcoming - check opening')`,
   )!;
 }

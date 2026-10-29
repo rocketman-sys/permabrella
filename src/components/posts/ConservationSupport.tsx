@@ -8,7 +8,6 @@ export function ConservationSupport() {
       <p className="mt-2 text-sm leading-relaxed text-[var(--pb-ink-soft)]">Practical support and conservation pathways for NSW landholders. Each has different commitments and funding arrangements. Participation does not guarantee eligibility for other grants or a successful application.</p>
       <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
         <a href={support.comparisonUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-sm font-semibold text-[var(--pb-accent-2)] underline underline-offset-4">Compare NSW conservation agreements</a>
-        <p className="text-xs text-[var(--pb-muted)]">Sources checked <time dateTime={support.checkedDate}>{formatPosted(new Date(support.checkedDate))}</time></p>
       </div>
       <ul className="mt-4 grid gap-4 sm:grid-cols-2">
         {support.programs.map((program) => (
@@ -32,6 +31,7 @@ export function ConservationSupport() {
             </details> : null}
             <div className="mt-auto flex flex-col items-start gap-1 pt-3">
               {program.links.map((link) => <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-sm font-semibold text-[var(--pb-accent-2)] underline underline-offset-4">{link.label}</a>)}
+              <p className="mt-2 text-xs text-[var(--pb-muted)]">Sources checked <time dateTime={program.checkedDate ?? support.checkedDate}>{formatPosted(new Date(program.checkedDate ?? support.checkedDate))}</time></p>
             </div>
           </li>
         ))}

@@ -40,6 +40,16 @@ test("deadline closes at the exact instant and explicitly closed rounds stay arc
 test("funding directories aren't presented as open grant rounds", () => {
   assert.equal(listingFreshness({...base,type:"grant",metadata:{statusLabel:"Ongoing resource"}},now).label,"Funding directory");
 });
+test("upcoming grants remain discoverable without implying applications are open", () => {
+  const post: FreshnessPost = { ...base, type: "grant", metadata: { statusLabel: "Upcoming - check opening" } };
+  for (const date of [now, new Date("2027-06-01T01:00:00Z")]) {
+    assert.equal(isPastListing(post, date), false);
+    const freshness = listingFreshness(post, date);
+    assert.equal(freshness.label, "Upcoming round");
+    assert.equal(freshness.tone, "amber");
+    assert.match(freshness.note, /not confirmed open/);
+  }
+});
 test("date-only deadlines show the published date and ask users to confirm the time", () => {
   const post: FreshnessPost = { ...base, type: "grant", expiresAt: parseSydneyDateTime("2026-11-02T00:00"), metadata: { deadlineDate: "2026-11-01" } };
   assert.match(listingFreshness(post, now).note, /1 Nov 2026/);
