@@ -17,6 +17,7 @@ const fixture = `with posts(id,type,status,event_date,expires_at,metadata,region
   ('unverified','grant','active',null,'2026-10-20 01:00:00','{}','ballina'),
   ('closed','grant','active',null,'2026-10-20 01:00:00','{"deadlineConfirmed":true,"statusLabel":"Closed - track next round"}','ballina'),
   ('directory','grant','active',null,'2026-10-20 01:00:00','{"deadlineConfirmed":true,"statusLabel":"Ongoing resource"}','ballina'),
+  ('upcoming','grant','active',null,'2026-10-20 01:00:00','{"deadlineConfirmed":true,"statusLabel":"Upcoming - check opening"}','ballina'),
   ('removed','grant','removed',null,'2026-10-20 01:00:00','{"deadlineConfirmed":true}','ballina'),
   ('pending','grant','pending_moderation',null,'2026-10-20 01:00:00','{"deadlineConfirmed":true}','ballina'),
   ('expired','grant','expired',null,'2026-10-20 01:00:00','{"deadlineConfirmed":true}','ballina'),
