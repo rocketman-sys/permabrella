@@ -1,7 +1,10 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { PostDetail } from "@/components/posts/PostDetail";
-import { getActivePostByIdInTypes } from "@/lib/posts/service";
+import { getPublicListing, listingMetadata } from "@/lib/posts/detail";
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+  return listingMetadata((await params).id, "offerings");
+}
 
 export default async function OfferingDetailPage({
   params,
@@ -9,8 +12,7 @@ export default async function OfferingDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const item = await getActivePostByIdInTypes(id, ["offering", "wanted"]);
-  if (!item) notFound();
+  const item = await getPublicListing(id, "offerings");
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">

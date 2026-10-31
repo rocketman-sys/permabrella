@@ -1,7 +1,10 @@
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
 import { PostDetail } from "@/components/posts/PostDetail";
-import { getActivePostById, getDirectoryCanonicalId } from "@/lib/posts/service";
+import { getPublicListing, listingMetadata } from "@/lib/posts/detail";
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+  return listingMetadata((await params).id, "directory");
+}
 
 export default async function DirectoryDetailPage({
   params,
@@ -9,12 +12,7 @@ export default async function DirectoryDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const item = await getActivePostById(id, "directory_entry");
-  if (!item) {
-    const canonical = await getDirectoryCanonicalId(id);
-    if (canonical) redirect(`/directory/${canonical}`);
-    notFound();
-  }
+  const item = await getPublicListing(id, "directory");
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">

@@ -1,5 +1,5 @@
 import { ListingViewFilter } from "@/components/posts/ListingViewFilter";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { Suspense } from "react";
 import { auth } from "@/lib/auth";
@@ -11,7 +11,11 @@ import { RegionFilter } from "@/components/layout/RegionFilter";
 import { listGrantsClosingSoon, listPostsByType } from "@/lib/posts/service";
 import { parseRegionParam } from "@/lib/regions";
 
-export const metadata: Metadata = { title: "Community grants | PermaBrella" };
+export const metadata = pageMetadata({
+  title: "Community grants | PermaBrella",
+  description: "Explore grants closing soon, funding rounds and conservation support for Northern Rivers communities and landholders.",
+  path: "/grants",
+});
 
 export default async function GrantsPage({
   searchParams,

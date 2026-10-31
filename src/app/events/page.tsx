@@ -1,5 +1,5 @@
 import { ListingViewFilter } from "@/components/posts/ListingViewFilter";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { Suspense } from "react";
 import { PostList } from "@/components/posts/PostList";
@@ -8,7 +8,11 @@ import { RegionFilter } from "@/components/layout/RegionFilter";
 import { listPostsByType } from "@/lib/posts/service";
 import { parseRegionParam } from "@/lib/regions";
 
-export const metadata: Metadata = { title: "Events & workshops | PermaBrella" };
+export const metadata = pageMetadata({
+  title: "Events & workshops | PermaBrella",
+  description: "Workshops, skill shares and working bees across the Northern Rivers. Find a gathering and check how to join.",
+  path: "/events",
+});
 
 export default async function EventsPage({
   searchParams,

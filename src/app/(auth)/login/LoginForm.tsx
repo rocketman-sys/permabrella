@@ -7,11 +7,12 @@ import { signIn } from "next-auth/react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Card } from "@/components/ui/Card";
+import { authPageHref, safeReturnPath } from "@/lib/auth/return-path";
 
 export function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") ?? "/";
+  const callbackUrl = safeReturnPath(searchParams.get("callbackUrl"));
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -90,7 +91,7 @@ export function LoginForm() {
       </p>
       <p className="mt-2 text-center text-sm text-[var(--perm-muted)]">
         No account?{" "}
-        <Link href="/register" className="font-medium text-[var(--perm-secondary)] hover:underline">
+        <Link href={authPageHref("register", callbackUrl)} className="font-medium text-[var(--perm-secondary)] hover:underline">
           Register
         </Link>
       </p>

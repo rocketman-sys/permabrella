@@ -7,6 +7,7 @@ import { grantRegionVisibility, grantsClosingSoonVisibility } from "./grants";
 import { ROOTS_RIVERS_GROUP_ID } from "./featured-groups";
 import { postTextMatch, titleRelevance } from "@/lib/search/conditions";
 import { normalizeSearchQuery } from "@/lib/search/filters";
+import { isHomepageOpportunity } from "./home-feed";
 
 type PostRow = typeof posts.$inferSelect;
 type PostType = PostRow["type"];
@@ -319,14 +320,15 @@ export async function listGrantsClosingSoon(options: { region?: Region; now?: Da
 }
 
 export async function listRecentForFeed(options: { region?: Region }) {
-  const [events, opportunities, directory, grants] = await Promise.all([
+  const now = new Date();
+  const [events, candidates, grants] = await Promise.all([
     listPostsByType({ type: "event", region: options.region, limit: 2 }),
-    listPostsByTypes({ types: ["offering", "wanted", "land_available", "land_wanted"], region: options.region, limit: 2 }),
-    listPostsByType({ type: "directory_entry", region: options.region, limit: 2 }),
-    listPostsByType({ type: "grant", region: options.region, limit: 60 }),
+    listPostsByTypes({ types: ["offering", "wanted", "land_available", "land_wanted"], region: options.region, limit: 60 }),
+    listGrantsClosingSoon({ region: options.region, now }),
   ]);
-  const funding = grants.filter(({ post }) => post.expiresAt && post.expiresAt > new Date()).slice(0, 1);
-  return { events, opportunities, directory, funding };
+  const opportunities = candidates.filter(({ post }) => isHomepageOpportunity(post, now)).slice(0, 2);
+  const funding = grants.slice(0, 2).map((post) => ({ post, authorDisplay: null }));
+  return { events: events.filter(({ post }) => post.eventDate !== null), opportunities, funding };
 }
 
 /**

@@ -6,6 +6,7 @@ import { AppProviders } from "@/components/providers/AppProviders";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SITE_ORIGIN } from "@/lib/site";
+import { shareImage } from "@/lib/metadata";
 
 const fontDisplay = Inter_Tight({
   subsets: ["latin"],
@@ -18,14 +19,6 @@ const fontBody = Nunito_Sans({
   variable: "--font-body",
   weight: ["400", "500", "600", "700"],
 });
-
-const shareImage = {
-  url: "/brand/share-permabrella-v2.png",
-  width: 1200,
-  height: 630,
-  type: "image/png",
-  alt: "Umbrella and growing plant above the lowercase permabrella wordmark on a cream background",
-};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),

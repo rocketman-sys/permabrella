@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { Suspense } from "react";
 import { PostList } from "@/components/posts/PostList";
@@ -7,7 +7,11 @@ import { RegionFilter } from "@/components/layout/RegionFilter";
 import { listNewsPostsSafe } from "@/lib/posts/service";
 import { parseRegionParam } from "@/lib/regions";
 
-export const metadata: Metadata = { title: "Community news | PermaBrella" };
+export const metadata = pageMetadata({
+  title: "Community news | PermaBrella",
+  description: "Stories and updates from gardens, growers and community projects across the Northern Rivers.",
+  path: "/news",
+});
 
 export default async function NewsPage({
   searchParams,
