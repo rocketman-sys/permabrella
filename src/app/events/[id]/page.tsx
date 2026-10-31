@@ -1,7 +1,10 @@
 import Link from "next/link";
-import { notFound, permanentRedirect } from "next/navigation";
 import { PostDetail } from "@/components/posts/PostDetail";
-import { getActivePostById, getActivePostByIdInTypes } from "@/lib/posts/service";
+import { getPublicListing, listingMetadata } from "@/lib/posts/detail";
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+  return listingMetadata((await params).id, "events");
+}
 
 export default async function EventDetailPage({
   params,
@@ -9,12 +12,7 @@ export default async function EventDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const item = await getActivePostById(id, "event");
-  if (!item) {
-    const moved = await getActivePostByIdInTypes(id, ["land_available", "land_wanted"]);
-    if (moved?.post.metadata.previousType === "event") permanentRedirect(`/land-connect/${id}`);
-    notFound();
-  }
+  const item = await getPublicListing(id, "events");
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">

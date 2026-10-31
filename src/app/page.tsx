@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/metadata";
 import { LatestConversations } from "@/components/community/LatestConversations";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -10,6 +11,12 @@ import { formatPosted } from "@/lib/posts/format";
 import { FOUNDING_PARTNER_LABEL, ROOTS_RIVERS_GROUP_ID } from "@/lib/posts/featured-groups";
 import { parseRegionParam, type Region } from "@/lib/regions";
 import { ComingSoon, networkButton, networkLink } from "@/components/network/NetworkLayout";
+
+export const metadata = pageMetadata({
+  title: "PermaBrella — Northern Rivers permaculture hub",
+  description: "Find local groups, events, grants and ways to share produce, skills and growing space across the Northern Rivers.",
+  path: "/",
+});
 
 const panels = [
   { href: "/directory", title: "Find a local group", blurb: "Community gardens, growers and neighbours.", icon: "/brand/icon-groups.svg" },
@@ -27,24 +34,28 @@ export default async function Home({ searchParams }: {
   return (
     <div className="mx-auto max-w-6xl px-4 py-6 sm:px-5 md:py-10">
       <section aria-labelledby="home-heading" className="rounded-xl border border-[var(--pb-line)] bg-[var(--pb-surface)] p-5 sm:p-8">
-        <div className="grid items-start gap-6 lg:grid-cols-[1.7fr_1fr]">
-          <div className="max-w-2xl">
-            <p className="pb-tag text-[var(--pb-accent-2)]">Northern Rivers food &amp; farming network</p>
-            <h1 id="home-heading" className="pb-display mt-2 text-3xl leading-tight text-[var(--pb-ink)] sm:text-4xl">Grow food. Share what you have.<br className="hidden sm:block" /> Find your community.</h1>
-            <p className="mt-3 max-w-xl text-base text-[var(--pb-ink-soft)]">Connecting growers, community groups and local knowledge to help our region grow food, care for land and support one another.</p>
-            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap"><Link href="/join" className={networkButton}>Register membership interest</Link><Link href="/events" className="inline-flex min-h-11 items-center justify-center rounded-md border border-[var(--pb-line)] px-5 py-3 font-semibold text-[var(--pb-accent-2)] hover:bg-[var(--pb-bg)]">Find an event or workshop</Link></div>
-            <p className="mt-3 text-sm text-[var(--pb-ink-soft)]">Membership is coming soon. Expressions of interest are open now.</p>
+        <div className="max-w-3xl">
+          <p className="pb-tag text-[var(--pb-accent-2)]">Northern Rivers food &amp; farming network</p>
+          <h1 id="home-heading" className="pb-display mt-2 text-3xl leading-tight text-[var(--pb-ink)] sm:text-4xl">Grow food. Share what you have.<br className="hidden sm:block" /> Find your community.</h1>
+          <p className="mt-3 max-w-xl text-base text-[var(--pb-ink-soft)]">Find local growers, gatherings and ways to share — helping our region grow food, care for land and support one another.</p>
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link href={region ? `/events?region=${region}` : "/events"} className={networkButton}>Find an event</Link>
+            <Link href="/submit" className="inline-flex min-h-11 items-center justify-center rounded-md border border-[var(--pb-line)] px-5 py-3 font-semibold text-[var(--pb-accent-2)] hover:bg-[var(--pb-bg)]">Share something or ask</Link>
           </div>
-          <aside className="rounded-lg bg-[var(--pb-bg)] p-5" aria-labelledby="home-equipment-heading"><ComingSoon /><h2 id="home-equipment-heading" className="pb-display mt-3 text-2xl">More tools in more hands.</h2><p className="mt-3 text-sm text-[var(--pb-ink-soft)]">A shared equipment library, based at the Mullum Gardens EcoHub, is being developed for growers across Byron, Ballina, Lismore, Richmond Valley and Kyogle.</p><p className="mt-3 text-sm text-[var(--pb-ink-soft)]">Equipment bookings, membership and the PermaBrella workshop programme are not open yet.</p><Link href="/equipment" className={`${networkLink} mt-2`}>Explore shared equipment <span aria-hidden="true" className="ml-2">→</span></Link></aside>
         </div>
-        <div className="mt-5"><GlobalSearchForm topics={[]} initialRegion={region ?? ""} home /></div>
-        <p className="mt-3 text-sm text-[var(--pb-ink-soft)]">Looking for a starting point? <Link href="/helper" className="inline-flex min-h-11 items-center font-semibold text-[var(--pb-accent-2)] underline underline-offset-4">Ask the PermaBrella Helper</Link> for local connections and growing guidance.</p>
         <Suspense fallback={<HeroStats />}><HomeStats /></Suspense>
       </section>
       <section className="mt-7 sm:mt-9" aria-labelledby="browse-heading">
         <h2 id="browse-heading" className="pb-display text-2xl">Explore the community</h2>
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{panels.map((p) => <QuickAccessCard key={p.href} href={region ? `${p.href}?region=${region}` : p.href} iconSrc={p.icon} iconAlt="" title={p.title} description={p.blurb} />)}</div>
       </section>
+      <section className="mt-6 rounded-xl border border-[var(--pb-line)] bg-[var(--pb-surface)] p-4 sm:p-5" aria-label="Find something specific">
+        <GlobalSearchForm topics={[]} initialRegion={region ?? ""} home />
+        <p className="mt-2 text-sm text-[var(--pb-ink-soft)]">Need a starting point? <Link href="/helper" className="inline-flex min-h-11 items-center font-semibold text-[var(--pb-accent-2)] underline underline-offset-4">Ask the PermaBrella Helper</Link>.</p>
+      </section>
+      <div className="mt-7 sm:mt-9">
+        <Suspense fallback={<p className="rounded-lg bg-[var(--pb-surface)] p-5" role="status">Finding local connections…</p>}><FeedTimeline region={region} /></Suspense>
+      </div>
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         <section aria-labelledby="roots-rivers-heading" className="flex flex-col justify-between gap-4 rounded-xl border border-[var(--pb-line)] bg-[var(--pb-surface)] p-5 sm:p-6">
           <div>
@@ -69,9 +80,15 @@ export default async function Home({ searchParams }: {
         </section>
       </div>
       <Suspense fallback={<p className="mt-8 text-sm" role="status">Loading latest conversations…</p>}><LatestConversations region={region} /></Suspense>
-      <div className="mt-7 sm:mt-9">
-        <Suspense fallback={<p className="rounded-lg bg-[var(--pb-surface)] p-5" role="status">Finding local connections…</p>}><FeedTimeline region={region} /></Suspense>
-      </div>
+      <section className="mt-7 rounded-xl border border-[var(--pb-line)] bg-[var(--pb-surface)] p-5 sm:mt-9 sm:p-6" aria-labelledby="home-equipment-heading">
+        <ComingSoon />
+        <h2 id="home-equipment-heading" className="pb-display mt-2 text-2xl">More tools in more hands.</h2>
+        <p className="mt-2 max-w-3xl text-sm text-[var(--pb-ink-soft)]">A shared equipment library is being developed at the Mullum Gardens EcoHub. Equipment bookings, formal membership and the PermaBrella workshop programme are not open yet. You can register your interest now.</p>
+        <div className="mt-2 flex flex-wrap gap-x-6">
+          <Link href="/equipment" className={networkLink}>Explore shared equipment</Link>
+          <Link href="/join" className={networkLink}>Register membership interest</Link>
+        </div>
+      </section>
       <Suspense fallback={null}><HomeNews region={region} /></Suspense>
       <section className="mt-10 rounded-xl border border-[var(--pb-line)] bg-[var(--pb-surface)] p-6" aria-labelledby="network-next-heading"><h2 id="network-next-heading" className="pb-display text-2xl">Help shape what comes next.</h2><p className="mt-3 max-w-3xl text-[var(--pb-ink-soft)]">Have a question, a growing project or a group to connect? Leave an enquiry for the team while dedicated coordinator support is being established.</p><div className="mt-3 flex flex-wrap gap-x-6"><Link href="/contact" className={networkLink}>Contact the team</Link><Link href="/about" className={networkLink}>Meet our partners</Link><Link href="/how-it-works" className={networkLink}>How PermaBrella works</Link></div></section>
       <section className="mt-10 flex flex-col gap-4 rounded-xl bg-[var(--pb-accent-2)] p-6 text-white sm:flex-row sm:items-center sm:justify-between">

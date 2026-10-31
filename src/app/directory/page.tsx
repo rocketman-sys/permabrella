@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { PostList } from "@/components/posts/PostList";
 import { PageHeroBar } from "@/components/layout/PageHeroBar";
@@ -8,7 +8,11 @@ import { DIRECTORY_PAGE_SIZE, listDirectoryPage, type PostWithAuthor } from "@/l
 import { parseRegionParam } from "@/lib/regions";
 import { firstParam, normalizeSearchQuery, type SearchParam } from "@/lib/search/filters";
 
-export const metadata: Metadata = { title: "Community groups | PermaBrella" };
+export const metadata = pageMetadata({
+  title: "Community groups | PermaBrella",
+  description: "Find community gardens, food hubs, growers and local collectives across the Northern Rivers.",
+  path: "/directory",
+});
 
 export default async function DirectoryPage({
   searchParams,

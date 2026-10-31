@@ -1,5 +1,5 @@
 import { ListingViewFilter } from "@/components/posts/ListingViewFilter";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { Suspense } from "react";
 import { PageHeroBar } from "@/components/layout/PageHeroBar";
@@ -8,7 +8,11 @@ import { RegionFilter } from "@/components/layout/RegionFilter";
 import { listPostsByTypes } from "@/lib/posts/service";
 import { parseRegionParam } from "@/lib/regions";
 
-export const metadata: Metadata = { title: "Give, swap or ask | PermaBrella" };
+export const metadata = pageMetadata({
+  title: "Give, swap or ask | PermaBrella",
+  description: "Share spare seedlings, surplus produce, tools and skills. Offer something or ask your Northern Rivers community for help.",
+  path: "/offerings",
+});
 
 export default async function OfferingsPage({
   searchParams,

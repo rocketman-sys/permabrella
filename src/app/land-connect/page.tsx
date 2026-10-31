@@ -1,5 +1,5 @@
 import { ListingViewFilter } from "@/components/posts/ListingViewFilter";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { Suspense } from "react";
 import { PageHeroBar } from "@/components/layout/PageHeroBar";
@@ -9,7 +9,11 @@ import { RegionFilter } from "@/components/layout/RegionFilter";
 import { listPostsByTypes, listLandConnectNetworks } from "@/lib/posts/service";
 import { parseRegionParam } from "@/lib/regions";
 
-export const metadata: Metadata = { title: "Land Connect | PermaBrella" };
+export const metadata = pageMetadata({
+  title: "Land Connect | PermaBrella",
+  description: "Connect growing space with helping hands across the Northern Rivers. Find land offers, requests and local leads.",
+  path: "/land-connect",
+});
 
 export default async function LandConnectPage({
   searchParams,

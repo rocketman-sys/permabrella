@@ -17,9 +17,11 @@ function regionLabel(value: string | null): string | null {
 export function PostCard({
   item,
   href,
+  compact = false,
 }: {
   item: PostWithAuthor;
   href: string;
+  compact?: boolean;
 }) {
   const { post, authorDisplay } = item;
   const sourceLabel =
@@ -41,14 +43,14 @@ export function PostCard({
             <Badge className="shrink-0">{regionLabel(post.region)}</Badge>
           ) : null}
         </div>
-        <FreshnessNotice post={post} />
+        <FreshnessNotice post={post} compact={compact} />
         {post.locationDetail ? (
-          <p className="mt-1 text-base text-[var(--perm-text-secondary)] md:text-sm">
+          <p className={`mt-1 text-base text-[var(--perm-text-secondary)] md:text-sm ${compact ? "line-clamp-2" : ""}`}>
             <SharedText text={post.locationDetail} />
           </p>
         ) : null}
         <p className="mt-3 text-base leading-relaxed text-[var(--perm-text-secondary)] md:text-sm">
-          <SharedText text={post.type === "grant" ? post.description.split("\n\n")[0] : post.description} maxLength={220} />
+          <SharedText text={post.type === "grant" ? post.description.split("\n\n")[0] : post.description} maxLength={compact ? 140 : 220} />
         </p>
         <div className="mt-3 flex flex-wrap gap-2 text-sm text-[var(--perm-muted)] md:text-xs">
           {sourceLabel ? <span>Via {sourceLabel}</span> : null}
