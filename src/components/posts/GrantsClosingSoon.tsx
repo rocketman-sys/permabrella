@@ -29,8 +29,8 @@ export function GrantsClosingSoon({ grants, filtered }: {
         </ul>
       ) : (
         <div className="mt-4 rounded-lg bg-[var(--pb-surface)] p-4 text-sm text-[var(--pb-ink-soft)]">
-          <p>No verified grant deadlines in the next 30 days{filtered ? " for this region" : ""}. Browse the other listings below for later rounds and ongoing support.</p>
-          {filtered ? <Link href="/grants#closing-soon" className="mt-2 inline-flex min-h-11 items-center font-semibold text-[var(--pb-accent-2)] underline">Show all regions</Link> : null}
+          <p>No verified grant deadlines in the next 30 days{filtered ? " matching these filters" : ""}. Browse the other listings below for later rounds and ongoing support.</p>
+          {filtered ? <Link href="/grants#grant-results" className="mt-2 inline-flex min-h-11 items-center font-semibold text-[var(--pb-accent-2)] underline">Clear filters</Link> : null}
         </div>
       )}
     </section>

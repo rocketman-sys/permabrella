@@ -1,0 +1,257 @@
+{
+  "note": "Browse categories based on the eligibility text already recorded on PermaBrella. This is not a new eligibility verification. A changed eligibility summary requires reclassification; uncertain or restricted applicant types remain under Eligibility to confirm.",
+  "classifiedAt": "2026-11-01",
+  "entries": [
+    {
+      "id": "9bc1b0ad-5d59-4da9-ab8b-56fee8aace9a",
+      "title": "Ballina Shire Council - Community Donations",
+      "eligibility": "Eligible community organisations in Ballina Shire",
+      "source": "https://www.ballina.nsw.gov.au/Council/Forms-and-Documents/Community-Donations",
+      "applicants": [
+        "community"
+      ]
+    },
+    {
+      "id": "3a567eed-46a1-450e-ad85-6b3d1905c3a6",
+      "title": "Ballina Shire Council - Resource Recovery Community Grants",
+      "eligibility": "Individuals, organisations and community groups delivering waste reduction or resource recovery projects within Ballina Shire.",
+      "source": "https://www.ballina.nsw.gov.au/Residents/Waste-and-Recycling/Waste-Wise-Ballina/Community-Waste-Programs/Resource-Recovery-Community-Grants",
+      "applicants": [
+        "individual",
+        "community"
+      ]
+    },
+    {
+      "id": "85202f72-7fb5-4f14-b02b-b7ba02c18855",
+      "title": "Byron Shire Council - Community Initiatives Grant",
+      "eligibility": "Incorporated community organisations and groups with auspice arrangements in Byron Shire",
+      "source": "https://www.byron.nsw.gov.au/Council/About-Byron-Shire/Grants/Community-Initiatives-Grant",
+      "applicants": [
+        "community"
+      ]
+    },
+    {
+      "id": "d5875bc4-d9d3-4aa5-9ec3-d5a17376c6a2",
+      "title": "Byron Shire Council — Regenerative Agriculture Small Grants",
+      "eligibility": "Eligible primary producers, market gardeners and small-scale farmers in Byron Shire, subject to the current round's land and applicant requirements.",
+      "source": "https://www.byron.nsw.gov.au/Council/About-Byron-Shire/Grants/Regenerative-Agriculture-Small-Grants-Program",
+      "applicants": [
+        "individual"
+      ]
+    },
+    {
+      "id": "f7a78dc2-f7a9-4e5a-9ac4-e3cae766c5bc",
+      "title": "Clarence Valley Council - Community Initiatives Program",
+      "eligibility": "Eligible incorporated organisations, groups with an ABN and bank account, or auspiced individuals delivering community benefit in Clarence Valley.",
+      "source": "https://www.clarence.nsw.gov.au/Community/Community-funding-and-grants/Community-Initiatives-Program",
+      "applicants": [
+        "individual",
+        "community"
+      ]
+    },
+    {
+      "id": "769f3685-70ee-4af5-b3da-71dcf4d770ee",
+      "title": "Community Building Partnership 2026",
+      "eligibility": "Eligible local community organisations and councils including incorporated associations, public companies limited by guarantee, Local Aboriginal Land Councils, Indigenous corporations, NSW local councils, section 355 committees, ACNC-registered trusts, and registered P&C Associations.",
+      "source": "https://www.nsw.gov.au/grants-and-funding/community-building-partnership/community-building-partnership-2026",
+      "applicants": [
+        "community",
+        "council"
+      ]
+    },
+    {
+      "id": "7ca8a7e1-f8f5-4874-b47e-c1a9cd6aab63",
+      "title": "Community Resilience Grants Program",
+      "eligibility": "Eligible not-for-profit organisations delivering flood recovery and/or resilience services to people in the 7 Northern Rivers LGAs, with annual gross revenue below $5 million.",
+      "source": "https://www.nsw.gov.au/grants-and-funding/community-resilience-grants-program",
+      "applicants": [
+        "community"
+      ]
+    },
+    {
+      "id": "36f1ab2c-6abc-4c9f-99a4-649509dcc05c",
+      "title": "FRRR - Strengthening Rural Communities: Small & Vital",
+      "eligibility": "Not-for-profit organisations, or groups with an eligible auspice, benefiting rural, remote or very remote Australian communities. Small grants prioritise communities with fewer than 15,000 residents; check the guidelines for your location.",
+      "source": "https://frrr.org.au/funding/src-small-vital/",
+      "applicants": [
+        "community"
+      ]
+    },
+    {
+      "id": "f3f5a59d-563e-40be-bac8-786a613e0694",
+      "title": "FRRR — Strengthening Rural Communities: Capacity Building",
+      "eligibility": "Eligible not-for-profits serving agriculture-dependent rural and regional communities, with an ABN or incorporation certificate, or an approved legal organisation supporting the application.",
+      "source": "https://frrr.org.au/funding/fdf-communities/capacity-building/",
+      "applicants": [
+        "community"
+      ]
+    },
+    {
+      "id": "f9d9ed60-8530-51d3-8465-bcd48803d6d6",
+      "title": "FRRR — Strengthening Rural Communities: Prepare & Recover",
+      "eligibility": "Australian not-for-profits with an ABN or incorporation, or groups using an eligible auspice, with a charitable project benefiting a rural, remote or regional community.",
+      "source": "https://frrr.org.au/funding/src-prepare-recover/",
+      "applicants": [
+        "community"
+      ]
+    },
+    {
+      "id": "ac9d32c3-b356-49e6-be65-a3cbeee46dbc",
+      "title": "Kyogle Council - Community Grant Program",
+      "eligibility": "Not-for-profit organisations and individuals in the Kyogle LGA",
+      "source": "https://www.kyogle.nsw.gov.au/community/community-development/grant-funding-opportunities",
+      "applicants": [
+        "individual",
+        "community"
+      ]
+    },
+    {
+      "id": "ab6eb74e-c665-4a52-bb9a-7b8fbff16d25",
+      "title": "Lismore City Council — Rural Landholders Initiative",
+      "eligibility": "Eligible rural landholders with properties larger than 2 hectares in Lismore LGA, and eligible community groups under the applicable stream. Projects must protect or improve biodiversity, include cash or in-kind contributions and ongoing maintenance, and meet Council's rates requirements.",
+      "source": "https://www.lismore.nsw.gov.au/Community/Environmental-strategies/Rural-Landholders-Initiative",
+      "applicants": [
+        "individual",
+        "community"
+      ]
+    },
+    {
+      "id": "011a198f-5c7d-58fc-9e29-314a8359b782",
+      "title": "NSW Biodiversity Conservation Trust — Conservation Partners Grants",
+      "eligibility": "Eligible NSW landowners with listed conservation agreements, Trust agreements, registered property agreements, wildlife refuge status or Wildlife Land Trust membership. Excludes biodiversity stewardship/offset agreements and new agreements already receiving BCT annual management payments.",
+      "source": "https://www.nsw.gov.au/grants-and-funding/conservation-partners-grants",
+      "applicants": [
+        "individual"
+      ]
+    },
+    {
+      "id": "c2ee0135-4262-4394-af62-c76d526311a4",
+      "title": "NSW Biodiversity Conservation Trust — Rainforest Conservation Offer",
+      "eligibility": "Eligible landowners within the mapped offer area in Ballina, Byron, Kyogle, Lismore, Richmond Valley and Tweed LGAs, willing to enter an in-perpetuity agreement. Published site requirements include at least 20 hectares of native vegetation, including 15 hectares of qualifying rainforest in moderate to good condition.",
+      "source": "https://www.nsw.gov.au/environment-land-and-water/conservation-on-private-land/rainforest-conservation-opportunity",
+      "applicants": [
+        "individual"
+      ]
+    },
+    {
+      "id": "d90e7c11-bfa3-5f2d-b51f-198011f7fe32",
+      "title": "NSW EPA and NSW Aboriginal Land Council — Together on Country",
+      "eligibility": "Eligible NSW Local Aboriginal Land Councils. LALCs under administration and previous Together on Country grant recipients are excluded.",
+      "source": "https://alc.org.au/t-o-c-grant/",
+      "applicants": [
+        "community"
+      ]
+    },
+    {
+      "id": "c14c4bf5-6c16-400b-b427-c2ae83c217ac",
+      "title": "NSW EPA – Business Food Waste Partnership Grants",
+      "eligibility": "Peak bodies, sector leaders, councils, educators and other relevant organisations working with food-wasting businesses.",
+      "source": "https://www.epa.nsw.gov.au/Working-together/Grants/organics-infrastructure-fund/Business-food-waste-partnership-grants",
+      "applicants": [
+        "council"
+      ]
+    },
+    {
+      "id": "89d6e17a-36b8-4241-96b2-ba31b11975df",
+      "title": "NSW EPA – Food Rescue Grants",
+      "eligibility": "Food rescue and/or relief organisations and coordinating organisations such as not-for-profits, NSW councils, NSW local government regional waste groups or regional organisations of councils.",
+      "source": "https://www.epa.nsw.gov.au/Working-together/Grants/organics-infrastructure-fund/Food-rescue-grants",
+      "applicants": [
+        "community",
+        "council"
+      ]
+    },
+    {
+      "id": "1cc6699d-5bc2-4538-ade7-c77774664b35",
+      "title": "NSW Environmental Trust – Environmental Education",
+      "eligibility": "Community groups, not-for-profit organisations, state and local government, non-commercial cooperatives, councils, universities, regional organisations of councils, NSW local Aboriginal Land Councils, and registered NSW Aboriginal Corporations.",
+      "source": "https://www.environment.nsw.gov.au/funding-and-support/nsw-environmental-trust/grants-available/environmental-education",
+      "applicants": [
+        "community",
+        "council"
+      ]
+    },
+    {
+      "id": "e63554b3-abd9-420e-ace0-a4a0124be345",
+      "title": "NSW Environmental Trust – Environmental Restoration and Rehabilitation",
+      "eligibility": "State and local government and community groups.",
+      "source": "https://www.environment.nsw.gov.au/funding-and-support/nsw-environmental-trust/grants-available/environmental-restoration-and-rehabilitation",
+      "applicants": [
+        "community",
+        "council"
+      ]
+    },
+    {
+      "id": "a5ffe978-5629-48f7-af8a-7ccb9d02ef26",
+      "title": "NSW Environmental Trust – Protecting Our Places",
+      "eligibility": "NSW Aboriginal community organisations or groups.",
+      "source": "https://www.environment.nsw.gov.au/funding-and-support/nsw-environmental-trust/grants-available/protecting-our-places",
+      "applicants": [
+        "community"
+      ]
+    },
+    {
+      "id": "55836c61-9532-487d-b3fa-6a19d0821948",
+      "title": "Northern Rivers Community Foundation - Community Grants Program",
+      "eligibility": "Not-for-profit groups and eligible community organisations in the seven Northern Rivers LGAs",
+      "source": "https://nrcf.org.au/grants/community-grants-program-2026/",
+      "applicants": [
+        "community"
+      ]
+    },
+    {
+      "id": "8837852a-5fb3-46b9-aa2a-37d529ba1a51",
+      "title": "Northern Rivers Community Foundation - Recovery and Resilience Grants Program",
+      "eligibility": "Northern Rivers not-for-profit community groups impacted by disaster",
+      "source": "https://nrcf.org.au/grants/recovery-resilience-grants-program/",
+      "applicants": [
+        "community"
+      ]
+    },
+    {
+      "id": "9a22f9bd-1173-4359-9ea9-372a7c23268e",
+      "title": "Richmond Valley Council - Community Financial Assistance Program",
+      "eligibility": "Eligible community groups in the Richmond Valley",
+      "source": "https://richmondvalley.nsw.gov.au/community-services/grants-and-funding/community-financial-assistance-program/",
+      "applicants": [
+        "community"
+      ]
+    },
+    {
+      "id": "dca3f89e-76b2-448b-a4fb-a776e4627b02",
+      "title": "Rous County Council — Community Grants",
+      "eligibility": "Eligible organisations, incorporated not-for-profits, businesses, schools, universities, sports clubs and associations in Ballina, Byron, Kyogle, Lismore, Richmond Valley or Tweed LGAs. Public liability insurance is required.",
+      "source": "https://rous.nsw.gov.au/community-grants/",
+      "applicants": [
+        "community"
+      ]
+    },
+    {
+      "id": "c0f506fc-5847-4f3f-a642-f5c01ed5333f",
+      "title": "Tweed Shire Council - Community Grants Program",
+      "eligibility": "Community groups and not-for-profits in the Tweed region",
+      "source": "https://www.tweed.nsw.gov.au/community/community-support/grants-funding/community-grants",
+      "applicants": [
+        "community"
+      ]
+    },
+    {
+      "id": "18805eb5-ce09-5a07-be70-e98879608acf",
+      "title": "Tweed Shire Council — River Health Grants",
+      "eligibility": "Rural landowners in Tweed Shire proposing work that improves water quality or stream health. Priority includes protecting drinking-water catchments.",
+      "source": "https://www.tweed.nsw.gov.au/community/community-support/grants-funding/environmental-grants-incentives",
+      "applicants": [
+        "individual"
+      ]
+    },
+    {
+      "id": "ea96d4fd-da71-59a9-8564-db7c68f14aff",
+      "title": "Tweed Shire Council — Sustainable Agriculture Small Grants",
+      "eligibility": "Primary producers or people actively farming land in Tweed Shire, proposing work with clear environmental benefits.",
+      "source": "https://www.tweed.nsw.gov.au/environment/agriculture-farming/sustainable-agriculture-small-grants",
+      "applicants": [
+        "individual"
+      ]
+    }
+  ]
+}
