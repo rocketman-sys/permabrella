@@ -3,6 +3,7 @@ import Link from "next/link";
 import { canEditListing, safePublicUrl } from "@/lib/listing-edits/policy";
 import { Badge } from "@/components/ui/Badge";
 import { FreshnessNotice } from "./FreshnessNotice";
+import { AddToCalendar } from "./AddToCalendar";
 import { formatPosted } from "@/lib/posts/format";
 import type { PostWithAuthor } from "@/lib/posts/service";
 import { publicSourceUrls } from "@/lib/posts/verification";
@@ -82,6 +83,8 @@ export function PostDetail({
           <SharedText text={post.locationDetail} />
         </p>
       ) : null}
+
+      <AddToCalendar post={post} />
 
       <div className="mt-6 max-w-none whitespace-pre-wrap text-base leading-relaxed text-[var(--perm-text)]">
         <SharedText text={description} />
