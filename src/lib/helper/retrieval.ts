@@ -3,6 +3,7 @@ import { db } from '@/lib/db';
 import { posts } from '@/lib/db/schema';
 import { listingVisibility } from '@/lib/posts/visibility';
 import { listingFreshness } from '@/lib/posts/freshness';
+import { verificationDetails } from '@/lib/posts/verification';
 import { searchPattern } from '@/lib/search/filters';
 import { REGIONS } from '@/lib/regions';
 import { safeSourceUrl, verificationLabel, type HelperInput, type HelperSource } from './policy';
@@ -43,7 +44,7 @@ export async function retrievePublicListings(input: HelperInput): Promise<Helper
       id: row.id, title: row.title, href: `/${route[row.type as keyof typeof route]}/${row.id}`,
       excerpt: row.description.slice(0, 1_000), region: REGIONS.find(r => r.value === row.region)?.label ?? '',
       verification: verificationLabel(row.metadata),
-      note: typeof row.metadata.verificationNote === 'string' ? row.metadata.verificationNote.slice(0, 500) : '',
+      note: verificationDetails(row.metadata).note.slice(0, 500),
       freshness: `${fresh.label}${fresh.note ? ` · ${fresh.note}` : ''}`, updated: row.updatedAt.toISOString(),
       sourceUrls: [...new Set(sourceUrls)].slice(0, 3),
       ...(row.type === 'grant' ? {

@@ -13,7 +13,9 @@ async function main(){
  if(!process.env.DATABASE_URL)throw Error('Database required');
  const sql=neon(process.env.DATABASE_URL);const apply=process.argv.includes('--apply');
  const restore=process.argv.find(v=>v.startsWith('--restore='))?.slice(10);
- const data=JSON.parse(readFileSync('data/events-survey-2026-10-19.json','utf8')) as {batch:string;checkedDate:string;entries:Entry[]};
+ const file=process.argv.find(v=>v.startsWith('--file='))?.slice(7) ?? 'data/events-survey-2026-10-19.json';
+ const data=JSON.parse(readFileSync(file,'utf8')) as {batch:string;checkedDate:string;entries:Entry[]};
+ if(!data.batch||!/^\d{4}-\d{2}-\d{2}$/.test(data.checkedDate)||!Array.isArray(data.entries))throw Error('Invalid survey file');
  if(restore){
   const b=JSON.parse(readFileSync(restore,'utf8')) as Backup;
   if(b.state!=='applied'||b.batch!==data.batch||!b.additions.length)throw Error('Invalid backup');

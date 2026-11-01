@@ -5,6 +5,7 @@ import type { Region } from "@/lib/regions";
 
 import { listingVisibility } from "@/lib/posts/visibility";
 import type { FreshnessPost } from "@/lib/posts/freshness";
+import { searchPostRegionVisibility } from "./region";
 
 export type SearchFilters = {
   query: string;
@@ -61,7 +62,7 @@ export async function runGlobalSearch(
   }
 
   if (filters.region) {
-    postConditions.push(eq(posts.region, filters.region));
+    postConditions.push(searchPostRegionVisibility(filters.region));
     threadConditions.push(eq(threads.region, filters.region));
   }
 
