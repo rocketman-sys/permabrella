@@ -16,3 +16,14 @@ test('closed CSA enrolment becomes a past season after the recorded season ends'
  assert.equal(listingFreshness(post,new Date('2026-10-19')).label,'CSA · enrolment closed');
  assert.equal(listingFreshness(post,new Date('2026-12-01')).label,'Past CSA season');
 });
+
+test('public wording preserves the original check date and newly edited caveats', () => {
+ const original = 'Remaining funds not independently confirmed; retain availability caveat.';
+ const metadata = {verificationNote: original, lastCheckedAt: '2026-10-19'};
+ const result = verificationDetails(metadata);
+ assert.match(result.note, /funds still being available/);
+ assert.equal(result.checked, '2026-10-19');
+ assert.equal(metadata.verificationNote, original);
+ assert.equal(verificationDetails({...metadata, verificationNote: original + ' Provider now advises a pause.'}).note, original + ' Provider now advises a pause.');
+ assert.equal(verificationDetails({verificationNote:'toString'}).note, 'toString');
+});

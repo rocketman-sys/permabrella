@@ -4,6 +4,8 @@ import { canEditListing, safePublicUrl } from "@/lib/listing-edits/policy";
 import { Badge } from "@/components/ui/Badge";
 import { FreshnessNotice } from "./FreshnessNotice";
 import { AddToCalendar } from "./AddToCalendar";
+import { ShareListing } from "./ShareListing";
+import { SITE_ORIGIN } from "@/lib/site";
 import { formatPosted } from "@/lib/posts/format";
 import type { PostWithAuthor } from "@/lib/posts/service";
 import { publicSourceUrls } from "@/lib/posts/verification";
@@ -85,6 +87,7 @@ export function PostDetail({
       ) : null}
 
       <AddToCalendar post={post} />
+      <ShareListing title={post.title} url={`${SITE_ORIGIN}${backHref}/${post.id}`} />
 
       <div className="mt-6 max-w-none whitespace-pre-wrap text-base leading-relaxed text-[var(--perm-text)]">
         <SharedText text={description} />

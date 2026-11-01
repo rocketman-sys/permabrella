@@ -1,0 +1,213 @@
+{
+  "batch": "local-events-2026-11-01",
+  "checkedDate": "2026-11-01",
+  "entries": [
+    {
+      "id": "3350b48c-6838-5ecf-8122-fb09d6789e3e",
+      "key": "banyula-natural-sequence-farming-2026-11-15",
+      "title": "Natural Sequence Farming Field Day at Banyula Farm",
+      "description": "Learn how Natural Sequence Farming approaches water, soil and landscape restoration. Tarwyn Park Training introduces the five pillars, followed by a farm walk with Josh Wellman to see the work at Banyula.\n\nWhen: Sunday 15 November, 9am–3:30pm NSW time. Arrive at 9am for a 9:30am presentation.\nCost: Advertised at $50; book with the organiser.\nBring lunch, drinking water, a hat and sturdy shoes or gumboots.",
+      "eventDate": "2026-11-15T09:00:00+11:00",
+      "externalUrl": "https://events.tarwynparktraining.com.au/checkout/view-event/id/9084970/chk/aeb9c296474d1590019b17916b6a6807/?modal_widget=true&widget=true",
+      "region": "clunes",
+      "locationDetail": "Banyula Farm, 813 Booyong Road, Clunes NSW 2480",
+      "contactEmail": null,
+      "contactPhone": null,
+      "metadata": {
+        "lastCheckedAt": "2026-11-01",
+        "sourceUrls": [
+          "https://events.tarwynparktraining.com.au/checkout/view-event/id/9084970/chk/aeb9c296474d1590019b17916b6a6807/?modal_widget=true&widget=true"
+        ],
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "Tarwyn Park Training and Banyula Farm",
+        "cost": "$50",
+        "dateEvidence": [
+          {
+            "url": "https://events.tarwynparktraining.com.au/checkout/view-event/id/9084970/chk/aeb9c296474d1590019b17916b6a6807/?modal_widget=true&widget=true",
+            "summary": "Organiser booking page explicitly lists 15 November 2026, 9am–3:30pm, Clunes address and $50 ticket."
+          }
+        ],
+        "eventEnd": "2026-11-15T15:30:00+11:00"
+      }
+    },
+    {
+      "id": "8cf23ea9-4dde-5a87-b4f0-a5f307d4a0e5",
+      "key": "nimbin-food-swap-2026-11-18",
+      "title": "Nimbin Food Swap — November",
+      "description": "Bring surplus food, seeds or plants to share with neighbours and take home something you can use. A simple way to connect with local growers and keep good produce circulating.\n\nWhen: Wednesday 18 November, 1:30–2:30pm NSW time.\nCost: Gold coin donation.",
+      "eventDate": "2026-11-18T13:30:00+11:00",
+      "externalUrl": "https://nimbinvillage.au/events/food-swap-3rd-wednesday/",
+      "region": "nimbin",
+      "locationDetail": "Seven on Sibley, Nimbin Sustainable Living Hub, 7 Sibley Street, Nimbin NSW 2480",
+      "contactEmail": null,
+      "contactPhone": null,
+      "metadata": {
+        "lastCheckedAt": "2026-11-01",
+        "sourceUrls": [
+          "https://nimbinvillage.au/events/food-swap-3rd-wednesday/"
+        ],
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "7 Sibley Street",
+        "cost": "Gold coin donation",
+        "dateEvidence": [
+          {
+            "url": "https://nimbinvillage.au/events/food-swap-3rd-wednesday/",
+            "summary": "The organiser’s live event page shows Wednesday 18 November 2026, 1:30–2:30pm. The search-engine copy still showed an October occurrence; the live page was checked in a browser."
+          }
+        ],
+        "eventEnd": "2026-11-18T14:30:00+11:00"
+      }
+    },
+    {
+      "id": "433a11d7-a5b1-52e6-a4a4-8e827d1859e9",
+      "key": "mullumbimby-community-market-2026-11-21",
+      "title": "Mullumbimby Community Market — November",
+      "description": "Explore local plant stalls, upcycled goods, eco products, food and live music at Summers Park. Market proceeds support the Brunswick Valley Historical Society Museum.\n\nWhen: Saturday 21 November, 8am–2pm NSW time.\nCheck the organiser’s wet-weather updates before travelling. Dogs are not permitted in the park on market day.",
+      "eventDate": "2026-11-21T08:00:00+11:00",
+      "externalUrl": "https://www.mullumbimbycommunitymarket.com.au/",
+      "region": "mullumbimby",
+      "locationDetail": "Summers Park, corner of Stuart and Myokum Streets, Mullumbimby NSW 2482",
+      "contactEmail": null,
+      "contactPhone": null,
+      "metadata": {
+        "lastCheckedAt": "2026-11-01",
+        "sourceUrls": [
+          "https://www.mullumbimbycommunitymarket.com.au/"
+        ],
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "Mullumbimby Community Market",
+        "cost": null,
+        "dateEvidence": [
+          {
+            "url": "https://www.mullumbimbycommunitymarket.com.au/",
+            "summary": "The organiser homepage explicitly announces Saturday 21 November 2026 as the next market and gives 8am–2pm hours and the Summers Park location."
+          }
+        ],
+        "eventEnd": "2026-11-21T14:00:00+11:00",
+        "verificationNote": "Visitor admission cost is not published on the organiser’s homepage. Check directly if needed."
+      }
+    },
+    {
+      "id": "7073aa8d-89f4-5426-b1ba-9b4ac88bff56",
+      "key": "nimbin-skill-share-2026-11-21",
+      "title": "Nimbin Skill Share — November",
+      "description": "A monthly gathering for sharing practical skills at the Nimbin Sustainable Living Hub. Contact the organiser to find out what is planned for the November session and to book.\n\nWhen: Saturday 21 November, starting at 10:30am NSW time.",
+      "eventDate": "2026-11-21T10:30:00+11:00",
+      "externalUrl": "https://nimbinvillage.au/events/skill-share-workshops-7-sibley-street/",
+      "region": "nimbin",
+      "locationDetail": "Seven on Sibley, Nimbin Sustainable Living Hub, 7 Sibley Street, Nimbin NSW 2480",
+      "contactEmail": "sibley@nnic.org.au",
+      "contactPhone": null,
+      "metadata": {
+        "lastCheckedAt": "2026-11-01",
+        "sourceUrls": [
+          "https://nimbinvillage.au/events/skill-share-workshops-7-sibley-street/"
+        ],
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "7 Sibley Street",
+        "cost": null,
+        "dateEvidence": [
+          {
+            "url": "https://nimbinvillage.au/events/skill-share-workshops-7-sibley-street/",
+            "summary": "The organiser’s live page lists Saturday 21 November 2026, 10:30am. Its topic and price examples still refer to September and October, so they are not used for November."
+          }
+        ],
+        "verificationNote": "November’s topic, cost and finishing time have not been announced. Confirm these with the organiser before booking."
+      }
+    },
+    {
+      "id": "ff581483-b43b-5765-bb51-19cbed8eb89b",
+      "key": "singing-our-future-2026-11-22",
+      "title": "Singing Our Future Into Being",
+      "description": "Join a community gathering using collaborative songwriting, music and movement to explore hopes for a regenerative Northern Rivers. No musical experience is needed; the organiser welcomes all abilities and participants aged 15 and over.\n\nWhen: Sunday 22 November, 2–6pm NSW time.\nCost: General admission is advertised as free. Reserve a ticket through the organiser’s Humanitix page.",
+      "eventDate": "2026-11-22T14:00:00+11:00",
+      "externalUrl": "https://events.humanitix.com/singing-our-future-into-being",
+      "region": "byron_bay",
+      "locationDetail": "Kulchajam, 1 Acacia Street, Byron Bay NSW 2481",
+      "contactEmail": null,
+      "contactPhone": null,
+      "metadata": {
+        "lastCheckedAt": "2026-11-01",
+        "sourceUrls": [
+          "https://events.humanitix.com/singing-our-future-into-being",
+          "https://events.humanitix.com/singing-our-future-into-being/tickets"
+        ],
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "The Human Sound Project",
+        "cost": "Free general admission",
+        "dateEvidence": [
+          {
+            "url": "https://events.humanitix.com/singing-our-future-into-being",
+            "summary": "Primary Humanitix listing gives Sunday 22 November 2026, 2–6pm AEDT and Kulchajam address. The tickets page advertises free general admission."
+          }
+        ],
+        "eventEnd": "2026-11-22T18:00:00+11:00"
+      }
+    },
+    {
+      "id": "3be12ad0-2e6e-5968-a97f-6eed7d6b98cc",
+      "key": "nimbin-relove-market-2026-11-28",
+      "title": "Nimbin Re-love Market — November",
+      "description": "A local market for giving pre-loved goods another life and connecting with neighbours at Seven on Sibley. Contact the organiser about November’s theme or to book a stall.\n\nWhen: Saturday 28 November, 10:30am–12:30pm NSW time.\nStall fee: Advertised at $10. This is a seller’s fee, not a visitor admission price.",
+      "eventDate": "2026-11-28T10:30:00+11:00",
+      "externalUrl": "https://nimbinvillage.au/events/flea-market-7-sibley-street/",
+      "region": "nimbin",
+      "locationDetail": "Seven on Sibley, Nimbin Sustainable Living Hub, 7 Sibley Street, Nimbin NSW 2480",
+      "contactEmail": "sibley@nnic.org.au",
+      "contactPhone": null,
+      "metadata": {
+        "lastCheckedAt": "2026-11-01",
+        "sourceUrls": [
+          "https://nimbinvillage.au/events/flea-market-7-sibley-street/"
+        ],
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "7 Sibley Street",
+        "cost": "Stalls $10; visitor admission unconfirmed",
+        "dateEvidence": [
+          {
+            "url": "https://nimbinvillage.au/events/flea-market-7-sibley-street/",
+            "summary": "The organiser’s live page explicitly lists Saturday 28 November 2026, 10:30am–12:30pm. Older September and October themes are not carried forward. Stall fee and booking email are published."
+          }
+        ],
+        "eventEnd": "2026-11-28T12:30:00+11:00",
+        "verificationNote": "November’s theme and visitor admission cost have not been published. Confirm arrangements with the organiser."
+      }
+    },
+    {
+      "id": "f6c3edee-d8dc-5fd1-b709-84cd8307f661",
+      "key": "farm-native-fermentation-2026-12-05",
+      "title": "Fermentation Workshop: Native Australian Ingredients",
+      "description": "Explore fermentation with native Australian ingredients in a hands-on workshop with Byron Fermentary at The Farm. Suitable for beginners; jars and ingredients are included.\n\nWhen: Saturday 5 December, 9am–noon NSW time.\nCost: The Farm advertises $160 per person. Contact Byron Fermentary to confirm booking arrangements.",
+      "eventDate": "2026-12-05T09:00:00+11:00",
+      "externalUrl": "https://www.thefarm.com.au/workshops",
+      "region": "byron_bay",
+      "locationDetail": "The Farm, 11 Ewingsdale Road, Ewingsdale NSW 2481",
+      "contactEmail": "hello@byronfermentary.com.au",
+      "contactPhone": null,
+      "metadata": {
+        "lastCheckedAt": "2026-11-01",
+        "sourceUrls": [
+          "https://www.thefarm.com.au/workshops"
+        ],
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "organiser": "Byron Fermentary / All Things Cultured at The Farm",
+        "cost": "$160 per person",
+        "dateEvidence": [
+          {
+            "url": "https://www.thefarm.com.au/workshops",
+            "summary": "The Farm’s live workshop page explicitly lists Saturday 5 December 2026, 9am–noon; the Price panel gives $160. Linked booking page returned a not-found message, so the live venue page is used as the public link."
+          }
+        ],
+        "eventEnd": "2026-12-05T12:00:00+11:00",
+        "verificationNote": "The venue lists this December workshop, but its booking button led to an unavailable older page on 1 November. Confirm the session and how to book directly with Byron Fermentary."
+      }
+    }
+  ]
+}
