@@ -28,6 +28,7 @@ test("Google and ICS use the same absolute times across NSW daylight saving", ()
 test("undated, unconfirmed, expired and unpublished events cannot be exported", () => {
   for (const invalid of [
     { ...post, eventDate: null }, { ...post, eventDate: new Date("invalid") },
+    { ...post, metadata: { eventKind: "recording" } }, { ...post, metadata: { eventKind: "competition" } },
     { ...post, metadata: { eventTimeConfirmed: false } }, { ...post, status: "expired" as const },
     { ...post, status: "pending_moderation" as const }, { ...post, type: "grant" as const },
     { ...post, eventDate: new Date("2026-10-30T00:00:00Z") },

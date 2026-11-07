@@ -146,7 +146,10 @@ export function PostDetail({
             rel="noopener noreferrer"
             className={btnPrimary}
           >
-            {post.type === "grant" ? "Check funding with the provider" : post.type === "event" ? "Event details & booking" : "Visit website"}
+            {post.type === "grant" ? "Check funding with the provider" : post.type === "event"
+              ? post.metadata.eventKind === "recording" ? "Watch recordings"
+                : post.metadata.eventKind === "competition" ? "Competition details & entry" : "Event details & booking"
+              : "Visit website"}
           </a>
         ) : null}
         <Link href={backHref} className={btnGhost}>

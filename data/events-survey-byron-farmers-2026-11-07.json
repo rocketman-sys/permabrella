@@ -1,0 +1,120 @@
+{
+  "batch": "byron-farmers-network-2026-11-07",
+  "checkedDate": "2026-11-07",
+  "entries": [
+    {
+      "id": "d14902a6-8e41-533c-a6b2-20944bba896b",
+      "contactEmail": "sqnnswhub@unisq.edu.au",
+      "contactPhone": null,
+      "key": "world-soil-day-competition-deadline-2026",
+      "title": "World Soil Day Competition — entries close 4 December",
+      "description": "A soil-health competition for primary producers, Landcare or similar groups, and First Nations groups caring for agricultural or grazing land in northern NSW or southern Queensland. Share a practice that improves soil health or a soil problem you want to address, and explain its relevance to drought and climatic extremes.\n\nEntries close Friday 4 December 2026 at 11:59pm AEST (Queensland time). In NSW daylight-saving time, that is 12:59am on Saturday 5 December. This listing marks an entry deadline, not an in-person gathering.\n\nEntry is free. Three winners receive soil assessment packages valued at $5,000 each, including a site visit, soil testing and a report; these are services rather than cash prizes.\n\nEnter by email to sqnnswhub@unisq.edu.au or follow the organiser’s social-media entry instructions. Check the full eligibility and competition terms before submitting.",
+      "eventDate": "2026-12-04T23:59:00+10:00",
+      "expiresAt": "2026-12-04T23:59:00+10:00",
+      "externalUrl": "https://www.unisq.edu.au/research/sqnnsw-hub/wsd",
+      "region": "other",
+      "locationDetail": "Online entry · northern NSW and southern Queensland",
+      "metadata": {
+        "lastCheckedAt": "2026-11-07",
+        "eventKind": "competition",
+        "listingLabel": "Competition deadline · 4 December (AEST)",
+        "sourceUrls": [
+          "https://www.unisq.edu.au/research/sqnnsw-hub/wsd",
+          "https://www.unisq.edu.au/-/media/usq/research/sqnnsw-hub/resources/world-soil-day-comp/wsd-2026tc.ashx?hash=E09003CF05A98D27D65E71E0FC2A141C&rev=f3baaa60b356436c9080f3792cf11d6d"
+        ],
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Brisbane",
+        "organiser": "SQNNSW Innovation Hub, University of Southern Queensland",
+        "cost": "Free entry",
+        "dateEvidence": [
+          {
+            "url": "https://www.unisq.edu.au/-/media/usq/research/sqnnsw-hub/resources/world-soil-day-comp/wsd-2026tc.ashx?hash=E09003CF05A98D27D65E71E0FC2A141C&rev=f3baaa60b356436c9080f3792cf11d6d",
+            "summary": "Clause 2 confirms closing at 11:59pm AEST on 4 December 2026. The stored instant converts to 12:59am AEDT on 5 December in NSW."
+          }
+        ]
+      }
+    },
+    {
+      "id": "92de9dfa-aab9-56d7-ad43-589bf1621452",
+      "contactEmail": null,
+      "contactPhone": null,
+      "key": "north-coast-beef-producers-field-day-2026-12-03",
+      "title": "North Coast Beef Producers Field Day 2026",
+      "description": "Join North Coast Local Land Services for a field day exploring crossbreeding, herd productivity, meat quality, profitability and supply-chain opportunities for North Coast beef producers.\n\nWhen: Thursday 3 December 2026, arrive at 8:30am for a 9am start; finishes at 2pm NSW time.\nWhere: Grafton Primary Industries Institute, Experiment Farm Road, Trenayr NSW 2460.\n\nRegistration is free. Morning tea and lunch are provided; the organiser asks people with dietary requirements to bring their own food. Register through the organiser’s Humanitix page.",
+      "eventDate": "2026-12-03T08:30:00+11:00",
+      "externalUrl": "https://events.humanitix.com/north-coast-beef-producers-field-day-dec-2026",
+      "region": "other",
+      "locationDetail": "Grafton Primary Industries Institute, Experiment Farm Road, Trenayr NSW 2460",
+      "metadata": {
+        "lastCheckedAt": "2026-11-07",
+        "sourceUrls": [
+          "https://events.humanitix.com/north-coast-beef-producers-field-day-dec-2026"
+        ],
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "eventEnd": "2026-12-03T14:00:00+11:00",
+        "organiser": "North Coast Local Land Services",
+        "cost": "Free registration",
+        "dateEvidence": [
+          {
+            "url": "https://events.humanitix.com/north-coast-beef-producers-field-day-dec-2026",
+            "summary": "Organiser lists Thursday 3 December 2026, 8:30am arrival for 9am start, finishing at 2pm AEDT, with free registration."
+          }
+        ]
+      }
+    },
+    {
+      "id": "107617e4-f815-5100-a8ce-b1ee3734993f",
+      "contactEmail": null,
+      "contactPhone": null,
+      "key": "rehydrate-australia-pearces-creek-2026-11-14",
+      "title": "Rehydrate Australia — film, supper and discussion at Pearces Creek Hall",
+      "description": "Watch Rehydrate Australia, a documentary about farmers restoring landscapes through Natural Sequence Farming, followed by a discussion with Stuart Andrews of Tarwyn Park Training and Josh Wellman of Banyula Farm. Hosted by Pearces Creek Talks with Pearces Creek Hall.\n\nWhen: Saturday 14 November 2026. Doors and supper from 6:30pm NSW time; the event header lists a 9pm finish.\nWhere: Pearces Creek Hall, 40 Pearces Creek Hall Road, Pearces Creek NSW 2477.\n\nTickets are advertised at $5 for adults, with children aged 16 and under free. A supper plate is included; drinks are BYO. Book through Humanitix.\n\nFor a practical follow-up, the Natural Sequence Farming Field Day at Banyula Farm runs the next day, Sunday 15 November.",
+      "eventDate": "2026-11-14T18:30:00+11:00",
+      "externalUrl": "https://events.humanitix.com/rehydrate-australia-screening-and-q-and-a-at-pearces-creek-hall",
+      "region": "ballina",
+      "locationDetail": "Pearces Creek Hall, 40 Pearces Creek Hall Road, Pearces Creek NSW 2477",
+      "metadata": {
+        "lastCheckedAt": "2026-11-07",
+        "sourceUrls": [
+          "https://events.humanitix.com/rehydrate-australia-screening-and-q-and-a-at-pearces-creek-hall"
+        ],
+        "eventTimeConfirmed": true,
+        "eventTimezone": "Australia/Sydney",
+        "eventEnd": "2026-11-14T21:00:00+11:00",
+        "organiser": "Pearces Creek Talks and Pearces Creek Hall",
+        "cost": "Adults $5; children 16 and under free",
+        "verificationNote": "Doors and supper are confirmed for 6:30pm. The organiser gives both 7:15pm and 7:30pm for the film start; confirm that detail when booking.",
+        "dateEvidence": [
+          {
+            "url": "https://events.humanitix.com/rehydrate-australia-screening-and-q-and-a-at-pearces-creek-hall",
+            "summary": "Organiser page lists Saturday 14 November 2026, 6:30–9pm AEDT. Both screening start times are retained as an explicit uncertainty."
+          }
+        ]
+      }
+    },
+    {
+      "id": "f5b85877-a20c-552b-aefd-aff6631c2fb8",
+      "contactEmail": null,
+      "contactPhone": null,
+      "key": "darren-doherty-agroforestry-recordings-2026",
+      "title": "Darren Doherty — farm planning for agroforestry recordings",
+      "description": "Watch the two-part farm-planning workshop hosted by Byron Shire Council and the Byron Farmers Network at Federal Hall earlier in 2026. Darren Doherty explores agroforestry design and practical planning, including LiDAR and GIS mapping tools.\n\nThese are recordings available to watch anytime, not a new scheduled workshop.\n\nPart 1 — Farm Planning for Agroforestry with Darren Doherty and the Byron Farmers Network:\nhttps://www.youtube.com/watch?v=86L9xPeMiM8\n\nPart 2 — Farm planning and mapping for agroforestry integration: a practical demo:\nhttps://www.youtube.com/watch?v=e1PPpjAKduQ\n\nBoth videos are published on Byron Shire Council’s YouTube channel.",
+      "eventDate": null,
+      "externalUrl": "https://www.youtube.com/watch?v=86L9xPeMiM8",
+      "region": "federal",
+      "locationDetail": "Watch online · recorded at Federal Hall",
+      "metadata": {
+        "lastCheckedAt": "2026-11-07",
+        "eventKind": "recording",
+        "listingLabel": "Workshop recordings · watch anytime",
+        "sourceUrls": [
+          "https://www.youtube.com/watch?v=86L9xPeMiM8",
+          "https://www.youtube.com/watch?v=e1PPpjAKduQ"
+        ],
+        "organiser": "Byron Shire Council and Byron Farmers Network",
+        "recordingEvidence": "Both YouTube oEmbed endpoints returned 200 on 7 November 2026 and identified ByronShireCouncil as the publisher. Titles match the supplied Council newsletter."
+      }
+    }
+  ]
+}

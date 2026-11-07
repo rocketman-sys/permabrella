@@ -12,6 +12,7 @@ export type CalendarEvent = {
 
 export function getCalendarEvent(post: EventPost, now = new Date()): CalendarEvent | null {
   if (post.type !== "event" || post.status !== "active" || isPastListing(post, now)
+    || post.metadata.eventKind === "recording" || post.metadata.eventKind === "competition"
     || !post.eventDate || !Number.isFinite(post.eventDate.getTime()) || post.metadata.eventTimeConfirmed === false) return null;
   const rawEnd = post.metadata.eventEnd;
   // A timezone-less string depends on the server timezone and must not become a guessed end time.
