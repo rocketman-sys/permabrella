@@ -4,6 +4,7 @@ import { isPastListing } from "@/lib/posts/freshness";
 
 export function AddToCalendar({ post }: { post: PostWithAuthor["post"] }) {
   if (post.type !== "event" || isPastListing(post)) return null;
+  if (post.metadata.eventKind === "recording" || post.metadata.eventKind === "competition") return null;
   const event = getCalendarEvent(post);
   if (!event) return <p className="mt-5 text-sm text-[var(--pb-ink-soft)]">Calendar saving will be available once a date and time are confirmed.</p>;
   const linkClass = "flex min-h-11 items-center rounded-lg px-3 py-3 text-sm font-semibold text-[var(--pb-primary)] underline underline-offset-4 hover:bg-[var(--pb-bg)] focus-visible:outline-2 focus-visible:outline-offset-2";
