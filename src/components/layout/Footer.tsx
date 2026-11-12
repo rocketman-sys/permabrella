@@ -86,6 +86,15 @@ export function Footer() {
         </a>
         <span className="mx-2 text-[var(--perm-border)]">·</span>
         Built for the Northern Rivers food security network.
+        <p className="mt-2">
+          This site is built by{" "}
+          <a
+            href="https://www.rocketmandesigns.com/studio/"
+            className="inline-flex min-h-11 items-center font-medium text-[var(--perm-secondary)] underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2"
+          >
+            RMD Studio
+          </a>
+        </p>
       </div>
     </footer>
   );
